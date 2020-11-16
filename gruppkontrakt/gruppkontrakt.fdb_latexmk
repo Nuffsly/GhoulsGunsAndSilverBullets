@@ -1,9 +1,9 @@
 # Fdb version 3
-["xdvipdfmx"] 1605525183 "gruppkontrakt.xdv" "gruppkontrakt.pdf" "gruppkontrakt" 1605525184
-  "gruppkontrakt.xdv" 1605525183 57976 de89678b43b4e2dd39c3f90bed9efa2f "xelatex"
+["xdvipdfmx"] 1605531591 "gruppkontrakt.xdv" "gruppkontrakt.pdf" "gruppkontrakt" 1605531591
+  "gruppkontrakt.xdv" 1605531591 60076 30ebad03334986f3106bee90c8af2169 "xelatex"
   (generated)
   "gruppkontrakt.pdf"
-["xelatex"] 1605525183 "gruppkontrakt.tex" "gruppkontrakt.xdv" "gruppkontrakt" 1605525184
+["xelatex"] 1605531590 "gruppkontrakt.tex" "gruppkontrakt.xdv" "gruppkontrakt" 1605531591
   "/etc/texmf/web2c/texmf.cnf" 1599054323 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -141,14 +141,14 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1599054399 4647579 20cf9afb5d013c9f6866fabcf45e8655 ""
-  "gruppkontrakt.aux" 1605525183 1354 690b7009154c07291966ff8a0b2d6ee2 "xelatex"
-  "gruppkontrakt.out" 1605525183 242 69f5cf35ce17c27c78db0bc21b6ed0ac "xelatex"
-  "gruppkontrakt.tex" 1605525181 6063 0eec08e1dcc940ae2539e4b6cdfb9da7 ""
+  "gruppkontrakt.aux" 1605531591 1354 c0091e2e856ea798d617e1ec5261c7de "xelatex"
+  "gruppkontrakt.out" 1605531591 242 69f5cf35ce17c27c78db0bc21b6ed0ac "xelatex"
+  "gruppkontrakt.tex" 1605531589 6066 08e750dcbd4b05dd65e2a16832200b5d ""
   "ida.png" 1605174452 7786 f8e6fdcd3fff5911dca9765ffa4de313 ""
   "lith.png" 1605174452 15882 4db45f42034d096c9aba5be88636d034 ""
   "mall.cls" 1605174452 1901 bc3b5b73c8d15a49c3948d5b8f6bb9a2 ""
   (generated)
+  "gruppkontrakt.log"
+  "gruppkontrakt.xdv"
   "gruppkontrakt.out"
   "gruppkontrakt.aux"
-  "gruppkontrakt.xdv"
-  "gruppkontrakt.log"
