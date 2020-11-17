@@ -1,4 +1,4 @@
-PWD /home/marku849/Projects/TDP005/tdp005-backup/kravspecifikation
+PWD /home/jimte/TDP005/kravspecifikation
 INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
@@ -214,6 +214,8 @@ INPUT /usr/share/texlive/texmf-dist/tex/generic/babel-swedish/swedish.ldf
 INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
 INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/xebabel.def
 INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 INPUT kravspecifikation.aux
 INPUT kravspecifikation.aux
 OUTPUT kravspecifikation.aux
@@ -240,6 +242,9 @@ INPUT /usr/share/texlive/texmf-dist/tex/generic/stringenc/se-ascii-print.def
 INPUT /usr/share/texlive/texmf-dist/tex/generic/stringenc/se-ascii-print.def
 INPUT /usr/share/texlive/texmf-dist/tex/generic/stringenc/se-ascii-print.def
 OUTPUT kravspecifikation.xdv
+INPUT Graphic/main_concept.png
+INPUT Graphic/win_concept.png
+INPUT Graphic/lose_concept.png
 INPUT kravspecifikation.aux
 INPUT ./kravspecifikation.out
 INPUT ./kravspecifikation.out

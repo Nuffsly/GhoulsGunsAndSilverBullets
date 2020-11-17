@@ -1,5 +1,6 @@
 \documentclass{TDP005mall}
-
+\usepackage{graphicx}
+\usepackage{float}
 
 
 \newcommand{\version}{Version 1.0}
@@ -143,6 +144,29 @@ E & Bekräfta val \\\hline
 
 \section{Visualisering}
 
+I figur \ref{fig:1} kan vi se ett enkelt exempel på en nivå mitt i spelet. Vi ser plattformar i form av rektanglar i luften, spelarkaraktären som avfyrar sitt vapen och 2 olika fiender som är påväg mot spelaren. Vi ser även GUI för spelarkaraktärens hälsa och pengar i höger respektive vänster hörn.
+\begin{figure}[H]
+         \begin{center}
+             \includegraphics[width=15cm]{Graphic/main_concept.png}
+             \caption{\label{fig:1} Ett exempel på en nivå, mitt i spelet.}
+         \end{center}
+\end{figure}
+
+I figur \ref{fig:2} kan vi se ett enkelt exempel på en nivå efter alla fiender blivit besegrade. Det har skapats 3 uppgraderingar som kan köpas av spelaren. Därtill har dörren till nästa nivå skapats på höger sida.
+\begin{figure}[H]
+         \begin{center}
+             \includegraphics[width=15cm]{Graphic/win_concept.png}
+             \caption{\label{fig:2} Ett exempel på en nivå, när alla fiender är besegrade.}
+         \end{center}
+\end{figure}
+
+I figur \ref{fig:3} kan vi se ett enkelt exempel på en nivå när spelarens hälsa når 0. Vi kan se att hälsomätaren i höger hörn blivit tom då det röda skelettet (en fiende) nuddat spelarkaraktären. Vid förlust så stoppar spelet och ny grafik med orden 'GAME OVER' har lagts på skärmen. Spelaren uppmanas även till att starta om med 'E' tangenten.
+\begin{figure}[H]
+         \begin{center}
+             \includegraphics[width=15cm]{Graphic/lose_concept.png}
+             \caption{\label{fig:3} Ett exempel på en nivå, när spelarens hälsa når 0.}
+         \end{center}
+\end{figure}
 
 \section{Kravformulering}
 
