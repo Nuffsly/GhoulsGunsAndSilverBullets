@@ -1,0 +1,154 @@
+\documentclass{TDP005mall}
+
+
+
+\newcommand{\version}{Version 1.0}
+\author{Martin Kuiper, \url{marku849@student.liu.se}\\
+  Jim Teräväinen, \url{jimte145@student.liu.se}}
+\title{Kravspecifikation}
+\date{\today}
+\rhead{Martin Kuiper\\
+Jim Teräväinen}
+
+
+
+\begin{document}
+\projectpage
+\section{Revisionshistorik}
+\begin{table}[!h]
+\begin{tabularx}{\linewidth}{|l|X|l|}
+\hline
+Ver. & Revisionsbeskrivning & Datum \\\hline
+1.0 & Första utkast för kravspecifikationen &  \\\hline
+\end{tabularx}
+\end{table}
+
+
+\section{Spelidé}
+Spelet utspelar sig i en 2D-värld bestående av flera separata banor. Perspektivet är så att hela banan är synlig för spelaren i ett sidoperspektiv. Spelaren kontrollerar en karaktär som kan röra sig höger, vänster och hoppa. När spelarkaraktären inte har en platform eller mark under sig faller karaktären mot botten av skärmen. Spelarkaraktären har ett vapen som spelaren med musen eller tangentbordet kan sikta i valfri riktning runt karaktären. När spelaren trycker på musen eller tangentbordet skjuter vapnet en projektil. Denna projektil reser i samma riktning som den avfyrades tills den kolliderar med banans kant, en fast plattform eller en fiende. 
+
+Fiender kommer in på skärmen från kanterna och attackerar spelarkaraktären. De attackar antingen genom att röra sig mot mot spelaren eller genom att avfyra projektiler. När spelarkaraktären kolliderar med antingen en fiende eller deras projektiler tar karaktären skada. När spelarkaraktären tagit nog med skada förlorar spelaren och spelet är slut.
+
+När fiender dör lämnar de pengar efter sig som spelarkaraktären plockar upp. Med pengarna kan spelaren köpa nya vapen och uppgraderingar mellan nivåerna. Spelet går ut på att döda så många fiender som möjligt och tar inte slut förns spelarkaraktären dör.
+
+
+\section{Målgrupp}
+Målgruppen består av individer som gillar utmanande action-platformsspel. Spelet kommer kräva högre nivå av koordination och passar därmed inte små barn. Innehållsmässigt kommer inget som är opassande för barn förekomma föutom skjutvapen.
+
+\section{Spelupplevelse}
+Spelet kommer inte att vara så utmanande i början, men svårighetsgraden ökar succesivt för varje bana. Motivationen för spelaren är att klara fler banor för varje spelomgång och få ett högre highscore. Spelaren kan försöka slå sina egna tidigare rekord eller tävla mot vänner. 
+Uppgraderingarna spelaren kan köpa skapar en känsla av progression under varje spelomgång. De bidrar även till att öka variationen mellan spelomgångarna. 
+
+\newpage
+
+\section{Spelmekanik}
+Spelarkaraktären styrs av spelaren och kan röra sig runt på banan. Förflyttning av spelarkaraktären görs med tangenter enligt nedanstående tabell. Spelarkaraktärens vapen kan siktas på två olika sätt. Vapnet kan siktas i 8 riktningar med tangenter och kombinationer av tangenter enligt nedanstående tabell. Alternativt kan vapnet siktas med musen, det pekar då alltid i riktning mot muspekaren. Vapnet avfyras antingen med tangent eller vänster musknapp. Spelaren köper uppgraderingar genom att stå på föremålet och trycka E. 
+
+\begin{table}[!h]
+\begin{tabularx}{0.6\columnwidth}{|l|X|}
+\hline
+Tangent & Åtgärd \\\hline
+A & Gå vänster \\\hline
+D & Gå höger \\\hline
+Mellanslag & Hoppa \\\hline
+Vänster musknapp & Avfyra vapnet \\\hline
+B & Avfyra vapnet \\\hline
+J & Sikta vänster \\\hline
+L & Sikta höger \\\hline
+I & Sikta upp \\\hline
+K & Sikta ner \\\hline
+J+I & Sikta upp/vänster $\nwarrow$ \\\hline
+L+I & Sikta upp/höger $\nearrow$ \\\hline
+J+K & Sikta ner/vänster $\swarrow$ \\\hline
+L+K & Sikta ner/höger $\searrow$ \\\hline
+E & Bekräfta val \\\hline
+\end{tabularx}
+\end{table}
+
+\section{Regler}
+\subsection{spelplanen}
+\begin{itemize}
+\item Spelplanen täcker hela skärmen i format 16:9.
+\item Spelarkaraktären kan inte lämna spelplanen.
+\item Spelarkaraktären kan stå normalt på botten av spelplanen.
+\item Spelplanen sträcker sig lite utanför skärmen och fiender skapas där.
+\item Spelplanen har plattformar utplacerade som blockerar projektiler och som spelarkaraktären kan stå på.
+\item Spelarkaraktären och fiender kan inte passera igenom plattformar.
+\end{itemize}
+
+\subsection{Nivån}
+\begin{itemize}
+\item Varje nivå har en spelplan.
+\item Spelaren skapas på spelplanen och fiender börjar skapas.
+\item Fiender fortsätter skapas tills rätt antal för nivån har uppnåtts.
+\item Antalet fiender som skapas per nivå ökar för varje nivå som är avklarad.
+\item När alla fiender besegrats skapas 3 uppgraderingar i botten av nivån.
+\item När alla fiender besegrats skapas det en dörr som leder spelaren till nästa nivå med 'bekräfta val' knappen.
+\end{itemize}
+
+\subsection{Spelarkaraktären}
+\begin{itemize}
+\item Spelarkaraktären kan navigera hela spelplanen.
+\item Spelarkaraktären kan avfyra sitt vapen.
+\item Spelarkaraktären kan ta skada när den träffas av fiendeprojektiler eller kolliderar med fiender.
+\item Spelet avslutas när spelarkaraktärens hälsa är 0 eller mindre.
+\item Spelarkaraktären återfår all förlorad hälsa när nivån är avklarad.
+\item Spelarkaraktären påverkas av gravitation.
+\item Spelarkaraktären kan plocka upp pengar igenom att kollidera med dem.
+\end{itemize}
+
+\subsection{Poäng}
+\begin{itemize}
+\item Spelaren får poäng för varje dödat monster.
+\item När spelet tar slut visas den slutgiltiga poängen.
+\end{itemize}
+
+\subsection{Pengar}
+\begin{itemize}
+\item När fiender dör kan de släppa pengar på nivån.
+\item Pengarna påverkas av gravitation.
+\item Pengar försvinner från nivån om de inte kolliderar med spelaren inom 8 sekunder.
+\item Efter varje nivå är avklarad kan pengar spenderas på uppgraderingar.
+\item Samlade pengar sparas mellan varje nivå och spenderade pengar subtraheras från totalen. 
+\end{itemize}
+
+\subsection{Fiender}
+\begin{itemize}
+\item Fiender har hälsa och skada.
+\item Fiender skapas precis utanför spelplanen och rör sig sedan mot spelaren.
+\item Fiender får inte uppehålla sig utanför spelplanen där spelaren inte kan se dem.
+\item Fiender tar skada och får mindre hälsa när de träffas av en spelarprojektil.
+\item När Fienders hälsa blir 0 eller mindre dör de och försvinner från nivån.
+\end{itemize}
+
+\subsection{Uppgraderingar}
+\begin{itemize}
+\item Spelaren kan spendera pengar för att få uppgraderingar.
+\item Uppgraderingar hjälper spelaren att komma längre i spelet.
+\item Uppgraderingar kan ändra Spelarkaraktärens och dess vapens egenskaper.
+\item Uppgraderingar kan bestå av för- och nackdelar som ändrar hur spelaren spelar.
+\item Uppgraderingar består under hela spelet.
+\item Uppgraderingar är kumulativa och ersätter inte varandra.
+\end{itemize}
+
+\subsection{Vapen}
+\begin{itemize}
+\item Vapnet avfyrar projektiler i riktningen som det pekar.
+\item Vapnet har en period efter varje avfyrning då det inte kan avfyra igen.
+\item Vapnet har oändlig ammunition.
+\end{itemize}
+
+\section{Visualisering}
+
+
+\section{Kravformulering}
+
+\subsection{Ska-Krav}
+
+\subsection{Bör-Krav}
+
+\section{Kravuppfyllelse}
+
+
+
+\end{document}

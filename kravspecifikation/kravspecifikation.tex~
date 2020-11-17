@@ -1,0 +1,44 @@
+\documentclass{TDP005mall}
+
+
+
+\newcommand{\version}{Version 1.0}
+\author{Martin Kuiper, \url{marku849@student.liu.se}\\
+  Jim Teräväinen, \url{jimte145@student.liu.se}}
+\title{Kravspecifikation}
+\date{\today}
+\rhead{Martin Kuiper\\
+Jim Teräväinen}
+
+
+
+\begin{document}
+\projectpage
+\section{Revisionshistorik}
+\begin{table}[!h]
+\begin{tabularx}{\linewidth}{|l|X|l|}
+\hline
+Ver. & Revisionsbeskrivning & Datum \\\hline
+1.0 & Första utkast för kravspecifikationen &  \\\hline
+\end{tabularx}
+\end{table}
+
+
+\section{Spelidé}
+Spelet utspelar sig i en 2D-värld bestående av flera separata banor. Perspektivet är så att hela banan är synlig för spelaren i ett sidoperspektiv. Spelaren kontrollerar en karaktär som kan röra sig höger, vänster och hoppa. När spelarkaraktären inte har en platform eller mark under sig faller karaktären mot botten av skärmen. Spelarkaraktären har ett vapen som spelaren med musen eller tangentbordet kan sikta i valfri riktning runt karaktären. När spelaren trycker på musen eller tangentbordet skjuter vapnet en projektil. Denna projektil reser i samma riktning som den avfyrades tills den kolliderar med banans kant, en fast plattform eller en fiende. 
+
+Fiender kommer in på skärmen från kanterna och attackerar spelarkaraktären. De attackar antingen genom att röra sig mot mot spelaren eller genom att avfyra projektiler. När spelarkaraktären kolliderar med antingen en fiende eller deras projektiler tar 
+
+\subsection{Underrubrik till 2}
+Text för 2.1.
+
+\section{Rubrik 3}
+Text för 3.
+
+\subsection{Underrubrik till 3}
+Text för 3.1.
+
+\subsubsection{Underrubrik till 3.1}
+Text för 3.1.1
+
+\end{document}
