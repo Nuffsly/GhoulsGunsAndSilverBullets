@@ -1,10 +1,10 @@
 # Fdb version 3
-["xdvipdfmx"] 1605623878 "kravspecifikation.xdv" "kravspecifikation.pdf" "kravspecifikation" 1605623878
-  "kravspecifikation.xdv" 1605623878 72012 23bff113fc4515b56be82a5a91fca7da "xelatex"
+["xdvipdfmx"] 1605634391 "kravspecifikation.xdv" "kravspecifikation.pdf" "kravspecifikation" 1605634392
+  "kravspecifikation.xdv" 1605634391 102936 d809ec8fb36555ccb3f9844ce6632824 "xelatex"
   (generated)
   "kravspecifikation.pdf"
-["xelatex"] 1605623877 "kravspecifikation.tex" "kravspecifikation.xdv" "kravspecifikation" 1605623878
-  "/etc/texmf/web2c/texmf.cnf" 1599054323 475 c0e671620eb5563b2130f56340a5fde8 ""
+["xelatex"] 1605634389 "kravspecifikation.tex" "kravspecifikation.xdv" "kravspecifikation" 1605634392
+  "/etc/texmf/web2c/texmf.cnf" 1600075758 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1000.tfm" 1136768653 3584 adb004a0c8e7c46ee66cad73671f37b4 ""
@@ -140,15 +140,15 @@
   "/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty" 1463002160 55589 34128738f682d033422ca125f82e5d62 ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
-  "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1599054399 4647579 20cf9afb5d013c9f6866fabcf45e8655 ""
-  "TDP005mall.cls" 1572523459 1800 55f2fbcf9a47e48c33c9abbcb02bed5f ""
-  "ida.png" 1411557188 7786 f8e6fdcd3fff5911dca9765ffa4de313 ""
-  "kravspecifikation.aux" 1605623878 2954 287739b0323f2d56be669ea4012380cd "xelatex"
-  "kravspecifikation.out" 1605623878 1011 35a4e8f313f175d460f6e043c900f423 "xelatex"
-  "kravspecifikation.tex" 1605623876 7164 b723380db40cf22753f1fe7933ee6d0f ""
-  "lith.png" 1473074252 15882 4db45f42034d096c9aba5be88636d034 ""
+  "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1600075901 4645592 5b1c6efc063939b7ac1daf48bba2b67a ""
+  "TDP005mall.cls" 1605633405 1800 c554e9a1f74a965c694796e0ebe031eb ""
+  "ida.png" 1605623957 7786 f8e6fdcd3fff5911dca9765ffa4de313 ""
+  "kravspecifikation.aux" 1605634391 2954 4179d36b4ea75568c58931f7392f76b0 "xelatex"
+  "kravspecifikation.out" 1605634391 1011 bd05a2103bb5263f757c2b6df2564836 "xelatex"
+  "kravspecifikation.tex" 1605634388 10322 caa174bb5b29ee03aa750ef9377e43e8 ""
+  "lith.png" 1605623957 15882 4db45f42034d096c9aba5be88636d034 ""
   (generated)
-  "kravspecifikation.aux"
-  "kravspecifikation.log"
   "kravspecifikation.out"
+  "kravspecifikation.log"
   "kravspecifikation.xdv"
+  "kravspecifikation.aux"

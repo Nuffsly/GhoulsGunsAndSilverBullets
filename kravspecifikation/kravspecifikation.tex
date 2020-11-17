@@ -19,30 +19,30 @@ Jim Teräväinen}
 \begin{tabularx}{\linewidth}{|l|X|l|}
 \hline
 Ver. & Revisionsbeskrivning & Datum \\\hline
-1.0 & Första utkast för kravspecifikationen &  \\\hline
+1.0 & Första utkast för kravspecifikationen & 2020-11-17 \\\hline
 \end{tabularx}
 \end{table}
 
 
 \section{Spelidé}
-Spelet utspelar sig i en 2D-värld bestående av flera separata banor. Perspektivet är så att hela banan är synlig för spelaren i ett sidoperspektiv. Spelaren kontrollerar en karaktär som kan röra sig höger, vänster och hoppa. När spelarkaraktären inte har en platform eller mark under sig faller karaktären mot botten av skärmen. Spelarkaraktären har ett vapen som spelaren med musen eller tangentbordet kan sikta i valfri riktning runt karaktären. När spelaren trycker på musen eller tangentbordet skjuter vapnet en projektil. Denna projektil reser i samma riktning som den avfyrades tills den kolliderar med banans kant, en fast plattform eller en fiende. 
+Spelet utspelar sig i en 2D-värld bestående av flera separata spelplaner. Hela spelplanen är synlig för spelaren i ett sidoperspektiv. Spelaren kontrollerar en karaktär som kan röra sig höger, vänster och hoppa. När spelarkaraktären inte har en platform eller mark under sig faller karaktären mot botten av skärmen. Spelarkaraktären har ett vapen som spelaren med musen eller tangentbordet kan sikta i valfri riktning runt karaktären. När spelaren trycker på 'avfyra vapen-knappen skapar vapnet en projektil. Denna projektil färdas i vapnets riktning tills den kolliderar med spelplanens kant eller en fiende.
 
-Fiender kommer in på skärmen från kanterna och attackerar spelarkaraktären. De attackar antingen genom att röra sig mot mot spelaren eller genom att avfyra projektiler. När spelarkaraktären kolliderar med antingen en fiende eller deras projektiler tar karaktären skada. När spelarkaraktären tagit nog med skada förlorar spelaren och spelet är slut.
+Fiender kommer in på skärmen från kanterna och rör sig mot mot spelaren. När spelarkaraktären kolliderar med en fiende tar karaktären skada. När spelarkaraktären tagit nog med skada förlorar spelaren och spelet är slut. Spelarkaraktärens projektiler gör minskar fiendernas hälsa vid kollision och de dör om hälsan når noll. 
 
-När fiender dör lämnar de pengar efter sig som spelarkaraktären plockar upp. Med pengarna kan spelaren köpa nya vapen och uppgraderingar mellan nivåerna. Spelet går ut på att döda så många fiender som möjligt och tar inte slut förns spelarkaraktären dör.
+När fiender dör lämnar de pengar efter sig som spelarkaraktären plockar upp. Med pengarna kan spelaren köpa uppgraderingar mellan nivåerna. Spelet går ut på att döda så många fiender som möjligt och därigenom få höga poäng (highscore). Spelet tar slut när spelarkaraktären dör.
 
 
 \section{Målgrupp}
-Målgruppen består av individer som gillar utmanande action-platformsspel. Spelet kommer kräva högre nivå av koordination och passar därmed inte små barn. Innehållsmässigt kommer inget som är opassande för barn förekomma föutom skjutvapen.
+Målgruppen består av individer som gillar utmanande action-platformspel. Spelet kommer kräva en något högre nivå av koordination och passar därmed inte små barn. Innehållsmässigt kommer inget som är opassande för barn förekomma föutom skjutvapen.
 
 \section{Spelupplevelse}
-Spelet kommer inte att vara så utmanande i början, men svårighetsgraden ökar succesivt för varje bana. Motivationen för spelaren är att klara fler banor för varje spelomgång och få ett högre highscore. Spelaren kan försöka slå sina egna tidigare rekord eller tävla mot vänner. 
+Spelet kommer inte att vara så utmanande i början, men svårighetsgraden ökar succesivt för varje nivå. Motivationen för spelaren är att klara fler och fler nivåer för varje spelomgång och få ett högre highscore. Spelaren kan försöka slå sina egna tidigare rekord eller tävla mot vänner. 
 Uppgraderingarna spelaren kan köpa skapar en känsla av progression under varje spelomgång. De bidrar även till att öka variationen mellan spelomgångarna. 
 
 \newpage
 
 \section{Spelmekanik}
-Spelarkaraktären styrs av spelaren och kan röra sig runt på banan. Förflyttning av spelarkaraktären görs med tangenter enligt nedanstående tabell. Spelarkaraktärens vapen kan siktas på två olika sätt. Vapnet kan siktas i 8 riktningar med tangenter och kombinationer av tangenter enligt nedanstående tabell. Alternativt kan vapnet siktas med musen, det pekar då alltid i riktning mot muspekaren. Vapnet avfyras antingen med tangent eller vänster musknapp. Spelaren köper uppgraderingar genom att stå på föremålet och trycka E. 
+Spelarkaraktären styrs av spelaren och kan röra sig runt på spelplanen. Förflyttning av spelarkaraktären görs med tangenter enligt nedanstående tabell. Spelarkaraktärens vapen kan siktas på två olika sätt. Vapnet kan siktas i 8 riktningar med tangenter och kombinationer av tangenter enligt nedanstående tabell. Alternativt kan vapnet siktas med musen, det pekar då alltid i riktning mot muspekaren. Vapnet avfyras antingen med tangent eller vänster musknapp. Spelaren köper uppgraderingar genom att stå på föremålet och trycka på 'bekräfta val'-knappen. 
 
 \begin{table}[!h]
 \begin{tabularx}{0.6\columnwidth}{|l|X|}
@@ -50,9 +50,10 @@ Spelarkaraktären styrs av spelaren och kan röra sig runt på banan. Förflyttn
 Tangent & Åtgärd \\\hline
 A & Gå vänster \\\hline
 D & Gå höger \\\hline
+S & Passera genom undre plattform \\\hline
 Mellanslag & Hoppa \\\hline
-Vänster musknapp & Avfyra vapnet \\\hline
-B & Avfyra vapnet \\\hline
+Vänster musknapp & Avfyra vapen \\\hline
+B & Avfyra vapen \\\hline
 J & Sikta vänster \\\hline
 L & Sikta höger \\\hline
 I & Sikta upp \\\hline
@@ -66,24 +67,26 @@ E & Bekräfta val \\\hline
 \end{table}
 
 \section{Regler}
-\subsection{spelplanen}
+\subsection{Spelplanen}
 \begin{itemize}
 \item Spelplanen täcker hela skärmen i format 16:9.
 \item Spelarkaraktären kan inte lämna spelplanen.
 \item Spelarkaraktären kan stå normalt på botten av spelplanen.
-\item Spelplanen sträcker sig lite utanför skärmen och fiender skapas där.
-\item Spelplanen har plattformar utplacerade som blockerar projektiler och som spelarkaraktären kan stå på.
-\item Spelarkaraktären och fiender kan inte passera igenom plattformar.
+\item Spelplanen sträcker sig lite utanför skärmen, vilket är var fiender skapas.
+\item Spelplanen har plattformar utplacerade som spelarkaraktären kan stå på.
+\item Karaktärer kan passera igenom plattformar från undersidan utan hinder.
+\item Spelarkaraktären kan passera igenom plattformar från ovansidan med 'Passera genom undre plattform'-knappen.
 \end{itemize}
 
 \subsection{Nivån}
 \begin{itemize}
 \item Varje nivå har en spelplan.
-\item Spelaren skapas på spelplanen och fiender börjar skapas.
+\item En spelplan väljs ur en roterande lista med unika spelplaner.
+\item Vid nivåns start skapas spelarkaraktären på spelplanen och fiender börjar skapas utanför skärmens kanter.
 \item Fiender fortsätter skapas tills rätt antal för nivån har uppnåtts.
 \item Antalet fiender som skapas per nivå ökar för varje nivå som är avklarad.
-\item När alla fiender besegrats skapas 3 uppgraderingar i botten av nivån.
-\item När alla fiender besegrats skapas det en dörr som leder spelaren till nästa nivå med 'bekräfta val' knappen.
+\item När alla fiender besegrats skapas 3 uppgraderingar på spelplanen.
+\item När alla fiender besegrats skapas det en dörr som leder spelaren till nästa nivå med 'Bekräfta val'-knappen.
 \end{itemize}
 
 \subsection{Spelarkaraktären}
@@ -145,10 +148,54 @@ E & Bekräfta val \\\hline
 
 \subsection{Ska-Krav}
 
+\begin{enumerate}
+\item Spelet ska innehålla en spelarkaraktär, en fiendetyp och projektiler.
+\item Spelaren ska kunna flytta spelarkaraktären och sikta dess vapen. 
+\item Spelets fiender ska röra sig mot spelarkaraktären.
+\item Spelarkaraktär och fiender ska ha hälsa som minskar när de tar skada.
+\item Spelet ska hantera kollisioner mellan spelets olika objekt.
+\item Varje nivå ska skapa ett bestämt antal fiender som ökar utmed spelets gång.
+\item När alla fiender på en nivå är besegrade ska spelaren kunna ta sig till nästa nivå. 
+\item Spelets nivåer ska innehålla minst två olika spelplaner.
+\item Spelaren ska se spelplanen ur ett tvådimensionellt sidoperspektiv.
+\end{enumerate}
+
 \subsection{Bör-Krav}
+\begin{enumerate}
+\item Spelaren ska kunna samla pengar som fiender skapar när de dör.
+\item Spelarkaraktärens egenskaper ska kunna förändras genom att få uppgraderingar. 
+\item Spelaren ska kunna spendera pengar för att få uppgraderingar mellan nivåer.
+\end{enumerate}
 
 \section{Kravuppfyllelse}
+\begin{itemize}
+\item Spelet ska simulera en värld som innehåller olika typer av objekt. Objekten ska ha olika beteenden och röra sig i världen och agera på olika sätt när de möter andra objekt.
 
+Uppfylls av krav: 1, 2, 3, 5
+\item Det måste finnas minst tre olika typer av objekt och det ska finnas flera instanser av minst två av dessa. T.ex ett spelarobjekt och många instanser av två olika slags fiendeobjekt.
 
+Uppfylls av krav: 1, 6
+\item Ett beteende som måste finnas med är att figurerna ska röra sig över skärmen. Rörelsen kan följa ett mönster och/eller vara slumpmässig. Minst ett objekt, utöver spelaren ska ha någon typ av rörelse.
+
+Uppfylls av krav: 3
+\item En figur ska styras av spelaren, antingen med tangentbordet eller med musen. Du kan även göra ett spel där man spelar två stycken genom att dela på tangentbordet (varje spelare använder olika tangenter). Då styr man var sin figur.
+
+Uppfylls av krav: 2
+\item Grafiken ska vara tvådimensionell.
+
+Uppfylls av krav: 9
+\item Världen (spelplanen) kan antas vara lika stor som fönstret (du kan göra en större spelplan med scrollning, men det blir lite krångligare).
+
+Uppfylls av krav: 9
+\item Det ska finnas kollisionshantering, det vill säga, det ska hända olika saker när objekten möter varandra, de ska påverka varandra på något sätt. 
+
+Uppfylls av krav: 4, 5
+\item Det ska vara enkelt att lägga till eller ändra banor i spelet. Detta kan exempelvis lösas genom att läsa in banor från en fil (lite som i Sokoban-labben i TDP002), eller genom att ha funktioner i programkoden som bygger upp en datastruktur som definierar en bana.
+
+Uppfylls av krav: 8
+\item Spelet måste upplevas som ett sammanhängande spel som går att spela!
+
+Då alla ska-krav är uppfyllda bör programmet upplevas som ett spel då det har en början, ett slut, mål och spelmekaniker. 
+\end{itemize}
 
 \end{document}

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2020.9.2)  17 NOV 2020 15:37
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2020.9.14)  17 NOV 2020 18:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -739,16 +739,16 @@ File: se-ascii-print.def 2019/11/29 v1.12 stringenc: Printable ASCII characters
 )
 [1
 
-] [1] [2] [3] 
+] [1] [2] [3] [4] 
 AED: lastpage setting LastPage
-[4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 154.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 154.
+[5]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 201.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 201.
  (./kravspecifikation.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 154.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 154.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 201.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 201.
 Package rerunfilecheck Info: File `kravspecifikation.out' has not changed.
-(rerunfilecheck)             Checksum: 35A4E8F313F175D460F6E043C900F423;1011.
+(rerunfilecheck)             Checksum: BD05A2103BB5263F757C2B6DF2564836;1011.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -757,15 +757,15 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 154.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 201.
  ) 
 Here is how much of TeX's memory you used:
  22898 strings out of 479819
- 459028 string characters out of 5895847
- 770791 words of memory out of 5000000
+ 459028 string characters out of 5895846
+ 770793 words of memory out of 5000000
  39643 multiletter control sequences out of 15000+600000
  534321 words of font info for 38 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  68i,11n,64p,952b,640s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on kravspecifikation.xdv (5 pages, 72012 bytes).
+Output written on kravspecifikation.xdv (6 pages, 102936 bytes).
