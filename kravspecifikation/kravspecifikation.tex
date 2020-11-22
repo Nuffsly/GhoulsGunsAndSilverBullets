@@ -20,17 +20,21 @@ Jim Teräväinen}
 \begin{tabularx}{\linewidth}{|l|X|l|}
 \hline
 Ver. & Revisionsbeskrivning & Datum \\\hline
-1.0 & Första utkast för kravspecifikationen & 2020-11-17 \\\hline
+1.1 & Mindre ändringar för att förtydliga spelidé och regler, samt ändring av ska-krav 5 för att göra det mer fokuserat på användarupplevelsen. & 2020-11-22 \\\hline
+1.0 & Första utkast för kravspecifikationen. & 2020-11-17 \\\hline
 \end{tabularx}
 \end{table}
 
 
 \section{Spelidé}
-Spelet utspelar sig i en 2D-värld bestående av flera separata spelplaner. Hela spelplanen är synlig för spelaren i ett sidoperspektiv. Spelaren kontrollerar en karaktär som kan röra sig höger, vänster och hoppa. När spelarkaraktären inte har en platform eller mark under sig faller karaktären mot botten av skärmen. Spelarkaraktären har ett vapen som spelaren med musen eller tangentbordet kan sikta i valfri riktning runt karaktären. När spelaren trycker på 'avfyra vapen-knappen skapar vapnet en projektil. Denna projektil färdas i vapnets riktning tills den kolliderar med spelplanens kant eller en fiende.
+Spelet utspelar sig i en 2D-värld bestående av flera separata spelplaner. Hela spelplanen är synlig för spelaren i ett sidoperspektiv. Spelaren kontrollerar en karaktär som kan röra sig höger, vänster och hoppa. När spelarkaraktären inte har en platform eller mark under sig faller karaktären mot botten av skärmen.
 
-Fiender kommer in på skärmen från kanterna och rör sig mot mot spelaren. När spelarkaraktären kolliderar med en fiende tar karaktären skada. När spelarkaraktären tagit nog med skada förlorar spelaren och spelet är slut. Spelarkaraktärens projektiler gör minskar fiendernas hälsa vid kollision och de dör om hälsan når noll. 
+Fiender kommer in på skärmen från kanterna och rör sig mot mot spelaren. När spelarkaraktären kommer i kontakt med en fiende tar karaktären skada. När spelarkaraktären tagit nog med skada förlorar spelaren och spelet är slut. 
 
-När fiender dör lämnar de pengar efter sig som spelarkaraktären plockar upp. Med pengarna kan spelaren köpa uppgraderingar mellan nivåerna. Spelet går ut på att döda så många fiender som möjligt och därigenom få höga poäng (highscore). Spelet tar slut när spelarkaraktären dör.
+Spelarkaraktären har ett vapen som spelaren med musen eller tangentbordet kan sikta i valfri riktning runt karaktären. Vapnet avfyrar projektiler som skadar fiender.
+När fiender dör lämnar de pengar efter sig som spelarkaraktären plockar upp. Med pengarna kan spelaren köpa uppgraderingar mellan nivåerna. 
+
+Spelet går ut på att döda så många fiender som möjligt och därigenom få höga poäng (highscore). Spelet tar slut när spelarkaraktären dör.
 
 
 \section{Målgrupp}
@@ -103,15 +107,15 @@ E & Bekräfta val \\\hline
 
 \subsection{Poäng}
 \begin{itemize}
-\item Spelaren får poäng för varje dödat monster.
+\item Spelaren får poäng för aktiviteter som att döda  monster, plocka upp pengar och klara nivåer.
 \item När spelet tar slut visas den slutgiltiga poängen.
 \end{itemize}
 
 \subsection{Pengar}
 \begin{itemize}
-\item När fiender dör kan de släppa pengar på nivån.
+\item När fiender dör kan de släppa pengar på spelplanen.
 \item Pengarna påverkas av gravitation.
-\item Pengar försvinner från nivån om de inte kolliderar med spelaren inom 8 sekunder.
+\item Pengar försvinner från nivån om de inte kolliderar med spelaren innan en viss tid.
 \item Efter varje nivå är avklarad kan pengar spenderas på uppgraderingar.
 \item Samlade pengar sparas mellan varje nivå och spenderade pengar subtraheras från totalen. 
 \end{itemize}
@@ -120,7 +124,6 @@ E & Bekräfta val \\\hline
 \begin{itemize}
 \item Fiender har hälsa och skada.
 \item Fiender skapas precis utanför spelplanen och rör sig sedan mot spelaren.
-\item Fiender får inte uppehålla sig utanför spelplanen där spelaren inte kan se dem.
 \item Fiender tar skada och får mindre hälsa när de träffas av en spelarprojektil.
 \item När Fienders hälsa blir 0 eller mindre dör de och försvinner från nivån.
 \end{itemize}
@@ -140,6 +143,8 @@ E & Bekräfta val \\\hline
 \item Vapnet avfyrar projektiler i riktningen som det pekar.
 \item Vapnet har en period efter varje avfyrning då det inte kan avfyra igen.
 \item Vapnet har oändlig ammunition.
+\item Vapnets projektiler rör sig i vapnets riktning tills de kolliderar med en fiende eller spelplanens kant, då de försvinner.
+\item Vapnets projektiler gör en viss mängd skada på fiender vid kollision, som beror på vapnets egenskaper.
 \end{itemize}
 
 \section{Visualisering}
@@ -177,7 +182,7 @@ I figur \ref{fig:3} kan vi se ett enkelt exempel på en nivå när spelarens hä
 \item Spelaren ska kunna flytta spelarkaraktären och sikta dess vapen. 
 \item Spelets fiender ska röra sig mot spelarkaraktären.
 \item Spelarkaraktär och fiender ska ha hälsa som minskar när de tar skada.
-\item Spelet ska hantera kollisioner mellan spelets olika objekt.
+\item Spelarens handlingar ska resultera i poäng som visas efter varje spelomgång.
 \item Varje nivå ska skapa ett bestämt antal fiender som ökar utmed spelets gång.
 \item När alla fiender på en nivå är besegrade ska spelaren kunna ta sig till nästa nivå. 
 \item Spelets nivåer ska innehålla minst två olika spelplaner.
@@ -195,7 +200,7 @@ I figur \ref{fig:3} kan vi se ett enkelt exempel på en nivå när spelarens hä
 \begin{itemize}
 \item Spelet ska simulera en värld som innehåller olika typer av objekt. Objekten ska ha olika beteenden och röra sig i världen och agera på olika sätt när de möter andra objekt.
 
-Uppfylls av krav: 1, 2, 3, 5
+Uppfylls av krav: 1, 2, 3
 \item Det måste finnas minst tre olika typer av objekt och det ska finnas flera instanser av minst två av dessa. T.ex ett spelarobjekt och många instanser av två olika slags fiendeobjekt.
 
 Uppfylls av krav: 1, 6
@@ -213,7 +218,7 @@ Uppfylls av krav: 9
 Uppfylls av krav: 9
 \item Det ska finnas kollisionshantering, det vill säga, det ska hända olika saker när objekten möter varandra, de ska påverka varandra på något sätt. 
 
-Uppfylls av krav: 4, 5
+Uppfylls av krav: 4
 \item Det ska vara enkelt att lägga till eller ändra banor i spelet. Detta kan exempelvis lösas genom att läsa in banor från en fil (lite som i Sokoban-labben i TDP002), eller genom att ha funktioner i programkoden som bygger upp en datastruktur som definierar en bana.
 
 Uppfylls av krav: 8

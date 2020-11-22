@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2020.9.2)  17 NOV 2020 18:49
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2020.9.14)  22 NOV 2020 13:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -758,11 +758,11 @@ File: Graphic/lose_concept.png Graphic file (type bmp)
  [5] [6] 
 AED: lastpage setting LastPage
 [7]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 225.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 225.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 230.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 230.
  (./kravspecifikation.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 225.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 225.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 230.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 230.
 Package rerunfilecheck Info: File `kravspecifikation.out' has not changed.
 (rerunfilecheck)             Checksum: BD05A2103BB5263F757C2B6DF2564836;1011.
 
@@ -773,15 +773,15 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 225.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 230.
  ) 
 Here is how much of TeX's memory you used:
  22979 strings out of 479819
- 460259 string characters out of 5895847
- 771385 words of memory out of 5000000
+ 460259 string characters out of 5895846
+ 771387 words of memory out of 5000000
  39716 multiletter control sequences out of 15000+600000
  534321 words of font info for 38 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  68i,12n,64p,973b,640s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on kravspecifikation.xdv (8 pages, 116660 bytes).
+Output written on kravspecifikation.xdv (8 pages, 118180 bytes).
