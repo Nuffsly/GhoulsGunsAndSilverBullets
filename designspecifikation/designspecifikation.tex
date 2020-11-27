@@ -20,10 +20,76 @@ Jim Teräväinen}
 \begin{tabularx}{\linewidth}{|l|X|l|}
 \hline
 Ver. & Revisionsbeskrivning & Datum \\\hline
-1.0 & Första utkast för designspecifikationen. & 2020-11-17 \\\hline
+1.0 & Första utkast för designspecifikationen. & 2020-11-27 \\\hline
 \end{tabularx}
 \end{table}
 
+\section{Klassbeskrivningar}
+\subsection{Player}
+Player ska kunna uppdatera sin position, beroende av vilka knappar som är intryckta samt vilket state Player har.
+Player har en överlagrad render()-funktion, då den behöver kunna uppdatera hur den renderas beroende på vad som händer Player-objektet.
+Funktionen tick() kallar alla funktioner som ska köra när spelet uppdateras. 
+\subsubsection{Datamedlemmar}
+\begin{itemize}
+\item state - påverkar hur objektet beter sig när tick() kallas.
+\item weapon - ett objekt av klassen Weapon ägs av Player.
+\item immune - hur länge Player ska vara osårbar.
+\item health - ärvd från Character, minskar när Player tar skada.
+\item damage - ärvd från Character, påverkar Players vapens skada.
+\item speed - ärvd från Character, påverkar hastigheten av objektets förflyttning.
+\item shape - ärvd från Textured Object, påverkar hur objektets textur ritas ut.
+\item center - ärvd från Game\_Object, bestämmer objektets position på skärmen.
+\item hitbox - ärvd från Game\_Object, bestämmer storleken på objektets kollisionsområde.
+\end{itemize}
 
+\subsubsection{tick(Time)}
+För att flytta Player kallas move\_player().
+
+För att flytta och skjuta vapnet kallas move\_weapon().
+
+Player frågar World vilka objekt den kolliderar med. Kolliderar Player med ett Enemy-objekt kallas take\_damage().
+
+Datamedlemmen 'immune' minskas med Time om den inte är 0.
+
+\subsubsection{move\_player()}
+Om någon av tangenterna som ska flytta spelarkaraktären till höger eller vänster är intryckta ska Players position uppdateras i den riktningen, så länge Player inte befinner sig vid banans kant.
+
+Normalt har spelaren state 'standing'. 
+Har spelaren state 'falling' flyttas spelaren mot botten av skärmen. 
+Har spelaren state 'jumping' flyttas spelaren mot toppen av skärmen.
+
+När spelaren trycker på hopp-knappen ändras state till 'jumping' om det inte redan är 'jumping' eller 'falling'.
+När spelaren har haft state 'jumping' en viss tid ändras state till 'falling'.
+Om den understa delen av Player-objektet kolliderar med den översta delen av en plattform sätts 'falling' till 'standing'.
+
+\subsubsection{move\_weapon()}
+Players position bestämmer Weapon-objektets position. 
+Input från tangentbord eller muspekare bestämmer vapnets rotation.
+Vapnet har en datamedlem 'cooldown' som påverkar hur ofta det kan avfyras. 
+Är 'Avfyra vapen'-knappen intryckt och vapnets 'cooldown' 0 skapas en projektil.
+Projektilen rör sig i riktningen av vapnets rotation och har en datamedlem 'damage' som sätts till Players 'damage'.
+
+\subsubsection{take\_damage(int)}
+Players 'health' subtraheras med skadan som skickas som parameter till funktionen. 
+
+Datamedlemmen 'immune' sätts enligt hur länge Player ska vara odödlig efter att ha tagit skada.
+
+
+\subsection{Hud}
+HUD står för Heads-Up Display och har som syfte att visa relevant information för spelaren. 
+Hud-klassen ska visa Player-objektets nuvarande hälsa (health) samt spelarens insamlade pengar.
+
+\subsubsection{Datamedlemmar}
+\begin{itemize}
+\item player\_ptr - pekare till player för att kunna hämta dess hälsa.
+\item shape - ärvd från Textured Object, påverkar hur objektets textur ritas ut.
+\item center - ärvd från Game\_Object, bestämmer objektets position på skärmen.
+\item hitbox - ärvd från Game\_Object, bestämmer storleken på objektets kollisionsområde.
+\end{itemize}
+
+\subsubsection{tick(Time)}
+Player-objektets hälsa hämtas och en grafik med den informationen ritas ut i kanten av skärmen ovanpå alla andra objekt.
+
+Mängden insamlade pengar hämtas från Game\_States datamedlem player\_info och renderar detta på liknande sätt. 
 
 \end{document}
