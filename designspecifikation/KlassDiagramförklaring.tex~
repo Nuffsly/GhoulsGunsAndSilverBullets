@@ -1,0 +1,22 @@
+\documentclass{TDP005mall}
+\usepackage{graphicx}
+\usepackage{float}
+
+
+\begin{document}
+\projectpage
+
+
+\section{Beskrivning av övergripande system}
+\begin{figure}[H]
+         \begin{center}
+             \includegraphics[width=15cm]{Graphic/overview.png}
+             \caption{\label{fig:1} Övergripande UML diagram för strukturen i spelet.}
+         \end{center}
+\end{figure}
+
+\subsection{Stadier}
+Grunden för spelet ligger i att vi skapar olika stadier som sedan körs och hanterar underfunktioner. Dessa stadier representeras i toppen av figur \ref{fig:1} med namn som innehåller 'state'. När spelet startar skapas ett 'Menu\_State 
+
+
+\end{document}
