@@ -1,0 +1,18 @@
+-Vecka 1-
+1. Spelet ska innehålla en spelarkaraktär, en fiendetyp och projektiler.
+9. Spelaren ska se spelplanen ur ett tvådimensionellt sidoperspektiv.
+2. Spelaren ska kunna flytta spelarkaraktären och sikta dess vapen.
+3. Spelets fiender ska röra sig mot spelarkaraktären.
+
+-Vecka 2-
+4. Spelarkaraktär och fiender ska ha hälsa som minskar när de tar skada.
+6. Varje nivå ska skapa ett bestämt antal fiender som ökar utmed spelets gång.
+7. När alla fiender på en nivå är besegrade ska spelaren kunna ta sig till nästa nivå.
+
+Vecka 3-
+8. Spelets nivåer ska innehålla minst två olika spelplaner.
+5. Spelarens handlingar ska resultera i poäng som visas efter varje spelomgång.
+
+Bör-1. Spelaren ska kunna samla pengar som fiender skapar när de dör.
+Bör-2. Spelarkaraktärens egenskaper ska kunna förändras genom att få uppgraderingar.
+Bör-3. Spelaren ska kunna spendera pengar för att få uppgraderingar mellan nivåer.

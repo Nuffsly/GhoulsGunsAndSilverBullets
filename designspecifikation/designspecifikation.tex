@@ -40,30 +40,31 @@ Grunden för spelet ligger i att vi skapar olika stadier som sedan körs och han
 'Game\_State' kommer att existera under hela körtiden och håller därför koll på viss information som vi behöver behålla. Detta inkluderar saker som hur många spelplaner spelaren klarat (level) för att skala upp svårighetsgraden. Det håller även koll på viss information som behöver vara konstant när vi skapar om spelaren för varje spelplan som hur mycket pengar och vilka uppgraderingar spelaren har. Allting under 'Game\_State' kommer att försvinna och skapas igen på nya platser för varje spelplan vi laddar in.
 
 \subsection{Världen och objekt}
-I världen som skapas för varje nivå så finns det ett obestämt antal 'Game\_Object' som alla har en position och 'hitbox'. Dessa objekt bildar tillsammans det komplexa system som är spelet. Alla objekt förutom 'Spawner' har en textur och ärver därmed från klassen 'Textured\_Objekt' som kommer hjälpa till att hantera texturerna för objekten. 'Spawner' är inte synligt och behöver därmed ingen textur, denna tar istället hand om att skapa och hålla koll på finderna som ska dyka upp på spelplanen. Så länge som rätt mängd fiender för nuvarande 'level' inte skapats så kommer den fortsätta att skapa fiender med ett visst tidsintervall, detta också baserat på 'level'.
+I världen som skapas för varje nivå så finns det ett obestämt antal 'Game\_Object' som alla har en position och 'hitbox'. Dessa objekt bildar tillsammans det komplexa system som är spelet. Alla objekt förutom 'Spawner' har en textur och ärver därmed från klassen 'Textured\_Object' som kommer hjälpa till att hantera texturerna för objekten. 'Spawner' är inte synlig och behöver därmed ingen textur, denna tar istället hand om att skapa och hålla koll på finderna som ska dyka upp på spelplanen. Så länge som rätt mängd fiender för nuvarande 'level' inte skapats så kommer den fortsätta att skapa fiender med ett visst tidsintervall, detta också baserat på 'level'.
 
-Alla objekt som ska vara synliga ärver från 'Textured\_Objekt', däribland 'Character'. 'Character' innehåller allt som spelare och fiender har gemensamt som att de har hälsa och skada. Hälsa representerar hur mycket skada en karaktär kan ta innan den raderas från spelplanen eller i spelarens fall förlorar. Hälsa är individuellt och sparas i alla objekt för sig, det går ned när man tar skada. Skada representerar hur mycket hälsa spelaren eller en fiende förlorar när de blir nuddade av något som gör skada.
+Alla objekt som ska vara synliga ärver från 'Textured\_Objekt', däribland 'Character'. 'Character' innehåller allt som spelare och fiender har gemensamt som att de har hälsa och skada. Hälsa representerar hur mycket skada en karaktär kan ta innan den raderas från spelplanen eller i spelarens fall förlorar. Hälsa är individuellt och sparas i alla objekt för sig, det går ned när objektet tar skada. Skada representerar hur mycket hälsa spelaren eller en fiende förlorar när de blir nuddade av något som gör skada.
 
-'Player' är spelarkaraktären som hanterar i huvudsak sin rörelse och sitt 'Weapon'. 'Player' kan tillkalla funktionen 'shoot()' i sitt weapon så att det avfyras en projektil i vapnets riktning. Denna projektil ärver sin skada från spelaren så att vi enkelt kan modifiera skadan en spelares projektil gör med uppgraderingar och liknande.
+'Player' är spelarkaraktären och hanterar i huvudsak sin rörelse och sitt 'Weapon'. 'Player' kan tillkalla funktionen 'shoot()' i sitt weapon så att det avfyras en projektil i vapnets riktning. Denna projektil ärver sin skada från spelaren så att vi enkelt kan modifiera skadan en spelares projektil gör med uppgraderingar och liknande.
 
 'Enemy' hanterar sin egen rörelse och rör sig mot spelaren för att skada denna.
 
 \subsection{Objekt med få funktioner}
 'Money' har helt enkelt ett värde som läggs till på spelarens pengar när de kolliderar med dem. 
 
-'Hud' ritar ut hur mycket 'health' och pengar spelaren har så att spelaren enkelt kan se om de är påväg att förlora eller har råd med en uppgradering. 
+'Hud' ritar ut hur mycket hälsa och pengar spelaren har så att spelaren enkelt kan se om de är påväg att förlora eller har råd med en uppgradering. 
 
-'Plattform' hanterar de plattformer som spelaren kan stå på i nivån utöver botten av skärmen. 
+'Platform' hanterar de plattformar som spelaren kan stå på i nivån utöver botten av skärmen. 
 
-'Door' skapas på kordinater enligt 'load\_level()' när alla fiender besegrats, igenom att interagera med dörren laddas nästa spelplan in. 
+'Door' skapas på kordinater enligt 'load\_level()' när alla fiender besegrats. Genom att interagera med dörren laddas nästa spelplan in. 
 
-'Upgrade\_Station' skapas också enligt kordinater från 'load\_level()' när alla fiender besegrats och innehåller en slumpad uppgradering. Denna uppgradering kan läggas till i 'player\_info' om spelaren har nog med pengar för att köpa den och gör det.
+'Upgrade\_Station' skapas också enligt kordinater från 'load\_level()' när alla fiender besegrats och innehåller en slumpad uppgradering. Denna uppgradering kan läggas till i 'player\_info' om spelaren har nog med pengar för att köpa den och väljer att gör det.
 
 \section{Klassbeskrivningar}
 \subsection{Player}
-Player ska kunna uppdatera sin position, beroende av vilka knappar som är intryckta samt vilket state Player har.
+Player ska kunna uppdatera sin position beroende på vilka knappar som är intryckta samt vilket state Player har.
 Player har en överlagrad render()-funktion, då den behöver kunna uppdatera hur den renderas beroende på vad som händer Player-objektet.
 Funktionen tick() kallar alla funktioner som ska köra när spelet uppdateras. 
+
 \subsubsection{Datamedlemmar}
 \begin{itemize}
 \item state - påverkar hur objektet beter sig när tick() kallas.
@@ -127,15 +128,16 @@ Player-objektets hälsa hämtas och en grafik med den informationen ritas ut i k
 
 Mängden insamlade pengar hämtas från Game\_States datamedlem player\_info och renderar detta på liknande sätt. 
 
-\section{Designens för- och nack-delar}
-Vi har försökt hålla designen så simpel som möjligt igenom att designa klasser som ärver så mycket funktion som möjligt. I vissa fall kan detta spara oss mycket jobb då våra klasser inte kräver så lång kod. Nackdelen med detta är att vi har mycket beroende av föräldrar i alla våra klasser och får svårt att skapa mer nischat beteende. Vi har tänkt mycket på hur vi ska komma runt problem som vi skapat för oss själva igenom arvet och kommit fram till strukturen som vi har nu. Systemet med att olika states för att hantera vad spelet ska göra just nu verkar väldigt smidigt och gör det enkelt att hantera saker som menyer och att stänga av spelet. Det hade självklart varit enklare att skriva en spel-loop i huvudfunktionen men i slutändan kommer detta att spara oss mycket tid i form av omstrukturering när vi vill lägga till en meny för t.ex inställningar.
 
-Ett exempel på hur arvet i vår design kan bli problematiskt är när 'spawner' behöver en position och bör ägas av 'world'. Det passar väldigt bra att 'spawner' är ett 'Game\_Object men det leder till att vi inkluderar en onödig men ofarlig funktion i form av en 'hitbox'. En 'spawner' behöver ingen hitbox då den aldrig ska interagera med spelaren, fiender eller något annat på spelplanen, men samtidigt skadar det inte så det var värt att ta arvet enligt oss. Om vi inte är försikta eller förbereder oss på det så kan det dock lätt bli att vi implementerar beteende som ska påverka alla objekt med en 'hitbox' och inte tänker på att 'spawner' har en. Detta bör undersökas hur det går att skydda mot som t.ex att göra 'spawner's 'hitbox' oåtkomlig av andra funktioner.
+\section{Designens för- och nack-delar}
+Vi har försökt hålla designen så simpel som möjligt genom att designa klasser som ärver så mycket funktion som möjligt. I vissa fall kan detta spara oss mycket jobb då våra klasser inte kräver så lång kod. Nackdelen med detta är att vi har mycket beroende av föräldrar i alla våra klasser och får svårt att skapa mer nischat beteende. Vi har tänkt mycket på hur vi ska komma runt problem som vi skapat för oss själva igenom arvet och kommit fram till strukturen som vi har nu. Systemet med att olika states för att hantera vad spelet ska göra just nu verkar väldigt smidigt och gör det enkelt att hantera saker som menyer och att stänga av spelet. Det hade självklart varit enklare att skriva en spel-loop i huvudfunktionen men i slutändan kommer detta att spara oss mycket tid i form av mindre omstrukturering när vi vill lägga till en meny för exempelvis inställningar.
+
+Ett exempel på hur arvet i vår design kan bli problematiskt är när 'spawner' behöver en position och bör ägas av 'world'. Det passar väldigt bra att 'spawner' är ett 'Game\_Object men det leder till att vi inkluderar en onödig men ofarlig funktion i form av en 'hitbox'. En 'spawner' behöver ingen hitbox då den aldrig ska interagera med spelaren, fiender eller något annat på spelplanen, men samtidigt skadar det inte så det var värt det enligt oss att göra på det här sättet. Om vi inte är försikta eller förbereder oss på det så kan det dock lätt bli att vi implementerar beteende som ska påverka alla objekt med en 'hitbox' och inte tänker på att 'spawner' har en. Detta bör undersökas hur det går att skydda mot som, exempelvis genom att göra 'spawner's 'hitbox' oåtkomlig av andra funktioner.
 
 En annan lösning på detta skulle vara att flytta egenskapen att ha en 'hitbox' till de objekt som ärver av 'Textured\_Object'. Detta skulle dock inte heller vara bra då 'Hud' inte heller behöver en hitbox men fortfarande hade fått en. Att skapa flera klasser för att lösa problemet är inte heller fördelaktigt då 'Spawner' inte ska synas och 'Hud' ska det, därmed kan de inte dela en klass för objekt som inte ska ha en 'hitbox'. Den lösningen som är implementerad just nu anser vi vara den bättre.
 
 \section{Externa filformat} 
-Funktionen 'load\_level()' i 'World' kommer att använda en textfil av något slag med ett par olika definerade nivåer. Planen är att använda ren text med olika ikoner eller en json-fil med kordinater för placering av plattformar, spelare, uppgraderingsstationer och avslutningsdörr. Med detta så ska man enkelt kunna definera upp nya nivåer igenom att lägga till data i filen som tolkas av vår funktion för att ladda spelplanen. Mest användarvänligt hade varit att låta användaren rita upp spelplanne med olika tecken som representerar olika objekt som kan placeras ut. Detta skulle även automatiskt lösa risken att man placerar något på samma plats då textfiler inte godkänner flera tecken på samma plats.
+Funktionen 'load\_level()' i 'World' kommer att använda en textfil av något slag med ett par olika definerade nivåer. Planen är att använda ren text med olika ikoner eller en json-fil med kordinater för placering av plattformar, spelare, uppgraderingsstationer och avslutningsdörr. Med detta så ska man enkelt kunna definera upp nya nivåer igenom att lägga till data i filen som tolkas av vår funktion för att ladda spelplanen. Mest användarvänligt hade varit att låta användaren rita upp spelplanen med olika tecken som representerar olika objekt som kan placeras ut. Detta skulle även automatiskt lösa risken att man placerar något på samma plats då textfiler inte godkänner flera tecken på samma plats.
 
 Alternativet skulle vara att låta användaren beskriva spelplanen med hjälp av ord och siffror i en json-fil. Detta sätt blir lättare att implementera för oss men ger inte samma tilltalande gränssnitt att skapa i. Det är lättare för användaren att faktiskt rita upp en spelplan med text än att visualisera planen medan den skriver upp siffror.
 
