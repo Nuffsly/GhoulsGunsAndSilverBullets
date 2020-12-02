@@ -4,5 +4,11 @@
 CMakeFiles/project_ghost.dir/Game_Object.cpp.o: ../Game_Object.cpp
 CMakeFiles/project_ghost.dir/Game_Object.cpp.o: ../Game_Object.h
 
+CMakeFiles/project_ghost.dir/Textured_Object.cpp.o: ../Game_Object.h
+CMakeFiles/project_ghost.dir/Textured_Object.cpp.o: ../Textured_Object.cpp
+CMakeFiles/project_ghost.dir/Textured_Object.cpp.o: ../Textured_Object.h
+
+CMakeFiles/project_ghost.dir/main.cpp.o: ../Game_Object.h
+CMakeFiles/project_ghost.dir/main.cpp.o: ../Textured_Object.h
 CMakeFiles/project_ghost.dir/main.cpp.o: ../main.cpp
 

@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/jimte/TDP005/project_ghost/Game_Object.cpp" "/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/Game_Object.cpp.o"
+  "/home/jimte/TDP005/project_ghost/Textured_Object.cpp" "/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/Textured_Object.cpp.o"
   "/home/jimte/TDP005/project_ghost/main.cpp" "/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
