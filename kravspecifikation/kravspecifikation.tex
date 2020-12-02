@@ -20,6 +20,7 @@ Jim Teräväinen}
 \begin{tabularx}{\linewidth}{|l|X|l|}
 \hline
 Ver. & Revisionsbeskrivning & Datum \\\hline
+1.2 & Förtydligade och utökade kraven. Fixade numrering och ordning på kraven. Referar nu korrekt till Tabell \ref{tab:1}. & 2020-12-02 \\\hline
 1.1 & Mindre ändringar för att förtydliga spelidé och regler, samt ändring av ska-krav 5 för att göra det mer fokuserat på användarupplevelsen. & 2020-11-23 \\\hline
 1.0 & Första utkast för kravspecifikationen. & 2020-11-17 \\\hline
 \end{tabularx}
@@ -47,9 +48,11 @@ Uppgraderingarna spelaren kan köpa skapar en känsla av progression under varje
 \newpage
 
 \section{Spelmekanik}
-Spelarkaraktären styrs av spelaren och kan röra sig runt på spelplanen. Förflyttning av spelarkaraktären görs med tangenter enligt nedanstående tabell. Spelarkaraktärens vapen kan siktas på två olika sätt. Vapnet kan siktas i 8 riktningar med tangenter och kombinationer av tangenter enligt nedanstående tabell. Alternativt kan vapnet siktas med musen, det pekar då alltid i riktning mot muspekaren. Vapnet avfyras antingen med tangent eller vänster musknapp. Spelaren köper uppgraderingar genom att stå på föremålet och trycka på 'bekräfta val'-knappen. 
+Spelarkaraktären styrs av spelaren och kan röra sig runt på spelplanen. Förflyttning av spelarkaraktären görs med tangenter enligt Tabell \ref{tab:1}. Spelarkaraktärens vapen kan siktas på två olika sätt. Vapnet kan siktas i 8 riktningar med tangenter och kombinationer av tangenter enligt Tabell \ref{tab:1}. Alternativt kan vapnet siktas med musen, det pekar då alltid i riktning mot muspekaren. Vapnet avfyras antingen med tangent eller vänster musknapp. Spelaren köper uppgraderingar genom att stå på föremålet och trycka på 'bekräfta val'-knappen. 
 
 \begin{table}[!h]
+\centering
+\caption{\label{tab:1} Kontroller för olika handlingar i spelet.}
 \begin{tabularx}{0.6\columnwidth}{|l|X|}
 \hline
 Tangent & Åtgärd \\\hline
@@ -91,12 +94,12 @@ E & Bekräfta val \\\hline
 \item Fiender fortsätter skapas tills rätt antal för nivån har uppnåtts.
 \item Antalet fiender som skapas per nivå ökar för varje nivå som är avklarad.
 \item När alla fiender besegrats skapas 3 uppgraderingar på spelplanen.
-\item När alla fiender besegrats skapas det en dörr som leder spelaren till nästa nivå med 'Bekräfta val'-knappen.
+\item När alla fiender besegrats skapas det en dörr som leder spelaren till nästa nivå med 'Bekräfta val'-knappen från Tabell \ref{tab:1}.
 \end{itemize}
 
 \subsection{Spelarkaraktären}
 \begin{itemize}
-\item Spelarkaraktären kan navigera hela spelplanen.
+\item Spelarkaraktären kan navigera spelplanen enligt Tabell \ref{tab:1}.
 \item Spelarkaraktären kan avfyra sitt vapen.
 \item Spelarkaraktären kan ta skada när den träffas av fiendeprojektiler eller kolliderar med fiender.
 \item Spelet avslutas när spelarkaraktärens hälsa är 0 eller mindre.
@@ -179,21 +182,25 @@ I figur \ref{fig:3} kan vi se ett enkelt exempel på en nivå när spelarens hä
 
 \begin{enumerate}
 \item Spelet ska innehålla en spelarkaraktär, en fiendetyp och projektiler.
-\item Spelaren ska kunna flytta spelarkaraktären och sikta dess vapen. 
-\item Spelets fiender ska röra sig mot spelarkaraktären.
-\item Spelarkaraktär och fiender ska ha hälsa som minskar när de tar skada.
-\item Spelarens handlingar ska resultera i poäng som visas efter varje spelomgång.
+\item Spelaren ska kunna flytta spelarkaraktären samt sikta och avfyra dess vapen enligt Tabell \ref{tab:1}.
+\item Spelets fiender ska röra sig mot spelarkaraktären. När de kolliderar med spelarkaraktären ska denna ta skada.
+\item Fiender ska ta skada när de träffas av spelarkaraktärens projektiler.
+\item Spelarkaraktär och fiender ska ha hälsa som minskar när de tar skada. Når hälsan 0 ska karaktären raderas från spelplanen.
+\item Når spelarens hälsa 0 ska spelet ta slut.
+\item Att besegra fiender ska resultera i poäng som visas efter varje spelomgång.
 \item Varje nivå ska skapa ett bestämt antal fiender som ökar utmed spelets gång.
 \item När alla fiender på en nivå är besegrade ska spelaren kunna ta sig till nästa nivå. 
 \item Spelets nivåer ska innehålla minst två olika spelplaner.
 \item Spelaren ska se spelplanen ur ett tvådimensionellt sidoperspektiv.
-\end{enumerate}
+\item Spelarkaraktären ska inte kunna röra sig utanför spelplanens gränser och kunna stå på plattformar.
+
 
 \subsection{Bör-Krav}
-\begin{enumerate}
+
 \item Spelaren ska kunna samla pengar som fiender skapar när de dör.
 \item Spelarkaraktärens egenskaper ska kunna förändras genom att få uppgraderingar. 
 \item Spelaren ska kunna spendera pengar för att få uppgraderingar mellan nivåer.
+\item Samlade pengar ska sparas mellan varje nivå och spenderade spengar ska subtraheras från totalen.
 \end{enumerate}
 
 \section{Kravuppfyllelse}
@@ -203,7 +210,7 @@ I figur \ref{fig:3} kan vi se ett enkelt exempel på en nivå när spelarens hä
 Uppfylls av krav: 1, 2, 3
 \item Det måste finnas minst tre olika typer av objekt och det ska finnas flera instanser av minst två av dessa. T.ex ett spelarobjekt och många instanser av två olika slags fiendeobjekt.
 
-Uppfylls av krav: 1, 6
+Uppfylls av krav: 1
 \item Ett beteende som måste finnas med är att figurerna ska röra sig över skärmen. Rörelsen kan följa ett mönster och/eller vara slumpmässig. Minst ett objekt, utöver spelaren ska ha någon typ av rörelse.
 
 Uppfylls av krav: 3
@@ -212,16 +219,16 @@ Uppfylls av krav: 3
 Uppfylls av krav: 2
 \item Grafiken ska vara tvådimensionell.
 
-Uppfylls av krav: 9
+Uppfylls av krav: 11
 \item Världen (spelplanen) kan antas vara lika stor som fönstret (du kan göra en större spelplan med scrollning, men det blir lite krångligare).
 
-Uppfylls av krav: 9
+Uppfylls av krav: 11
 \item Det ska finnas kollisionshantering, det vill säga, det ska hända olika saker när objekten möter varandra, de ska påverka varandra på något sätt. 
 
-Uppfylls av krav: 4
+Uppfylls av krav: 3, 4, 12
 \item Det ska vara enkelt att lägga till eller ändra banor i spelet. Detta kan exempelvis lösas genom att läsa in banor från en fil (lite som i Sokoban-labben i TDP002), eller genom att ha funktioner i programkoden som bygger upp en datastruktur som definierar en bana.
 
-Uppfylls av krav: 8
+Uppfylls av krav: 10
 \item Spelet måste upplevas som ett sammanhängande spel som går att spela!
 
 Då alla ska-krav är uppfyllda bör programmet upplevas som ett spel då det har en början, ett slut, mål och spelmekaniker. 
