@@ -143,6 +143,33 @@ project_ghost/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/build
 .PHONY : project_ghost/fast
 
+Game_Object.o: Game_Object.cpp.o
+
+.PHONY : Game_Object.o
+
+# target to build an object file
+Game_Object.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Game_Object.cpp.o
+.PHONY : Game_Object.cpp.o
+
+Game_Object.i: Game_Object.cpp.i
+
+.PHONY : Game_Object.i
+
+# target to preprocess a source file
+Game_Object.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Game_Object.cpp.i
+.PHONY : Game_Object.cpp.i
+
+Game_Object.s: Game_Object.cpp.s
+
+.PHONY : Game_Object.s
+
+# target to generate assembly for a file
+Game_Object.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Game_Object.cpp.s
+.PHONY : Game_Object.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -179,6 +206,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... project_ghost"
+	@echo "... Game_Object.o"
+	@echo "... Game_Object.i"
+	@echo "... Game_Object.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
