@@ -9,4 +9,6 @@
 /home/jimte/TDP005/project_ghost/main.cpp
 iostream
 -
+SFML/Graphics.hpp
+-
 
