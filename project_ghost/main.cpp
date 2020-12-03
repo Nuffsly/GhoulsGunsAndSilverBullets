@@ -1,5 +1,6 @@
 #include <iostream>
 #include<SFML/Graphics.hpp>
+#include "Textured_Object.h"
 
 void update(sf::RenderWindow &window);
 
@@ -12,6 +13,8 @@ int main()
     window.setVerticalSyncEnabled(true);
     window.setKeyRepeatEnabled(false);
 
+    Platform platform{{500, 350},{100,20}};
+
     bool closed{false};
     sf::RectangleShape rectangle(sf::Vector2f(50, 100));
     rectangle.setOrigin(25, 50);
@@ -21,7 +24,7 @@ int main()
 
     while (!closed)
     {
-        sf::Event event;
+        sf::Event event{};
 
         window.clear();
         movePlayer(rectangle, rectanglePos);

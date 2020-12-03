@@ -84,6 +84,18 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/jimte/TDP005/project_ghost/Game_Object.cpp">
+			<Option target="project_ghost"/>
+		</Unit>
+		<Unit filename="/home/jimte/TDP005/project_ghost/Game_Object.h">
+			<Option target="project_ghost"/>
+		</Unit>
+		<Unit filename="/home/jimte/TDP005/project_ghost/Textured_Object.cpp">
+			<Option target="project_ghost"/>
+		</Unit>
+		<Unit filename="/home/jimte/TDP005/project_ghost/Textured_Object.h">
+			<Option target="project_ghost"/>
+		</Unit>
 		<Unit filename="/home/jimte/TDP005/project_ghost/main.cpp">
 			<Option target="project_ghost"/>
 		</Unit>

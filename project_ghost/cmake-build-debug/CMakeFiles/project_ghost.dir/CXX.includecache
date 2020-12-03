@@ -6,9 +6,27 @@
 
 #IncludeRegexTransform: 
 
+/home/jimte/TDP005/project_ghost/Game_Object.cpp
+Game_Object.h
+/home/jimte/TDP005/project_ghost/Game_Object.h
+
+/home/jimte/TDP005/project_ghost/Game_Object.h
+SFML/Graphics.hpp
+-
+
+/home/jimte/TDP005/project_ghost/Textured_Object.cpp
+Textured_Object.h
+/home/jimte/TDP005/project_ghost/Textured_Object.h
+
+/home/jimte/TDP005/project_ghost/Textured_Object.h
+Game_Object.h
+/home/jimte/TDP005/project_ghost/Game_Object.h
+
 /home/jimte/TDP005/project_ghost/main.cpp
 iostream
 -
 SFML/Graphics.hpp
 -
+Textured_Object.h
+/home/jimte/TDP005/project_ghost/Textured_Object.h
 
