@@ -11,7 +11,7 @@ class Game_Object
 public:
     Game_Object(sf::Vector2f center, sf::Vector2f hitbox);
 
-    virtual void update(sf::Time);
+    virtual void update(sf::Time) = 0;
 
 private:
     sf::Vector2f center;

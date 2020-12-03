@@ -170,6 +170,33 @@ Game_Object.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Game_Object.cpp.s
 .PHONY : Game_Object.cpp.s
 
+Player.o: Player.cpp.o
+
+.PHONY : Player.o
+
+# target to build an object file
+Player.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Player.cpp.o
+.PHONY : Player.cpp.o
+
+Player.i: Player.cpp.i
+
+.PHONY : Player.i
+
+# target to preprocess a source file
+Player.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Player.cpp.i
+.PHONY : Player.cpp.i
+
+Player.s: Player.cpp.s
+
+.PHONY : Player.s
+
+# target to generate assembly for a file
+Player.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Player.cpp.s
+.PHONY : Player.cpp.s
+
 Textured_Object.o: Textured_Object.cpp.o
 
 .PHONY : Textured_Object.o
@@ -236,6 +263,9 @@ help:
 	@echo "... Game_Object.o"
 	@echo "... Game_Object.i"
 	@echo "... Game_Object.s"
+	@echo "... Player.o"
+	@echo "... Player.i"
+	@echo "... Player.s"
 	@echo "... Textured_Object.o"
 	@echo "... Textured_Object.i"
 	@echo "... Textured_Object.s"

@@ -90,6 +90,12 @@
 		<Unit filename="/home/jimte/TDP005/project_ghost/Game_Object.h">
 			<Option target="project_ghost"/>
 		</Unit>
+		<Unit filename="/home/jimte/TDP005/project_ghost/Player.cpp">
+			<Option target="project_ghost"/>
+		</Unit>
+		<Unit filename="/home/jimte/TDP005/project_ghost/Player.h">
+			<Option target="project_ghost"/>
+		</Unit>
 		<Unit filename="/home/jimte/TDP005/project_ghost/Textured_Object.cpp">
 			<Option target="project_ghost"/>
 		</Unit>

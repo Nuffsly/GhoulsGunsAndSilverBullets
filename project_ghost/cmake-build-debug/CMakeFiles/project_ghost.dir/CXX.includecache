@@ -6,15 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/jimte/TDP005/project_ghost/Game_Object.cpp
-Game_Object.h
-/home/jimte/TDP005/project_ghost/Game_Object.h
-
 /home/jimte/TDP005/project_ghost/Game_Object.h
 SFML/Graphics.hpp
 -
 
-/home/jimte/TDP005/project_ghost/Textured_Object.cpp
+/home/jimte/TDP005/project_ghost/Player.h
 Textured_Object.h
 /home/jimte/TDP005/project_ghost/Textured_Object.h
 
@@ -29,4 +25,6 @@ SFML/Graphics.hpp
 -
 Textured_Object.h
 /home/jimte/TDP005/project_ghost/Textured_Object.h
+Player.h
+/home/jimte/TDP005/project_ghost/Player.h
 
