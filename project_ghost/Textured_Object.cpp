@@ -37,7 +37,7 @@ Character::Character(sf::Vector2f center, sf::Vector2f size, int health, int dam
 
 //Platform
 
-void Platform::update(sf::Time)
+bool Platform::update(sf::Time)
 {}
 
 Platform::Platform(sf::Vector2f center, sf::Vector2f size)

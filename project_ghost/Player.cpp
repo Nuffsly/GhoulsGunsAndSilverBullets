@@ -9,7 +9,7 @@ Player::Player(sf::Vector2f center, sf::Vector2f size, int health, int damage)
     :Character{center, size, health, damage}
 {}
 
-void Player::update(sf::Time)
+bool Player::update(sf::Time)
 {
     move_player();
 }

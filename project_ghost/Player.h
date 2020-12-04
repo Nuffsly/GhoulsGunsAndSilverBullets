@@ -11,7 +11,7 @@ class Player : public Character
 {
 public:
     Player(sf::Vector2f center, sf::Vector2f size, int health, int damage);
-    void update(sf::Time) override;
+    bool update(sf::Time) override;
 
 private:
     void move_player();

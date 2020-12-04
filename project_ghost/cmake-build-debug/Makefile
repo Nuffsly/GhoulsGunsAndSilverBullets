@@ -224,6 +224,33 @@ Textured_Object.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Textured_Object.cpp.s
 .PHONY : Textured_Object.cpp.s
 
+World.o: World.cpp.o
+
+.PHONY : World.o
+
+# target to build an object file
+World.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/World.cpp.o
+.PHONY : World.cpp.o
+
+World.i: World.cpp.i
+
+.PHONY : World.i
+
+# target to preprocess a source file
+World.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/World.cpp.i
+.PHONY : World.cpp.i
+
+World.s: World.cpp.s
+
+.PHONY : World.s
+
+# target to generate assembly for a file
+World.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/World.cpp.s
+.PHONY : World.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -269,6 +296,9 @@ help:
 	@echo "... Textured_Object.o"
 	@echo "... Textured_Object.i"
 	@echo "... Textured_Object.s"
+	@echo "... World.o"
+	@echo "... World.i"
+	@echo "... World.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

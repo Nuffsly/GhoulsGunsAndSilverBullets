@@ -18,7 +18,7 @@ class Textured_Object : public Game_Object
 public:
     Textured_Object(sf::Vector2f center, sf::Vector2f size);
 
-    virtual void render(sf::RenderWindow &window);
+    void render(sf::RenderWindow &window) override;
 
     sf::Vector2f get_position();
     void set_position(sf::Vector2f);
@@ -43,7 +43,7 @@ class Platform : public Textured_Object
 public:
     Platform(sf::Vector2f center, sf::Vector2f size);
 
-    void update(sf::Time) override;
+    bool update(sf::Time) override;
     void render(sf::RenderWindow &window) override;
 
 private:
