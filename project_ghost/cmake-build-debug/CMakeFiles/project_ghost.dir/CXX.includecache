@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/jimte/TDP005/project_ghost/Game_Object.cpp
-Game_Object.h
-/home/jimte/TDP005/project_ghost/Game_Object.h
-
 /home/jimte/TDP005/project_ghost/Game_Object.h
 SFML/Graphics.hpp
 -
@@ -47,6 +43,8 @@ vector
 -
 string
 -
+memory
+-
 
 /home/jimte/TDP005/project_ghost/main.cpp
 iostream
@@ -57,4 +55,6 @@ Textured_Object.h
 /home/jimte/TDP005/project_ghost/Textured_Object.h
 Player.h
 /home/jimte/TDP005/project_ghost/Player.h
+World.h
+/home/jimte/TDP005/project_ghost/World.h
 

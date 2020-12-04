@@ -12,6 +12,7 @@ Player::Player(sf::Vector2f center, sf::Vector2f size, int health, int damage)
 bool Player::update(sf::Time)
 {
     move_player();
+    return true;
 }
 
 void Player::move_player()

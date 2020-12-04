@@ -44,7 +44,7 @@ public:
     Platform(sf::Vector2f center, sf::Vector2f size);
 
     bool update(sf::Time) override;
-    void render(sf::RenderWindow &window) override;
+
 
 private:
 };

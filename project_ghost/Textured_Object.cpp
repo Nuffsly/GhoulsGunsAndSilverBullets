@@ -38,14 +38,8 @@ Character::Character(sf::Vector2f center, sf::Vector2f size, int health, int dam
 //Platform
 
 bool Platform::update(sf::Time)
-{}
+{return true;}
 
 Platform::Platform(sf::Vector2f center, sf::Vector2f size)
 :Textured_Object{center, size}
 {};
-
-
-void Platform::render(sf::RenderWindow &window)
-{
-    Textured_Object::render(window);
-}

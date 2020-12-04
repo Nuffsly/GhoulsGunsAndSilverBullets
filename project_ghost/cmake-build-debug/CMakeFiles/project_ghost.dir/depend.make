@@ -21,5 +21,6 @@ CMakeFiles/project_ghost.dir/World.cpp.o: ../World.h
 CMakeFiles/project_ghost.dir/main.cpp.o: ../Game_Object.h
 CMakeFiles/project_ghost.dir/main.cpp.o: ../Player.h
 CMakeFiles/project_ghost.dir/main.cpp.o: ../Textured_Object.h
+CMakeFiles/project_ghost.dir/main.cpp.o: ../World.h
 CMakeFiles/project_ghost.dir/main.cpp.o: ../main.cpp
 

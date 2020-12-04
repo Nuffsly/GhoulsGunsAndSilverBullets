@@ -11,6 +11,7 @@
 #include<SFML/Graphics.hpp>
 #include <vector>
 #include <string>
+#include <memory>
 
 class World
 {
@@ -21,8 +22,10 @@ public:
 
     bool load_level(std::string file_name);
 
+    void add_object(std::shared_ptr<Game_Object> game_object);
+
 private:
-    std::vector<Game_Object> game_objects;
+    std::vector<std::shared_ptr<Game_Object>> game_objects;
 };
 
 
