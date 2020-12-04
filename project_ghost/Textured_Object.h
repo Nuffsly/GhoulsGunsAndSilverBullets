@@ -6,6 +6,8 @@
 #define MAIN_CPP_TEXTURED_OBJECT_H
 
 #include "Game_Object.h"
+#include "Texture_Manager.h"
+
 //In this file:
 //Textured_Object
 //Character
@@ -16,11 +18,13 @@
 class Textured_Object : public Game_Object
 {
 public:
-    Textured_Object(sf::Vector2f center, sf::Vector2f size);
+    Textured_Object(sf::Vector2f center, std::string const& texture_name);
 
     void render(sf::RenderWindow &window) override;
 
     sf::Vector2f get_position();
+    sf::Vector2f get_size();
+
     void set_position(sf::Vector2f);
 
 private:
@@ -30,7 +34,7 @@ private:
 class Character : public Textured_Object
 {
 public:
-    Character(sf::Vector2f center, sf::Vector2f size, int health, int damage);
+    Character(sf::Vector2f center, std::string const& texture_name, int health, int damage);
 
 private:
     int health;
@@ -41,7 +45,7 @@ private:
 class Platform : public Textured_Object
 {
 public:
-    Platform(sf::Vector2f center, sf::Vector2f size);
+    Platform(sf::Vector2f center, std::string const& texture_name);
 
     bool update(sf::Time) override;
 

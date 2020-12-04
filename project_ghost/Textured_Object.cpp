@@ -4,10 +4,16 @@
 
 #include "Textured_Object.h"
 
-Textured_Object::Textured_Object(sf::Vector2f center, sf::Vector2f size)
-:Game_Object{center, size}
+Textured_Object::Textured_Object(sf::Vector2f center, std::string const& texture_name)
+:Game_Object{center, {0, 0}}
 {
-    shape.setSize({size.x, size.y});
+    sf::Texture* texture{ Texture_Manager::get_texture(texture_name) };
+    sf::Vector2f size{texture->getSize()};
+
+    size = {size.x * 5, size.y * 5};
+
+    shape.setSize(size);
+    shape.setTexture(texture);
     shape.setOrigin(size.x/2, size.y/2);
     shape.setPosition(center);
 }
@@ -22,6 +28,11 @@ sf::Vector2f Textured_Object::get_position()
     return shape.getPosition();
 }
 
+sf::Vector2f Textured_Object::get_size()
+{
+    return shape.getSize();
+}
+
 void Textured_Object::set_position(sf::Vector2f position)
 {
     shape.setPosition(position);
@@ -30,8 +41,8 @@ void Textured_Object::set_position(sf::Vector2f position)
 
 // Character
 
-Character::Character(sf::Vector2f center, sf::Vector2f size, int health, int damage)
-    :Textured_Object{center, size}, health{health}, damage{damage}
+Character::Character(sf::Vector2f center, std::string const& texture_name, int health, int damage)
+    :Textured_Object{center, texture_name}, health{health}, damage{damage}
 {}
 
 
@@ -40,6 +51,6 @@ Character::Character(sf::Vector2f center, sf::Vector2f size, int health, int dam
 bool Platform::update(sf::Time)
 {return true;}
 
-Platform::Platform(sf::Vector2f center, sf::Vector2f size)
-:Textured_Object{center, size}
+Platform::Platform(sf::Vector2f center, std::string const& texture_name)
+:Textured_Object{center, texture_name}
 {};

@@ -5,17 +5,17 @@
 #include <SFML/Window.hpp>
 #include "Player.h"
 
-Player::Player(sf::Vector2f center, sf::Vector2f size, int health, int damage)
-    :Character{center, size, health, damage}
+Player::Player(sf::Vector2f center, std::string const& texture_name, int health, int damage)
+    :Character{center, texture_name, health, damage}
 {}
 
-bool Player::update(sf::Time)
+bool Player::update(sf::Time delta)
 {
-    move_player();
+    move_player(delta);
     return true;
 }
 
-void Player::move_player()
+void Player::move_player(sf::Time delta)
 {
     sf::Vector2f direction;
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
@@ -27,5 +27,21 @@ void Player::move_player()
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
         direction.x += 1;
 
-    Textured_Object::set_position(Textured_Object::get_position() + direction);
+    float delta_in_seconds{delta.asMicroseconds() / 1000000.0f};
+
+    sf::Vector2f movement{direction.x * delta_in_seconds * 500,
+                          direction.y * delta_in_seconds * 500};
+
+    sf::Vector2f clamped_position{Textured_Object::get_position() + movement};
+
+    const float low_clamp_x{get_size().x / 2};
+    const float low_clamp_y{get_size().y / 2};
+
+    const float high_clamp_x{1000.0f - (get_size().x / 2)};
+    const float high_clamp_y{1000.0f - (get_size().y / 2)};
+
+    clamped_position.x = std::clamp(clamped_position.x, low_clamp_x, high_clamp_x);
+    clamped_position.y = std::clamp(clamped_position.y, low_clamp_y, high_clamp_y);
+
+    Textured_Object::set_position(clamped_position);
 }

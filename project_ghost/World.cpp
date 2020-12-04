@@ -27,7 +27,7 @@ void World::render(sf::RenderWindow &window)
     }
 }
 
-void World::add_object(std::shared_ptr<Game_Object> game_object)
+void World::add_object(std::shared_ptr<Game_Object> const& game_object)
 {
     game_objects.push_back(game_object);
 }

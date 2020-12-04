@@ -1,23 +1,25 @@
-#include <iostream>
 #include<SFML/Graphics.hpp>
 #include "Textured_Object.h"
 #include "Player.h"
 #include "World.h"
 
+// Global constants
+const int WIDTH{1000};
+const int HEIGHT{1000};
 
 void update(sf::RenderWindow &window);
 
 int main()
 {
     //Define our window
-    sf::RenderWindow window{sf::VideoMode(1920, 1080), "PROJECT: [G H 0 5 T]"};
+    sf::RenderWindow window{sf::VideoMode(WIDTH, HEIGHT), "PROJECT: [G H 0 5 T]"};
     window.setVerticalSyncEnabled(true);
     window.setKeyRepeatEnabled(false);
 
     World world{};
 
-    Platform platform{{500, 350},{100,20}};
-    Player player{{100, 100}, {100, 200}, 100, 100};
+    Platform platform{{500, 350}, "white.png"};
+    Player player{{100, 100}, "standing.png", 100, 100};
 
     world.add_object(std::make_shared<Player>(player));
 
@@ -34,7 +36,7 @@ int main()
         sf::Event event{};
 
         window.clear();
-        world.tick(clock.getElapsedTime());
+        world.tick(clock.restart());
         
         while (window.pollEvent(event))
             {

@@ -22,7 +22,7 @@ public:
 
     bool load_level(std::string file_name);
 
-    void add_object(std::shared_ptr<Game_Object> game_object);
+    void add_object(std::shared_ptr<Game_Object> const& game_object);
 
 private:
     std::vector<std::shared_ptr<Game_Object>> game_objects;
