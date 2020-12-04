@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/jimte/TDP005/project_ghost/Game_Object.cpp" "/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/Game_Object.cpp.o"
   "/home/jimte/TDP005/project_ghost/Player.cpp" "/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/Player.cpp.o"
+  "/home/jimte/TDP005/project_ghost/Texture_Manager.cpp" "/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/Texture_Manager.cpp.o"
   "/home/jimte/TDP005/project_ghost/Textured_Object.cpp" "/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/Textured_Object.cpp.o"
   "/home/jimte/TDP005/project_ghost/World.cpp" "/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/World.cpp.o"
   "/home/jimte/TDP005/project_ghost/main.cpp" "/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/main.cpp.o"

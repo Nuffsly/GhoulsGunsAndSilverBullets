@@ -197,6 +197,33 @@ Player.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Player.cpp.s
 .PHONY : Player.cpp.s
 
+Texture_Manager.o: Texture_Manager.cpp.o
+
+.PHONY : Texture_Manager.o
+
+# target to build an object file
+Texture_Manager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Texture_Manager.cpp.o
+.PHONY : Texture_Manager.cpp.o
+
+Texture_Manager.i: Texture_Manager.cpp.i
+
+.PHONY : Texture_Manager.i
+
+# target to preprocess a source file
+Texture_Manager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Texture_Manager.cpp.i
+.PHONY : Texture_Manager.cpp.i
+
+Texture_Manager.s: Texture_Manager.cpp.s
+
+.PHONY : Texture_Manager.s
+
+# target to generate assembly for a file
+Texture_Manager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Texture_Manager.cpp.s
+.PHONY : Texture_Manager.cpp.s
+
 Textured_Object.o: Textured_Object.cpp.o
 
 .PHONY : Textured_Object.o
@@ -293,6 +320,9 @@ help:
 	@echo "... Player.o"
 	@echo "... Player.i"
 	@echo "... Player.s"
+	@echo "... Texture_Manager.o"
+	@echo "... Texture_Manager.i"
+	@echo "... Texture_Manager.s"
 	@echo "... Textured_Object.o"
 	@echo "... Textured_Object.i"
 	@echo "... Textured_Object.s"

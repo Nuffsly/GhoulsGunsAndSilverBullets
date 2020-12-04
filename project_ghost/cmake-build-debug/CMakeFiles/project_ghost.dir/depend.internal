@@ -9,6 +9,9 @@ CMakeFiles/project_ghost.dir/Player.cpp.o
  /home/jimte/TDP005/project_ghost/Player.cpp
  /home/jimte/TDP005/project_ghost/Player.h
  /home/jimte/TDP005/project_ghost/Textured_Object.h
+CMakeFiles/project_ghost.dir/Texture_Manager.cpp.o
+ /home/jimte/TDP005/project_ghost/Texture_Manager.cpp
+ /home/jimte/TDP005/project_ghost/Texture_Manager.h
 CMakeFiles/project_ghost.dir/Textured_Object.cpp.o
  /home/jimte/TDP005/project_ghost/Game_Object.h
  /home/jimte/TDP005/project_ghost/Textured_Object.cpp
