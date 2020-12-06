@@ -2,4 +2,4 @@
 *~
 .#*
 .idea/
-project_ghost/cmake-build-debug
+**/cmake-build-debug/
