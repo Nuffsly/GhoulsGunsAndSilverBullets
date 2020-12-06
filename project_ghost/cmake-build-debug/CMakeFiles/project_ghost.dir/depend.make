@@ -33,6 +33,7 @@ CMakeFiles/project_ghost.dir/Weapon.cpp.o: ../Texture_Manager.h
 CMakeFiles/project_ghost.dir/Weapon.cpp.o: ../Textured_Object.h
 CMakeFiles/project_ghost.dir/Weapon.cpp.o: ../Weapon.cpp
 CMakeFiles/project_ghost.dir/Weapon.cpp.o: ../Weapon.h
+CMakeFiles/project_ghost.dir/Weapon.cpp.o: ../World.h
 
 CMakeFiles/project_ghost.dir/World.cpp.o: ../Game_Object.h
 CMakeFiles/project_ghost.dir/World.cpp.o: ../Player.h

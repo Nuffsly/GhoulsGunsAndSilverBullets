@@ -20,7 +20,7 @@ class Textured_Object : public Game_Object
 public:
     Textured_Object(sf::Vector2f const &center, std::string const &texture_name);
 
-    void render(sf::RenderWindow &window) override;
+    virtual void render(sf::RenderWindow &window) override;
 
     sf::Vector2f get_position();
 
@@ -28,7 +28,7 @@ public:
 
     void set_position(sf::Vector2f);
 
-private:
+protected:
     sf::RectangleShape shape;
 };
 

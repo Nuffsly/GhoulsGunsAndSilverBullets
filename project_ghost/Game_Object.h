@@ -17,7 +17,6 @@ public:
 
     virtual void render(sf::RenderWindow &window) = 0;
 
-private:
     sf::Vector2f center;
     sf::Vector2f hitbox;
 };

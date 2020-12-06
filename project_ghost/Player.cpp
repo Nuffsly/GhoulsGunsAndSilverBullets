@@ -6,12 +6,14 @@
 #include "Player.h"
 
 Player::Player(const sf::Vector2f &center, std::string const& texture_name, int health, int damage)
-    :Character{center, texture_name, health, damage}, weapon{center, "white.png", 1.0f, damage}
+    :Character{center, texture_name, health, damage}, weapon{center, "weapon.png", 1.0f, damage}
 {}
 
 bool Player::update(const sf::Time &delta, World &world)
 {
     move_player(delta);
+    weapon.set_position(center);
+    weapon.update(delta, world);
     return true;
 }
 
@@ -43,5 +45,13 @@ void Player::move_player(sf::Time delta)
     clamped_position.x = std::clamp(clamped_position.x, low_clamp_x, high_clamp_x);
     clamped_position.y = std::clamp(clamped_position.y, low_clamp_y, high_clamp_y);
 
-    Textured_Object::set_position(clamped_position);
+    center = clamped_position;
+    Textured_Object::set_position(center);
+
+}
+
+void Player::render(sf::RenderWindow &window)
+{
+    Textured_Object::render(window);
+    weapon.render(window);
 }
