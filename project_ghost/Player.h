@@ -11,11 +11,15 @@
 class Player : public Character
 {
 public:
-    Player(const sf::Vector2f &center, std::string const& texture_name, int health, int damage);
+    Player(const sf::Vector2f &center, std::string const &texture_name, int health, int damage);
+
     bool update(const sf::Time &delta, World &world) override;
+
+    void render(sf::RenderWindow &window) override;
 
 private:
     void move_player(sf::Time delta);
+
     Weapon weapon;
 };
 

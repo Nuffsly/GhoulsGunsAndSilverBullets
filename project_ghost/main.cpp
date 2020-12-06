@@ -19,7 +19,7 @@ int main()
     World world{};
 
     Platform platform{{500, 350}, "white.png"};
-    Player player{{100, 100}, "standing.png", 100, 100};
+    Player player{{200, 200}, "standing.png", 100, 100};
 
     world.add_object(std::make_shared<Player>(player));
 
