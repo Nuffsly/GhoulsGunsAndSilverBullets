@@ -36,7 +36,7 @@ sf::Vector2f Textured_Object::get_size()
 void Textured_Object::set_position(sf::Vector2f position)
 {
     shape.setPosition(position);
-    center = position;
+    this->center = position;
 }
 
 

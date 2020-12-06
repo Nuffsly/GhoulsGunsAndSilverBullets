@@ -45,8 +45,7 @@ void Player::move_player(sf::Time delta)
     clamped_position.x = std::clamp(clamped_position.x, low_clamp_x, high_clamp_x);
     clamped_position.y = std::clamp(clamped_position.y, low_clamp_y, high_clamp_y);
 
-    center = clamped_position;
-    Textured_Object::set_position(center);
+    Textured_Object::set_position(clamped_position);
 
 }
 

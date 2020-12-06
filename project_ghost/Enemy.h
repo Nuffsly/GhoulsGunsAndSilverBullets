@@ -28,7 +28,7 @@ class Enemy : public Character
 {
 public:
     Enemy(const sf::Vector2f &center, std::string const& texture_name,
-          int health, int damage, const std::shared_ptr<Game_Object> &player_ptr);
+          int health, int damage, std::shared_ptr<Game_Object> player_ptr);
 
     bool update(const sf::Time &delta, World &world) override;
 private:
