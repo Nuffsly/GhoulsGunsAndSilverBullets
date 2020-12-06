@@ -5,13 +5,14 @@
 #ifndef MAIN_CPP_GAME_OBJECT_H
 #define MAIN_CPP_GAME_OBJECT_H
 #include <SFML/Graphics.hpp>
+#include "World.h"
 
 class Game_Object
 {
 public:
-    Game_Object(sf::Vector2f center, sf::Vector2f hitbox);
+    Game_Object(const sf::Vector2f &center, const sf::Vector2f &hitbox);
 
-    virtual bool update(sf::Time) = 0;
+    virtual bool update(const sf::Time &delta, World &world) = 0;
 
     virtual void render(sf::RenderWindow &window) = 0;
 

@@ -59,19 +59,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/jimte/clion/clion-2020.2.5/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/137/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/jimte/clion/clion-2020.2.5/bin/cmake/linux/bin/cmake -E rm -f
+RM = /snap/clion/137/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jimte/TDP005/project_ghost
+CMAKE_SOURCE_DIR = /home/marku849/Projects/TDP005/tdp005-backup/project_ghost
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jimte/TDP005/project_ghost/cmake-build-debug
+CMAKE_BINARY_DIR = /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,7 +79,7 @@ CMAKE_BINARY_DIR = /home/jimte/TDP005/project_ghost/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/jimte/clion/clion-2020.2.5/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/snap/clion/137/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -90,7 +90,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/jimte/clion/clion-2020.2.5/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/snap/clion/137/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -100,9 +100,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles /home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -142,6 +142,33 @@ project_ghost: cmake_check_build_system
 project_ghost/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/build
 .PHONY : project_ghost/fast
+
+Enemy.o: Enemy.cpp.o
+
+.PHONY : Enemy.o
+
+# target to build an object file
+Enemy.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Enemy.cpp.o
+.PHONY : Enemy.cpp.o
+
+Enemy.i: Enemy.cpp.i
+
+.PHONY : Enemy.i
+
+# target to preprocess a source file
+Enemy.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Enemy.cpp.i
+.PHONY : Enemy.cpp.i
+
+Enemy.s: Enemy.cpp.s
+
+.PHONY : Enemy.s
+
+# target to generate assembly for a file
+Enemy.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Enemy.cpp.s
+.PHONY : Enemy.cpp.s
 
 Game_Object.o: Game_Object.cpp.o
 
@@ -341,6 +368,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... project_ghost"
+	@echo "... Enemy.o"
+	@echo "... Enemy.i"
+	@echo "... Enemy.s"
 	@echo "... Game_Object.o"
 	@echo "... Game_Object.i"
 	@echo "... Game_Object.s"

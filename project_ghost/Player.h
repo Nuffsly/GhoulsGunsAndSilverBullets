@@ -11,8 +11,8 @@
 class Player : public Character
 {
 public:
-    Player(sf::Vector2f center, std::string const& texture_name, int health, int damage);
-    bool update(sf::Time) override;
+    Player(const sf::Vector2f &center, std::string const& texture_name, int health, int damage);
+    bool update(const sf::Time &delta, World &world) override;
 
 private:
     void move_player(sf::Time delta);
