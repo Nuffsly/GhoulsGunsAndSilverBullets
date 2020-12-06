@@ -90,22 +90,9 @@ CMakeFiles/project_ghost.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project_ghost.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jimte/TDP005/project_ghost/main.cpp -o CMakeFiles/project_ghost.dir/main.cpp.s
 
-CMakeFiles/project_ghost.dir/Textured_Object.cpp.o: CMakeFiles/project_ghost.dir/flags.make
-CMakeFiles/project_ghost.dir/Textured_Object.cpp.o: ../Textured_Object.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/project_ghost.dir/Textured_Object.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project_ghost.dir/Textured_Object.cpp.o -c /home/jimte/TDP005/project_ghost/Textured_Object.cpp
-
-CMakeFiles/project_ghost.dir/Textured_Object.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project_ghost.dir/Textured_Object.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jimte/TDP005/project_ghost/Textured_Object.cpp > CMakeFiles/project_ghost.dir/Textured_Object.cpp.i
-
-CMakeFiles/project_ghost.dir/Textured_Object.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project_ghost.dir/Textured_Object.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jimte/TDP005/project_ghost/Textured_Object.cpp -o CMakeFiles/project_ghost.dir/Textured_Object.cpp.s
-
 CMakeFiles/project_ghost.dir/Game_Object.cpp.o: CMakeFiles/project_ghost.dir/flags.make
 CMakeFiles/project_ghost.dir/Game_Object.cpp.o: ../Game_Object.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/project_ghost.dir/Game_Object.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/project_ghost.dir/Game_Object.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project_ghost.dir/Game_Object.cpp.o -c /home/jimte/TDP005/project_ghost/Game_Object.cpp
 
 CMakeFiles/project_ghost.dir/Game_Object.cpp.i: cmake_force
@@ -115,6 +102,19 @@ CMakeFiles/project_ghost.dir/Game_Object.cpp.i: cmake_force
 CMakeFiles/project_ghost.dir/Game_Object.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project_ghost.dir/Game_Object.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jimte/TDP005/project_ghost/Game_Object.cpp -o CMakeFiles/project_ghost.dir/Game_Object.cpp.s
+
+CMakeFiles/project_ghost.dir/Textured_Object.cpp.o: CMakeFiles/project_ghost.dir/flags.make
+CMakeFiles/project_ghost.dir/Textured_Object.cpp.o: ../Textured_Object.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/project_ghost.dir/Textured_Object.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project_ghost.dir/Textured_Object.cpp.o -c /home/jimte/TDP005/project_ghost/Textured_Object.cpp
+
+CMakeFiles/project_ghost.dir/Textured_Object.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project_ghost.dir/Textured_Object.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jimte/TDP005/project_ghost/Textured_Object.cpp > CMakeFiles/project_ghost.dir/Textured_Object.cpp.i
+
+CMakeFiles/project_ghost.dir/Textured_Object.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project_ghost.dir/Textured_Object.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jimte/TDP005/project_ghost/Textured_Object.cpp -o CMakeFiles/project_ghost.dir/Textured_Object.cpp.s
 
 CMakeFiles/project_ghost.dir/Player.cpp.o: CMakeFiles/project_ghost.dir/flags.make
 CMakeFiles/project_ghost.dir/Player.cpp.o: ../Player.cpp
@@ -184,8 +184,8 @@ CMakeFiles/project_ghost.dir/Weapon.cpp.s: cmake_force
 # Object files for target project_ghost
 project_ghost_OBJECTS = \
 "CMakeFiles/project_ghost.dir/main.cpp.o" \
-"CMakeFiles/project_ghost.dir/Textured_Object.cpp.o" \
 "CMakeFiles/project_ghost.dir/Game_Object.cpp.o" \
+"CMakeFiles/project_ghost.dir/Textured_Object.cpp.o" \
 "CMakeFiles/project_ghost.dir/Player.cpp.o" \
 "CMakeFiles/project_ghost.dir/World.cpp.o" \
 "CMakeFiles/project_ghost.dir/Texture_Manager.cpp.o" \
@@ -196,8 +196,8 @@ project_ghost_OBJECTS = \
 project_ghost_EXTERNAL_OBJECTS =
 
 project_ghost: CMakeFiles/project_ghost.dir/main.cpp.o
-project_ghost: CMakeFiles/project_ghost.dir/Textured_Object.cpp.o
 project_ghost: CMakeFiles/project_ghost.dir/Game_Object.cpp.o
+project_ghost: CMakeFiles/project_ghost.dir/Textured_Object.cpp.o
 project_ghost: CMakeFiles/project_ghost.dir/Player.cpp.o
 project_ghost: CMakeFiles/project_ghost.dir/World.cpp.o
 project_ghost: CMakeFiles/project_ghost.dir/Texture_Manager.cpp.o

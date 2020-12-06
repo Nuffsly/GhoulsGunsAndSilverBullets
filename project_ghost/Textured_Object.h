@@ -18,11 +18,12 @@
 class Textured_Object : public Game_Object
 {
 public:
-    Textured_Object(sf::Vector2f const& center, std::string const& texture_name);
+    Textured_Object(sf::Vector2f const &center, std::string const &texture_name);
 
     void render(sf::RenderWindow &window) override;
 
     sf::Vector2f get_position();
+
     sf::Vector2f get_size();
 
     void set_position(sf::Vector2f);
@@ -34,7 +35,7 @@ private:
 class Character : public Textured_Object
 {
 public:
-    Character(const sf::Vector2f &center, std::string const& texture_name, int health, int damage);
+    Character(const sf::Vector2f &center, std::string const &texture_name, int health, int damage);
 
 private:
     int health;
@@ -45,7 +46,7 @@ private:
 class Platform : public Textured_Object
 {
 public:
-    Platform(const sf::Vector2f &center, std::string const& texture_name);
+    Platform(const sf::Vector2f &center, std::string const &texture_name);
 
     bool update(const sf::Time &delta, World &world) override;
 

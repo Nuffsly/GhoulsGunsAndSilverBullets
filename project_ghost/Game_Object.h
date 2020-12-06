@@ -4,8 +4,9 @@
 
 #ifndef MAIN_CPP_GAME_OBJECT_H
 #define MAIN_CPP_GAME_OBJECT_H
+
 #include <SFML/Graphics.hpp>
-#include "World.h"
+class World;
 
 class Game_Object
 {
