@@ -6,6 +6,7 @@
 #define MAIN_CPP_PLAYER_H
 
 #include "Textured_Object.h"
+#include "Weapon.h"
 
 class Player : public Character
 {
@@ -15,6 +16,7 @@ public:
 
 private:
     void move_player(sf::Time delta);
+    Weapon weapon;
 };
 
 

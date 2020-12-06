@@ -6,7 +6,7 @@
 #include "Player.h"
 
 Player::Player(sf::Vector2f center, std::string const& texture_name, int health, int damage)
-    :Character{center, texture_name, health, damage}
+    :Character{center, texture_name, health, damage}, weapon{center, "white.png", 1.0f, damage}
 {}
 
 bool Player::update(sf::Time delta)

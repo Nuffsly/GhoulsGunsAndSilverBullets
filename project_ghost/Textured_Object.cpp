@@ -4,10 +4,10 @@
 
 #include "Textured_Object.h"
 
-Textured_Object::Textured_Object(sf::Vector2f center, std::string const& texture_name)
-:Game_Object{center, {0, 0}}
+Textured_Object::Textured_Object(sf::Vector2f center, std::string const &texture_name)
+        : Game_Object{center, {0, 0}}
 {
-    sf::Texture* texture{ Texture_Manager::get_texture(texture_name) };
+    sf::Texture *texture{Texture_Manager::get_texture(texture_name)};
     sf::Vector2f size{texture->getSize()};
 
     size = {size.x * 5, size.y * 5};

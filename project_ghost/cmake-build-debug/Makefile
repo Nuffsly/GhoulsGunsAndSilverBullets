@@ -251,6 +251,33 @@ Textured_Object.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Textured_Object.cpp.s
 .PHONY : Textured_Object.cpp.s
 
+Weapon.o: Weapon.cpp.o
+
+.PHONY : Weapon.o
+
+# target to build an object file
+Weapon.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Weapon.cpp.o
+.PHONY : Weapon.cpp.o
+
+Weapon.i: Weapon.cpp.i
+
+.PHONY : Weapon.i
+
+# target to preprocess a source file
+Weapon.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Weapon.cpp.i
+.PHONY : Weapon.cpp.i
+
+Weapon.s: Weapon.cpp.s
+
+.PHONY : Weapon.s
+
+# target to generate assembly for a file
+Weapon.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Weapon.cpp.s
+.PHONY : Weapon.cpp.s
+
 World.o: World.cpp.o
 
 .PHONY : World.o
@@ -326,6 +353,9 @@ help:
 	@echo "... Textured_Object.o"
 	@echo "... Textured_Object.i"
 	@echo "... Textured_Object.s"
+	@echo "... Weapon.o"
+	@echo "... Weapon.i"
+	@echo "... Weapon.s"
 	@echo "... World.o"
 	@echo "... World.i"
 	@echo "... World.s"

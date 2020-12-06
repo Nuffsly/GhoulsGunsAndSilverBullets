@@ -108,6 +108,12 @@
 		<Unit filename="/home/jimte/TDP005/project_ghost/Textured_Object.h">
 			<Option target="project_ghost"/>
 		</Unit>
+		<Unit filename="/home/jimte/TDP005/project_ghost/Weapon.cpp">
+			<Option target="project_ghost"/>
+		</Unit>
+		<Unit filename="/home/jimte/TDP005/project_ghost/Weapon.h">
+			<Option target="project_ghost"/>
+		</Unit>
 		<Unit filename="/home/jimte/TDP005/project_ghost/World.cpp">
 			<Option target="project_ghost"/>
 		</Unit>
