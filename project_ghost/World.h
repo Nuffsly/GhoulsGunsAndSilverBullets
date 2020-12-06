@@ -20,7 +20,7 @@ public:
 
     void render(sf::RenderWindow &window);
 
-    bool load_level(std::string file_name);
+    bool load_level(std::string const& file_name);
 
     void add_object(std::shared_ptr<Game_Object> const& game_object);
 

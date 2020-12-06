@@ -4,6 +4,6 @@
 
 #include "Game_Object.h"
 
-Game_Object::Game_Object(sf::Vector2f center, sf::Vector2f hitbox)
+Game_Object::Game_Object(const sf::Vector2f &center, const sf::Vector2f &hitbox)
 :center{center}, hitbox{hitbox}
 {}

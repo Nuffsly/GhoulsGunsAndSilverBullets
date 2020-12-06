@@ -10,11 +10,11 @@
 class Enemy : public Character
 {
 public:
-    Enemy(sf::Vector2f center, std::string const& texture_name, int health, int damage);
+    Enemy(const sf::Vector2f &center, std::string const& texture_name, int health, int damage);
 
-    bool update(sf::Time) override;
+    bool update(const sf::Time &delta, World &world) override;
 private:
-    void drop_money();
+    void drop_money(World &world);
 };
 
 

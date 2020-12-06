@@ -5,11 +5,11 @@
 #include <SFML/Window.hpp>
 #include "Player.h"
 
-Player::Player(sf::Vector2f center, std::string const& texture_name, int health, int damage)
+Player::Player(const sf::Vector2f &center, std::string const& texture_name, int health, int damage)
     :Character{center, texture_name, health, damage}
 {}
 
-bool Player::update(sf::Time delta)
+bool Player::update(const sf::Time &delta, World &world)
 {
     move_player(delta);
     return true;
