@@ -9,6 +9,7 @@ CMakeFiles/project_ghost.dir/Player.cpp.o: ../Player.cpp
 CMakeFiles/project_ghost.dir/Player.cpp.o: ../Player.h
 CMakeFiles/project_ghost.dir/Player.cpp.o: ../Texture_Manager.h
 CMakeFiles/project_ghost.dir/Player.cpp.o: ../Textured_Object.h
+CMakeFiles/project_ghost.dir/Player.cpp.o: ../Weapon.h
 
 CMakeFiles/project_ghost.dir/Texture_Manager.cpp.o: ../Texture_Manager.cpp
 CMakeFiles/project_ghost.dir/Texture_Manager.cpp.o: ../Texture_Manager.h
@@ -17,6 +18,12 @@ CMakeFiles/project_ghost.dir/Textured_Object.cpp.o: ../Game_Object.h
 CMakeFiles/project_ghost.dir/Textured_Object.cpp.o: ../Texture_Manager.h
 CMakeFiles/project_ghost.dir/Textured_Object.cpp.o: ../Textured_Object.cpp
 CMakeFiles/project_ghost.dir/Textured_Object.cpp.o: ../Textured_Object.h
+
+CMakeFiles/project_ghost.dir/Weapon.cpp.o: ../Game_Object.h
+CMakeFiles/project_ghost.dir/Weapon.cpp.o: ../Texture_Manager.h
+CMakeFiles/project_ghost.dir/Weapon.cpp.o: ../Textured_Object.h
+CMakeFiles/project_ghost.dir/Weapon.cpp.o: ../Weapon.cpp
+CMakeFiles/project_ghost.dir/Weapon.cpp.o: ../Weapon.h
 
 CMakeFiles/project_ghost.dir/World.cpp.o: ../Game_Object.h
 CMakeFiles/project_ghost.dir/World.cpp.o: ../Texture_Manager.h
@@ -28,6 +35,7 @@ CMakeFiles/project_ghost.dir/main.cpp.o: ../Game_Object.h
 CMakeFiles/project_ghost.dir/main.cpp.o: ../Player.h
 CMakeFiles/project_ghost.dir/main.cpp.o: ../Texture_Manager.h
 CMakeFiles/project_ghost.dir/main.cpp.o: ../Textured_Object.h
+CMakeFiles/project_ghost.dir/main.cpp.o: ../Weapon.h
 CMakeFiles/project_ghost.dir/main.cpp.o: ../World.h
 CMakeFiles/project_ghost.dir/main.cpp.o: ../main.cpp
 
