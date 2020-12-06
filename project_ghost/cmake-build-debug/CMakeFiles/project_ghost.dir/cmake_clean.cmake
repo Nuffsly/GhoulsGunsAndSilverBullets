@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/project_ghost.dir/Enemy.cpp.o"
   "CMakeFiles/project_ghost.dir/Game_Object.cpp.o"
   "CMakeFiles/project_ghost.dir/Player.cpp.o"
   "CMakeFiles/project_ghost.dir/Texture_Manager.cpp.o"

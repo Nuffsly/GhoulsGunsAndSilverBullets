@@ -1,4 +1,4 @@
-# Install script for directory: /home/jimte/TDP005/project_ghost
+# Install script for directory: /home/marku849/Projects/TDP005/tdp005-backup/project_ghost
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/jimte/TDP005/project_ghost/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
