@@ -37,6 +37,7 @@ class Character : public Textured_Object
 public:
     Character(const sf::Vector2f &center, std::string const &texture_name, int health, int damage);
 
+    int get_health() const;
 private:
     int health;
     int damage;

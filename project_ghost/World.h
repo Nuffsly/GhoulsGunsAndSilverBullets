@@ -7,6 +7,7 @@
 
 #include "Game_Object.h"
 #include "Textured_Object.h"
+#include "Player.h"
 
 #include<SFML/Graphics.hpp>
 #include <vector>
@@ -23,6 +24,8 @@ public:
     bool load_level(std::string const& file_name);
 
     void add_object(std::shared_ptr<Game_Object> const& game_object);
+
+    std::shared_ptr<Game_Object> get_player_ptr() const;
 
 private:
     std::vector<std::shared_ptr<Game_Object>> game_objects;

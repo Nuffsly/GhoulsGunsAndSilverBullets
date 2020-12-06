@@ -5,7 +5,7 @@
 #include "Texture_Manager.h"
 sf::Texture* Texture_Manager::get_texture(const std::string &name)
 {
-    std::string file_path{"/home/jimte/TDP005/project_ghost/sprite_data/"};
+    std::string file_path{"../sprite_data/"};
 
     // Check if the texture is loaded and return if it is.
     auto loaded = texture_storage.textures.find(name);

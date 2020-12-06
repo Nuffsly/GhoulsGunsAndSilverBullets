@@ -54,19 +54,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/jimte/clion/clion-2020.2.5/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/137/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/jimte/clion/clion-2020.2.5/bin/cmake/linux/bin/cmake -E rm -f
+RM = /snap/clion/137/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jimte/TDP005/project_ghost
+CMAKE_SOURCE_DIR = /home/marku849/Projects/TDP005/tdp005-backup/project_ghost
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jimte/TDP005/project_ghost/cmake-build-debug
+CMAKE_BINARY_DIR = /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/project_ghost.dir/depend.make
@@ -79,107 +79,107 @@ include CMakeFiles/project_ghost.dir/flags.make
 
 CMakeFiles/project_ghost.dir/main.cpp.o: CMakeFiles/project_ghost.dir/flags.make
 CMakeFiles/project_ghost.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/project_ghost.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project_ghost.dir/main.cpp.o -c /home/jimte/TDP005/project_ghost/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/project_ghost.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project_ghost.dir/main.cpp.o -c /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/main.cpp
 
 CMakeFiles/project_ghost.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project_ghost.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jimte/TDP005/project_ghost/main.cpp > CMakeFiles/project_ghost.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/main.cpp > CMakeFiles/project_ghost.dir/main.cpp.i
 
 CMakeFiles/project_ghost.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project_ghost.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jimte/TDP005/project_ghost/main.cpp -o CMakeFiles/project_ghost.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/main.cpp -o CMakeFiles/project_ghost.dir/main.cpp.s
 
 CMakeFiles/project_ghost.dir/Game_Object.cpp.o: CMakeFiles/project_ghost.dir/flags.make
 CMakeFiles/project_ghost.dir/Game_Object.cpp.o: ../Game_Object.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/project_ghost.dir/Game_Object.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project_ghost.dir/Game_Object.cpp.o -c /home/jimte/TDP005/project_ghost/Game_Object.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/project_ghost.dir/Game_Object.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project_ghost.dir/Game_Object.cpp.o -c /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/Game_Object.cpp
 
 CMakeFiles/project_ghost.dir/Game_Object.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project_ghost.dir/Game_Object.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jimte/TDP005/project_ghost/Game_Object.cpp > CMakeFiles/project_ghost.dir/Game_Object.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/Game_Object.cpp > CMakeFiles/project_ghost.dir/Game_Object.cpp.i
 
 CMakeFiles/project_ghost.dir/Game_Object.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project_ghost.dir/Game_Object.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jimte/TDP005/project_ghost/Game_Object.cpp -o CMakeFiles/project_ghost.dir/Game_Object.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/Game_Object.cpp -o CMakeFiles/project_ghost.dir/Game_Object.cpp.s
 
 CMakeFiles/project_ghost.dir/Textured_Object.cpp.o: CMakeFiles/project_ghost.dir/flags.make
 CMakeFiles/project_ghost.dir/Textured_Object.cpp.o: ../Textured_Object.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/project_ghost.dir/Textured_Object.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project_ghost.dir/Textured_Object.cpp.o -c /home/jimte/TDP005/project_ghost/Textured_Object.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/project_ghost.dir/Textured_Object.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project_ghost.dir/Textured_Object.cpp.o -c /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/Textured_Object.cpp
 
 CMakeFiles/project_ghost.dir/Textured_Object.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project_ghost.dir/Textured_Object.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jimte/TDP005/project_ghost/Textured_Object.cpp > CMakeFiles/project_ghost.dir/Textured_Object.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/Textured_Object.cpp > CMakeFiles/project_ghost.dir/Textured_Object.cpp.i
 
 CMakeFiles/project_ghost.dir/Textured_Object.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project_ghost.dir/Textured_Object.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jimte/TDP005/project_ghost/Textured_Object.cpp -o CMakeFiles/project_ghost.dir/Textured_Object.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/Textured_Object.cpp -o CMakeFiles/project_ghost.dir/Textured_Object.cpp.s
 
 CMakeFiles/project_ghost.dir/Player.cpp.o: CMakeFiles/project_ghost.dir/flags.make
 CMakeFiles/project_ghost.dir/Player.cpp.o: ../Player.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/project_ghost.dir/Player.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project_ghost.dir/Player.cpp.o -c /home/jimte/TDP005/project_ghost/Player.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/project_ghost.dir/Player.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project_ghost.dir/Player.cpp.o -c /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/Player.cpp
 
 CMakeFiles/project_ghost.dir/Player.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project_ghost.dir/Player.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jimte/TDP005/project_ghost/Player.cpp > CMakeFiles/project_ghost.dir/Player.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/Player.cpp > CMakeFiles/project_ghost.dir/Player.cpp.i
 
 CMakeFiles/project_ghost.dir/Player.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project_ghost.dir/Player.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jimte/TDP005/project_ghost/Player.cpp -o CMakeFiles/project_ghost.dir/Player.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/Player.cpp -o CMakeFiles/project_ghost.dir/Player.cpp.s
 
 CMakeFiles/project_ghost.dir/World.cpp.o: CMakeFiles/project_ghost.dir/flags.make
 CMakeFiles/project_ghost.dir/World.cpp.o: ../World.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/project_ghost.dir/World.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project_ghost.dir/World.cpp.o -c /home/jimte/TDP005/project_ghost/World.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/project_ghost.dir/World.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project_ghost.dir/World.cpp.o -c /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/World.cpp
 
 CMakeFiles/project_ghost.dir/World.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project_ghost.dir/World.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jimte/TDP005/project_ghost/World.cpp > CMakeFiles/project_ghost.dir/World.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/World.cpp > CMakeFiles/project_ghost.dir/World.cpp.i
 
 CMakeFiles/project_ghost.dir/World.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project_ghost.dir/World.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jimte/TDP005/project_ghost/World.cpp -o CMakeFiles/project_ghost.dir/World.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/World.cpp -o CMakeFiles/project_ghost.dir/World.cpp.s
 
 CMakeFiles/project_ghost.dir/Texture_Manager.cpp.o: CMakeFiles/project_ghost.dir/flags.make
 CMakeFiles/project_ghost.dir/Texture_Manager.cpp.o: ../Texture_Manager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/project_ghost.dir/Texture_Manager.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project_ghost.dir/Texture_Manager.cpp.o -c /home/jimte/TDP005/project_ghost/Texture_Manager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/project_ghost.dir/Texture_Manager.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project_ghost.dir/Texture_Manager.cpp.o -c /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/Texture_Manager.cpp
 
 CMakeFiles/project_ghost.dir/Texture_Manager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project_ghost.dir/Texture_Manager.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jimte/TDP005/project_ghost/Texture_Manager.cpp > CMakeFiles/project_ghost.dir/Texture_Manager.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/Texture_Manager.cpp > CMakeFiles/project_ghost.dir/Texture_Manager.cpp.i
 
 CMakeFiles/project_ghost.dir/Texture_Manager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project_ghost.dir/Texture_Manager.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jimte/TDP005/project_ghost/Texture_Manager.cpp -o CMakeFiles/project_ghost.dir/Texture_Manager.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/Texture_Manager.cpp -o CMakeFiles/project_ghost.dir/Texture_Manager.cpp.s
 
 CMakeFiles/project_ghost.dir/Enemy.cpp.o: CMakeFiles/project_ghost.dir/flags.make
 CMakeFiles/project_ghost.dir/Enemy.cpp.o: ../Enemy.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/project_ghost.dir/Enemy.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project_ghost.dir/Enemy.cpp.o -c /home/jimte/TDP005/project_ghost/Enemy.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/project_ghost.dir/Enemy.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project_ghost.dir/Enemy.cpp.o -c /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/Enemy.cpp
 
 CMakeFiles/project_ghost.dir/Enemy.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project_ghost.dir/Enemy.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jimte/TDP005/project_ghost/Enemy.cpp > CMakeFiles/project_ghost.dir/Enemy.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/Enemy.cpp > CMakeFiles/project_ghost.dir/Enemy.cpp.i
 
 CMakeFiles/project_ghost.dir/Enemy.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project_ghost.dir/Enemy.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jimte/TDP005/project_ghost/Enemy.cpp -o CMakeFiles/project_ghost.dir/Enemy.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/Enemy.cpp -o CMakeFiles/project_ghost.dir/Enemy.cpp.s
 
 CMakeFiles/project_ghost.dir/Weapon.cpp.o: CMakeFiles/project_ghost.dir/flags.make
 CMakeFiles/project_ghost.dir/Weapon.cpp.o: ../Weapon.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/project_ghost.dir/Weapon.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project_ghost.dir/Weapon.cpp.o -c /home/jimte/TDP005/project_ghost/Weapon.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/project_ghost.dir/Weapon.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project_ghost.dir/Weapon.cpp.o -c /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/Weapon.cpp
 
 CMakeFiles/project_ghost.dir/Weapon.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project_ghost.dir/Weapon.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jimte/TDP005/project_ghost/Weapon.cpp > CMakeFiles/project_ghost.dir/Weapon.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/Weapon.cpp > CMakeFiles/project_ghost.dir/Weapon.cpp.i
 
 CMakeFiles/project_ghost.dir/Weapon.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project_ghost.dir/Weapon.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jimte/TDP005/project_ghost/Weapon.cpp -o CMakeFiles/project_ghost.dir/Weapon.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/Weapon.cpp -o CMakeFiles/project_ghost.dir/Weapon.cpp.s
 
 # Object files for target project_ghost
 project_ghost_OBJECTS = \
@@ -209,7 +209,7 @@ project_ghost: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1
 project_ghost: /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1
 project_ghost: /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
 project_ghost: CMakeFiles/project_ghost.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable project_ghost"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable project_ghost"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/project_ghost.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -222,6 +222,6 @@ CMakeFiles/project_ghost.dir/clean:
 .PHONY : CMakeFiles/project_ghost.dir/clean
 
 CMakeFiles/project_ghost.dir/depend:
-	cd /home/jimte/TDP005/project_ghost/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jimte/TDP005/project_ghost /home/jimte/TDP005/project_ghost /home/jimte/TDP005/project_ghost/cmake-build-debug /home/jimte/TDP005/project_ghost/cmake-build-debug /home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marku849/Projects/TDP005/tdp005-backup/project_ghost /home/marku849/Projects/TDP005/tdp005-backup/project_ghost /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/project_ghost.dir/depend
 

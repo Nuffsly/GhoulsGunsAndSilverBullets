@@ -2,6 +2,7 @@
 #include "Textured_Object.h"
 #include "Player.h"
 #include "World.h"
+#include "Enemy.h"
 
 // Global constants
 const int WIDTH{1000};
@@ -20,12 +21,14 @@ int main()
 
     Platform platform{{500, 350}, "white.png"};
     Player player{{100, 100}, "standing.png", 100, 100};
+    Enemy enemy{{0, 0}, "white.png", 100, 100, world.get_player_ptr()};
 
     world.add_object(std::make_shared<Player>(player));
 
     //world.add_object(std::make_shared<Player>(Player{{100, 100}, {100, 200}, 100, 100}));
 
     world.add_object(std::make_shared<Platform>(platform));
+    word.add_object(std::make_shared<Enemy>(enemy))
 
     bool closed{false};
 
