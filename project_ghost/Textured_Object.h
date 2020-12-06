@@ -8,10 +8,10 @@
 #include "Game_Object.h"
 #include "Texture_Manager.h"
 
-//In this file:
-//Textured_Object
-//Character
-//Platform
+// In this file:
+// Textured_Object
+// Character
+// Platform
 
 
 // Textured_Object Class
