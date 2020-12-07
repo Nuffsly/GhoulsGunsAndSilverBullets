@@ -5,7 +5,7 @@
 #include <SFML/Window.hpp>
 #include "Player.h"
 
-Player::Player(const sf::Vector2f &center, std::string const& texture_name, int health, int damage)
+Player::Player(sf::Vector2f center, std::string const& texture_name, int health, int damage)
     :Character{center, texture_name, health, damage}, weapon{center, "weapon.png", 1.0f, damage}
 {}
 

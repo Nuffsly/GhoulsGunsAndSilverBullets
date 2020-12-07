@@ -42,13 +42,13 @@ bool Enemy::update(const sf::Time &delta, World &world)
 void Enemy::move_enemy(const sf::Time &delta)
 {
     sf::Vector2f direction;
-    if (center.y > player_ptr->center.y)
+    if (center.y > player_ptr->center.y + 10)
         direction.y -= 1;
-    if(center.y < player_ptr->center.y)
+    if(center.y < player_ptr->center.y - 10)
         direction.y += 1;
-    if(center.x > player_ptr->center.x)
+    if(center.x > player_ptr->center.x + 10)
         direction.x -= 1;
-    if(center.x < player_ptr->center.x)
+    if(center.x < player_ptr->center.x - 10)
         direction.x += 1;
 
     float delta_in_seconds{delta.asMicroseconds() / 1000000.0f};
