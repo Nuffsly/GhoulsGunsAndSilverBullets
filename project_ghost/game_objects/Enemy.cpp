@@ -5,6 +5,8 @@
 // Money
 // Enemy
 
+#include <iostream>
+
 #include "Enemy.h"
 #include "../managers/World.h"
 
@@ -26,6 +28,15 @@ bool Enemy::update(const sf::Time &delta, World &world)
 {
     move_enemy(delta);
 
+    for (auto &collision : world.collides_with(*this))
+    {
+        if (dynamic_cast<Player *>(collision.get()))
+        {
+            std::cout << "collides" << std::endl;
+            set_position({0.0, 0.0});
+        }
+
+    }
     // check if dead
     /*if (get_health() <= 0)
     {

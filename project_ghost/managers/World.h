@@ -29,6 +29,10 @@ public:
 
     std::shared_ptr<Game_Object> get_player_ptr() const;
 
+    bool collides(Game_Object const& a, Game_Object const& b) const;
+
+    std::vector<std::shared_ptr<Game_Object>> collides_with(Game_Object &me) const;
+
 private:
     std::vector<std::shared_ptr<Game_Object>> game_objects;
 };

@@ -9,8 +9,7 @@
 
 
 Player::Player(sf::Vector2f center, std::string const& texture_name, int health, int damage)
-    :Character{center, texture_name, health, damage},
-    player_state{0}, jump_start{0.0}, jump_end{0.0}, jumped_time{0.0},
+    :Character{center, texture_name, health, damage}, player_state{2}, velocity{0},
     weapon{center, "weapon.png", 1.0f, damage}
 {}
 
@@ -56,7 +55,7 @@ void Player::move_player(sf::Time delta)
 
     const float low_clamp_x{get_size().x / 2};
 
-    const float high_clamp_x{1000.0f - (get_size().x / 2)};
+    const float high_clamp_x{1280.0f - (get_size().x / 2)};
 
     clamped_position.x = std::clamp(clamped_position.x, low_clamp_x, high_clamp_x);
 
@@ -66,13 +65,13 @@ void Player::move_player(sf::Time delta)
 
 void Player::jump(sf::Time delta)
 {
-    velocity = velocity - 2.5 * sqrtf(velocity) + 100 * delta.asSeconds();
+    velocity = velocity - 2.5f * sqrtf(velocity) + 100 * delta.asSeconds();
 
     Textured_Object::set_position({center.x, center.y - velocity * delta.asSeconds()});
     if (velocity < 80 )
     {
         player_state = 2;
-        velocity = 35;
+        velocity = 30;
     }
 }
 
@@ -81,7 +80,7 @@ void Player::fall(sf::Time delta)
     const float TERMINAL_V{1000};
     if (velocity < TERMINAL_V)
     {
-        velocity = velocity + pow(velocity, 2) * 0.002 + 200 * delta.asSeconds();
+        velocity = velocity + pow(velocity, 2) * 0.002f + 200 * delta.asSeconds();
     }
     else
     {

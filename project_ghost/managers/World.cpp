@@ -3,7 +3,7 @@
 //
 
 #include "World.h"
-
+#include <iostream>
 
 
 void World::tick(sf::Time delta)
@@ -44,3 +44,28 @@ std::shared_ptr<Game_Object> World::get_player_ptr() const
     return nullptr;
 }
 
+bool World::collides(Game_Object const& a, Game_Object const& b) const
+{
+    if(    (a.hitbox.x/2 + b.hitbox.x/2) > std::abs(a.center.x - b.center.x)
+        &&  (a.hitbox.y/2 + b.hitbox.y/2) > std::abs(a.center.y - b.center.y))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+std::vector<std::shared_ptr<Game_Object>> World::collides_with(Game_Object &me) const
+{
+    std::vector<std::shared_ptr<Game_Object>> result;
+    for (auto &object : game_objects)
+    {
+        if (object.get() != &me && collides(*object, me))
+        {
+            result.push_back(object);
+        }
+    }
+    return result;
+}

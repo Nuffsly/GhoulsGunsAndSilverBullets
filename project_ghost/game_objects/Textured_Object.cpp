@@ -16,6 +16,7 @@ Textured_Object::Textured_Object(sf::Vector2f const& center, std::string const& 
     shape.setTexture(texture);
     shape.setOrigin(size.x/2, size.y/2);
     shape.setPosition(center);
+    hitbox = size;
 }
 
 void Textured_Object::render(sf::RenderWindow &window)

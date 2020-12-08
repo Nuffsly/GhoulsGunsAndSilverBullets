@@ -5,15 +5,13 @@
 #include "game_objects/Enemy.h"
 
 // Global constants
-const int WIDTH{1000};
-const int HEIGHT{1000};
-
-void update(sf::RenderWindow &window);
+const int WIDTH{1280};
+const int HEIGHT{720};
 
 int main()
 {
     //Define our window
-    sf::RenderWindow window{sf::VideoMode(WIDTH, HEIGHT), "PROJECT: [G H 0 5 T]"};
+    sf::RenderWindow window{sf::VideoMode(WIDTH, HEIGHT), "PROJECT: [G H 0 5 T]", sf::Style::Fullscreen};
     window.setVerticalSyncEnabled(true);
     window.setKeyRepeatEnabled(false);
 
@@ -45,7 +43,12 @@ int main()
                     case sf::Event::Closed:
                         closed = true;
                         break;
-
+                    case sf::Event::KeyPressed:
+                        if (event.key.code == sf::Keyboard::Escape)
+                        {
+                            closed = true;
+                            break;
+                        }
                     default:
                         break;
                 }
