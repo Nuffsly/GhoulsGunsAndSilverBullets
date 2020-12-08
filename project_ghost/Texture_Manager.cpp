@@ -22,7 +22,7 @@ sf::Texture* Texture_Manager::get_texture(const std::string &name)
     }
 
     texture_storage.textures.insert(std::make_pair(name, std::unique_ptr<sf::Texture>(new_texture)));
-    return new_texture;
+    return texture_storage.textures.find(name)->second.get();
 }
 
 Texture_Manager Texture_Manager::texture_storage;

@@ -5,8 +5,10 @@
 #include "Enemy.h"
 
 // Global constants
-const int WIDTH{1280};
-const int HEIGHT{720};
+const int WIDTH{1000};
+const int HEIGHT{1000};
+
+void update(sf::RenderWindow &window);
 
 int main()
 {
@@ -15,14 +17,15 @@ int main()
     window.setVerticalSyncEnabled(true);
     window.setKeyRepeatEnabled(false);
 
-    //World world{};
+    World world{};
 
-    //Platform platform{{500, 350}, "white.png"};
+    Platform platform{{500, 150}, "white.png"};
+      world.add_object(std::shared_ptr<Game_Object>(new Player({500, 500}, "standing.png", 100, 100)));
 
-    //world.add_object(std::shared_ptr<Game_Object>(new Player({100, 100}, "standing.png", 100, 100)));
 
-    //world.add_object(std::make_shared<Platform>(platform));
-    //world.add_object(std::shared_ptr<Enemy>(new Enemy({0, 0}, "enemy.png", 100, 100, world.get_player_ptr())));
+    world.add_object(std::make_shared<Platform>(platform));
+    world.add_object(std::shared_ptr<Game_Object>(new Enemy({0, 0}, "enemy.png", 100, 100, world.get_player_ptr())));
+    world.add_object(std::shared_ptr<Game_Object>(new Enemy({500, 500}, "enemy.png", 100, 100, world.get_player_ptr())));
 
     bool closed{false};
 
@@ -33,7 +36,7 @@ int main()
         sf::Event event{};
 
         window.clear();
-        //world.tick(clock.restart());
+        world.tick(clock.restart());
         
         while (window.pollEvent(event))
             {
@@ -47,15 +50,17 @@ int main()
                         break;
                 }
             }
-        //world.render(window);
-        //platform.render(window);
-        sf::RectangleShape ff{{200,200}};
-        ff.setPosition(100,100);
-        window.draw(ff);
-        window.display();
+        world.render(window);
+        update(window);
 
     }
 
     return 0;
+}
+
+void update(sf::RenderWindow &window)
+{
+    //window.clear();
+    window.display();
 }
 

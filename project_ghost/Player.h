@@ -19,7 +19,13 @@ public:
 
 private:
     void move_player(sf::Time delta);
+    void jump(sf::Time delta);
+    void fall(sf::Time delta);
 
+    int player_state;
+    float jump_start;
+    float jump_end;
+    float jumped_time;
     Weapon weapon;
 };
 
