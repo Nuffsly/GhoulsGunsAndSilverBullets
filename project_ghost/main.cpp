@@ -19,19 +19,13 @@ int main()
 
     World world{};
 
-    Platform platform{{500, 350}, "white.png"};
-    //Player player{{100, 100}, "standing.png", 100, 100};
-    //auto player_ptr{std::make_shared<Player>(player)};
+    Platform platform{{500, 150}, "white.png"};
+      world.add_object(std::shared_ptr<Game_Object>(new Player({500, 500}, "standing.png", 100, 100)));
 
-    //Enemy enemy{{0, 0}, "white.png", 100, 100, player_ptr};
-    sf:
-
-    world.add_object(std::shared_ptr<Game_Object>(new Player({100, 100}, "standing.png", 100, 100)));
-
-    //world.add_object(std::make_shared<Player>(Player{{100, 100}, {100, 200}, 100, 100}));
 
     world.add_object(std::make_shared<Platform>(platform));
-    world.add_object(std::shared_ptr<Enemy>(new Enemy({0, 0}, "enemy.png", 100, 100, world.get_player_ptr())));
+    world.add_object(std::shared_ptr<Game_Object>(new Enemy({0, 0}, "enemy.png", 100, 100, world.get_player_ptr())));
+    world.add_object(std::shared_ptr<Game_Object>(new Enemy({500, 500}, "enemy.png", 100, 100, world.get_player_ptr())));
 
     bool closed{false};
 

@@ -3,10 +3,14 @@
 //
 
 #include <SFML/Window.hpp>
+
 #include "Player.h"
 
+
 Player::Player(sf::Vector2f center, std::string const& texture_name, int health, int damage)
-    :Character{center, texture_name, health, damage}, weapon{center, "weapon.png", 1.0f, damage}
+    :Character{center, texture_name, health, damage},
+    player_state{0}, jump_start{0.0}, jump_end{0.0}, jumped_time{0.0},
+    weapon{center, "weapon.png", 1.0f, damage}
 {}
 
 bool Player::update(const sf::Time &delta, World &world)
@@ -19,6 +23,26 @@ bool Player::update(const sf::Time &delta, World &world)
 
 void Player::move_player(sf::Time delta)
 {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+    {
+        if (player_state != 1 && player_state != 2) // if not falling or jumping
+        {
+            jump_start  = center.y;
+            jump_end    = center.y - 200; // number is jump height in pixels
+            player_state = 1; // jumping
+        }
+    }
+
+    if (player_state == 1)
+    {
+        jump(delta);
+    }
+
+    if ( player_state == 2 )
+    {
+        fall(delta);
+    }
+
     sf::Vector2f direction;
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         direction.y -= 1;
@@ -47,6 +71,32 @@ void Player::move_player(sf::Time delta)
 
     Textured_Object::set_position(clamped_position);
 
+}
+
+void Player::jump(sf::Time delta)
+{
+    if ( center.y - jump_end > 2 ) //if not at peak
+    {
+        jumped_time += delta.asSeconds();
+        float lerped_pos{jump_start + jumped_time * (jump_end - jump_start) };
+        Textured_Object::set_position({center.x, lerped_pos});
+    }
+    else
+    {
+        jump_start = 0.0;
+        jump_end = 0.0;
+        jumped_time = 0.0;
+        player_state = 2; //set falling
+    }
+}
+
+void Player::fall(sf::Time delta)
+{
+    Textured_Object::set_position({center.x, center.y+(500 * delta.asSeconds())});
+    if ( center.y > 600 ) // TEMP
+    {
+        player_state = 0;
+    }
 }
 
 void Player::render(sf::RenderWindow &window)
