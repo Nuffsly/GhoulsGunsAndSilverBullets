@@ -78,7 +78,7 @@ void Player::jump(sf::Time delta)
     if ( center.y - jump_end > 2 ) //if not at peak
     {
         jumped_time += delta.asSeconds();
-        float lerped_pos{jump_start + jumped_time * (jump_end - jump_start) };
+        float lerped_pos{jump_start + jumped_time * 2 * (jump_end - jump_start) };
         Textured_Object::set_position({center.x, lerped_pos});
     }
     else
@@ -92,7 +92,7 @@ void Player::jump(sf::Time delta)
 
 void Player::fall(sf::Time delta)
 {
-    Textured_Object::set_position({center.x, center.y+(500 * delta.asSeconds())});
+    Textured_Object::set_position({center.x, center.y+(700 * delta.asSeconds())});
     if ( center.y > 600 ) // TEMP
     {
         player_state = 0;
