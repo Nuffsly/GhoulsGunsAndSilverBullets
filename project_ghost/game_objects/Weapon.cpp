@@ -4,7 +4,7 @@
 
 #include "Weapon.h"
 #include <cmath>
-#include "World.h"
+#include "../managers/World.h"
 
 Weapon::Weapon(sf::Vector2f center, const std::string &texture_name, float fire_rate, int damage)
         :Textured_Object{center, texture_name}, fire_rate(fire_rate), damage(damage)

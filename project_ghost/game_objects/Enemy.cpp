@@ -6,7 +6,7 @@
 // Enemy
 
 #include "Enemy.h"
-#include "World.h"
+#include "../managers/World.h"
 
 Money::Money(const sf::Vector2f &center, const std::string &texture_name)
     :Textured_Object(center, texture_name)

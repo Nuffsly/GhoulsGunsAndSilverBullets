@@ -6,7 +6,7 @@
 #define MAIN_CPP_TEXTURED_OBJECT_H
 
 #include "Game_Object.h"
-#include "Texture_Manager.h"
+#include "../managers/Texture_Manager.h"
 
 // In this file:
 // Textured_Object

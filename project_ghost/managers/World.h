@@ -5,9 +5,9 @@
 #ifndef MAIN_CPP_WORLD_H
 #define MAIN_CPP_WORLD_H
 
-#include "Game_Object.h"
-#include "Textured_Object.h"
-#include "Player.h"
+#include "../game_objects/Game_Object.h"
+#include "../game_objects/Textured_Object.h"
+#include "../game_objects/Player.h"
 
 #include<SFML/Graphics.hpp>
 #include <vector>

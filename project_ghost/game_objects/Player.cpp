@@ -3,6 +3,7 @@
 //
 
 #include <SFML/Window.hpp>
+#include <cmath>
 
 #include "Player.h"
 

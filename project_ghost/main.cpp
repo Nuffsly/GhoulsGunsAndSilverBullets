@@ -1,8 +1,8 @@
 #include<SFML/Graphics.hpp>
-#include "Textured_Object.h"
-#include "Player.h"
-#include "World.h"
-#include "Enemy.h"
+#include "game_objects/Textured_Object.h"
+#include "game_objects/Player.h"
+#include "managers/World.h"
+#include "game_objects/Enemy.h"
 
 // Global constants
 const int WIDTH{1000};

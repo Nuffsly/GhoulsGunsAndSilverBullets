@@ -4,15 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/jimte/TDP005/project_ghost/Enemy.cpp" "/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/Enemy.cpp.o"
-  "/home/jimte/TDP005/project_ghost/Game_Object.cpp" "/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/Game_Object.cpp.o"
-  "/home/jimte/TDP005/project_ghost/Player.cpp" "/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/Player.cpp.o"
-  "/home/jimte/TDP005/project_ghost/State.cpp" "/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/State.cpp.o"
-  "/home/jimte/TDP005/project_ghost/Texture_Manager.cpp" "/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/Texture_Manager.cpp.o"
-  "/home/jimte/TDP005/project_ghost/Textured_Object.cpp" "/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/Textured_Object.cpp.o"
-  "/home/jimte/TDP005/project_ghost/Weapon.cpp" "/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/Weapon.cpp.o"
-  "/home/jimte/TDP005/project_ghost/World.cpp" "/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/World.cpp.o"
-  "/home/jimte/TDP005/project_ghost/main.cpp" "/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/main.cpp.o"
+  "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/game_objects/Enemy.cpp" "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/game_objects/Enemy.cpp.o"
+  "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/game_objects/Game_Object.cpp" "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/game_objects/Game_Object.cpp.o"
+  "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/game_objects/Player.cpp" "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/game_objects/Player.cpp.o"
+  "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/game_objects/Textured_Object.cpp" "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/game_objects/Textured_Object.cpp.o"
+  "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/game_objects/Weapon.cpp" "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/game_objects/Weapon.cpp.o"
+  "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/main.cpp" "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/main.cpp.o"
+  "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/managers/Texture_Manager.cpp" "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/managers/Texture_Manager.cpp.o"
+  "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/managers/World.cpp" "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/managers/World.cpp.o"
+  "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/states/State.cpp" "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/states/State.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

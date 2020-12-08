@@ -59,19 +59,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/jimte/clion/clion-2020.2.5/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/137/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/jimte/clion/clion-2020.2.5/bin/cmake/linux/bin/cmake -E rm -f
+RM = /snap/clion/137/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jimte/TDP005/project_ghost
+CMAKE_SOURCE_DIR = /home/marku849/Projects/TDP005/tdp005-backup/project_ghost
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jimte/TDP005/project_ghost/cmake-build-debug
+CMAKE_BINARY_DIR = /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,7 +79,7 @@ CMAKE_BINARY_DIR = /home/jimte/TDP005/project_ghost/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/jimte/clion/clion-2020.2.5/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/snap/clion/137/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -90,7 +90,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/jimte/clion/clion-2020.2.5/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/snap/clion/137/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -100,9 +100,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles /home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -143,221 +143,140 @@ project_ghost/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/build
 .PHONY : project_ghost/fast
 
-Enemy.o: Enemy.cpp.o
+game_objects/Enemy.o: game_objects/Enemy.cpp.o
 
-.PHONY : Enemy.o
-
-# target to build an object file
-Enemy.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Enemy.cpp.o
-.PHONY : Enemy.cpp.o
-
-Enemy.i: Enemy.cpp.i
-
-.PHONY : Enemy.i
-
-# target to preprocess a source file
-Enemy.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Enemy.cpp.i
-.PHONY : Enemy.cpp.i
-
-Enemy.s: Enemy.cpp.s
-
-.PHONY : Enemy.s
-
-# target to generate assembly for a file
-Enemy.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Enemy.cpp.s
-.PHONY : Enemy.cpp.s
-
-Game_Object.o: Game_Object.cpp.o
-
-.PHONY : Game_Object.o
+.PHONY : game_objects/Enemy.o
 
 # target to build an object file
-Game_Object.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Game_Object.cpp.o
-.PHONY : Game_Object.cpp.o
+game_objects/Enemy.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/game_objects/Enemy.cpp.o
+.PHONY : game_objects/Enemy.cpp.o
 
-Game_Object.i: Game_Object.cpp.i
+game_objects/Enemy.i: game_objects/Enemy.cpp.i
 
-.PHONY : Game_Object.i
+.PHONY : game_objects/Enemy.i
 
 # target to preprocess a source file
-Game_Object.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Game_Object.cpp.i
-.PHONY : Game_Object.cpp.i
+game_objects/Enemy.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/game_objects/Enemy.cpp.i
+.PHONY : game_objects/Enemy.cpp.i
 
-Game_Object.s: Game_Object.cpp.s
+game_objects/Enemy.s: game_objects/Enemy.cpp.s
 
-.PHONY : Game_Object.s
+.PHONY : game_objects/Enemy.s
 
 # target to generate assembly for a file
-Game_Object.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Game_Object.cpp.s
-.PHONY : Game_Object.cpp.s
+game_objects/Enemy.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/game_objects/Enemy.cpp.s
+.PHONY : game_objects/Enemy.cpp.s
 
-Player.o: Player.cpp.o
+game_objects/Game_Object.o: game_objects/Game_Object.cpp.o
 
-.PHONY : Player.o
+.PHONY : game_objects/Game_Object.o
 
 # target to build an object file
-Player.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Player.cpp.o
-.PHONY : Player.cpp.o
+game_objects/Game_Object.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/game_objects/Game_Object.cpp.o
+.PHONY : game_objects/Game_Object.cpp.o
 
-Player.i: Player.cpp.i
+game_objects/Game_Object.i: game_objects/Game_Object.cpp.i
 
-.PHONY : Player.i
+.PHONY : game_objects/Game_Object.i
 
 # target to preprocess a source file
-Player.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Player.cpp.i
-.PHONY : Player.cpp.i
+game_objects/Game_Object.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/game_objects/Game_Object.cpp.i
+.PHONY : game_objects/Game_Object.cpp.i
 
-Player.s: Player.cpp.s
+game_objects/Game_Object.s: game_objects/Game_Object.cpp.s
 
-.PHONY : Player.s
+.PHONY : game_objects/Game_Object.s
 
 # target to generate assembly for a file
-Player.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Player.cpp.s
-.PHONY : Player.cpp.s
+game_objects/Game_Object.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/game_objects/Game_Object.cpp.s
+.PHONY : game_objects/Game_Object.cpp.s
 
-State.o: State.cpp.o
+game_objects/Player.o: game_objects/Player.cpp.o
 
-.PHONY : State.o
+.PHONY : game_objects/Player.o
 
 # target to build an object file
-State.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/State.cpp.o
-.PHONY : State.cpp.o
+game_objects/Player.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/game_objects/Player.cpp.o
+.PHONY : game_objects/Player.cpp.o
 
-State.i: State.cpp.i
+game_objects/Player.i: game_objects/Player.cpp.i
 
-.PHONY : State.i
+.PHONY : game_objects/Player.i
 
 # target to preprocess a source file
-State.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/State.cpp.i
-.PHONY : State.cpp.i
+game_objects/Player.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/game_objects/Player.cpp.i
+.PHONY : game_objects/Player.cpp.i
 
-State.s: State.cpp.s
+game_objects/Player.s: game_objects/Player.cpp.s
 
-.PHONY : State.s
+.PHONY : game_objects/Player.s
 
 # target to generate assembly for a file
-State.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/State.cpp.s
-.PHONY : State.cpp.s
+game_objects/Player.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/game_objects/Player.cpp.s
+.PHONY : game_objects/Player.cpp.s
 
-Texture_Manager.o: Texture_Manager.cpp.o
+game_objects/Textured_Object.o: game_objects/Textured_Object.cpp.o
 
-.PHONY : Texture_Manager.o
+.PHONY : game_objects/Textured_Object.o
 
 # target to build an object file
-Texture_Manager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Texture_Manager.cpp.o
-.PHONY : Texture_Manager.cpp.o
+game_objects/Textured_Object.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/game_objects/Textured_Object.cpp.o
+.PHONY : game_objects/Textured_Object.cpp.o
 
-Texture_Manager.i: Texture_Manager.cpp.i
+game_objects/Textured_Object.i: game_objects/Textured_Object.cpp.i
 
-.PHONY : Texture_Manager.i
+.PHONY : game_objects/Textured_Object.i
 
 # target to preprocess a source file
-Texture_Manager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Texture_Manager.cpp.i
-.PHONY : Texture_Manager.cpp.i
+game_objects/Textured_Object.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/game_objects/Textured_Object.cpp.i
+.PHONY : game_objects/Textured_Object.cpp.i
 
-Texture_Manager.s: Texture_Manager.cpp.s
+game_objects/Textured_Object.s: game_objects/Textured_Object.cpp.s
 
-.PHONY : Texture_Manager.s
+.PHONY : game_objects/Textured_Object.s
 
 # target to generate assembly for a file
-Texture_Manager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Texture_Manager.cpp.s
-.PHONY : Texture_Manager.cpp.s
+game_objects/Textured_Object.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/game_objects/Textured_Object.cpp.s
+.PHONY : game_objects/Textured_Object.cpp.s
 
-Textured_Object.o: Textured_Object.cpp.o
+game_objects/Weapon.o: game_objects/Weapon.cpp.o
 
-.PHONY : Textured_Object.o
+.PHONY : game_objects/Weapon.o
 
 # target to build an object file
-Textured_Object.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Textured_Object.cpp.o
-.PHONY : Textured_Object.cpp.o
+game_objects/Weapon.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/game_objects/Weapon.cpp.o
+.PHONY : game_objects/Weapon.cpp.o
 
-Textured_Object.i: Textured_Object.cpp.i
+game_objects/Weapon.i: game_objects/Weapon.cpp.i
 
-.PHONY : Textured_Object.i
-
-# target to preprocess a source file
-Textured_Object.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Textured_Object.cpp.i
-.PHONY : Textured_Object.cpp.i
-
-Textured_Object.s: Textured_Object.cpp.s
-
-.PHONY : Textured_Object.s
-
-# target to generate assembly for a file
-Textured_Object.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Textured_Object.cpp.s
-.PHONY : Textured_Object.cpp.s
-
-Weapon.o: Weapon.cpp.o
-
-.PHONY : Weapon.o
-
-# target to build an object file
-Weapon.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Weapon.cpp.o
-.PHONY : Weapon.cpp.o
-
-Weapon.i: Weapon.cpp.i
-
-.PHONY : Weapon.i
+.PHONY : game_objects/Weapon.i
 
 # target to preprocess a source file
-Weapon.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Weapon.cpp.i
-.PHONY : Weapon.cpp.i
+game_objects/Weapon.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/game_objects/Weapon.cpp.i
+.PHONY : game_objects/Weapon.cpp.i
 
-Weapon.s: Weapon.cpp.s
+game_objects/Weapon.s: game_objects/Weapon.cpp.s
 
-.PHONY : Weapon.s
-
-# target to generate assembly for a file
-Weapon.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/Weapon.cpp.s
-.PHONY : Weapon.cpp.s
-
-World.o: World.cpp.o
-
-.PHONY : World.o
-
-# target to build an object file
-World.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/World.cpp.o
-.PHONY : World.cpp.o
-
-World.i: World.cpp.i
-
-.PHONY : World.i
-
-# target to preprocess a source file
-World.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/World.cpp.i
-.PHONY : World.cpp.i
-
-World.s: World.cpp.s
-
-.PHONY : World.s
+.PHONY : game_objects/Weapon.s
 
 # target to generate assembly for a file
-World.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/World.cpp.s
-.PHONY : World.cpp.s
+game_objects/Weapon.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/game_objects/Weapon.cpp.s
+.PHONY : game_objects/Weapon.cpp.s
 
 main.o: main.cpp.o
 
@@ -386,6 +305,87 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+managers/Texture_Manager.o: managers/Texture_Manager.cpp.o
+
+.PHONY : managers/Texture_Manager.o
+
+# target to build an object file
+managers/Texture_Manager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/managers/Texture_Manager.cpp.o
+.PHONY : managers/Texture_Manager.cpp.o
+
+managers/Texture_Manager.i: managers/Texture_Manager.cpp.i
+
+.PHONY : managers/Texture_Manager.i
+
+# target to preprocess a source file
+managers/Texture_Manager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/managers/Texture_Manager.cpp.i
+.PHONY : managers/Texture_Manager.cpp.i
+
+managers/Texture_Manager.s: managers/Texture_Manager.cpp.s
+
+.PHONY : managers/Texture_Manager.s
+
+# target to generate assembly for a file
+managers/Texture_Manager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/managers/Texture_Manager.cpp.s
+.PHONY : managers/Texture_Manager.cpp.s
+
+managers/World.o: managers/World.cpp.o
+
+.PHONY : managers/World.o
+
+# target to build an object file
+managers/World.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/managers/World.cpp.o
+.PHONY : managers/World.cpp.o
+
+managers/World.i: managers/World.cpp.i
+
+.PHONY : managers/World.i
+
+# target to preprocess a source file
+managers/World.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/managers/World.cpp.i
+.PHONY : managers/World.cpp.i
+
+managers/World.s: managers/World.cpp.s
+
+.PHONY : managers/World.s
+
+# target to generate assembly for a file
+managers/World.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/managers/World.cpp.s
+.PHONY : managers/World.cpp.s
+
+states/State.o: states/State.cpp.o
+
+.PHONY : states/State.o
+
+# target to build an object file
+states/State.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/states/State.cpp.o
+.PHONY : states/State.cpp.o
+
+states/State.i: states/State.cpp.i
+
+.PHONY : states/State.i
+
+# target to preprocess a source file
+states/State.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/states/State.cpp.i
+.PHONY : states/State.cpp.i
+
+states/State.s: states/State.cpp.s
+
+.PHONY : states/State.s
+
+# target to generate assembly for a file
+states/State.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/states/State.cpp.s
+.PHONY : states/State.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -395,33 +395,33 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... project_ghost"
-	@echo "... Enemy.o"
-	@echo "... Enemy.i"
-	@echo "... Enemy.s"
-	@echo "... Game_Object.o"
-	@echo "... Game_Object.i"
-	@echo "... Game_Object.s"
-	@echo "... Player.o"
-	@echo "... Player.i"
-	@echo "... Player.s"
-	@echo "... State.o"
-	@echo "... State.i"
-	@echo "... State.s"
-	@echo "... Texture_Manager.o"
-	@echo "... Texture_Manager.i"
-	@echo "... Texture_Manager.s"
-	@echo "... Textured_Object.o"
-	@echo "... Textured_Object.i"
-	@echo "... Textured_Object.s"
-	@echo "... Weapon.o"
-	@echo "... Weapon.i"
-	@echo "... Weapon.s"
-	@echo "... World.o"
-	@echo "... World.i"
-	@echo "... World.s"
+	@echo "... game_objects/Enemy.o"
+	@echo "... game_objects/Enemy.i"
+	@echo "... game_objects/Enemy.s"
+	@echo "... game_objects/Game_Object.o"
+	@echo "... game_objects/Game_Object.i"
+	@echo "... game_objects/Game_Object.s"
+	@echo "... game_objects/Player.o"
+	@echo "... game_objects/Player.i"
+	@echo "... game_objects/Player.s"
+	@echo "... game_objects/Textured_Object.o"
+	@echo "... game_objects/Textured_Object.i"
+	@echo "... game_objects/Textured_Object.s"
+	@echo "... game_objects/Weapon.o"
+	@echo "... game_objects/Weapon.i"
+	@echo "... game_objects/Weapon.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... managers/Texture_Manager.o"
+	@echo "... managers/Texture_Manager.i"
+	@echo "... managers/Texture_Manager.s"
+	@echo "... managers/World.o"
+	@echo "... managers/World.i"
+	@echo "... managers/World.s"
+	@echo "... states/State.o"
+	@echo "... states/State.i"
+	@echo "... states/State.s"
 .PHONY : help
 
 
