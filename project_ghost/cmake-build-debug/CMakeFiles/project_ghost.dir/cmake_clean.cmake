@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/project_ghost.dir/Enemy.cpp.o"
   "CMakeFiles/project_ghost.dir/Game_Object.cpp.o"
   "CMakeFiles/project_ghost.dir/Player.cpp.o"
+  "CMakeFiles/project_ghost.dir/State.cpp.o"
   "CMakeFiles/project_ghost.dir/Texture_Manager.cpp.o"
   "CMakeFiles/project_ghost.dir/Textured_Object.cpp.o"
   "CMakeFiles/project_ghost.dir/Weapon.cpp.o"

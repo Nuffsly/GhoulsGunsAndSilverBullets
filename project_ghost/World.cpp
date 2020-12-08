@@ -4,6 +4,8 @@
 
 #include "World.h"
 
+
+
 void World::tick(sf::Time delta)
 {
     for (size_t i = 0; i < game_objects.size(); i++)
@@ -41,3 +43,4 @@ std::shared_ptr<Game_Object> World::get_player_ptr() const
         }
     return nullptr;
 }
+

@@ -17,6 +17,8 @@
 class World
 {
 public:
+    //~World();
+
     void tick(sf::Time);
 
     void render(sf::RenderWindow &window);

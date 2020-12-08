@@ -37,7 +37,7 @@ if (NOT (${SFML_FOUND} STREQUAL "TRUE"))
 endif()
 
 # Ange källfiler, lägg till de filer som ni behöver!
-set(SOURCE_FILES main.cpp Game_Object.cpp Game_Object.h Textured_Object.cpp Textured_Object.h Player.cpp Player.h World.cpp World.h Texture_Manager.cpp Texture_Manager.h Enemy.cpp Enemy.h Weapon.cpp Weapon.h)
+set(SOURCE_FILES main.cpp Game_Object.cpp Game_Object.h Textured_Object.cpp Textured_Object.h Player.cpp Player.h World.cpp World.h Texture_Manager.cpp Texture_Manager.h Enemy.cpp Enemy.h Weapon.cpp Weapon.h State.cpp State.h)
 
 # Säg till CMake att skapa en körbar fil som heter 'project_ghost'.
 add_executable(project_ghost ${SOURCE_FILES})

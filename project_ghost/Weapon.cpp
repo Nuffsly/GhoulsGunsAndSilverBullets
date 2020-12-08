@@ -14,7 +14,7 @@ Weapon::Weapon(sf::Vector2f center, const std::string &texture_name, float fire_
 
 bool Weapon::update(sf::Time const& delta, World &world)
 {
-    const float PI{3.141592653589793238462643383279502884};
+    const float PI{M_PI};
 
     sf::Vector2f weapon_pos{center};
     shape.setPosition(center);

@@ -51,16 +51,9 @@ int main()
                 }
             }
         world.render(window);
-        update(window);
+        window.display();
 
     }
 
     return 0;
 }
-
-void update(sf::RenderWindow &window)
-{
-    //window.clear();
-    window.display();
-}
-
