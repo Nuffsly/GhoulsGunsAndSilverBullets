@@ -26,6 +26,7 @@ private:
     float jump_start;
     float jump_end;
     float jumped_time;
+    float velocity;
     Weapon weapon;
 };
 

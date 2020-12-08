@@ -28,27 +28,20 @@ void Player::move_player(sf::Time delta)
     {
         if (player_state != 1 && player_state != 2) // if not falling or jumping
         {
-            jump_start  = center.y;
-            jump_end    = center.y - 200; // number is jump height in pixels
+            velocity = 2000;
             player_state = 1; // jumping
         }
     }
-
     if (player_state == 1)
     {
         jump(delta);
     }
-
     if ( player_state == 2 )
     {
         fall(delta);
     }
 
     sf::Vector2f direction;
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-        direction.y -= 1;
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-        direction.y += 1;
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         direction.x -= 1;
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
@@ -62,13 +55,10 @@ void Player::move_player(sf::Time delta)
     sf::Vector2f clamped_position{Textured_Object::get_position() + movement};
 
     const float low_clamp_x{get_size().x / 2};
-    const float low_clamp_y{get_size().y / 2};
 
     const float high_clamp_x{1000.0f - (get_size().x / 2)};
-    const float high_clamp_y{1000.0f - (get_size().y / 2)};
 
     clamped_position.x = std::clamp(clamped_position.x, low_clamp_x, high_clamp_x);
-    clamped_position.y = std::clamp(clamped_position.y, low_clamp_y, high_clamp_y);
 
     Textured_Object::set_position(clamped_position);
 
@@ -76,27 +66,32 @@ void Player::move_player(sf::Time delta)
 
 void Player::jump(sf::Time delta)
 {
-    if ( center.y - jump_end > 2 ) //if not at peak
+    velocity = velocity - 2.5 * sqrtf(velocity) + 100 * delta.asSeconds();
+
+    Textured_Object::set_position({center.x, center.y - velocity * delta.asSeconds()});
+    if (velocity < 80 )
     {
-        jumped_time += delta.asSeconds();
-        float lerped_pos{jump_start + jumped_time * 2 * (jump_end - jump_start) };
-        Textured_Object::set_position({center.x, lerped_pos});
-    }
-    else
-    {
-        jump_start = 0.0;
-        jump_end = 0.0;
-        jumped_time = 0.0;
-        player_state = 2; //set falling
+        player_state = 2;
+        velocity = 35;
     }
 }
 
 void Player::fall(sf::Time delta)
 {
-    Textured_Object::set_position({center.x, center.y+(700 * delta.asSeconds())});
-    if ( center.y > 600 ) // TEMP
+    const float TERMINAL_V{1000};
+    if (velocity < TERMINAL_V)
+    {
+        velocity = velocity + pow(velocity, 2) * 0.002 + 200 * delta.asSeconds();
+    }
+    else
+    {
+        velocity = TERMINAL_V;
+    }
+    Textured_Object::set_position({center.x, center.y + velocity * delta.asSeconds()});
+    if ( center.y > 600 ) // TEMP - will check collision with platforms
     {
         player_state = 0;
+        velocity = 0;
     }
 }
 
