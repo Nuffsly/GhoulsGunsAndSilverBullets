@@ -4,6 +4,7 @@
 
 #include <SFML/Window.hpp>
 #include <cmath>
+#include <iostream>
 
 #include "Player.h"
 
@@ -23,15 +24,19 @@ float ease_out_expo(float in_f)
 }
 
 Player::Player(sf::Vector2f center, std::string const& texture_name, int health, int damage)
-    :Character{center, texture_name, health, damage}, player_state{2}, velocity{0},
+    :Character{center, texture_name, health, damage}, player_state{2}, duration{0.0}, jump_start{0.0},
     weapon{center, "weapon.png", 1.0f, damage}
 {}
 
 bool Player::update(const sf::Time &delta, World &world)
 {
     move_player(delta);
+
     weapon.set_position(center);
     weapon.update(delta, world);
+
+    handle_collision(world);
+
     return true;
 }
 
@@ -75,6 +80,31 @@ void Player::move_player(sf::Time delta)
 
     Textured_Object::set_position(clamped_position);
 
+}
+
+void Player::handle_collision(World &world)
+{
+    for (auto &collision : world.collides_with(*this))
+    {
+        if (dynamic_cast<Platform *>(collision.get()))
+        {
+            float player_bottom_edge{center.y + shape.getSize().y / 2};
+            float platform_top_edge{collision->center.y - collision->hitbox.y / 2};
+            const float MARGIN {30};
+
+            if ( player_state == 2 // falling
+                && player_bottom_edge > platform_top_edge
+                &&  player_bottom_edge < platform_top_edge + MARGIN)
+            {
+                player_state = 0;
+
+                set_position({center.x, platform_top_edge - shape.getSize().y/2});
+                duration = 0;
+                jump_start = 0;
+            }
+        }
+
+    }
 }
 
 void Player::jump(sf::Time delta)

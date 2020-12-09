@@ -37,7 +37,7 @@ bool Enemy::update(const sf::Time &delta, World &world)
 
     }
     // check if dead
-    /*if (get_health() <= 0)
+    if (get_health() <= 0)
     {
         drop_money(world);
         return false; // tells word to remove this object
@@ -45,8 +45,7 @@ bool Enemy::update(const sf::Time &delta, World &world)
     else
         {
             return true;
-        }*/
-    return true;
+        }
 }
 
 void Enemy::move_enemy(const sf::Time &delta)
