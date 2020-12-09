@@ -7,9 +7,14 @@
 
 #include "Player.h"
 
-float lerp(float const a, float const b, float const x)
+float lerp(float const a, float const b, float const t)
 {
-    return ( a + (b - a) * x);
+    return ( a + (b - a) * t);
+}
+
+float flip(float const x)
+{
+    return 1-x;
 }
 
 float ease_out_expo(float in_f)
@@ -36,8 +41,8 @@ void Player::move_player(sf::Time delta)
     {
         if (player_state != 1 && player_state != 2) // if not falling or jumping
         {
-            velocity = 3000;
             player_state = 1; // jumping
+            jump_start = center.y;
         }
     }
     if (player_state == 1)
@@ -74,32 +79,49 @@ void Player::move_player(sf::Time delta)
 
 void Player::jump(sf::Time delta)
 {
-    velocity -= sqrtf(velocity);
+    const float JUMP_HEIGHT{200};
+    const float JUMP_DURATION_AS_SEC{0.5};
 
-    Textured_Object::set_position({center.x, center.y - (velocity * delta.asSeconds())});
-    if (velocity < 10 )
+    duration += delta.asSeconds();
+
+    float progress{duration / JUMP_DURATION_AS_SEC};
+
+    progress = flip(powf(flip(progress), 2));
+
+    float movement{lerp(0.0f, JUMP_HEIGHT, progress)};
+
+    set_position({center.x, jump_start-movement});
+
+    if (duration >= JUMP_DURATION_AS_SEC)
     {
+        duration = 0;
         player_state = 2;
-        velocity = 30;
     }
+
 }
 
 void Player::fall(sf::Time delta)
 {
-    const float TERMINAL_V{1000};
-    if (velocity < TERMINAL_V)
+    const float FALL_HEIGHT{100};
+    const float FALL_DURATION_AS_SEC{0.7};
+
+    if ( duration < FALL_DURATION_AS_SEC)
     {
-        velocity = velocity + pow(velocity, 2) * 0.002f + 200 * delta.asSeconds();
+        duration += delta.asSeconds();
     }
-    else
+
+    float progress{duration / FALL_DURATION_AS_SEC};
+
+    progress = powf(progress, 2);
+
+    float movement{lerp(0.0f, FALL_HEIGHT, progress)};
+
+    set_position({center.x, center.y+movement});
+
+    if (center.y > 600)
     {
-        velocity = TERMINAL_V;
-    }
-    Textured_Object::set_position({center.x, center.y + velocity * delta.asSeconds()});
-    if ( center.y > 600 ) // TEMP - will check collision with platforms
-    {
+        duration = 0;
         player_state = 0;
-        velocity = 0;
     }
 }
 

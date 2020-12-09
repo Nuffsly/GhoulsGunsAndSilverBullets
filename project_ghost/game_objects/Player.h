@@ -23,7 +23,8 @@ private:
     void fall(sf::Time delta);
 
     int player_state;
-    float velocity;
+    float duration;
+    float jump_start;
 
     Weapon weapon;
 };
