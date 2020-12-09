@@ -1,3 +1,3 @@
-/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir
+/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir

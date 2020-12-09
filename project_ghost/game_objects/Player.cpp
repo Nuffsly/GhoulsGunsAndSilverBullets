@@ -7,6 +7,15 @@
 
 #include "Player.h"
 
+float lerp(float const a, float const b, float const x)
+{
+    return ( a + (b - a) * x);
+}
+
+float ease_out_expo(float in_f)
+{
+    return 1 - pow(-10*in_f, 2);
+}
 
 Player::Player(sf::Vector2f center, std::string const& texture_name, int health, int damage)
     :Character{center, texture_name, health, damage}, player_state{2}, velocity{0},
