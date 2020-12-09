@@ -32,7 +32,6 @@ bool Enemy::update(const sf::Time &delta, World &world)
     {
         if (dynamic_cast<Player *>(collision.get()))
         {
-            std::cout << "collides" << std::endl;
             set_position({0.0, 0.0});
         }
 

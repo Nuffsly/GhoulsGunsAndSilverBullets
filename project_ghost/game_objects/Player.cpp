@@ -36,7 +36,7 @@ void Player::move_player(sf::Time delta)
     {
         if (player_state != 1 && player_state != 2) // if not falling or jumping
         {
-            velocity = 2000;
+            velocity = 3000;
             player_state = 1; // jumping
         }
     }
@@ -74,10 +74,10 @@ void Player::move_player(sf::Time delta)
 
 void Player::jump(sf::Time delta)
 {
-    velocity = velocity - 2.5f * sqrtf(velocity) + 100 * delta.asSeconds();
+    velocity -= sqrtf(velocity);
 
-    Textured_Object::set_position({center.x, center.y - velocity * delta.asSeconds()});
-    if (velocity < 80 )
+    Textured_Object::set_position({center.x, center.y - (velocity * delta.asSeconds())});
+    if (velocity < 10 )
     {
         player_state = 2;
         velocity = 30;
