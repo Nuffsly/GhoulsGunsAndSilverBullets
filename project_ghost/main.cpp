@@ -21,12 +21,12 @@ int main()
     //Platform platform{{500, 650}, "white.png"};
     world.add_object(std::shared_ptr<Game_Object>(new Player({500, 500}, "standing.png", 100, 100)));
 
-    world.add_object(std::shared_ptr<Platform>(new Platform({1000, 450}, "white.png")));
+    world.add_object(std::shared_ptr<Platform>(new Platform({700, 230}, "white.png")));
     world.add_object(std::shared_ptr<Platform>(new Platform({700, 450}, "white.png")));
     world.add_object(std::shared_ptr<Platform>(new Platform({200, 550}, "white.png")));
     world.add_object(std::shared_ptr<Platform>(new Platform({500, 650}, "white.png")));
-    world.add_object(std::shared_ptr<Game_Object>(new Enemy({0, 0}, "enemy.png", 100, 100, world.get_player_ptr())));
-    world.add_object(std::shared_ptr<Game_Object>(new Enemy({1000, 0}, "enemy.png", 100, 100, world.get_player_ptr())));
+    //world.add_object(std::shared_ptr<Game_Object>(new Enemy({0, 0}, "enemy.png", 100, 100, world.get_player_ptr())));
+    //world.add_object(std::shared_ptr<Game_Object>(new Enemy({1000, 0}, "enemy.png", 100, 100, world.get_player_ptr())));
 
     bool closed{false};
 
