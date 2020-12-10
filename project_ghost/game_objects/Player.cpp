@@ -132,26 +132,35 @@ void Player::jump(sf::Time delta)
 
 void Player::fall(sf::Time delta)
 {
-    const float FALL_HEIGHT{100};
-    const float FALL_DURATION_AS_SEC{0.7};
+    float terminal_v{800};
+    const float FALL_DURATION_AS_SEC{0.4};
 
-    if ( duration < FALL_DURATION_AS_SEC)
+    if (duration < FALL_DURATION_AS_SEC)
     {
         duration += delta.asSeconds();
+        float progress{duration / FALL_DURATION_AS_SEC};
+        progress = powf(progress, 2);
+
+        float movement{lerp(0.0f, terminal_v, progress)};
+
+        set_position({center.x, center.y + movement * delta.asSeconds()});
+    }
+    else
+    {
+        if( sf::Keyboard::isKeyPressed(sf::Keyboard::Down)
+        ||  sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+        {
+            terminal_v = 1250;
+        }
+        set_position({ center.x,
+                       center.y + (terminal_v * delta.asSeconds()) });
     }
 
-    float progress{duration / FALL_DURATION_AS_SEC};
-
-    progress = powf(progress, 2);
-
-    float movement{lerp(0.0f, FALL_HEIGHT, progress)};
-
-    set_position({center.x, center.y+movement});
-
-    if (center.y > 600)
+    if (center.y > 610) //TEMP(?)
     {
         duration = 0;
         player_state = 0;
+        set_position({center.x, 610.0f});
     }
 }
 
