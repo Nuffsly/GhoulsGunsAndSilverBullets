@@ -31,6 +31,7 @@ public:
           int health, int damage, std::shared_ptr<Game_Object> player_ptr);
 
     bool update(const sf::Time &delta, World &world) override;
+
 private:
     std::shared_ptr<Game_Object> player_ptr;
 

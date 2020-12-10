@@ -14,6 +14,8 @@ public:
     Projectile(sf::Vector2f center, std::string const& texture_name, int damage, float direction);
 
     bool update(sf::Time const& delta, World &world) override;
+    bool handle_collision(World &world);
+    void handle_movement(sf::Time const& delta, World &world);
 
     int get_damage() const
     {
