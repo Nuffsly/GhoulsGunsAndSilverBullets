@@ -102,7 +102,7 @@ void Player::handle_collision(World &world)
 
         if (dynamic_cast<Enemy *>(collision.get()))
         {
-            take_damage();
+            take_damage(dynamic_cast<Enemy *>(collision.get())->get_damage());
         }
     }
     if ( player_state == 0 && off_platform )

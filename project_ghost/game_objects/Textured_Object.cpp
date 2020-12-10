@@ -57,6 +57,11 @@ void Character::take_damage(const int damage_taken)
     health -= damage_taken;
 }
 
+int Character::get_damage() const
+{
+    return damage;
+}
+
 
 //Platform
 

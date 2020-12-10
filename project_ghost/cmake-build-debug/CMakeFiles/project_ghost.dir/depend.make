@@ -13,6 +13,7 @@ CMakeFiles/project_ghost.dir/game_objects/Enemy.cpp.o: ../managers/World.h
 CMakeFiles/project_ghost.dir/game_objects/Game_Object.cpp.o: ../game_objects/Game_Object.cpp
 CMakeFiles/project_ghost.dir/game_objects/Game_Object.cpp.o: ../game_objects/Game_Object.h
 
+CMakeFiles/project_ghost.dir/game_objects/Player.cpp.o: ../game_objects/Enemy.h
 CMakeFiles/project_ghost.dir/game_objects/Player.cpp.o: ../game_objects/Game_Object.h
 CMakeFiles/project_ghost.dir/game_objects/Player.cpp.o: ../game_objects/Player.cpp
 CMakeFiles/project_ghost.dir/game_objects/Player.cpp.o: ../game_objects/Player.h

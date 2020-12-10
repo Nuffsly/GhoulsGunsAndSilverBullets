@@ -39,6 +39,7 @@ public:
 
     int get_health() const;
     void take_damage(int damage_taken);
+    int get_damage() const;
 
 private:
     int health;
