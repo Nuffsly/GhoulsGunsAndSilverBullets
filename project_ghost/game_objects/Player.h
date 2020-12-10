@@ -25,8 +25,13 @@ private:
     void handle_collision(World &world);
 
     int player_state;
+    bool off_platform;
     float duration;
     float jump_start;
+
+    bool jump_pressed;
+    int jump_count;
+    const int MAX_JUMPS;
 
     Weapon weapon;
 };

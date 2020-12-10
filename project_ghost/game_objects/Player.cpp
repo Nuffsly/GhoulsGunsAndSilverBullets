@@ -18,14 +18,12 @@ float flip(float const x)
     return 1-x;
 }
 
-float ease_out_expo(float in_f)
-{
-    return 1 - pow(-10*in_f, 2);
-}
 
 Player::Player(sf::Vector2f center, std::string const& texture_name, int health, int damage)
-    :Character{center, texture_name, health, damage}, player_state{2}, duration{0.0}, jump_start{0.0},
-    weapon{center, "weapon.png", 1.0f, damage}
+    : Character{center, texture_name, health, damage},
+      player_state{2}, off_platform{false}, duration{0.0}, jump_start{0.0},
+      jump_count{1}, MAX_JUMPS{1},
+      weapon{center, "weapon.png", 1.0f, damage}
 {}
 
 bool Player::update(const sf::Time &delta, World &world)
@@ -42,14 +40,22 @@ bool Player::update(const sf::Time &delta, World &world)
 
 void Player::move_player(sf::Time delta)
 {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+    if ( sf::Keyboard::isKeyPressed(sf::Keyboard::Space ) && !jump_pressed)
     {
-        if (player_state != 1 && player_state != 2) // if not falling or jumping
+        jump_pressed = true;
+        if (jump_count > 0)
         {
             player_state = 1; // jumping
             jump_start = center.y;
+            jump_count--;
+            duration = 0;
         }
     }
+    if ( ! sf::Keyboard::isKeyPressed(sf::Keyboard::Space ) )
+    {
+        jump_pressed = false;
+    }
+
     if (player_state == 1)
     {
         jump(delta);
@@ -88,8 +94,8 @@ void Player::handle_collision(World &world)
     {
         if (dynamic_cast<Platform *>(collision.get()))
         {
-            float player_bottom_edge{center.y + shape.getSize().y / 2};
-            float platform_top_edge{collision->center.y - collision->hitbox.y / 2};
+            float player_bottom_edge{get_bottom()};
+            float platform_top_edge{collision->get_top()};
             const float MARGIN {30};
 
             if ( player_state == 2 // falling
@@ -97,13 +103,30 @@ void Player::handle_collision(World &world)
                 &&  player_bottom_edge < platform_top_edge + MARGIN)
             {
                 player_state = 0;
-
-                set_position({center.x, platform_top_edge - shape.getSize().y/2});
                 duration = 0;
                 jump_start = 0;
+                jump_count = MAX_JUMPS;
+
+                set_position({center.x, platform_top_edge+1 - shape.getSize().y/2});
+            }
+
+            if (get_bottom() == collision->get_top() + 1) // on top of platform
+            {
+                if (    get_left() + 10 > collision->get_right()
+                     || get_right() - 10 < collision->get_left() ) //outside platform right or left
+                {
+                    off_platform = true;
+                } else
+                {
+                    off_platform = false;
+                }
             }
         }
 
+    }
+    if ( player_state == 0 && off_platform )
+    {
+        player_state = 2;
     }
 }
 
@@ -160,6 +183,8 @@ void Player::fall(sf::Time delta)
     {
         duration = 0;
         player_state = 0;
+        off_platform = false;
+        jump_count = MAX_JUMPS;
         set_position({center.x, 610.0f});
     }
 }
