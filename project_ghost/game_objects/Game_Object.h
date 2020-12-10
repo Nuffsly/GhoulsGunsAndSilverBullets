@@ -17,6 +17,11 @@ public:
 
     virtual void render(sf::RenderWindow &window) = 0;
 
+    float get_right() const;
+    float get_left() const;
+    float get_top() const;
+    float get_bottom() const;
+
     sf::Vector2f center;
     sf::Vector2f hitbox;
 };
