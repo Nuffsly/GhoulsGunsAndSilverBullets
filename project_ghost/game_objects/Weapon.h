@@ -12,11 +12,15 @@ class Weapon : public Textured_Object
 public:
     Weapon(sf::Vector2f center, std::string const& texture_name, float fire_rate, int damage);
 
+    void shoot(const sf::Time &delta, World &world);
+
     bool update(sf::Time const& delta, World &world) override;
 
 private:
     float fire_rate;
     int damage;
+    float sec_since_fired;
+    float direction;
 };
 
 

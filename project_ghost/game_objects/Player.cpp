@@ -25,19 +25,28 @@ float ease_out_expo(float in_f)
 
 Player::Player(sf::Vector2f center, std::string const& texture_name, int health, int damage)
     :Character{center, texture_name, health, damage}, player_state{2}, duration{0.0}, jump_start{0.0},
-    weapon{center, "weapon.png", 1.0f, damage}
+    weapon{center, "weapon.png", 0.5, damage}
 {}
 
 bool Player::update(const sf::Time &delta, World &world)
 {
     move_player(delta);
-
-    weapon.set_position(center);
-    weapon.update(delta, world);
+    handle_weapon(delta, world);
 
     handle_collision(world);
 
     return true;
+}
+
+void Player::handle_weapon(const sf::Time &delta, World &world)
+{
+    weapon.set_position(center);
+    weapon.update(delta, world);
+
+    if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+    {
+        weapon.shoot(delta, world);
+    }
 }
 
 void Player::move_player(sf::Time delta)

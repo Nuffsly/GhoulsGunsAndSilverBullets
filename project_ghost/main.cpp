@@ -19,7 +19,7 @@ int main()
     World world{};
 
     //Platform platform{{500, 650}, "white.png"};
-      world.add_object(std::shared_ptr<Game_Object>(new Player({500, 500}, "standing.png", 100, 100)));
+    world.add_object(std::shared_ptr<Game_Object>(new Player({500, 500}, "standing.png", 100, 100)));
 
     world.add_object(std::shared_ptr<Platform>(new Platform({1000, 300}, "white.png")));
     world.add_object(std::shared_ptr<Platform>(new Platform({800, 450}, "white.png")));

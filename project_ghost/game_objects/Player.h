@@ -23,6 +23,7 @@ private:
     void jump(sf::Time delta);
     void fall(sf::Time delta);
     void handle_collision(World &world);
+    void handle_weapon(const sf::Time &delta, World &world);
 
     int player_state;
     float duration;
