@@ -11,20 +11,21 @@ const int HEIGHT{720};
 int main()
 {
     //Define our window
-    sf::RenderWindow window{sf::VideoMode(WIDTH, HEIGHT), "PROJECT: [G H 0 5 T]", sf::Style::Fullscreen};
+    sf::RenderWindow window{sf::VideoMode::getFullscreenModes().at(0), "PROJECT: [G H 0 5 T]", sf::Style::Fullscreen};
     window.setVerticalSyncEnabled(true);
     //window.setFramerateLimit(30);
     window.setKeyRepeatEnabled(false);
+
 
     World world{};
 
     //Platform platform{{500, 650}, "white.png"};
     world.add_object(std::shared_ptr<Game_Object>(new Player({500, 500}, "standing.png", 100, 100)));
 
-    world.add_object(std::shared_ptr<Platform>(new Platform({1000, 450}, "white.png")));
-    world.add_object(std::shared_ptr<Platform>(new Platform({700, 450}, "white.png")));
-    world.add_object(std::shared_ptr<Platform>(new Platform({200, 550}, "white.png")));
-    world.add_object(std::shared_ptr<Platform>(new Platform({500, 650}, "white.png")));
+    world.add_object(std::shared_ptr<Platform>(new Platform({1000, 450}, "platform.png")));
+    world.add_object(std::shared_ptr<Platform>(new Platform({700, 450}, "platform.png")));
+    world.add_object(std::shared_ptr<Platform>(new Platform({200, 550}, "platform.png")));
+    world.add_object(std::shared_ptr<Platform>(new Platform({500, 650}, "platform.png")));
     world.add_object(std::shared_ptr<Game_Object>(new Enemy({0, 0}, "enemy.png", 100, 100, world.get_player_ptr())));
     world.add_object(std::shared_ptr<Game_Object>(new Enemy({1000, 0}, "enemy.png", 100, 100, world.get_player_ptr())));
 

@@ -54,3 +54,36 @@
    obj:/usr/lib/x86_64-linux-gnu/dri/*
    ...
 }
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   obj:/usr/lib/x86_64-linux-gnu/libLLVM-10.so.1
+   fun:_ZN4llvm19MachineFunctionPass13runOnFunctionERNS_8FunctionE
+   fun:_ZN4llvm13FPPassManager13runOnFunctionERNS_8FunctionE
+   fun:_ZN4llvm13FPPassManager11runOnModuleERNS_6ModuleE
+   fun:_ZN4llvm6legacy15PassManagerImpl3runERNS_6ModuleE
+   fun:_ZN4llvm5MCJIT10emitObjectEPNS_6ModuleE
+   fun:_ZN4llvm5MCJIT21generateCodeForModuleEPNS_6ModuleE
+   fun:_ZN4llvm5MCJIT14finalizeObjectEv
+   fun:LLVMGetPointerToGlobal
+   obj:/usr/lib/x86_64-linux-gnu/dri/swrast_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/swrast_dri.so
+   obj:/usr/lib/x86_64-linux-gnu/dri/swrast_dri.so
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+}
