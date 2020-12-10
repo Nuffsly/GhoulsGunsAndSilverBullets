@@ -26,6 +26,7 @@ private:
     void handle_jump_input();
     void handle_horizontal_move(sf::Time delta);
     void handle_weapon(const sf::Time &delta, World &world);
+    bool still_alive();
 
     int player_state;
     bool off_platform;

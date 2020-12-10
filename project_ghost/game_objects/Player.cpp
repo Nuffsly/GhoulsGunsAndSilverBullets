@@ -7,6 +7,7 @@
 #include <iostream>
 
 #include "Player.h"
+#include "Enemy.h"
 
 float lerp(float const a, float const b, float const t)
 {
@@ -33,10 +34,9 @@ bool Player::update(const sf::Time &delta, World &world)
 {
     move_player(delta);
     handle_weapon(delta, world);
-
     handle_collision(world);
 
-    return true;
+    return still_alive();
 }
 
 void Player::handle_weapon(const sf::Time &delta, World &world)
@@ -100,6 +100,10 @@ void Player::handle_collision(World &world)
             }
         }
 
+        if (dynamic_cast<Enemy *>(collision.get()))
+        {
+            take_damage();
+        }
     }
     if ( player_state == 0 && off_platform )
     {
@@ -208,6 +212,11 @@ void Player::fall(sf::Time delta)
         jump_count = MAX_JUMPS;
         set_position({center.x, 610.0f});
     }
+}
+
+bool Player::still_alive()
+{
+    return get_health() > 0;
 }
 
 void Player::render(sf::RenderWindow &window)
