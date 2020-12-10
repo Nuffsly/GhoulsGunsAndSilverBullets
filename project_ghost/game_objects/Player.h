@@ -23,7 +23,10 @@ private:
     void jump(sf::Time delta);
     void fall(sf::Time delta);
     void handle_collision(World &world);
+    void handle_jump_input();
+    void handle_horizontal_move(sf::Time delta);
     void handle_weapon(const sf::Time &delta, World &world);
+    bool still_alive();
 
     int player_state;
     bool off_platform;

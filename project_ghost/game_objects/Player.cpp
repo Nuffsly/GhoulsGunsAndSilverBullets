@@ -7,6 +7,7 @@
 #include <iostream>
 
 #include "Player.h"
+#include "Enemy.h"
 
 float lerp(float const a, float const b, float const t)
 {
@@ -24,16 +25,18 @@ Player::Player(sf::Vector2f center, std::string const& texture_name, int health,
       player_state{2}, off_platform{false}, duration{0.0}, jump_start{0.0},
       jump_count{1}, MAX_JUMPS{1},
       weapon{center, "weapon.png", 0.5, damage}
-{}
+{
+    const float HAT_MARGIN{25.0f};
+    hitbox = {(hitbox.x - HAT_MARGIN), hitbox.y};
+}
 
 bool Player::update(const sf::Time &delta, World &world)
 {
     move_player(delta);
     handle_weapon(delta, world);
-
     handle_collision(world);
 
-    return true;
+    return still_alive();
 }
 
 void Player::handle_weapon(const sf::Time &delta, World &world)
@@ -49,22 +52,9 @@ void Player::handle_weapon(const sf::Time &delta, World &world)
 
 void Player::move_player(sf::Time delta)
 {
-    if ( sf::Keyboard::isKeyPressed(sf::Keyboard::Space ) && !jump_pressed)
-    {
-        jump_pressed = true;
-        if (jump_count > 0)
-        {
-            player_state = 1; // jumping
-            jump_start = center.y;
-            jump_count--;
-            duration = 0;
-        }
-    }
-    if ( ! sf::Keyboard::isKeyPressed(sf::Keyboard::Space ) )
-    {
-        jump_pressed = false;
-    }
+    handle_horizontal_move(delta);
 
+    handle_jump_input();
     if (player_state == 1)
     {
         jump(delta);
@@ -73,28 +63,6 @@ void Player::move_player(sf::Time delta)
     {
         fall(delta);
     }
-
-    sf::Vector2f direction;
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-        direction.x -= 1;
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-        direction.x += 1;
-
-    float delta_in_seconds{delta.asMicroseconds() / 1000000.0f};
-
-    sf::Vector2f movement{direction.x * delta_in_seconds * 500,
-                          direction.y * delta_in_seconds * 500};
-
-    sf::Vector2f clamped_position{Textured_Object::get_position() + movement};
-
-    const float low_clamp_x{get_size().x / 2};
-
-    const float high_clamp_x{1280.0f - (get_size().x / 2)};
-
-    clamped_position.x = std::clamp(clamped_position.x, low_clamp_x, high_clamp_x);
-
-    Textured_Object::set_position(clamped_position);
-
 }
 
 void Player::handle_collision(World &world)
@@ -132,11 +100,59 @@ void Player::handle_collision(World &world)
             }
         }
 
+        if (dynamic_cast<Enemy *>(collision.get()))
+        {
+            take_damage();
+        }
     }
     if ( player_state == 0 && off_platform )
     {
         player_state = 2;
     }
+}
+
+void Player::handle_jump_input()
+{
+    if ( sf::Keyboard::isKeyPressed(sf::Keyboard::Space ) && !jump_pressed)
+    {
+        jump_pressed = true;
+        if (jump_count > 0)
+        {
+            player_state = 1; // jumping
+            jump_start = center.y;
+            jump_count--;
+            duration = 0;
+        }
+    }
+    if ( ! sf::Keyboard::isKeyPressed(sf::Keyboard::Space ) )
+    {
+        jump_pressed = false;
+    }
+
+}
+
+void Player::handle_horizontal_move(sf::Time delta)
+{
+    sf::Vector2f direction;
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+        direction.x -= 1;
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+        direction.x += 1;
+
+    float delta_in_seconds{delta.asMicroseconds() / 1000000.0f};
+
+    sf::Vector2f movement{direction.x * delta_in_seconds * 500,
+                          direction.y * delta_in_seconds * 500};
+
+    sf::Vector2f clamped_position{Textured_Object::get_position() + movement};
+
+    const float low_clamp_x{get_size().x / 2};
+
+    const float high_clamp_x{1280.0f - (get_size().x / 2)};
+
+    clamped_position.x = std::clamp(clamped_position.x, low_clamp_x, high_clamp_x);
+
+    Textured_Object::set_position(clamped_position);
 }
 
 void Player::jump(sf::Time delta)
@@ -196,6 +212,11 @@ void Player::fall(sf::Time delta)
         jump_count = MAX_JUMPS;
         set_position({center.x, 610.0f});
     }
+}
+
+bool Player::still_alive()
+{
+    return get_health() > 0;
 }
 
 void Player::render(sf::RenderWindow &window)
