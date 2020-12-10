@@ -22,8 +22,8 @@ float flip(float const x)
 
 Player::Player(sf::Vector2f center, std::string const& texture_name, int health, int damage)
     : Character{center, texture_name, health, damage},
-      player_state{2}, off_platform{false}, duration{0.0}, jump_start{0.0},
-      jump_count{1}, MAX_JUMPS{1},
+      player_state{2}, off_platform{false}, drop_margin{0.0}, duration{0.0},
+      jump_start{0.0}, drop_pressed{false}, jump_pressed{false}, jump_count{1}, MAX_JUMPS{1},
       weapon{center, "weapon.png", 0.5, damage}
 {
     const float HAT_MARGIN{25.0f};
@@ -55,6 +55,10 @@ void Player::move_player(sf::Time delta)
     handle_horizontal_move(delta);
 
     handle_jump_input();
+
+    handle_drop_input();
+    handle_drop();
+
     if (player_state == 1)
     {
         jump(delta);
@@ -76,6 +80,7 @@ void Player::handle_collision(World &world)
             const float MARGIN {30};
 
             if ( player_state == 2 // falling
+                && drop_margin <= 0.0
                 && player_bottom_edge > platform_top_edge
                 &&  player_bottom_edge < platform_top_edge + MARGIN)
             {
@@ -87,10 +92,10 @@ void Player::handle_collision(World &world)
                 set_position({center.x, platform_top_edge+1 - shape.getSize().y/2});
             }
 
-            if (get_bottom() == collision->get_top() + 1) // on top of platform
+            if (get_bottom() == collision->get_top() + 1) // player stands on top of platform
             {
                 if (    get_left() + 10 > collision->get_right()
-                     || get_right() - 10 < collision->get_left() ) //outside platform right or left
+                     || get_right() - 10 < collision->get_left() ) // outside platform right or left
                 {
                     off_platform = true;
                 } else
@@ -105,7 +110,7 @@ void Player::handle_collision(World &world)
             take_damage(dynamic_cast<Enemy *>(collision.get())->get_damage());
         }
     }
-    if ( player_state == 0 && off_platform )
+    if ( player_state == 0 && off_platform ) // off_platform only sets falling state if all platforms agree
     {
         player_state = 2;
     }
@@ -128,7 +133,34 @@ void Player::handle_jump_input()
     {
         jump_pressed = false;
     }
+}
 
+void Player::handle_drop_input()
+{
+    if ( !drop_pressed
+        && player_state == 0
+        && (sf::Keyboard::isKeyPressed(sf::Keyboard::S)
+        || sf::Keyboard::isKeyPressed(sf::Keyboard::Down)))
+    {
+        drop_pressed = true;
+    }
+    if (    ! sf::Keyboard::isKeyPressed(sf::Keyboard::S)
+        &&  ! sf::Keyboard::isKeyPressed(sf::Keyboard::Down) )
+    {
+        drop_pressed = false;
+    }
+}
+
+void Player::handle_drop()
+{
+    const float DROP_DISTANCE{30};
+
+    if (  player_state == 0 && drop_pressed)
+    {
+        drop_margin = get_bottom() + DROP_DISTANCE;
+        player_state = 2;
+        drop_pressed = false;
+    }
 }
 
 void Player::handle_horizontal_move(sf::Time delta)
@@ -191,6 +223,7 @@ void Player::fall(sf::Time delta)
 
         float movement{lerp(0.0f, terminal_v, progress)};
 
+        drop_margin -= movement * delta.asSeconds();
         set_position({center.x, center.y + movement * delta.asSeconds()});
     }
     else
@@ -198,8 +231,9 @@ void Player::fall(sf::Time delta)
         if( sf::Keyboard::isKeyPressed(sf::Keyboard::Down)
         ||  sf::Keyboard::isKeyPressed(sf::Keyboard::S))
         {
-            terminal_v = 1250;
+            terminal_v = 1000;
         }
+        drop_margin -= (terminal_v * delta.asSeconds());
         set_position({ center.x,
                        center.y + (terminal_v * delta.asSeconds()) });
     }
@@ -210,6 +244,7 @@ void Player::fall(sf::Time delta)
         player_state = 0;
         off_platform = false;
         jump_count = MAX_JUMPS;
+        drop_margin = 0.0;
         set_position({center.x, 610.0f});
     }
 }
