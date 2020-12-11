@@ -152,7 +152,7 @@ void Player::handle_drop()
 void Player::handle_inertia(sf::Time delta)
 {
     const float INERTIA_DISTANCE{150};
-    const float INERTIA_TIME_AS_SEC{0.1};
+    const float INERTIA_TIME_AS_SEC{0.2};
 
     if (   moved_last_update && !facing_right
            && ! sf::Keyboard::isKeyPressed(sf::Keyboard::A)
@@ -172,17 +172,19 @@ void Player::handle_inertia(sf::Time delta)
     if ( inertia )
     {
         horizontal_duration += delta.asSeconds();
+
         float progress{horizontal_duration / INERTIA_TIME_AS_SEC};
-        float inertia_movement{0.0};
         progress = flip(powf(flip(progress), 2));
 
-        inertia_movement = lerp(0.0f, INERTIA_DISTANCE, progress);
+        float inertia_speed{0.0};
+        inertia_speed = lerp(0.0f, INERTIA_DISTANCE, progress);
 
+        float inertia_movement{ inertia_speed * delta.asSeconds()};
         if ( ! facing_right )
         {
             inertia_movement = -inertia_movement;
         }
-        inertia_movement = inertia_movement * delta.asSeconds();
+
 
         set_position({get_position().x + inertia_movement, get_position().y});
     }
