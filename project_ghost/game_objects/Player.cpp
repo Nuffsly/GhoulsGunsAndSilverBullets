@@ -22,8 +22,10 @@ float flip(float const x)
 
 Player::Player(sf::Vector2f center, std::string const& texture_name, int health, int damage)
     : Character{center, texture_name, health, damage},
-      player_state{2}, off_platform{false}, drop_margin{0.0}, vertical_duration{0.0},
-      jump_start{0.0}, jump_pressed{false}, jump_count{1}, MAX_JUMPS{1},
+      player_state{2}, off_platform{false}, drop_margin{0.0},
+      vertical_duration{0.0}, horizontal_duration{0.0}, jump_start{0.0},
+      inertia{false}, moved_last_update{false}, facing_right{true},
+      jump_pressed{false}, jump_count{1}, MAX_JUMPS{1},
       weapon{center, "weapon.png", 0.5, damage}
 {
     const float HAT_MARGIN{25.0f};
@@ -159,14 +161,12 @@ void Player::handle_inertia(sf::Time delta)
            && ! sf::Keyboard::isKeyPressed(sf::Keyboard::Left) )
     {
         inertia = true;
-        inertia_start = get_position().x;
     }
     if (   moved_last_update && facing_right
            && ! sf::Keyboard::isKeyPressed(sf::Keyboard::D)
            && ! sf::Keyboard::isKeyPressed(sf::Keyboard::Right) )
     {
         inertia = true;
-        inertia_start = get_position().x;
     }
 
     if ( inertia )
@@ -176,15 +176,12 @@ void Player::handle_inertia(sf::Time delta)
         float progress{horizontal_duration / INERTIA_TIME_AS_SEC};
         progress = flip(powf(flip(progress), 2));
 
-        float inertia_speed{0.0};
-        inertia_speed = lerp(0.0f, INERTIA_DISTANCE, progress);
-
+        float inertia_speed{ lerp(0.0f, INERTIA_DISTANCE, progress) };
         float inertia_movement{ inertia_speed * delta.asSeconds()};
         if ( ! facing_right )
         {
             inertia_movement = -inertia_movement;
         }
-
 
         set_position({get_position().x + inertia_movement, get_position().y});
     }

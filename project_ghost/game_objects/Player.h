@@ -43,7 +43,6 @@ private:
     float horizontal_duration;
     float jump_start;
     bool inertia;
-    float inertia_start;
     bool moved_last_update;
     bool facing_right;
 
