@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/project_ghost.dir/containers/Player_Info.cpp.o"
+  "CMakeFiles/project_ghost.dir/containers/Upgrade.cpp.o"
   "CMakeFiles/project_ghost.dir/game_objects/Enemy.cpp.o"
   "CMakeFiles/project_ghost.dir/game_objects/Game_Object.cpp.o"
   "CMakeFiles/project_ghost.dir/game_objects/Player.cpp.o"

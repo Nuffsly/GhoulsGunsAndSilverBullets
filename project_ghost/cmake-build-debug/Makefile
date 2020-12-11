@@ -143,6 +143,60 @@ project_ghost/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/build
 .PHONY : project_ghost/fast
 
+containers/Player_Info.o: containers/Player_Info.cpp.o
+
+.PHONY : containers/Player_Info.o
+
+# target to build an object file
+containers/Player_Info.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/containers/Player_Info.cpp.o
+.PHONY : containers/Player_Info.cpp.o
+
+containers/Player_Info.i: containers/Player_Info.cpp.i
+
+.PHONY : containers/Player_Info.i
+
+# target to preprocess a source file
+containers/Player_Info.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/containers/Player_Info.cpp.i
+.PHONY : containers/Player_Info.cpp.i
+
+containers/Player_Info.s: containers/Player_Info.cpp.s
+
+.PHONY : containers/Player_Info.s
+
+# target to generate assembly for a file
+containers/Player_Info.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/containers/Player_Info.cpp.s
+.PHONY : containers/Player_Info.cpp.s
+
+containers/Upgrade.o: containers/Upgrade.cpp.o
+
+.PHONY : containers/Upgrade.o
+
+# target to build an object file
+containers/Upgrade.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/containers/Upgrade.cpp.o
+.PHONY : containers/Upgrade.cpp.o
+
+containers/Upgrade.i: containers/Upgrade.cpp.i
+
+.PHONY : containers/Upgrade.i
+
+# target to preprocess a source file
+containers/Upgrade.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/containers/Upgrade.cpp.i
+.PHONY : containers/Upgrade.cpp.i
+
+containers/Upgrade.s: containers/Upgrade.cpp.s
+
+.PHONY : containers/Upgrade.s
+
+# target to generate assembly for a file
+containers/Upgrade.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project_ghost.dir/build.make CMakeFiles/project_ghost.dir/containers/Upgrade.cpp.s
+.PHONY : containers/Upgrade.cpp.s
+
 game_objects/Enemy.o: game_objects/Enemy.cpp.o
 
 .PHONY : game_objects/Enemy.o
@@ -449,6 +503,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... project_ghost"
+	@echo "... containers/Player_Info.o"
+	@echo "... containers/Player_Info.i"
+	@echo "... containers/Player_Info.s"
+	@echo "... containers/Upgrade.o"
+	@echo "... containers/Upgrade.i"
+	@echo "... containers/Upgrade.s"
 	@echo "... game_objects/Enemy.o"
 	@echo "... game_objects/Enemy.i"
 	@echo "... game_objects/Enemy.s"

@@ -4,6 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/containers/Player_Info.cpp" "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/containers/Player_Info.cpp.o"
+  "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/containers/Upgrade.cpp" "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/containers/Upgrade.cpp.o"
   "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/game_objects/Enemy.cpp" "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/game_objects/Enemy.cpp.o"
   "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/game_objects/Game_Object.cpp" "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/game_objects/Game_Object.cpp.o"
   "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/game_objects/Player.cpp" "/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/cmake-build-debug/CMakeFiles/project_ghost.dir/game_objects/Player.cpp.o"

@@ -37,7 +37,7 @@ if (NOT (${SFML_FOUND} STREQUAL "TRUE"))
 endif()
 
 # Ange källfiler, lägg till de filer som ni behöver!
-set(SOURCE_FILES main.cpp game_objects/Game_Object.cpp game_objects/Game_Object.h game_objects/Textured_Object.cpp game_objects/Textured_Object.h game_objects/Player.cpp game_objects/Player.h managers/World.cpp managers/World.h managers/Texture_Manager.cpp managers/Texture_Manager.h game_objects/Enemy.cpp game_objects/Enemy.h game_objects/Weapon.cpp game_objects/Weapon.h states/State.cpp states/State.h game_objects/Projectile.cpp game_objects/Projectile.h states/Game_State.cpp states/Game_State.h)
+set(SOURCE_FILES main.cpp game_objects/Game_Object.cpp game_objects/Game_Object.h game_objects/Textured_Object.cpp game_objects/Textured_Object.h game_objects/Player.cpp game_objects/Player.h managers/World.cpp managers/World.h managers/Texture_Manager.cpp managers/Texture_Manager.h game_objects/Enemy.cpp game_objects/Enemy.h game_objects/Weapon.cpp game_objects/Weapon.h states/State.cpp states/State.h game_objects/Projectile.cpp game_objects/Projectile.h states/Game_State.cpp states/Game_State.h containers/Upgrade.cpp containers/Upgrade.h containers/Player_Info.cpp containers/Player_Info.h)
 
 # Säg till CMake att skapa en körbar fil som heter 'project_ghost'.
 add_executable(project_ghost ${SOURCE_FILES})

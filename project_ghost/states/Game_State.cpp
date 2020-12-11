@@ -11,7 +11,7 @@ Game_State::Game_State(sf::RenderWindow &window)
     world.add_object(std::shared_ptr<Platform>(new Platform({700, 230}, "platform.png")));
     world.add_object(std::shared_ptr<Platform>(new Platform({700, 450}, "platform.png")));
     world.add_object(std::shared_ptr<Platform>(new Platform({200, 550}, "platform.png")));
-    world.add_object(std::shared_ptr<Platform>(new Platform({500, 650}, "platform.png")));
+    world.add_object(std::shared_ptr<Game_Object>(new Platform({500, 650}, "platform.png")));
 
     world.add_object(std::shared_ptr<Game_Object>(new Door({1000, 600}, "door.png")));
     world.add_object(std::shared_ptr<Game_Object>(new Player({500, 500}, "standing.png", 100, 100)));

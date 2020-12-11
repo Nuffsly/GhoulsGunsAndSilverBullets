@@ -6,9 +6,12 @@
 #define MAIN_CPP_GAME_STATE_H
 
 #include <memory>
+#include <vector>
 
 #include "State.h"
 #include "../managers/World.h"
+#include "../containers/Player_Info.h"
+#include "../containers/Upgrade.h"
 
 
 class Game_State : public State
@@ -23,6 +26,8 @@ public:
 
 private:
     World world;
+    Player_Info player_info;
+    std::vector<Upgrade> available_upgrades;
 };
 
 

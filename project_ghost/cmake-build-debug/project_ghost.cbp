@@ -82,6 +82,18 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/containers/Player_Info.cpp">
+			<Option target="project_ghost"/>
+		</Unit>
+		<Unit filename="/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/containers/Player_Info.h">
+			<Option target="project_ghost"/>
+		</Unit>
+		<Unit filename="/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/containers/Upgrade.cpp">
+			<Option target="project_ghost"/>
+		</Unit>
+		<Unit filename="/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/containers/Upgrade.h">
+			<Option target="project_ghost"/>
+		</Unit>
 		<Unit filename="/home/marku849/Projects/TDP005/tdp005-backup/project_ghost/game_objects/Enemy.cpp">
 			<Option target="project_ghost"/>
 		</Unit>
