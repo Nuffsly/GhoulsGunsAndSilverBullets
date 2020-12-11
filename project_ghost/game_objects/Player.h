@@ -24,19 +24,29 @@ private:
     void fall(sf::Time delta);
     void handle_collision(World &world);
     void handle_jump_input();
-    void handle_drop_input();
     void handle_drop();
+    void handle_inertia(sf::Time delta);
     void handle_horizontal_move(sf::Time delta);
     void handle_weapon(const sf::Time &delta, World &world);
     bool still_alive();
 
+
     int player_state;
+    // Player states:
+    // 0: Standing
+    // 1: Jumping
+    // 2: Falling
+
     bool off_platform;
     float drop_margin;
-    float duration;
+    float vertical_duration;
+    float horizontal_duration;
     float jump_start;
+    bool inertia;
+    float inertia_start;
+    bool moved_last_update;
+    bool facing_right;
 
-    bool drop_pressed;
     bool jump_pressed;
     int jump_count;
     const int MAX_JUMPS;
