@@ -5,7 +5,8 @@
 #include "Game_State.h"
 #include "../game_objects/Enemy.h"
 
-Game_State::Game_State()
+Game_State::Game_State(sf::RenderWindow &window)
+:world(window)
 {
     world.add_object(std::shared_ptr<Platform>(new Platform({700, 230}, "platform.png")));
     world.add_object(std::shared_ptr<Platform>(new Platform({700, 450}, "platform.png")));

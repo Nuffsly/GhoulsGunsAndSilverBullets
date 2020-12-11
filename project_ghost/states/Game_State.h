@@ -14,7 +14,8 @@
 class Game_State : public State
 {
 public:
-    Game_State();
+    explicit Game_State(sf::RenderWindow &window);
+    Game_State() = delete;
 
     std::shared_ptr<State> tick(sf::Time delta) override;
 
