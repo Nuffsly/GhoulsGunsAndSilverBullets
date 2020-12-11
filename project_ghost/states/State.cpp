@@ -28,6 +28,9 @@ void State::run(sf::RenderWindow &window, std::shared_ptr<State> state)
                     return;
 
                 case sf::Event::KeyPressed:
+                    if(event.key.code == sf::Keyboard::Escape)
+                    {return;}
+
                     state->on_key_press(event.key.code);
                     break;
 
