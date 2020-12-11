@@ -24,7 +24,7 @@ private:
     float timer;
     bool falling;
 
-    void fall(sf::Time const& delta);
+    void fall(sf::Time const& delta, World &world);
     bool handle_collision(World &world);
 };
 

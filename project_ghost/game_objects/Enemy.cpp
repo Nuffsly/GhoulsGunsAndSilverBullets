@@ -18,7 +18,7 @@ bool Money::update(sf::Time const& delta, World &world)
 {
     if (falling)
     {
-        fall(delta);
+        fall(delta, world);
     }
 
     timer -= delta.asSeconds();
@@ -30,11 +30,19 @@ bool Money::update(sf::Time const& delta, World &world)
     return handle_collision(world);
 }
 
-void Money::fall(const sf::Time &delta)
+void Money::fall(const sf::Time &delta, World &world)
 {
-    const float SPEED {300};
+    if (get_bottom() < world.stored_window.getSize().y)
+    {
+        const float SPEED{300};
 
-    set_position({get_position().x, get_position().y + SPEED * delta.asSeconds()});
+        set_position({get_position().x, get_position().y + SPEED * delta.asSeconds()});
+    }
+    else
+    {
+        center.y = world.stored_window.getSize().y - shape.getSize().y/2;
+        falling = false;
+    }
 }
 
 bool Money::handle_collision(World &world)
@@ -49,7 +57,13 @@ bool Money::handle_collision(World &world)
 
         if (dynamic_cast<Platform *>(collision.get()) && falling)
         {
-            falling = false;
+            const float MARGIN{5};
+
+            if(get_bottom() > collision->get_top()
+            && get_bottom() < collision->get_top() + MARGIN)
+            {
+                falling = false;
+            }
         }
     }
     return true;

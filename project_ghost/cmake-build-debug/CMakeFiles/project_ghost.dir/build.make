@@ -220,6 +220,32 @@ CMakeFiles/project_ghost.dir/states/Game_State.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project_ghost.dir/states/Game_State.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jimte/TDP005/project_ghost/states/Game_State.cpp -o CMakeFiles/project_ghost.dir/states/Game_State.cpp.s
 
+CMakeFiles/project_ghost.dir/containers/Upgrade.cpp.o: CMakeFiles/project_ghost.dir/flags.make
+CMakeFiles/project_ghost.dir/containers/Upgrade.cpp.o: ../containers/Upgrade.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/project_ghost.dir/containers/Upgrade.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project_ghost.dir/containers/Upgrade.cpp.o -c /home/jimte/TDP005/project_ghost/containers/Upgrade.cpp
+
+CMakeFiles/project_ghost.dir/containers/Upgrade.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project_ghost.dir/containers/Upgrade.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jimte/TDP005/project_ghost/containers/Upgrade.cpp > CMakeFiles/project_ghost.dir/containers/Upgrade.cpp.i
+
+CMakeFiles/project_ghost.dir/containers/Upgrade.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project_ghost.dir/containers/Upgrade.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jimte/TDP005/project_ghost/containers/Upgrade.cpp -o CMakeFiles/project_ghost.dir/containers/Upgrade.cpp.s
+
+CMakeFiles/project_ghost.dir/containers/Player_Info.cpp.o: CMakeFiles/project_ghost.dir/flags.make
+CMakeFiles/project_ghost.dir/containers/Player_Info.cpp.o: ../containers/Player_Info.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/project_ghost.dir/containers/Player_Info.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project_ghost.dir/containers/Player_Info.cpp.o -c /home/jimte/TDP005/project_ghost/containers/Player_Info.cpp
+
+CMakeFiles/project_ghost.dir/containers/Player_Info.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project_ghost.dir/containers/Player_Info.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jimte/TDP005/project_ghost/containers/Player_Info.cpp > CMakeFiles/project_ghost.dir/containers/Player_Info.cpp.i
+
+CMakeFiles/project_ghost.dir/containers/Player_Info.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project_ghost.dir/containers/Player_Info.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jimte/TDP005/project_ghost/containers/Player_Info.cpp -o CMakeFiles/project_ghost.dir/containers/Player_Info.cpp.s
+
 # Object files for target project_ghost
 project_ghost_OBJECTS = \
 "CMakeFiles/project_ghost.dir/main.cpp.o" \
@@ -232,7 +258,9 @@ project_ghost_OBJECTS = \
 "CMakeFiles/project_ghost.dir/game_objects/Weapon.cpp.o" \
 "CMakeFiles/project_ghost.dir/states/State.cpp.o" \
 "CMakeFiles/project_ghost.dir/game_objects/Projectile.cpp.o" \
-"CMakeFiles/project_ghost.dir/states/Game_State.cpp.o"
+"CMakeFiles/project_ghost.dir/states/Game_State.cpp.o" \
+"CMakeFiles/project_ghost.dir/containers/Upgrade.cpp.o" \
+"CMakeFiles/project_ghost.dir/containers/Player_Info.cpp.o"
 
 # External object files for target project_ghost
 project_ghost_EXTERNAL_OBJECTS =
@@ -248,13 +276,15 @@ project_ghost: CMakeFiles/project_ghost.dir/game_objects/Weapon.cpp.o
 project_ghost: CMakeFiles/project_ghost.dir/states/State.cpp.o
 project_ghost: CMakeFiles/project_ghost.dir/game_objects/Projectile.cpp.o
 project_ghost: CMakeFiles/project_ghost.dir/states/Game_State.cpp.o
+project_ghost: CMakeFiles/project_ghost.dir/containers/Upgrade.cpp.o
+project_ghost: CMakeFiles/project_ghost.dir/containers/Player_Info.cpp.o
 project_ghost: CMakeFiles/project_ghost.dir/build.make
 project_ghost: /usr/lib/x86_64-linux-gnu/libsfml-network.so.2.5.1
 project_ghost: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1
 project_ghost: /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1
 project_ghost: /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
 project_ghost: CMakeFiles/project_ghost.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable project_ghost"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jimte/TDP005/project_ghost/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable project_ghost"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/project_ghost.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
