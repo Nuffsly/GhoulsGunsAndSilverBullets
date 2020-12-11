@@ -18,8 +18,9 @@ public:
     int get_money() const;
     int get_score() const;
 
-    Player* create_new_player(sf::Vector2f center);
+    Player* create_new_player(sf::Vector2f const& center);
 
+    void add_upgrade(Upgrade const& upgrade);
     void add_money(int change);
     void add_score(int change);
 

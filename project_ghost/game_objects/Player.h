@@ -12,7 +12,8 @@
 class Player : public Character
 {
 public:
-    Player(sf::Vector2f center, std::string const &texture_name, int health, int damage);
+    Player(sf::Vector2f center, std::string const &texture_name, int health,
+           int damage, int max_jumps, float run_speed, float fire_rate);
 
     bool update(const sf::Time &delta, World &world) override;
 
@@ -49,6 +50,7 @@ private:
     bool jump_pressed;
     int jump_count;
     const int MAX_JUMPS;
+    float run_speed; //TODO: implementera speed i rörelse
 
     Weapon weapon;
 };
