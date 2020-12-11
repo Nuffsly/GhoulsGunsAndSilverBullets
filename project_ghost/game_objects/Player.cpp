@@ -22,8 +22,10 @@ float flip(float const x)
 
 Player::Player(sf::Vector2f center, std::string const& texture_name, int health, int damage)
     : Character{center, texture_name, health, damage},
-      player_state{2}, off_platform{false}, drop_margin{0.0}, duration{0.0},
-      jump_start{0.0}, drop_pressed{false}, jump_pressed{false}, jump_count{1}, MAX_JUMPS{1},
+      player_state{2}, off_platform{false}, drop_margin{0.0},
+      vertical_duration{0.0}, horizontal_duration{0.0}, jump_start{0.0},
+      inertia{false}, moved_last_update{false}, facing_right{true},
+      jump_pressed{false}, jump_count{1}, MAX_JUMPS{1},
       weapon{center, "weapon.png", 0.5, damage}
 {
     const float HAT_MARGIN{25.0f};
@@ -33,6 +35,7 @@ Player::Player(sf::Vector2f center, std::string const& texture_name, int health,
 bool Player::update(const sf::Time &delta, World &world)
 {
     move_player(delta);
+
     handle_weapon(delta, world);
     handle_collision(world);
 
@@ -56,7 +59,6 @@ void Player::move_player(sf::Time delta)
 
     handle_jump_input();
 
-    handle_drop_input();
     handle_drop();
 
     if (player_state == 1)
@@ -84,8 +86,8 @@ void Player::handle_collision(World &world)
                 && player_bottom_edge > platform_top_edge
                 &&  player_bottom_edge < platform_top_edge + MARGIN)
             {
-                player_state = 0;
-                duration = 0;
+                player_state = 0; //standing
+                vertical_duration = 0;
                 jump_start = 0;
                 jump_count = MAX_JUMPS;
 
@@ -126,7 +128,8 @@ void Player::handle_jump_input()
             player_state = 1; // jumping
             jump_start = center.y;
             jump_count--;
-            duration = 0;
+            vertical_duration = 0;
+            drop_margin = 0.0;
         }
     }
     if ( ! sf::Keyboard::isKeyPressed(sf::Keyboard::Space ) )
@@ -135,56 +138,92 @@ void Player::handle_jump_input()
     }
 }
 
-void Player::handle_drop_input()
-{
-    if ( !drop_pressed
-        && player_state == 0
-        && (sf::Keyboard::isKeyPressed(sf::Keyboard::S)
-        || sf::Keyboard::isKeyPressed(sf::Keyboard::Down)))
-    {
-        drop_pressed = true;
-    }
-    if (    ! sf::Keyboard::isKeyPressed(sf::Keyboard::S)
-        &&  ! sf::Keyboard::isKeyPressed(sf::Keyboard::Down) )
-    {
-        drop_pressed = false;
-    }
-}
-
 void Player::handle_drop()
 {
     const float DROP_DISTANCE{30};
 
-    if (  player_state == 0 && drop_pressed)
+    if ( player_state == 0
+        && (sf::Keyboard::isKeyPressed(sf::Keyboard::S)
+        || sf::Keyboard::isKeyPressed(sf::Keyboard::Down)))
     {
         drop_margin = get_bottom() + DROP_DISTANCE;
         player_state = 2;
-        drop_pressed = false;
+    }
+}
+
+void Player::handle_inertia(sf::Time delta)
+{
+    const float INERTIA_DISTANCE{200};
+    const float INERTIA_TIME_AS_SEC{0.1};
+
+    if (   moved_last_update && !facing_right
+           && ! sf::Keyboard::isKeyPressed(sf::Keyboard::A)
+           && ! sf::Keyboard::isKeyPressed(sf::Keyboard::Left) )
+    {
+        inertia = true;
+    }
+    if (   moved_last_update && facing_right
+           && ! sf::Keyboard::isKeyPressed(sf::Keyboard::D)
+           && ! sf::Keyboard::isKeyPressed(sf::Keyboard::Right) )
+    {
+        inertia = true;
+    }
+
+    if ( inertia )
+    {
+        horizontal_duration += delta.asSeconds();
+
+        float progress{horizontal_duration / INERTIA_TIME_AS_SEC};
+        progress = flip(powf(flip(progress), 2));
+
+        float inertia_speed{ lerp(0.0f, INERTIA_DISTANCE, progress) };
+        float inertia_movement{ inertia_speed * delta.asSeconds()};
+        if ( ! facing_right )
+        {
+            inertia_movement = -inertia_movement;
+        }
+
+        set_position({get_position().x + inertia_movement, get_position().y});
+    }
+
+    if (horizontal_duration > INERTIA_TIME_AS_SEC)
+    {
+        inertia = false;
+        horizontal_duration = 0.0;
     }
 }
 
 void Player::handle_horizontal_move(sf::Time delta)
 {
-    sf::Vector2f direction;
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-        direction.x -= 1;
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-        direction.x += 1;
+    handle_inertia(delta);
+    moved_last_update = false;
 
-    float delta_in_seconds{delta.asMicroseconds() / 1000000.0f};
+    float direction{0.0f};
+    if (   sf::Keyboard::isKeyPressed(sf::Keyboard::A)
+        || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+    {
+        direction -= 1;
+        facing_right = false;
+        moved_last_update = true;
+    }
+    if (   sf::Keyboard::isKeyPressed(sf::Keyboard::D)
+        || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+    {
+        direction += 1;
+        facing_right = true;
+        moved_last_update  = true;
+    }
 
-    sf::Vector2f movement{direction.x * delta_in_seconds * 500,
-                          direction.y * delta_in_seconds * 500};
+    float movement {direction * delta.asSeconds() * 500};
 
-    sf::Vector2f clamped_position{Textured_Object::get_position() + movement};
+    float clamped_position{Textured_Object::get_position().x + movement};
 
     const float low_clamp_x{get_size().x / 2};
-
     const float high_clamp_x{1280.0f - (get_size().x / 2)};
 
-    clamped_position.x = std::clamp(clamped_position.x, low_clamp_x, high_clamp_x);
+    clamped_position = std::clamp(clamped_position, low_clamp_x, high_clamp_x);
 
-    Textured_Object::set_position(clamped_position);
+    Textured_Object::set_position({clamped_position, get_position().y});
 }
 
 void Player::jump(sf::Time delta)
@@ -192,9 +231,9 @@ void Player::jump(sf::Time delta)
     const float JUMP_HEIGHT{200};
     const float JUMP_DURATION_AS_SEC{0.5};
 
-    duration += delta.asSeconds();
+    vertical_duration += delta.asSeconds();
 
-    float progress{duration / JUMP_DURATION_AS_SEC};
+    float progress{vertical_duration / JUMP_DURATION_AS_SEC};
 
     progress = flip(powf(flip(progress), 2));
 
@@ -202,9 +241,9 @@ void Player::jump(sf::Time delta)
 
     set_position({center.x, jump_start-movement});
 
-    if (duration >= JUMP_DURATION_AS_SEC)
+    if (vertical_duration >= JUMP_DURATION_AS_SEC)
     {
-        duration = 0;
+        vertical_duration = 0;
         player_state = 2;
     }
 
@@ -215,10 +254,10 @@ void Player::fall(sf::Time delta)
     float terminal_v{800};
     const float FALL_DURATION_AS_SEC{0.4};
 
-    if (duration < FALL_DURATION_AS_SEC)
+    if (vertical_duration < FALL_DURATION_AS_SEC)
     {
-        duration += delta.asSeconds();
-        float progress{duration / FALL_DURATION_AS_SEC};
+        vertical_duration += delta.asSeconds();
+        float progress{vertical_duration / FALL_DURATION_AS_SEC};
         progress = powf(progress, 2);
 
         float movement{lerp(0.0f, terminal_v, progress)};
@@ -238,14 +277,14 @@ void Player::fall(sf::Time delta)
                        center.y + (terminal_v * delta.asSeconds()) });
     }
 
-    if (center.y > 610) //TEMP(?)
+    if (center.y > 720) //TEMP(?)
     {
-        duration = 0;
+        vertical_duration = 0;
         player_state = 0;
         off_platform = false;
         jump_count = MAX_JUMPS;
         drop_margin = 0.0;
-        set_position({center.x, 610.0f});
+        set_position({center.x, 720.0f});
     }
 }
 
