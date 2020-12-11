@@ -19,14 +19,14 @@ public:
     void render(sf::RenderWindow &window) override;
 
 private:
-    void move_player(sf::Time delta);
+    void move_player(sf::Time delta, World &world);
     void jump(sf::Time delta);
-    void fall(sf::Time delta);
+    void fall(sf::Time delta, World &world);
     void handle_collision(World &world);
     void handle_jump_input();
     void handle_drop();
     void handle_inertia(sf::Time delta);
-    void handle_horizontal_move(sf::Time delta);
+    void handle_horizontal_move(sf::Time delta, World &world);
     void handle_weapon(const sf::Time &delta, World &world);
     bool still_alive();
 
