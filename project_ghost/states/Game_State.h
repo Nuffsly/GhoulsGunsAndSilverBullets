@@ -14,6 +14,8 @@
 class Game_State : public State
 {
 public:
+    Game_State();
+
     std::shared_ptr<State> tick(sf::Time delta) override;
 
     void render(sf::RenderWindow &window) override;
