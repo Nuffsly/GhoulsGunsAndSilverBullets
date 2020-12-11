@@ -8,12 +8,26 @@
 Game_State::Game_State(sf::RenderWindow &window)
 :world(window)
 {
-    world.add_object(std::shared_ptr<Platform>(new Platform({700, 230}, "platform.png")));
-    world.add_object(std::shared_ptr<Platform>(new Platform({700, 450}, "platform.png")));
     world.add_object(std::shared_ptr<Platform>(new Platform({200, 550}, "platform.png")));
-    world.add_object(std::shared_ptr<Platform>(new Platform({500, 650}, "platform.png")));
+    world.add_object(std::shared_ptr<Platform>(new Platform({328, 550}, "platform.png")));
+    world.add_object(std::shared_ptr<Platform>(new Platform({456, 550}, "platform.png")));
 
-    world.add_object(std::shared_ptr<Game_Object>(new Door({1000, 600}, "door.png")));
+    world.add_object(std::shared_ptr<Platform>(new Platform({800, 550}, "platform.png")));
+    world.add_object(std::shared_ptr<Platform>(new Platform({928, 550}, "platform.png")));
+    world.add_object(std::shared_ptr<Platform>(new Platform({1056, 550}, "platform.png")));
+
+    world.add_object(std::shared_ptr<Platform>(new Platform({630, 375}, "platform.png")));
+
+    world.add_object(std::shared_ptr<Platform>(new Platform({200, 200}, "platform.png")));
+    world.add_object(std::shared_ptr<Platform>(new Platform({328, 200}, "platform.png")));
+    world.add_object(std::shared_ptr<Platform>(new Platform({456, 200}, "platform.png")));
+
+    world.add_object(std::shared_ptr<Platform>(new Platform({800, 200}, "platform.png")));
+    world.add_object(std::shared_ptr<Platform>(new Platform({928, 200}, "platform.png")));
+    world.add_object(std::shared_ptr<Platform>(new Platform({1056, 200}, "platform.png")));
+
+
+    world.add_object(std::shared_ptr<Game_Object>(new Door({1000, 650}, "door.png")));
     world.add_object(std::shared_ptr<Game_Object>(new Player({500, 500}, "standing.png", 100, 100)));
 
     world.add_object(std::shared_ptr<Game_Object>(new Enemy({0, 0}, "enemy.png", 100, 0, world.get_player_ptr())));
