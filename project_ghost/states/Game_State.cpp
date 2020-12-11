@@ -26,9 +26,13 @@ Game_State::Game_State(sf::RenderWindow &window)
     world.add_object(std::shared_ptr<Platform>(new Platform({928, 200}, "platform.png")));
     world.add_object(std::shared_ptr<Platform>(new Platform({1056, 200}, "platform.png")));
 
+    std::map<std::string, int> int_changes{std::pair<std::string, int>{"max_jumps", 1}};
+    std::map<std::string, float> float_changes;
+    Upgrade upg{int_changes, float_changes};
+    player_info.add_upgrade(upg);
 
     world.add_object(std::shared_ptr<Game_Object>(new Door({1000, 650}, "door.png")));
-    world.add_object(std::shared_ptr<Game_Object>(new Player({500, 500}, "standing.png", 100, 100)));
+    world.add_object(std::shared_ptr<Game_Object>(player_info.create_new_player({500, 500})));
 
     world.add_object(std::shared_ptr<Game_Object>(new Enemy({0, 0}, "enemy.png", 100, 0, world.get_player_ptr())));
     world.add_object(std::shared_ptr<Game_Object>(new Enemy({1000, 0}, "enemy.png", 100, 0, world.get_player_ptr())));

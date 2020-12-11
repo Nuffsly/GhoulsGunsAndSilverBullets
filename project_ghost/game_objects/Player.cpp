@@ -20,13 +20,14 @@ float flip(float const x)
 }
 
 
-Player::Player(sf::Vector2f center, std::string const& texture_name, int health, int damage)
-    : Character{center, texture_name, health, damage},
-      player_state{2}, off_platform{false}, drop_margin{0.0},
-      vertical_duration{0.0}, horizontal_duration{0.0}, jump_start{0.0},
-      inertia{false}, moved_last_update{false}, facing_right{true},
-      jump_pressed{false}, jump_count{1}, MAX_JUMPS{1},
-      weapon{center, "weapon.png", 0.5, damage}
+Player::Player(sf::Vector2f center, std::string const &texture_name, int health,
+               int damage, int max_jumps, float run_speed, float fire_rate)
+        : Character{center, texture_name, health, damage},
+          MAX_JUMPS{max_jumps}, run_speed{run_speed}, player_state{2},
+          off_platform{false}, drop_margin{0.0}, vertical_duration{0.0},
+          horizontal_duration{0.0}, jump_start{0.0}, inertia{false},
+          moved_last_update{false}, facing_right{true},
+          weapon{center, "weapon.png", fire_rate, damage}
 {
     const float HAT_MARGIN{25.0f};
     hitbox = {(hitbox.x - HAT_MARGIN), hitbox.y};
