@@ -66,6 +66,16 @@ CMakeFiles/project_ghost.dir/managers/World.cpp.o: ../managers/Texture_Manager.h
 CMakeFiles/project_ghost.dir/managers/World.cpp.o: ../managers/World.cpp
 CMakeFiles/project_ghost.dir/managers/World.cpp.o: ../managers/World.h
 
+CMakeFiles/project_ghost.dir/states/Game_State.cpp.o: ../game_objects/Game_Object.h
+CMakeFiles/project_ghost.dir/states/Game_State.cpp.o: ../game_objects/Player.h
+CMakeFiles/project_ghost.dir/states/Game_State.cpp.o: ../game_objects/Textured_Object.h
+CMakeFiles/project_ghost.dir/states/Game_State.cpp.o: ../game_objects/Weapon.h
+CMakeFiles/project_ghost.dir/states/Game_State.cpp.o: ../managers/Texture_Manager.h
+CMakeFiles/project_ghost.dir/states/Game_State.cpp.o: ../managers/World.h
+CMakeFiles/project_ghost.dir/states/Game_State.cpp.o: ../states/Game_State.cpp
+CMakeFiles/project_ghost.dir/states/Game_State.cpp.o: ../states/Game_State.h
+CMakeFiles/project_ghost.dir/states/Game_State.cpp.o: ../states/State.h
+
 CMakeFiles/project_ghost.dir/states/State.cpp.o: ../states/State.cpp
 CMakeFiles/project_ghost.dir/states/State.cpp.o: ../states/State.h
 

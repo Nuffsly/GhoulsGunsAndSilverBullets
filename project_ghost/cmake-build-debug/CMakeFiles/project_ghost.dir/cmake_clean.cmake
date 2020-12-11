@@ -8,6 +8,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/project_ghost.dir/main.cpp.o"
   "CMakeFiles/project_ghost.dir/managers/Texture_Manager.cpp.o"
   "CMakeFiles/project_ghost.dir/managers/World.cpp.o"
+  "CMakeFiles/project_ghost.dir/states/Game_State.cpp.o"
   "CMakeFiles/project_ghost.dir/states/State.cpp.o"
   "project_ghost"
   "project_ghost.pdb"

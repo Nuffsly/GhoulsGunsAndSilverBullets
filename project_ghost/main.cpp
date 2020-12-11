@@ -11,7 +11,8 @@ const int HEIGHT{720};
 int main()
 {
     //Define our window
-    sf::RenderWindow window{sf::VideoMode(WIDTH, HEIGHT), "PROJECT: [G H 0 5 T]", sf::Style::Fullscreen};
+    sf::RenderWindow window{sf::VideoMode(1280,720), "PROJECT: [G H 0 5 T]", sf::Style::Fullscreen};
+
     window.setVerticalSyncEnabled(true);
     //window.setFramerateLimit(30);
     window.setKeyRepeatEnabled(false);
