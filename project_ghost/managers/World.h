@@ -17,22 +17,20 @@
 class World
 {
 public:
-    //~World();
+    World(sf::RenderWindow &window);
+    World() = delete;
 
     void tick(sf::Time);
-
     void render(sf::RenderWindow &window);
-
     bool load_level(std::string const& file_name);
 
     void add_object(std::shared_ptr<Game_Object> const& game_object);
 
     std::shared_ptr<Game_Object> get_player_ptr() const;
-
     bool collides(Game_Object const& a, Game_Object const& b) const;
-
     std::vector<std::shared_ptr<Game_Object>> collides_with(Game_Object &me) const;
 
+    sf::RenderWindow& stored_window;
 private:
     std::vector<std::shared_ptr<Game_Object>> game_objects;
 };

@@ -24,7 +24,7 @@ bool Weapon::update(sf::Time const& delta, World &world)
 
     sf::Vector2f weapon_pos{center};
     shape.setPosition(center);
-    sf::Vector2f mouse_pos{sf::Mouse::getPosition()};
+    sf::Vector2f mouse_pos{sf::Mouse::getPosition(world.stored_window)};
 
     direction = std::atan2(mouse_pos.y - weapon_pos.y, mouse_pos.x - weapon_pos.x) * 180 / PI;
     shape.setRotation(direction);

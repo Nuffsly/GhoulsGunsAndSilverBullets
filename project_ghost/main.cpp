@@ -9,11 +9,11 @@ const int HEIGHT{720};
 int main()
 {
     //Define our window
-    sf::RenderWindow window{sf::VideoMode(WIDTH, HEIGHT), "PROJECT: [G H 0 5 T]", sf::Style::Fullscreen};
+    sf::RenderWindow window{sf::VideoMode(WIDTH, HEIGHT), "PROJECT: [G H 0 5 T]"};
     window.setVerticalSyncEnabled(true);
     window.setKeyRepeatEnabled(false);
 
-    State::run(window, std::make_shared<Game_State>());
+    State::run(window, std::make_shared<Game_State>(window));
 
     return 0;
 }

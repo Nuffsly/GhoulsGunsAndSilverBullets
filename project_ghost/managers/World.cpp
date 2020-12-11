@@ -6,6 +6,10 @@
 #include <iostream>
 
 
+World::World(sf::RenderWindow &window)
+        :stored_window{window}
+{}
+
 void World::tick(sf::Time delta)
 {
     for (size_t i = 0; i < game_objects.size(); i++)
