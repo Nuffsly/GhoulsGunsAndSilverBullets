@@ -2,14 +2,12 @@
 #include "states/State.h"
 #include "states/Game_State.h"
 
-// Global constants
-const int WIDTH{1280};
-const int HEIGHT{720};
+
 
 int main()
 {
     //Define our window
-    sf::RenderWindow window{sf::VideoMode(WIDTH, HEIGHT), "PROJECT: [G H 0 5 T]"};
+    sf::RenderWindow window{sf::VideoMode(1280,720), "PROJECT: [G H 0 5 T]", sf::Style::Titlebar | sf::Style::Close};
     window.setVerticalSyncEnabled(true);
     window.setKeyRepeatEnabled(false);
 

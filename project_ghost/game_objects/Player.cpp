@@ -34,7 +34,7 @@ Player::Player(sf::Vector2f center, std::string const& texture_name, int health,
 
 bool Player::update(const sf::Time &delta, World &world)
 {
-    move_player(delta);
+    move_player(delta, world);
 
     handle_weapon(delta, world);
     handle_collision(world);
@@ -53,9 +53,9 @@ void Player::handle_weapon(const sf::Time &delta, World &world)
     }
 }
 
-void Player::move_player(sf::Time delta)
+void Player::move_player(sf::Time delta, World &world)
 {
-    handle_horizontal_move(delta);
+    handle_horizontal_move(delta, world);
 
     handle_jump_input();
 
@@ -67,7 +67,7 @@ void Player::move_player(sf::Time delta)
     }
     if ( player_state == 2 )
     {
-        fall(delta);
+        fall(delta, world);
     }
 }
 
@@ -193,7 +193,7 @@ void Player::handle_inertia(sf::Time delta)
     }
 }
 
-void Player::handle_horizontal_move(sf::Time delta)
+void Player::handle_horizontal_move(sf::Time delta, World &world)
 {
     handle_inertia(delta);
     moved_last_update = false;
@@ -219,7 +219,7 @@ void Player::handle_horizontal_move(sf::Time delta)
     float clamped_position{Textured_Object::get_position().x + movement};
 
     const float low_clamp_x{get_size().x / 2};
-    const float high_clamp_x{1280.0f - (get_size().x / 2)};
+    const float high_clamp_x{world.stored_window.getSize().x - (get_size().x / 2)};
 
     clamped_position = std::clamp(clamped_position, low_clamp_x, high_clamp_x);
 
@@ -249,7 +249,7 @@ void Player::jump(sf::Time delta)
 
 }
 
-void Player::fall(sf::Time delta)
+void Player::fall(sf::Time delta, World &world)
 {
     float terminal_v{800};
     const float FALL_DURATION_AS_SEC{0.4};
@@ -277,14 +277,16 @@ void Player::fall(sf::Time delta)
                        center.y + (terminal_v * delta.asSeconds()) });
     }
 
-    if (center.y > 720) //TEMP(?)
+    if (get_bottom() > world.stored_window.getSize().y) //TEMP(?)
     {
+        const float OFFSET_Y{world.stored_window.getSize().y - shape.getSize().y/2};
+
         vertical_duration = 0;
         player_state = 0;
         off_platform = false;
         jump_count = MAX_JUMPS;
         drop_margin = 0.0;
-        set_position({center.x, 720.0f});
+        set_position({center.x, OFFSET_Y});
     }
 }
 
