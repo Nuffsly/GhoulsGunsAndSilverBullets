@@ -153,8 +153,8 @@ void Player::handle_drop()
 
 void Player::handle_inertia(sf::Time delta)
 {
-    const float INERTIA_DISTANCE{150};
-    const float INERTIA_TIME_AS_SEC{0.2};
+    const float INERTIA_DISTANCE{200};
+    const float INERTIA_TIME_AS_SEC{0.1};
 
     if (   moved_last_update && !facing_right
            && ! sf::Keyboard::isKeyPressed(sf::Keyboard::A)

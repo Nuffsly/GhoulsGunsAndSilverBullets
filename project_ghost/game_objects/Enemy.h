@@ -21,7 +21,11 @@ public:
     bool update(sf::Time const& delta, World &world) override;
 
 private:
+    float timer;
+    bool falling;
 
+    void fall(sf::Time const& delta);
+    bool handle_collision(World &world);
 };
 
 class Enemy : public Character

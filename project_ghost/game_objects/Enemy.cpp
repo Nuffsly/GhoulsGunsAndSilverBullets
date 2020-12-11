@@ -11,11 +11,47 @@
 #include "../managers/World.h"
 
 Money::Money(const sf::Vector2f &center, const std::string &texture_name)
-    :Textured_Object(center, texture_name)
+    :Textured_Object(center, texture_name), timer{8.0}, falling{true}
 {}
 
 bool Money::update(sf::Time const& delta, World &world)
 {
+    if (falling)
+    {
+        fall(delta);
+    }
+
+    timer -= delta.asSeconds();
+    if ( timer <= 0 )
+    {
+        return false;
+    }
+
+    return handle_collision(world);
+}
+
+void Money::fall(const sf::Time &delta)
+{
+    const float SPEED {300};
+
+    set_position({get_position().x, get_position().y + SPEED * delta.asSeconds()});
+}
+
+bool Money::handle_collision(World &world)
+{
+    for (auto &collision : world.collides_with(*this))
+    {
+        if (dynamic_cast<Player *>(collision.get()))
+        {
+            // TODO: Add to players money
+            return false;
+        }
+
+        if (dynamic_cast<Platform *>(collision.get()) && falling)
+        {
+            falling = false;
+        }
+    }
     return true;
 }
 
