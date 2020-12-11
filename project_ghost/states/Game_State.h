@@ -21,13 +21,18 @@ public:
     Game_State() = delete;
 
     std::shared_ptr<State> tick(sf::Time delta) override;
-
     void render(sf::RenderWindow &window) override;
+
+    void spawn_enemy();
 
 private:
     World world;
     Player_Info player_info;
     std::vector<Upgrade> available_upgrades;
+    int level;
+    bool finished_level;
+    int enemies_spawned;
+    float since_last_spawn;
 };
 
 
