@@ -33,6 +33,8 @@ private:
     bool finished_level;
     int enemies_spawned;
     float since_last_spawn;
+
+    void load_upgrades();
 };
 
 

@@ -28,9 +28,8 @@ Game_State::Game_State(sf::RenderWindow &window)
     world.add_object(std::shared_ptr<Platform>(new Platform({928, 200}, "platform.png")));
     world.add_object(std::shared_ptr<Platform>(new Platform({1056, 200}, "platform.png")));
 
-    std::map<std::string, int> int_changes{std::pair<std::string, int>{"max_jumps", 1}};
-    std::map<std::string, float> float_changes;
-    Upgrade upg{int_changes, float_changes};
+    Upgrade upg{"Damage +10%"};
+    upg.float_changes.insert(std::pair<std::string, int>{"fire_rate*", 2});
     player_info.add_upgrade(upg);
 
     world.add_object(std::shared_ptr<Game_Object>(new Door({1000, 650}, "door.png")));
@@ -66,4 +65,9 @@ void Game_State::spawn_enemy()
     {
         finished_level = true;
     }
+}
+
+void Game_State::load_upgrades()
+{
+
 }

@@ -4,6 +4,6 @@
 
 #include "Upgrade.h"
 
-Upgrade::Upgrade(std::map<std::string, int> int_changes, std::map<std::string, float> float_changes)
-    : int_changes{int_changes}, float_changes{float_changes}
+Upgrade::Upgrade(std::string const& name)
+    : name{name}, description{}, int_changes{}, float_changes{}
 {}
