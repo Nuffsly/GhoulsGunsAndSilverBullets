@@ -3,6 +3,9 @@
 //
 
 #include <cmath>
+#include <fstream>
+#include <filesystem>
+#include <iostream>
 
 #include "Game_State.h"
 #include "../game_objects/Enemy.h"
@@ -10,28 +13,29 @@
 Game_State::Game_State(sf::RenderWindow &window)
 :world(window), level(1), finished_level(false), enemies_spawned(0), since_last_spawn(0)
 {
-    world.add_object(std::shared_ptr<Platform>(new Platform({200, 550}, "platform.png")));
-    world.add_object(std::shared_ptr<Platform>(new Platform({328, 550}, "platform.png")));
-    world.add_object(std::shared_ptr<Platform>(new Platform({456, 550}, "platform.png")));
+    load_upgrades();
+    world.add_object(std::shared_ptr<Game_Object>(new Platform({200, 550}, "platform.png")));
+    world.add_object(std::shared_ptr<Game_Object>(new Platform({328, 550}, "platform.png")));
+    world.add_object(std::shared_ptr<Game_Object>(new Platform({456, 550}, "platform.png")));
 
-    world.add_object(std::shared_ptr<Platform>(new Platform({800, 550}, "platform.png")));
-    world.add_object(std::shared_ptr<Platform>(new Platform({928, 550}, "platform.png")));
-    world.add_object(std::shared_ptr<Platform>(new Platform({1056, 550}, "platform.png")));
+    world.add_object(std::shared_ptr<Game_Object>(new Platform({800, 550}, "platform.png")));
+    world.add_object(std::shared_ptr<Game_Object>(new Platform({928, 550}, "platform.png")));
+    world.add_object(std::shared_ptr<Game_Object>(new Platform({1056, 550}, "platform.png")));
 
-    world.add_object(std::shared_ptr<Platform>(new Platform({630, 375}, "platform.png")));
+    world.add_object(std::shared_ptr<Game_Object>(new Platform({630, 375}, "platform.png")));
 
-    world.add_object(std::shared_ptr<Platform>(new Platform({200, 200}, "platform.png")));
-    world.add_object(std::shared_ptr<Platform>(new Platform({328, 200}, "platform.png")));
-    world.add_object(std::shared_ptr<Platform>(new Platform({456, 200}, "platform.png")));
+    world.add_object(std::shared_ptr<Game_Object>(new Platform({200, 200}, "platform.png")));
+    world.add_object(std::shared_ptr<Game_Object>(new Platform({328, 200}, "platform.png")));
+    world.add_object(std::shared_ptr<Game_Object>(new Platform({456, 200}, "platform.png")));
 
-    world.add_object(std::shared_ptr<Platform>(new Platform({800, 200}, "platform.png")));
-    world.add_object(std::shared_ptr<Platform>(new Platform({928, 200}, "platform.png")));
-    world.add_object(std::shared_ptr<Platform>(new Platform({1056, 200}, "platform.png")));
+    world.add_object(std::shared_ptr<Game_Object>(new Platform({800, 200}, "platform.png")));
+    world.add_object(std::shared_ptr<Game_Object>(new Platform({928, 200}, "platform.png")));
+    world.add_object(std::shared_ptr<Game_Object>(new Platform({1056, 200}, "platform.png")));
 
-    Upgrade upg{"Damage +10%"};
-    upg.float_changes.insert(std::pair<std::string, int>{"fire_rate*", 2});
-    player_info.add_upgrade(upg);
-
+    for (Upgrade &upg : available_upgrades)
+    {
+        player_info.add_upgrade(upg);
+    }
     world.add_object(std::shared_ptr<Game_Object>(new Door({1000, 650}, "door.png")));
     world.add_object(std::shared_ptr<Game_Object>(player_info.create_new_player({500, 500})));
 }
@@ -69,5 +73,39 @@ void Game_State::spawn_enemy()
 
 void Game_State::load_upgrades()
 {
+    std::string file_path{std::filesystem::current_path().string() + "/../game_data/upgrades"};
 
+    std::ifstream f_stream{file_path, std::ios::in};
+    if (!f_stream.is_open())
+    {
+        throw std::logic_error("Failed to load upgrades");
+    }
+    std::string line{};
+    while ( std::getline(f_stream, line) )
+    {
+        available_upgrades.emplace_back(Upgrade{line});
+        std::getline(f_stream, available_upgrades.back().description);
+        std::string type_name;
+        std::string var_name;
+        std::string value;
+        while ( type_name != "#" )
+        {
+            f_stream >> type_name;
+            if ( type_name == "#" )
+            {
+                f_stream.ignore(1000, '\n');
+                break;
+            }
+            f_stream >> var_name;
+            f_stream >> value;
+            if (type_name == "int")
+            {
+                available_upgrades.back().int_changes.insert({var_name, stoi(value)});
+            }
+            if (var_name == "float")
+            {
+                available_upgrades.back().float_changes.insert({var_name, stof(value)} );
+            }
+        }
+    }
 }

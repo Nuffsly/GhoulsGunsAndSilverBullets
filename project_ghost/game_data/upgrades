@@ -1,0 +1,12 @@
+Damage +10%
+Increases the damage of your weapon by 10%
+int damage* 5
+#
+Fire Rate +10%
+Makes you able to shoot 10% faster
+float fire_rate* 1.1
+#
+Double Jump
+You can now jump twice!
+int max_jumps+ 1
+#
