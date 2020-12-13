@@ -7,6 +7,7 @@
 
 #include <memory>
 #include <vector>
+#include <string>
 
 #include "State.h"
 #include "../managers/World.h"
@@ -33,6 +34,8 @@ private:
     bool finished_level;
     int enemies_spawned;
     float since_last_spawn;
+
+    void load_upgrades();
 };
 
 

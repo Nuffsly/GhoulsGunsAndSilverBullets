@@ -10,7 +10,10 @@
 
 struct Upgrade
 {
-    Upgrade(std::map<std::string, int> int_changes, std::map<std::string, float> float_changes);
+    explicit Upgrade(std::string const& name);
+
+    std::string name;
+    std::string description;
 
     std::map<std::string, int> int_changes;
     std::map<std::string, float> float_changes;
