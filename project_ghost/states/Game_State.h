@@ -10,10 +10,12 @@
 #include <string>
 
 #include "State.h"
+
+//class World;
 #include "../managers/World.h"
+#include "../game_objects/Player.h"
 #include "../containers/Player_Info.h"
 #include "../containers/Upgrade.h"
-
 
 class Game_State : public State
 {
@@ -27,8 +29,8 @@ public:
     void spawn_enemy();
 
 private:
-    World world;
     Player_Info player_info;
+    World world;
     std::vector<Upgrade> available_upgrades;
     int level;
     bool finished_level;

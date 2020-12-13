@@ -3,7 +3,11 @@
 //
 
 #include "World.h"
+#include "../containers/Player_Info.h"
+
 #include <iostream>
+#include <filesystem>
+//#include <fstream>
 
 
 World::World(sf::RenderWindow &window)
@@ -71,4 +75,42 @@ std::vector<std::shared_ptr<Game_Object>> World::collides_with(Game_Object &me) 
         }
     }
     return result;
+}
+
+void World::load_level(Player_Info &player_info)
+{
+    std::string file_path{std::filesystem::current_path().string() + "/../game_data/levels/level_prototype.txt"};
+
+    std::ifstream f_stream{file_path, std::ios::in};
+    if (!f_stream.is_open())
+    {
+        throw std::logic_error("Failed to load level");
+    }
+
+    char block;
+    for( int i{0}; i <= 40; i++ )
+    {
+        block = f_stream.get();
+
+        if (block == '_')
+        {
+            add_object(std::shared_ptr<Game_Object>(
+                    new Platform(
+                            { static_cast<float>( (i * 180) + 64 ),
+                                     static_cast<float>( (i / 10) * 180 ) },
+                                     "platform.png") ));
+        }
+        if ( block == 'P')
+        {
+            add_object(std::shared_ptr<Game_Object>(
+                    player_info.create_new_player(
+                            {static_cast<float>( (i*180) + 36),
+                             static_cast<float>( ( (i/10) * 180 ) - 64 )})));
+        }
+        if ( i % 10 == 0 && i != 0)
+        {
+            f_stream.ignore(1000, '\n');
+        }
+    }
+
 }

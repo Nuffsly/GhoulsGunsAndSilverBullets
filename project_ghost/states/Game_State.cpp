@@ -3,7 +3,6 @@
 //
 
 #include <cmath>
-#include <fstream>
 #include <filesystem>
 #include <iostream>
 
@@ -11,10 +10,11 @@
 #include "../game_objects/Enemy.h"
 
 Game_State::Game_State(sf::RenderWindow &window)
-:world(window), level(1), finished_level(false), enemies_spawned(0), since_last_spawn(0)
+: player_info{}, world(window), available_upgrades{}, level{1}, finished_level{false}, enemies_spawned{0}, since_last_spawn{0}
 {
     load_upgrades();
-    world.add_object(std::shared_ptr<Game_Object>(new Platform({200, 550}, "platform.png")));
+    world.load_level(player_info);
+    /*world.add_object(std::shared_ptr<Game_Object>(new Platform({200, 550}, "platform.png")));
     world.add_object(std::shared_ptr<Game_Object>(new Platform({328, 550}, "platform.png")));
     world.add_object(std::shared_ptr<Game_Object>(new Platform({456, 550}, "platform.png")));
 
@@ -32,12 +32,12 @@ Game_State::Game_State(sf::RenderWindow &window)
     world.add_object(std::shared_ptr<Game_Object>(new Platform({928, 200}, "platform.png")));
     world.add_object(std::shared_ptr<Game_Object>(new Platform({1056, 200}, "platform.png")));
 
-    /*for (Upgrade &upg : available_upgrades)
+    *//*for (Upgrade &upg : available_upgrades)
     {
         player_info.add_upgrade(upg);
-    }*/
+    }*//*
     world.add_object(std::shared_ptr<Game_Object>(new Door({1000, 650}, "door.png")));
-    world.add_object(std::shared_ptr<Game_Object>(player_info.create_new_player({500, 500})));
+    world.add_object(std::shared_ptr<Game_Object>(player_info.create_new_player({500, 500})));*/
 }
 
 std::shared_ptr<State> Game_State::tick(sf::Time delta)
