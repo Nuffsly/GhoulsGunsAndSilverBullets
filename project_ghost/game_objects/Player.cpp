@@ -23,10 +23,11 @@ float flip(float const x)
 Player::Player(sf::Vector2f center, std::string const &texture_name, int health,
                int damage, int max_jumps, float run_speed, float fire_rate)
         : Character{center, texture_name, health, damage},
-          MAX_JUMPS{max_jumps}, run_speed{run_speed}, player_state{2},
-          off_platform{false}, drop_margin{0.0}, vertical_duration{0.0},
-          horizontal_duration{0.0}, jump_start{0.0}, inertia{false},
-          moved_last_update{false}, facing_right{true},
+          player_state{2}, off_platform{false}, drop_margin{0.0},
+          vertical_duration{0.0}, horizontal_duration{0.0}, jump_start{0.0},
+          inertia{false}, moved_last_update{false}, facing_right{true},
+          jump_pressed{false}, jump_count{1}, MAX_JUMPS{max_jumps},
+          run_speed{run_speed},
           weapon{center, "weapon.png", fire_rate, damage}
 {
     const float HAT_MARGIN{25.0f};
@@ -215,7 +216,7 @@ void Player::handle_horizontal_move(sf::Time delta, World &world)
         moved_last_update  = true;
     }
 
-    float movement {direction * delta.asSeconds() * 500};
+    float movement {direction * delta.asSeconds() * run_speed};
 
     float clamped_position{Textured_Object::get_position().x + movement};
 

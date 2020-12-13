@@ -32,10 +32,10 @@ Game_State::Game_State(sf::RenderWindow &window)
     world.add_object(std::shared_ptr<Game_Object>(new Platform({928, 200}, "platform.png")));
     world.add_object(std::shared_ptr<Game_Object>(new Platform({1056, 200}, "platform.png")));
 
-    for (Upgrade &upg : available_upgrades)
+    /*for (Upgrade &upg : available_upgrades)
     {
         player_info.add_upgrade(upg);
-    }
+    }*/
     world.add_object(std::shared_ptr<Game_Object>(new Door({1000, 650}, "door.png")));
     world.add_object(std::shared_ptr<Game_Object>(player_info.create_new_player({500, 500})));
 }
@@ -85,6 +85,8 @@ void Game_State::load_upgrades()
     {
         available_upgrades.emplace_back(Upgrade{line});
         std::getline(f_stream, available_upgrades.back().description);
+        std::getline(f_stream, line);
+        available_upgrades.back().price = stoi(line);
         std::string type_name;
         std::string var_name;
         std::string value;
@@ -100,9 +102,9 @@ void Game_State::load_upgrades()
             f_stream >> value;
             if (type_name == "int")
             {
-                available_upgrades.back().int_changes.insert({var_name, stoi(value)});
+                available_upgrades.back().int_changes.insert({var_name, stoi(value)} );
             }
-            if (var_name == "float")
+            if (type_name == "float")
             {
                 available_upgrades.back().float_changes.insert({var_name, stof(value)} );
             }
