@@ -14,6 +14,7 @@ struct Upgrade
 
     std::string name;
     std::string description;
+    int price;
 
     std::map<std::string, int> int_changes;
     std::map<std::string, float> float_changes;

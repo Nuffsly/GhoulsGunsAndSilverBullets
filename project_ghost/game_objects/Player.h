@@ -50,7 +50,7 @@ private:
     bool jump_pressed;
     int jump_count;
     const int MAX_JUMPS;
-    float run_speed; //TODO: implementera speed i rörelse
+    float run_speed;
 
     Weapon weapon;
 };

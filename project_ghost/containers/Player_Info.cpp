@@ -33,8 +33,8 @@ Player *Player_Info::create_new_player(sf::Vector2f const& center)
 {
     // Default Values
     std::map<std::string, float> player_stats_float{
-        {"run_speed*", 100},
-        {"fire_rate*", 0.3}
+        {"run_speed*", 500},
+        {"fire_rate*", 0.8}
     };
     std::map<std::string, int> player_stats_int{
         {"health*",    100},
@@ -61,23 +61,24 @@ Player *Player_Info::create_new_player(sf::Vector2f const& center)
                 player_stats_int[it2->first] = it2->second;
             }
         }
-        for (auto it2{std::begin(it->float_changes)};
-             it2 != std::end(it->float_changes); ++it2)
+        for (auto it3{std::begin(it->float_changes)};
+             it3 != std::end(it->float_changes); ++it3)
         {
-            if (it2->first.back() == '+')
+            if (it3->first.back() == '+')
             {
-                player_stats_int[it2->first] += it2->second;
+                player_stats_float[it3->first] += it3->second;
             }
-            if (it2->first.back() == '*')
+            if (it3->first.back() == '*')
             {
-                player_stats_int[it2->first] *= it2->second;
+                player_stats_float[it3->first] *= it3->second;
             }
-            if (it2->first.back() == '=')
+            if (it3->first.back() == '=')
             {
-                player_stats_int[it2->first] = it2->second;
+                player_stats_float[it3->first] = it3->second;
             }
         }
     }
+
 
     return new Player(center, "standing.png",
                       player_stats_int["health*"],
