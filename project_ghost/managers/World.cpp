@@ -34,6 +34,12 @@ void World::render(sf::RenderWindow &window)
     }
 }
 
+void World::clear_level()
+{
+    game_objects.clear();
+    game_objects.shrink_to_fit();
+}
+
 void World::add_front(std::shared_ptr<Game_Object> const& game_object)
 {
     game_objects.insert(game_objects.begin(), game_object);
