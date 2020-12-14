@@ -5,6 +5,7 @@
 #ifndef MAIN_CPP_GAME_STATE_H
 #define MAIN_CPP_GAME_STATE_H
 
+#include<SFML/Graphics.hpp>
 #include <memory>
 #include <vector>
 #include <string>
@@ -38,6 +39,8 @@ private:
     bool finished_level;
     int enemies_spawned;
     float since_last_spawn;
+    sf::Vector2f door_pos;
+    std::vector<sf::Vector2f> upg_pillars_pos;
 
     void load_level();
     void load_upgrades();

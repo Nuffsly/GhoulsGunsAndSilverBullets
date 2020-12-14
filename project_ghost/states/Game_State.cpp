@@ -5,6 +5,7 @@
 #include <cmath>
 #include <filesystem>
 #include <iostream>
+#include <random>
 
 #include "Game_State.h"
 
@@ -15,30 +16,10 @@ Game_State::Game_State(sf::RenderWindow &window)
     load_upgrades();
     load_level();
 
-    /*world.add_object(std::shared_ptr<Game_Object>(new Platform({200, 550}, "platform.png")));
-    world.add_object(std::shared_ptr<Game_Object>(new Platform({328, 550}, "platform.png")));
-    world.add_object(std::shared_ptr<Game_Object>(new Platform({456, 550}, "platform.png")));
-
-    world.add_object(std::shared_ptr<Game_Object>(new Platform({800, 550}, "platform.png")));
-    world.add_object(std::shared_ptr<Game_Object>(new Platform({928, 550}, "platform.png")));
-    world.add_object(std::shared_ptr<Game_Object>(new Platform({1056, 550}, "platform.png")));
-
-    world.add_object(std::shared_ptr<Game_Object>(new Platform({630, 375}, "platform.png")));
-
-    world.add_object(std::shared_ptr<Game_Object>(new Platform({200, 200}, "platform.png")));
-    world.add_object(std::shared_ptr<Game_Object>(new Platform({328, 200}, "platform.png")));
-    world.add_object(std::shared_ptr<Game_Object>(new Platform({456, 200}, "platform.png")));
-
-    world.add_object(std::shared_ptr<Game_Object>(new Platform({800, 200}, "platform.png")));
-    world.add_object(std::shared_ptr<Game_Object>(new Platform({928, 200}, "platform.png")));
-    world.add_object(std::shared_ptr<Game_Object>(new Platform({1056, 200}, "platform.png")));
-
-    *//*for (Upgrade &upg : available_upgrades)
+    /*for (Upgrade &upg : available_upgrades)
     {
         player_info.add_upgrade(upg);
-    }*//*
-    world.add_object(std::shared_ptr<Game_Object>(new Door({1000, 650}, "door.png")));
-    world.add_object(std::shared_ptr<Game_Object>(player_info.create_new_player({500, 500})));*/
+    }*/
 }
 
 std::shared_ptr<State> Game_State::tick(sf::Time delta)
@@ -48,7 +29,17 @@ std::shared_ptr<State> Game_State::tick(sf::Time delta)
         since_last_spawn += delta.asSeconds();
         spawn_enemy();
     }
-
+/*
+    if (finished_level)
+    {
+        for (sf::Vector2f &upgrade_pillar : upg_pillars_pos)
+        {
+            world.add_object(std::shared_ptr<Game_Object>( new Upgrade_Pillar(
+                            {static_cast<float>(( i % 10 * 128) + HALF_WIDTH ),
+                             static_cast<float>(( 1 + (i / 10)) * 180 )},
+                            "door.png")));
+        }
+    }*/
     world.tick(delta);
     return nullptr;
 }
@@ -62,7 +53,33 @@ void Game_State::spawn_enemy()
 {
     if (since_last_spawn > 2.0f / static_cast<float>(level) && enemies_spawned < 9 + pow(level, 1.3))
     {
-        world.add_object(std::shared_ptr<Game_Object>(new Enemy({0, 0}, "enemy.png", 100, 0, player_ptr)));
+        const unsigned int X_RES{world.stored_window.getSize().x};
+        const unsigned int Y_RES{world.stored_window.getSize().y};
+
+        std::random_device rd;
+        std::uniform_int_distribution<int> sides(1,3);
+        int side{sides(rd)};
+        sf::Vector2f center;
+
+        if (side == 1)
+        {
+            std::uniform_int_distribution<int> x_axis(1,X_RES);
+            center = {static_cast<float>(x_axis(rd)), -100};
+        }
+        if (side == 2)
+        {
+            std::uniform_int_distribution<int> y_axis(1,Y_RES);
+            center = {-100, static_cast<float>(y_axis(rd))};
+        }
+        if (side == 3)
+        {
+            std::uniform_int_distribution<int> y_axis(1,Y_RES);
+            center = {static_cast<float>(X_RES+100), static_cast<float>(y_axis(rd))};
+        }
+        world.add_object(std::shared_ptr<Game_Object>(
+                new Enemy({center},
+                          "enemy.png", 30*(1+level/10),
+                          15*(1+level/10), player_ptr)));
         enemies_spawned += 1;
         since_last_spawn = 0;
     }
@@ -115,7 +132,13 @@ void Game_State::load_upgrades()
 
 void Game_State::load_level()
 {
-    std::string file_path{std::filesystem::current_path().string() + "/../game_data/levels/level_prototype.txt"};
+    const int NUMBER_OF_LEVELS{3};
+    std::random_device rd;
+    std::uniform_int_distribution<int> uniform(1,NUMBER_OF_LEVELS);
+
+    std::string file_path{std::filesystem::current_path().string()
+                                    + "/../game_data/levels/"
+                                    + std::to_string(uniform(rd))};
 
     std::ifstream f_stream{file_path, std::ios::in};
     if (!f_stream.is_open())
@@ -128,24 +151,42 @@ void Game_State::load_level()
     {
         block = f_stream.get();
 
-        if (block == '_')
+        if (block == '_' || block == 'B')
         {
+            const int HALF_WIDTH{64};
             world.add_object(std::shared_ptr<Game_Object>(
                     new Platform(
-                            {static_cast<float>(( i % 10 * 128) + 64 ),
+                            {static_cast<float>(( i % 10 * 128) + HALF_WIDTH ),
                              static_cast<float>(( 1 + (i / 10)) * 180 )},
                             "platform.png")));
         }
-        if (block == 'P')
+        if (block == 'P' || block == 'B')
         {
+            const int HALF_WIDTH{36};
+            const int HALF_HEIGHT{64};
             player_ptr = std::shared_ptr<Game_Object>(
                     new Player(
-                            {static_cast<float>(( i % 10 * 128) + 36 ),
-                             static_cast<float>(( 1 + (i / 10)) * 180 - 64 )},
+                             {static_cast<float>(( i % 10 * 128) + HALF_WIDTH ),
+                             static_cast<float>(( 1 + (i / 10)) * 180 - HALF_HEIGHT )},
                              player_info));
             world.add_object(player_ptr);
         }
-        if (i % 10 == 9 && i != 0)
+        if (block == 'D' || block == 'E')
+        {
+            const int HALF_WIDTH{36};
+            const int HALF_HEIGHT{64};
+            door_pos = {static_cast<float>(( i % 10 * 128) + HALF_WIDTH ),
+                        static_cast<float>(( 1 + (i / 10)) * 180 - HALF_HEIGHT )};
+        }
+        if (block == 'U' || block == 'H')
+        {
+            const int HALF_WIDTH{36};
+            const int HALF_HEIGHT{64};
+            upg_pillars_pos.push_back({static_cast<float>(( i % 10 * 128) + HALF_WIDTH ),
+                                          static_cast<float>(( 1 + (i / 10)) * 180 - HALF_HEIGHT )});
+        }
+
+        if (i % 10 == 9)
         {
             f_stream.ignore(1000, '\n');
         }
