@@ -27,7 +27,7 @@ std::shared_ptr<State> Game_State::tick(sf::Time delta)
     if (!finished_level)
     {
         since_last_spawn += delta.asSeconds();
-        spawn_enemy();
+        //spawn_enemy();
     }
 /*
     if (finished_level)

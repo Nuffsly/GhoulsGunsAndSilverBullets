@@ -34,6 +34,7 @@ private:
     void handle_horizontal_move(sf::Time delta, World &world);
     void handle_weapon(const sf::Time &delta, World &world);
     bool still_alive();
+    void handle_animation();
 
 
     int player_state;
@@ -56,6 +57,9 @@ private:
     int max_jumps;
     float run_speed;
     Player_Info& player_info;
+
+    float x_at_last_frame;
+    std::vector<int> frame_numbers;
 
     Weapon weapon;
 };

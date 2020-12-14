@@ -58,3 +58,25 @@ void Weapon::calc_barrel_pos(float direction)
 
     barrel_pos = {center.x + x_change, center.y + y_change};
 }
+
+void Weapon::set_texture_state(Weapon::texture_state state)
+{
+    sf::IntRect texture_rect{};
+    switch (state)
+    {
+        case right:
+            shape.setOrigin(10, 10);
+            texture_rect = {0, 0, 23, 6};
+            shape.setTextureRect(texture_rect);
+            break;
+
+        case left:
+            shape.setOrigin(10, 14);
+            texture_rect = {0, 6, 23, -6};
+            shape.setTextureRect(texture_rect);
+            break;
+
+        default:
+            break;
+    }
+}

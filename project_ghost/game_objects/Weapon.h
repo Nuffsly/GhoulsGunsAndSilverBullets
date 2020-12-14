@@ -20,6 +20,9 @@ public:
     bool update(sf::Time const& delta, World &world) override;
     void calc_barrel_pos(float const direction);
 
+    enum texture_state{right, left};
+    void set_texture_state(texture_state state);
+
     float fire_rate;
     int damage;
 
