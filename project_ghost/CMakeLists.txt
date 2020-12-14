@@ -4,6 +4,14 @@ project(project_ghost)
 # Använd C++ 17.
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 
+if (DEFINED ENV{LOADEDMODULES} AND ("$ENV{LOADEDMODULES}" MATCHES ".*prog/gcc/9.3.0.*"))
+    set(CMAKE_CXX_COMPILER /sw/gcc-9.3.0/bin/g++)
+
+    if (DEFINED ENV{SFML_ROOT})
+        list(APPEND CMAKE_MODULE_PATH "$ENV{SFML_ROOT}/share/SFML/cmake/Modules")
+    endif()
+endif()
+
 # På skolans Linux-system finns två versioner av GCC. Se vilken som används:
 if (DEFINED ENV{LOADEDMODULES} AND ("$ENV{LOADEDMODULES}" MATCHES ".*prog/gcc/6.1.0.*"))
     set(CMAKE_CXX_COMPILER /sw/gcc-6.1.0/bin/g++)
@@ -20,6 +28,8 @@ if (DEFINED ENV{LOADEDMODULES} AND ("$ENV{LOADEDMODULES}" MATCHES ".*prog/gcc/7.
         list(APPEND CMAKE_MODULE_PATH "$ENV{SFML_ROOT}/share/SFML/cmake/Modules")
     endif()
 endif()
+
+
 
 # Välj vilka delar av SFML som ska användas.
 set(SFML_MODULES network graphics window system)

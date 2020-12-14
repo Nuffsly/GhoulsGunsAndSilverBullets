@@ -30,6 +30,7 @@ private:
     void handle_horizontal_move(sf::Time delta, World &world);
     void handle_weapon(const sf::Time &delta, World &world);
     bool still_alive();
+    void handle_animation();
 
 
     int player_state;

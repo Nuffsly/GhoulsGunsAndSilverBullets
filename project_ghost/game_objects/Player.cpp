@@ -200,6 +200,7 @@ void Player::handle_horizontal_move(sf::Time delta, World &world)
     handle_inertia(delta);
     moved_last_update = false;
 
+
     float direction{0.0f};
     if (   sf::Keyboard::isKeyPressed(sf::Keyboard::A)
         || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
@@ -226,6 +227,7 @@ void Player::handle_horizontal_move(sf::Time delta, World &world)
     clamped_position = std::clamp(clamped_position, low_clamp_x, high_clamp_x);
 
     Textured_Object::set_position({clamped_position, get_position().y});
+    handle_animation();
 }
 
 void Player::jump(sf::Time delta)
@@ -301,4 +303,45 @@ void Player::render(sf::RenderWindow &window)
 {
     Textured_Object::render(window);
     weapon.render(window);
+}
+
+void Player::handle_animation()
+{
+    if(!moved_last_update)
+    {
+        /*sf::Texture *texture{Texture_Manager::get_texture("standing.png")};
+        shape.setTexture(texture);*/
+
+        if(facing_right)
+        {
+            sf::IntRect texture_rect{0, 0, 28, 32};
+            shape.setTextureRect(texture_rect);
+        }
+        else
+        {
+            sf::IntRect texture_rect{28, 0, -28, 32};
+            shape.setTextureRect(texture_rect);
+        }
+    }
+    else
+    {
+        if(facing_right)
+        {
+            sf::IntRect texture_rect{28, 0, 28, 32};
+            shape.setTextureRect(texture_rect);
+        }
+    }
+
+    /*const float SCALE{4};
+
+    sf::Vector2f size{texture->getSize()};
+
+    size = {size.x/12 * SCALE, size.y * SCALE};
+
+
+    shape.setTextureRect(texture_rect);
+    shape.setSize(size);
+    shape.setTexture(texture);
+    shape.setOrigin(size.x/2, size.y/2);
+    shape.setPosition(center);*/
 }
