@@ -22,6 +22,8 @@ public:
 
     void render(sf::RenderWindow &window) override;
 
+    Player_Info& player_info;
+
 private:
     void apply_upgrades();
     void move_player(sf::Time delta, World &world);
@@ -56,7 +58,6 @@ private:
     int jump_count;
     int max_jumps;
     float run_speed;
-    Player_Info& player_info;
 
     float x_at_last_frame;
     std::vector<int> frame_numbers;

@@ -14,6 +14,11 @@ int Player_Info::get_score() const
     return score;
 }
 
+int Player_Info::get_enemies_killed() const
+{
+    return enemies_killed;
+}
+
 std::vector<Upgrade> Player_Info::get_upgrades()
 {
     return gained_upgrades;
@@ -33,3 +38,10 @@ void Player_Info::add_score(int change)
 {
     score += change;
 }
+
+void Player_Info::add_enemies_killed(int change)
+{
+    enemies_killed += change;
+}
+
+

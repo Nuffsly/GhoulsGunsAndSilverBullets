@@ -6,10 +6,12 @@
 #include <cmath>
 #include <iostream>
 #include <vector>
+#include <random>
 
 #include "Player.h"
 #include "../managers/World.h"
 #include "Enemy.h"
+#include "Money.h"
 
 float lerp(float const a, float const b, float const t)
 {
@@ -129,6 +131,13 @@ void Player::handle_collision(World &world)
         if (dynamic_cast<Enemy *>(collision.get()))
         {
             take_damage(dynamic_cast<Enemy *>(collision.get())->damage);
+        }
+
+        if (dynamic_cast<Money *>(collision.get()))
+        {
+            std::random_device rd;
+            std::uniform_int_distribution<int> uniform(20,27);
+            player_info.add_money(uniform(rd));
         }
     }
     if ( player_state == 0 && off_platform ) // off_platform only sets falling state if all platforms agree
