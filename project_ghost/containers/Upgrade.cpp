@@ -5,5 +5,5 @@
 #include "Upgrade.h"
 
 Upgrade::Upgrade(std::string const& name)
-    : name{name}, description{}, int_changes{}, float_changes{}
+    : name{name}, description{}, price{}, int_changes{}, float_changes{}
 {}

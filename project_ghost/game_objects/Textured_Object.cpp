@@ -49,21 +49,10 @@ Character::Character(const sf::Vector2f &center, std::string const& texture_name
     :Textured_Object{center, texture_name}, health{health}, damage{damage}
 {}
 
-int Character::get_health() const
-{
-    return health;
-}
-
 void Character::take_damage(const int damage_taken)
 {
     health -= damage_taken;
 }
-
-int Character::get_damage() const
-{
-    return damage;
-}
-
 
 //Platform
 

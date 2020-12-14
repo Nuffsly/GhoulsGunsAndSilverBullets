@@ -7,6 +7,7 @@
 #include <iostream>
 
 #include "Player.h"
+#include "../managers/World.h"
 #include "Enemy.h"
 
 float lerp(float const a, float const b, float const t)
@@ -20,18 +21,19 @@ float flip(float const x)
 }
 
 
-Player::Player(sf::Vector2f center, std::string const &texture_name, int health,
-               int damage, int max_jumps, float run_speed, float fire_rate)
-        : Character{center, texture_name, health, damage},
+Player::Player(sf::Vector2f center, Player_Info &player_info)
+        : Character{center, "standing.png", 100, 20},
           player_state{2}, off_platform{false}, drop_margin{0.0},
           vertical_duration{0.0}, horizontal_duration{0.0}, jump_start{0.0},
           inertia{false}, moved_last_update{false}, facing_right{true},
-          jump_pressed{false}, jump_count{1}, MAX_JUMPS{max_jumps},
-          run_speed{run_speed},
-          weapon{center, "weapon.png", fire_rate, damage}
+          jump_pressed{false}, jump_count{1}, max_jumps{},
+          run_speed{}, player_info{player_info},
+          weapon{center, "weapon.png"}
 {
     const float HAT_MARGIN{25.0f};
     hitbox = {(hitbox.x - HAT_MARGIN), hitbox.y};
+
+    apply_upgrades();
 }
 
 bool Player::update(const sf::Time &delta, World &world)
@@ -91,7 +93,7 @@ void Player::handle_collision(World &world)
                 player_state = 0; //standing
                 vertical_duration = 0;
                 jump_start = 0;
-                jump_count = MAX_JUMPS;
+                jump_count = max_jumps;
 
                 set_position({center.x, platform_top_edge+1 - shape.getSize().y/2});
             }
@@ -111,7 +113,7 @@ void Player::handle_collision(World &world)
 
         if (dynamic_cast<Enemy *>(collision.get()))
         {
-            take_damage(dynamic_cast<Enemy *>(collision.get())->get_damage());
+            take_damage(dynamic_cast<Enemy *>(collision.get())->damage);
         }
     }
     if ( player_state == 0 && off_platform ) // off_platform only sets falling state if all platforms agree
@@ -288,7 +290,7 @@ void Player::fall(sf::Time delta, World &world)
         vertical_duration = 0;
         player_state = 0;
         off_platform = false;
-        jump_count = MAX_JUMPS;
+        jump_count = max_jumps;
         drop_margin = 0.0;
         set_position({center.x, OFFSET_Y});
     }
@@ -296,13 +298,71 @@ void Player::fall(sf::Time delta, World &world)
 
 bool Player::still_alive()
 {
-    return get_health() > 0;
+    return health > 0;
 }
 
 void Player::render(sf::RenderWindow &window)
 {
     Textured_Object::render(window);
     weapon.render(window);
+}
+
+void Player::apply_upgrades()
+{
+    // Default Values
+    std::map<std::string, int> player_stats_int{
+            {"health*",    100},
+            {"damage*",    20},
+            {"max_jumps+", 1}
+    };
+    std::map<std::string, float> player_stats_float{
+            {"run_speed*", 500},
+            {"fire_rate*", 0.8}
+    };
+
+
+    for (auto it{std::begin(player_info.get_upgrades())};
+         it != std::end(player_info.get_upgrades()); ++it)
+    {
+        for (auto it2{std::begin(it->int_changes)};
+             it2 != std::end(it->int_changes); ++it2)
+        {
+            if (it2->first.back() == '+')
+            {
+                player_stats_int[it2->first] += it2->second;
+            }
+            if (it2->first.back() == '*')
+            {
+                player_stats_int[it2->first] *= it2->second;
+            }
+            if (it2->first.back() == '=')
+            {
+                player_stats_int[it2->first] = it2->second;
+            }
+        }
+        for (auto it3{std::begin(it->float_changes)};
+             it3 != std::end(it->float_changes); ++it3)
+        {
+            if (it3->first.back() == '+')
+            {
+                player_stats_float[it3->first] += it3->second;
+            }
+            if (it3->first.back() == '*')
+            {
+                player_stats_float[it3->first] *= it3->second;
+            }
+            if (it3->first.back() == '=')
+            {
+                player_stats_float[it3->first] = it3->second;
+            }
+        }
+    }
+    Character::health = player_stats_int["health*"];
+    Character::damage = player_stats_int["damage*"];
+    weapon.damage = player_stats_int["damage*"];
+    max_jumps = player_stats_int["max_jumps+"];
+    run_speed = player_stats_float["run_speed*"];
+    weapon.fire_rate = player_stats_float["fire_rate*"];
 }
 
 void Player::handle_animation()

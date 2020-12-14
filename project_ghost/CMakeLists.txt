@@ -4,15 +4,7 @@ project(project_ghost)
 # Använd C++ 17.
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 
-if (DEFINED ENV{LOADEDMODULES} AND ("$ENV{LOADEDMODULES}" MATCHES ".*prog/gcc/9.3.0.*"))
-    set(CMAKE_CXX_COMPILER /sw/gcc-9.3.0/bin/g++)
-
-    if (DEFINED ENV{SFML_ROOT})
-        list(APPEND CMAKE_MODULE_PATH "$ENV{SFML_ROOT}/share/SFML/cmake/Modules")
-    endif()
-endif()
-
-# På skolans Linux-system finns två versioner av GCC. Se vilken som används:
+#[[# På skolans Linux-system finns två versioner av GCC. Se vilken som används:
 if (DEFINED ENV{LOADEDMODULES} AND ("$ENV{LOADEDMODULES}" MATCHES ".*prog/gcc/6.1.0.*"))
     set(CMAKE_CXX_COMPILER /sw/gcc-6.1.0/bin/g++)
 
@@ -27,9 +19,7 @@ if (DEFINED ENV{LOADEDMODULES} AND ("$ENV{LOADEDMODULES}" MATCHES ".*prog/gcc/7.
     if (DEFINED ENV{SFML_ROOT})
         list(APPEND CMAKE_MODULE_PATH "$ENV{SFML_ROOT}/share/SFML/cmake/Modules")
     endif()
-endif()
-
-
+endif()]]
 
 # Välj vilka delar av SFML som ska användas.
 set(SFML_MODULES network graphics window system)
@@ -47,7 +37,7 @@ if (NOT (${SFML_FOUND} STREQUAL "TRUE"))
 endif()
 
 # Ange källfiler, lägg till de filer som ni behöver!
-set(SOURCE_FILES main.cpp game_objects/Game_Object.cpp game_objects/Game_Object.h game_objects/Textured_Object.cpp game_objects/Textured_Object.h game_objects/Player.cpp game_objects/Player.h managers/World.cpp managers/World.h managers/Texture_Manager.cpp managers/Texture_Manager.h game_objects/Enemy.cpp game_objects/Enemy.h game_objects/Weapon.cpp game_objects/Weapon.h states/State.cpp states/State.h game_objects/Projectile.cpp game_objects/Projectile.h states/Game_State.cpp states/Game_State.h containers/Upgrade.cpp containers/Upgrade.h containers/Player_Info.cpp containers/Player_Info.h)
+set(SOURCE_FILES main.cpp game_objects/Game_Object.cpp game_objects/Game_Object.h game_objects/Textured_Object.cpp game_objects/Textured_Object.h game_objects/Player.cpp game_objects/Player.h managers/World.cpp managers/World.h managers/Texture_Manager.cpp managers/Texture_Manager.h game_objects/Enemy.cpp game_objects/Weapon.cpp game_objects/Weapon.h states/State.cpp states/State.h game_objects/Projectile.cpp game_objects/Projectile.h states/Game_State.cpp states/Game_State.h containers/Upgrade.cpp containers/Upgrade.h containers/Player_Info.cpp containers/Player_Info.h game_objects/Money.cpp game_objects/Weapon.cpp)
 
 # Säg till CMake att skapa en körbar fil som heter 'project_ghost'.
 add_executable(project_ghost ${SOURCE_FILES})

@@ -3,6 +3,7 @@
 //
 
 #include "Texture_Manager.h"
+
 sf::Texture* Texture_Manager::get_texture(const std::string &name)
 {
     std::string file_path{"../sprite_data/"};

@@ -2,72 +2,12 @@
 // Created by marku849 on 2020-12-06.
 //
 // In this file:
-// Money
 // Enemy
 
 #include <iostream>
 
 #include "Enemy.h"
-#include "../managers/World.h"
-
-Money::Money(const sf::Vector2f &center, const std::string &texture_name)
-    :Textured_Object(center, texture_name), timer{8.0}, falling{true}
-{}
-
-bool Money::update(sf::Time const& delta, World &world)
-{
-    if (falling)
-    {
-        fall(delta, world);
-    }
-
-    timer -= delta.asSeconds();
-    if ( timer <= 0 )
-    {
-        return false;
-    }
-
-    return handle_collision(world);
-}
-
-void Money::fall(const sf::Time &delta, World &world)
-{
-    if (get_bottom() < world.stored_window.getSize().y)
-    {
-        const float SPEED{300};
-
-        set_position({get_position().x, get_position().y + SPEED * delta.asSeconds()});
-    }
-    else
-    {
-        center.y = world.stored_window.getSize().y - shape.getSize().y/2;
-        falling = false;
-    }
-}
-
-bool Money::handle_collision(World &world)
-{
-    for (auto &collision : world.collides_with(*this))
-    {
-        if (dynamic_cast<Player *>(collision.get()))
-        {
-            // TODO: Add to players money
-            return false;
-        }
-
-        if (dynamic_cast<Platform *>(collision.get()) && falling)
-        {
-            const float MARGIN{5};
-
-            if(get_bottom() > collision->get_top()
-            && get_bottom() < collision->get_top() + MARGIN)
-            {
-                falling = false;
-            }
-        }
-    }
-    return true;
-}
+#include "Money.h"
 
 Enemy::Enemy(const sf::Vector2f &center, const std::string &texture_name,
              int health, int damage, std::shared_ptr<Game_Object> player_ptr)
@@ -87,7 +27,7 @@ bool Enemy::update(const sf::Time &delta, World &world)
 
     }*/
     // check if dead
-    if (get_health() <= 0)
+    if (health <= 0)
     {
         drop_money(world);
         return false; // tells word to remove this object

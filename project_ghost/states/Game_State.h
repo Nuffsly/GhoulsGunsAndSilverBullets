@@ -10,10 +10,13 @@
 #include <string>
 
 #include "State.h"
-#include "../managers/World.h"
-#include "../containers/Player_Info.h"
 #include "../containers/Upgrade.h"
+#include "../containers/Player_Info.h"
+#include "../managers/World.h"
+#include "../game_objects/Player.h"
+#include "../game_objects/Enemy.h"
 
+class Game_Object;
 
 class Game_State : public State
 {
@@ -27,14 +30,16 @@ public:
     void spawn_enemy();
 
 private:
-    World world;
     Player_Info player_info;
+    World world;
     std::vector<Upgrade> available_upgrades;
+    std::shared_ptr<Game_Object> player_ptr;
     int level;
     bool finished_level;
     int enemies_spawned;
     float since_last_spawn;
 
+    void load_level();
     void load_upgrades();
 };
 

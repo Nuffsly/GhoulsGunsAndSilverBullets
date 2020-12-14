@@ -6,8 +6,8 @@
 #define PROJECT_GHOST_PLAYER_INFO_H
 
 #include <vector>
+#include <SFML/Graphics.hpp>
 
-#include "../game_objects/Player.h"
 #include "Upgrade.h"
 
 class Player_Info
@@ -18,7 +18,9 @@ public:
     int get_money() const;
     int get_score() const;
 
-    Player* create_new_player(sf::Vector2f const& center);
+    //Player* create_new_player(sf::Vector2f const& center);
+
+    std::vector<Upgrade> get_upgrades();
 
     void add_upgrade(Upgrade const& upgrade);
     void add_money(int change);

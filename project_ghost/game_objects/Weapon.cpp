@@ -2,18 +2,16 @@
 // Created by jimte on 2020-12-06.
 //
 
-#include "Weapon.h"
 #include <cmath>
 #include <memory>
-#include "../managers/World.h"
+
+#include "Weapon.h"
 #include "Projectile.h"
 
 
-
-Weapon::Weapon(sf::Vector2f center, const std::string &texture_name,
-               float fire_rate, int damage)
-        :Textured_Object{center, texture_name}, fire_rate(fire_rate),
-        damage(damage), sec_since_fired{0}, direction{0}, barrel_pos{0, 0}
+Weapon::Weapon(sf::Vector2f center, const std::string &texture_name)
+        :Textured_Object{center, texture_name}, fire_rate{0},
+        damage{0}, sec_since_fired{0}, direction{0}, barrel_pos{0, 0}
 {
     shape.setOrigin(10, 10);
 }
