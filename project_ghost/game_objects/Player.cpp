@@ -5,6 +5,7 @@
 #include <SFML/Window.hpp>
 #include <cmath>
 #include <iostream>
+#include <vector>
 
 #include "Player.h"
 #include "../managers/World.h"
@@ -22,15 +23,28 @@ float flip(float const x)
 
 
 Player::Player(sf::Vector2f center, Player_Info &player_info)
-        : Character{center, "standing.png", 100, 20},
+        : Character{center, "player_sheet.png", 100, 20},
           player_state{2}, off_platform{false}, drop_margin{0.0},
           vertical_duration{0.0}, horizontal_duration{0.0}, jump_start{0.0},
           inertia{false}, moved_last_update{false}, facing_right{true},
           jump_pressed{false}, jump_count{1}, max_jumps{},
           run_speed{}, player_info{player_info},
-          weapon{center, "weapon.png"}
+          weapon{center, "weapon.png"}, x_at_last_frame(center.x)
 {
-    const float HAT_MARGIN{25.0f};
+    const float SCALE{4};
+
+    sf::Vector2f size{shape.getTexture()->getSize()};
+
+    size = {size.x/13 * SCALE, size.y * SCALE};
+    sf::IntRect texture_rect{0, 0, 28, 32};
+
+    hitbox = size;
+    shape.setTextureRect(texture_rect);
+    shape.setSize(size);
+    shape.setOrigin(size.x/2, size.y/2);
+    shape.setPosition(center);
+
+    const float HAT_MARGIN{90.0f};
     hitbox = {(hitbox.x - HAT_MARGIN), hitbox.y};
 
     apply_upgrades();
@@ -42,6 +56,7 @@ bool Player::update(const sf::Time &delta, World &world)
 
     handle_weapon(delta, world);
     handle_collision(world);
+    handle_animation();
 
     return still_alive();
 }
@@ -229,7 +244,6 @@ void Player::handle_horizontal_move(sf::Time delta, World &world)
     clamped_position = std::clamp(clamped_position, low_clamp_x, high_clamp_x);
 
     Textured_Object::set_position({clamped_position, get_position().y});
-    handle_animation();
 }
 
 void Player::jump(sf::Time delta)
@@ -367,41 +381,53 @@ void Player::apply_upgrades()
 
 void Player::handle_animation()
 {
+    //If the player is standing still
     if(!moved_last_update)
     {
-        /*sf::Texture *texture{Texture_Manager::get_texture("standing.png")};
-        shape.setTexture(texture);*/
-
+        frame_numbers = {28, 56, 84, 112, 140, 168, 196, 224, 252, 280, 308, 336};
         if(facing_right)
         {
             sf::IntRect texture_rect{0, 0, 28, 32};
             shape.setTextureRect(texture_rect);
+            weapon.set_texture_state(Weapon::right);
         }
         else
         {
             sf::IntRect texture_rect{28, 0, -28, 32};
             shape.setTextureRect(texture_rect);
+            weapon.set_texture_state(Weapon::left);
         }
     }
+    //If the player is running
     else
     {
         if(facing_right)
         {
-            sf::IntRect texture_rect{28, 0, 28, 32};
+            if(center.x - x_at_last_frame > 25)
+            {
+                x_at_last_frame = center.x;
+                std::rotate(frame_numbers.begin(), frame_numbers.begin()+1, frame_numbers.end());
+            }
+
+            sf::IntRect texture_rect{frame_numbers[0], 0, 28, 32};
             shape.setTextureRect(texture_rect);
+            weapon.set_texture_state(Weapon::right);
+            weapon.set_position({center.x + 15, center.y});
+        }
+        else
+        {
+            if(x_at_last_frame - center.x > 25)
+            {
+                x_at_last_frame = center.x;
+                std::rotate(frame_numbers.begin(), frame_numbers.begin()+1, frame_numbers.end());
+            }
+
+            sf::IntRect texture_rect{frame_numbers[0] + 28, 0, -28, 32};
+            shape.setTextureRect(texture_rect);
+            weapon.set_texture_state(Weapon::left);
+            weapon.set_position({center.x - 15, center.y});
         }
     }
 
-    /*const float SCALE{4};
 
-    sf::Vector2f size{texture->getSize()};
-
-    size = {size.x/12 * SCALE, size.y * SCALE};
-
-
-    shape.setTextureRect(texture_rect);
-    shape.setSize(size);
-    shape.setTexture(texture);
-    shape.setOrigin(size.x/2, size.y/2);
-    shape.setPosition(center);*/
 }
