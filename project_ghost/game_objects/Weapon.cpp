@@ -41,7 +41,7 @@ void Weapon::shoot(const sf::Time &delta, World &world)
     if(sec_since_fired > fire_rate)
     {
         sec_since_fired = 0;
-        world.add_object(std::make_shared<Projectile>(
+        world.add_back(std::make_shared<Projectile>(
                 barrel_pos, "projectile.png", damage, direction));
         Sound_Manager::play_sound("shoot.wav");
     }

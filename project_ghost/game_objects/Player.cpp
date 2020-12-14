@@ -12,6 +12,7 @@
 #include "../managers/World.h"
 #include "Enemy.h"
 #include "Money.h"
+#include "Door.h"
 
 float lerp(float const a, float const b, float const t)
 {
@@ -26,7 +27,7 @@ float flip(float const x)
 
 Player::Player(sf::Vector2f center, Player_Info &player_info)
         : Character{center, "player_sheet.png", 100, 20},
-          player_state{2}, off_platform{false}, drop_margin{0.0},
+          player_state{Player_State::falling}, off_platform{false}, drop_margin{0.0},
           vertical_duration{0.0}, horizontal_duration{0.0}, jump_start{0.0},
           inertia{false}, moved_last_update{false}, facing_right{true},
           jump_pressed{false}, jump_count{1}, max_jumps{},
@@ -82,11 +83,11 @@ void Player::move_player(sf::Time delta, World &world)
 
     handle_drop();
 
-    if (player_state == 1)
+    if (player_state == jumping)
     {
         jump(delta);
     }
-    if ( player_state == 2 )
+    if ( player_state == falling )
     {
         fall(delta, world);
     }
@@ -107,7 +108,7 @@ void Player::handle_collision(World &world)
                 && player_bottom_edge > platform_top_edge
                 &&  player_bottom_edge < platform_top_edge + MARGIN)
             {
-                player_state = 0; //standing
+                player_state = standing;
                 vertical_duration = 0;
                 jump_start = 0;
                 jump_count = max_jumps;
@@ -139,10 +140,14 @@ void Player::handle_collision(World &world)
             std::uniform_int_distribution<int> uniform(20,27);
             player_info.add_money(uniform(rd));
         }
+        if (dynamic_cast<Door *>(collision.get()))
+        {
+            take_damage(dynamic_cast<Enemy *>(collision.get())->damage);
+        }
     }
     if ( player_state == 0 && off_platform ) // off_platform only sets falling state if all platforms agree
     {
-        player_state = 2;
+        player_state = falling;
     }
 }
 
@@ -153,7 +158,7 @@ void Player::handle_jump_input()
         jump_pressed = true;
         if (jump_count > 0)
         {
-            player_state = 1; // jumping
+            player_state = jumping;
             jump_start = center.y;
             jump_count--;
             vertical_duration = 0;
@@ -175,7 +180,7 @@ void Player::handle_drop()
         || sf::Keyboard::isKeyPressed(sf::Keyboard::Down)))
     {
         drop_margin = get_bottom() + DROP_DISTANCE;
-        player_state = 2;
+        player_state = falling;
     }
 }
 
@@ -273,7 +278,7 @@ void Player::jump(sf::Time delta)
     if (vertical_duration >= JUMP_DURATION_AS_SEC)
     {
         vertical_duration = 0;
-        player_state = 2;
+        player_state = falling;
     }
 
 }
@@ -311,7 +316,7 @@ void Player::fall(sf::Time delta, World &world)
         const float OFFSET_Y{world.stored_window.getSize().y - shape.getSize().y/2};
 
         vertical_duration = 0;
-        player_state = 0;
+        player_state = standing;
         off_platform = false;
         jump_count = max_jumps;
         drop_margin = 0.0;

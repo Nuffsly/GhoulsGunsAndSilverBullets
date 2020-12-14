@@ -11,6 +11,7 @@
 #include "Textured_Object.h"
 #include "Weapon.h"
 
+
 class World;
 
 class Player : public Character
@@ -38,8 +39,13 @@ private:
     bool still_alive();
     void handle_animation();
 
+    enum Player_State{
+        standing,
+        jumping,
+        falling
+    };
 
-    int player_state;
+    Player_State player_state;
     // Player states:
     // 0: Standing
     // 1: Jumping

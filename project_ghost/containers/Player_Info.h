@@ -15,6 +15,8 @@ class Player_Info
 public:
     Player_Info() = default;
 
+    bool exited_level;
+
     int get_money() const;
     int get_score() const;
     int get_enemies_killed() const;

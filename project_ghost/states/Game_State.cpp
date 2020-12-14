@@ -47,7 +47,7 @@ std::shared_ptr<State> Game_State::tick(sf::Time delta)
             std::uniform_int_distribution<int> uniform(0,available_upgrades.size()-1);
             int i{uniform(rd)};
 
-            world.add_object(std::shared_ptr<Game_Object>(
+            world.add_front(std::shared_ptr<Game_Object>(
                     new Upgrade_Pillar( pillar_pos,
                                         "door.png",
                                         available_upgrades[i] ) ));
@@ -55,7 +55,7 @@ std::shared_ptr<State> Game_State::tick(sf::Time delta)
             available_upgrades.erase(begin(available_upgrades) + i );
         }
 
-        world.add_object(std::shared_ptr<Game_Object>(
+        world.add_front(std::shared_ptr<Game_Object>(
                 new Door( door_pos, "door.png") ));
         door_pos = {0, 0};
     }
@@ -96,7 +96,7 @@ void Game_State::spawn_enemy()
             std::uniform_int_distribution<int> y_axis(1,Y_RES);
             center = {static_cast<float>(X_RES+100), static_cast<float>(y_axis(rd))};
         }
-        world.add_object(std::shared_ptr<Game_Object>(
+        world.add_back(std::shared_ptr<Game_Object>(
                 new Enemy({center},
                           "enemy.png", 30*(1+level/10),
                           15*(1+level/10), player_ptr)));
@@ -174,7 +174,7 @@ void Game_State::load_level()
         if (block == '_' || block == 'B')
         {
             const int HALF_WIDTH{64};
-            world.add_object(std::shared_ptr<Game_Object>(
+            world.add_front(std::shared_ptr<Game_Object>(
                     new Platform(
                             {static_cast<float>(( i % 10 * 128) + HALF_WIDTH ),
                              static_cast<float>(( 1 + (i / 10)) * 180 )},
@@ -189,7 +189,7 @@ void Game_State::load_level()
                              {static_cast<float>(( i % 10 * 128) + HALF_WIDTH ),
                              static_cast<float>(( 1 + (i / 10)) * 180 - HALF_HEIGHT )},
                              player_info));
-            world.add_object(player_ptr);
+            world.add_back(player_ptr);
         }
         if (block == 'D' || block == 'E')
         {

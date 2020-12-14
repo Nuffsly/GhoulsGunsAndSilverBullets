@@ -34,20 +34,15 @@ void World::render(sf::RenderWindow &window)
     }
 }
 
-void World::add_object(std::shared_ptr<Game_Object> const& game_object)
+void World::add_front(std::shared_ptr<Game_Object> const& game_object)
+{
+    game_objects.insert(game_objects.begin(), game_object);
+}
+
+void World::add_back(std::shared_ptr<Game_Object> const& game_object)
 {
     game_objects.push_back(game_object);
 }
-
-/*std::shared_ptr<Game_Object> World::get_player_ptr() const
-{
-    for (auto &game_object : game_objects)
-        if(dynamic_cast<Player *>(game_object.get()))
-        {
-            return game_object;
-        }
-    return nullptr;
-}*/
 
 bool World::collides(Game_Object const& a, Game_Object const& b) const
 {

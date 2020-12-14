@@ -23,9 +23,9 @@ public:
     void tick(sf::Time);
     void render(sf::RenderWindow &window);
 
-    void add_object(std::shared_ptr<Game_Object> const& game_object);
+    void add_front(std::shared_ptr<Game_Object> const& game_object);
+    void add_back(std::shared_ptr<Game_Object> const& game_object);
 
-    //std::shared_ptr<Game_Object> get_player_ptr() const;
     bool collides(Game_Object const& a, Game_Object const& b) const;
     std::vector<std::shared_ptr<Game_Object>> collides_with(Game_Object &me) const;
 
