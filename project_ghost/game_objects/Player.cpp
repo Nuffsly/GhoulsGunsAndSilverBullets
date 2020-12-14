@@ -13,6 +13,7 @@
 #include "Enemy.h"
 #include "Money.h"
 #include "Door.h"
+#include "../managers/Sound_Manager.h"
 
 float lerp(float const a, float const b, float const t)
 {
@@ -139,6 +140,7 @@ void Player::handle_collision(World &world)
             std::random_device rd;
             std::uniform_int_distribution<int> uniform(20,27);
             player_info.add_money(uniform(rd));
+            Sound_Manager::play_sound("soul_pickup.wav");
         }
         if (dynamic_cast<Door *>(collision.get()))
         {
@@ -163,6 +165,7 @@ void Player::handle_jump_input()
             jump_count--;
             vertical_duration = 0;
             drop_margin = 0.0;
+            Sound_Manager::play_sound("jump.wav");
         }
     }
     if ( ! sf::Keyboard::isKeyPressed(sf::Keyboard::Space ) )

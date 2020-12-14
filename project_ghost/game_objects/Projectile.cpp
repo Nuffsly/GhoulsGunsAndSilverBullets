@@ -4,6 +4,7 @@
 
 #include "Projectile.h"
 #include "Enemy.h"
+#include "../managers/Sound_Manager.h"
 
 Projectile::Projectile(sf::Vector2f center, const std::string &texture_name, int const damage, float const n_direction)
         :Textured_Object{center, texture_name}, damage{damage}, direction{n_direction}
@@ -35,6 +36,7 @@ bool Projectile::handle_collision(World &world)
         if (dynamic_cast<Enemy *>(collision.get()))
         {
             dynamic_cast<Enemy *>(collision.get())->take_damage(damage);
+            Sound_Manager::play_sound("hit.wav");
             return false;
         }
     }
