@@ -58,6 +58,9 @@ private:
     float run_speed;
     Player_Info& player_info;
 
+    float x_at_last_frame;
+    std::vector<int> frame_numbers;
+
     Weapon weapon;
 };
 
