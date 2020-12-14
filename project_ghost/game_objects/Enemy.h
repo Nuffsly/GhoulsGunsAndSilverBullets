@@ -1,32 +1,16 @@
 //
 // Created by marku849 on 2020-12-06.
 //
-// In this file:
-// Money
-// Enemy
 
 #ifndef PROJECT_GHOST_ENEMY_H
 #define PROJECT_GHOST_ENEMY_H
 
-#include "Textured_Object.h"
-#include "Player.h"
-
 #include <memory>
+#include <SFML/Graphics.hpp>
 
-class Money : public Textured_Object
-{
-public:
-    Money(const sf::Vector2f &center, std::string const& texture_name);
+#include "Textured_Object.h"
 
-    bool update(sf::Time const& delta, World &world) override;
-
-private:
-    float timer;
-    bool falling;
-
-    void fall(sf::Time const& delta, World &world);
-    bool handle_collision(World &world);
-};
+class Player;
 
 class Enemy : public Character
 {

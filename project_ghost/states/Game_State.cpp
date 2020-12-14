@@ -7,13 +7,14 @@
 #include <iostream>
 
 #include "Game_State.h"
-#include "../game_objects/Enemy.h"
+
 
 Game_State::Game_State(sf::RenderWindow &window)
 : player_info{}, world(window), available_upgrades{}, level{1}, finished_level{false}, enemies_spawned{0}, since_last_spawn{0}
 {
     load_upgrades();
-    world.load_level(player_info);
+    load_level();
+
     /*world.add_object(std::shared_ptr<Game_Object>(new Platform({200, 550}, "platform.png")));
     world.add_object(std::shared_ptr<Game_Object>(new Platform({328, 550}, "platform.png")));
     world.add_object(std::shared_ptr<Game_Object>(new Platform({456, 550}, "platform.png")));
@@ -61,7 +62,7 @@ void Game_State::spawn_enemy()
 {
     if (since_last_spawn > 2.0f / static_cast<float>(level) && enemies_spawned < 9 + pow(level, 1.3))
     {
-        world.add_object(std::shared_ptr<Game_Object>(new Enemy({0, 0}, "enemy.png", 100, 0, world.get_player_ptr())));
+        world.add_object(std::shared_ptr<Game_Object>(new Enemy({0, 0}, "enemy.png", 100, 0, player_ptr)));
         enemies_spawned += 1;
         since_last_spawn = 0;
     }
@@ -110,4 +111,44 @@ void Game_State::load_upgrades()
             }
         }
     }
+}
+
+void Game_State::load_level()
+{
+    std::string file_path{std::filesystem::current_path().string() + "/../game_data/levels/level_prototype.txt"};
+
+    std::ifstream f_stream{file_path, std::ios::in};
+    if (!f_stream.is_open())
+    {
+        throw std::logic_error("Failed to load level");
+    }
+
+    char block;
+    for (int i{0}; i <= 40; i++)
+    {
+        block = f_stream.get();
+
+        if (block == '_')
+        {
+            world.add_object(std::shared_ptr<Game_Object>(
+                    new Platform(
+                            {static_cast<float>(( i % 10 * 128) + 64 ),
+                             static_cast<float>(( 1 + (i / 10)) * 180 )},
+                            "platform.png")));
+        }
+        if (block == 'P')
+        {
+            player_ptr = std::shared_ptr<Game_Object>(
+                    new Player(
+                            {static_cast<float>(( i % 10 * 128) + 36 ),
+                             static_cast<float>(( 1 + (i / 10)) * 180 - 64 )},
+                             player_info));
+            world.add_object(player_ptr);
+        }
+        if (i % 10 == 9 && i != 0)
+        {
+            f_stream.ignore(1000, '\n');
+        }
+    }
+
 }

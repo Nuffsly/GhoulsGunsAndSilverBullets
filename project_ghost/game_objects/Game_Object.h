@@ -12,6 +12,7 @@ class Game_Object
 {
 public:
     Game_Object(const sf::Vector2f &center, const sf::Vector2f &hitbox);
+    virtual ~Game_Object() = default;
 
     virtual bool update(const sf::Time &delta, World &world) = 0;
 

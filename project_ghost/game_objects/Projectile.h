@@ -5,8 +5,11 @@
 #ifndef MAIN_CPP_PROJECTILE_H
 #define MAIN_CPP_PROJECTILE_H
 
-#include "Textured_Object.h"
+#include<SFML/Graphics.hpp>
 #include <cmath>
+
+#include "Textured_Object.h"
+#include "../managers/World.h"
 
 class Projectile : public Textured_Object
 {

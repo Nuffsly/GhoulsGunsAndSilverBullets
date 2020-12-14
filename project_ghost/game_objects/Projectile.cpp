@@ -3,9 +3,7 @@
 //
 
 #include "Projectile.h"
-#include "../managers/World.h"
 #include "Enemy.h"
-
 
 Projectile::Projectile(sf::Vector2f center, const std::string &texture_name, int const damage, float const n_direction)
         :Textured_Object{center, texture_name}, damage{damage}, direction{n_direction}

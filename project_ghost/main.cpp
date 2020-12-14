@@ -1,7 +1,7 @@
 #include<SFML/Graphics.hpp>
+
 #include "states/State.h"
 #include "states/Game_State.h"
-
 
 
 int main()

@@ -5,21 +5,25 @@
 #ifndef MAIN_CPP_PLAYER_H
 #define MAIN_CPP_PLAYER_H
 
+#include<SFML/Graphics.hpp>
+
+#include "../containers/Player_Info.h"
 #include "Textured_Object.h"
 #include "Weapon.h"
-#include "../managers/World.h"
+
+class World;
 
 class Player : public Character
 {
 public:
-    Player(sf::Vector2f center, std::string const &texture_name, int health,
-           int damage, int max_jumps, float run_speed, float fire_rate);
+    Player(sf::Vector2f center, Player_Info &player_info);
 
     bool update(const sf::Time &delta, World &world) override;
 
     void render(sf::RenderWindow &window) override;
 
 private:
+    void apply_upgrades();
     void move_player(sf::Time delta, World &world);
     void jump(sf::Time delta);
     void fall(sf::Time delta, World &world);
@@ -49,8 +53,9 @@ private:
 
     bool jump_pressed;
     int jump_count;
-    const int MAX_JUMPS;
+    int max_jumps;
     float run_speed;
+    Player_Info& player_info;
 
     Weapon weapon;
 };
