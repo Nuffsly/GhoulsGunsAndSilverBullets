@@ -22,7 +22,7 @@ if (DEFINED ENV{LOADEDMODULES} AND ("$ENV{LOADEDMODULES}" MATCHES ".*prog/gcc/7.
 endif()]]
 
 # Välj vilka delar av SFML som ska användas.
-set(SFML_MODULES network graphics window system)
+set(SFML_MODULES audio network graphics window system)
 
 # Försök att hitta SFML genom att anropa 'FindSFML.cmake'.
 find_package(SFML 2 COMPONENTS ${SFML_MODULES})

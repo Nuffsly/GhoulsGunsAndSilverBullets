@@ -4,9 +4,11 @@
 
 #include <cmath>
 #include <memory>
+#include <SFML/Audio.hpp>
 
 #include "Weapon.h"
 #include "Projectile.h"
+#include "../managers/Sound_Manager.h"
 
 
 Weapon::Weapon(sf::Vector2f center, const std::string &texture_name)
@@ -41,6 +43,7 @@ void Weapon::shoot(const sf::Time &delta, World &world)
         sec_since_fired = 0;
         world.add_object(std::make_shared<Projectile>(
                 barrel_pos, "projectile.png", damage, direction));
+        Sound_Manager::play_sound("shoot.wav");
     }
 
 }
