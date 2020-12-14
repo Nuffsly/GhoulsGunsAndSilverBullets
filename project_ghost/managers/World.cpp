@@ -7,6 +7,8 @@
 
 #include "World.h"
 
+class Enemy;
+
 World::World(sf::RenderWindow &window)
         :stored_window{window}
 {}
@@ -21,7 +23,6 @@ void World::tick(sf::Time delta)
             game_objects.erase(game_objects.begin() + i);
             i--;
         }
-
     }
 }
 

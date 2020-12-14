@@ -22,6 +22,7 @@ public:
 
 private:
     std::shared_ptr<Game_Object> player_ptr;
+    int max_health;
 
     void move_enemy(sf::Time const& delta);
     void drop_money(World &world);

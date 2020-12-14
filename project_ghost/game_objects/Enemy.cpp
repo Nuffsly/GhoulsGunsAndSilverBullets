@@ -8,10 +8,12 @@
 
 #include "Enemy.h"
 #include "Money.h"
+#include "Player.h"
 
 Enemy::Enemy(const sf::Vector2f &center, const std::string &texture_name,
              int health, int damage, std::shared_ptr<Game_Object> player_ptr)
-    :Character{center, texture_name, health, damage,}, player_ptr{player_ptr}
+    :Character{center, texture_name, health, damage},
+    player_ptr{player_ptr}, max_health{health}
 {}
 
 bool Enemy::update(const sf::Time &delta, World &world)
@@ -26,10 +28,13 @@ bool Enemy::update(const sf::Time &delta, World &world)
         }
 
     }*/
+
     // check if dead
     if (health <= 0)
     {
         drop_money(world);
+        dynamic_cast<Player *>(player_ptr.get())->player_info.add_enemies_killed(1);
+        dynamic_cast<Player *>(player_ptr.get())->player_info.add_score(max_health);
         return false; // tells word to remove this object
     }
     else

@@ -8,6 +8,8 @@
 #include <random>
 
 #include "Game_State.h"
+#include "../game_objects/Upgrade_Pillar.h"
+#include "../game_objects/Door.h"
 
 
 Game_State::Game_State(sf::RenderWindow &window)
@@ -27,19 +29,37 @@ std::shared_ptr<State> Game_State::tick(sf::Time delta)
     if (!finished_level)
     {
         since_last_spawn += delta.asSeconds();
-        //spawn_enemy();
+        spawn_enemy();
     }
-/*
-    if (finished_level)
+
+    if (since_last_spawn > 5.0
+    && enemies_spawned == player_info.get_enemies_killed() )
     {
-        for (sf::Vector2f &upgrade_pillar : upg_pillars_pos)
+        finished_level = true;
+    }
+
+    if (finished_level && door_pos != sf::Vector2f{0, 0})
+    {
+        std::random_device rd;
+
+        for (sf::Vector2f &pillar_pos : upg_pillars_pos)
         {
-            world.add_object(std::shared_ptr<Game_Object>( new Upgrade_Pillar(
-                            {static_cast<float>(( i % 10 * 128) + HALF_WIDTH ),
-                             static_cast<float>(( 1 + (i / 10)) * 180 )},
-                            "door.png")));
+            std::uniform_int_distribution<int> uniform(0,available_upgrades.size()-1);
+            int i{uniform(rd)};
+
+            world.add_object(std::shared_ptr<Game_Object>(
+                    new Upgrade_Pillar( pillar_pos,
+                                        "door.png",
+                                        available_upgrades[i] ) ));
+
+            available_upgrades.erase(begin(available_upgrades) + i );
         }
-    }*/
+
+        world.add_object(std::shared_ptr<Game_Object>(
+                new Door( door_pos, "door.png") ));
+        door_pos = {0, 0};
+    }
+
     world.tick(delta);
     return nullptr;
 }

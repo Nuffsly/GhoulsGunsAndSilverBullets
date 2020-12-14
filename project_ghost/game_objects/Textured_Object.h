@@ -55,13 +55,5 @@ public:
 private:
 };
 
-class Door : public Textured_Object
-{
-public:
-    Door(const sf::Vector2f &center, std::string const &texture_name);
-
-    bool update(const sf::Time &delta, World &world) override;
-};
-
 
 #endif //MAIN_CPP_TEXTURED_OBJECT_H

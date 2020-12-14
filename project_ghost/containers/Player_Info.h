@@ -17,18 +17,19 @@ public:
 
     int get_money() const;
     int get_score() const;
-
-    //Player* create_new_player(sf::Vector2f const& center);
+    int get_enemies_killed() const;
 
     std::vector<Upgrade> get_upgrades();
 
     void add_upgrade(Upgrade const& upgrade);
     void add_money(int change);
     void add_score(int change);
+    void add_enemies_killed(int change);
 
 private:
     int money;
     int score;
+    int enemies_killed;
 
     std::vector<Upgrade> gained_upgrades;
 };
