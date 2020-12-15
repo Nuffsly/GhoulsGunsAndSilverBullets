@@ -101,4 +101,3 @@ void Menu_State::render(sf::RenderWindow &window)
 
 void Menu_State::on_key_release(sf::Keyboard::Key key)
 {}
-

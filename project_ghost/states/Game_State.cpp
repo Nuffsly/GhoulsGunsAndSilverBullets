@@ -10,6 +10,7 @@
 #include "Game_State.h"
 #include "../game_objects/Upgrade_Pillar.h"
 #include "../game_objects/Door.h"
+#include "Menu_State.h"
 
 
 Game_State::Game_State(sf::RenderWindow &window)
@@ -30,6 +31,11 @@ Game_State::Game_State(sf::RenderWindow &window)
 
 std::shared_ptr<State> Game_State::tick(sf::Time delta)
 {
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+    {
+        return std::make_shared<Menu_State>(world.stored_window, shared_from_this());
+    }
+
     if (!finished_level)
     {
         since_last_spawn += delta.asSeconds();
@@ -71,7 +77,7 @@ std::shared_ptr<State> Game_State::tick(sf::Time delta)
 
     if ( !player_info.is_alive )
     {
-        return std::make_shared<Exit_State>();
+        return std::make_shared<Game_Over_State>(world.stored_window);
     }
 
     world.tick(delta);
@@ -240,3 +246,41 @@ void Game_State::reset_world()
     upg_pillars_pos.shrink_to_fit();
     world.clear_level();
 }
+
+// Game_Over_State
+Game_Over_State::Game_Over_State(sf::RenderWindow &window)
+:window{window}
+{}
+
+std::shared_ptr<State> Game_Over_State::tick(sf::Time time)
+{
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
+    {
+        return std::make_shared<Menu_State>(window);
+    }
+    return nullptr;
+}
+
+void Game_Over_State::render(sf::RenderWindow &window)
+{
+    sf::Text game_over;
+    game_over.setFont(Font_Manager::get_font("pixel.ttf"));
+    game_over.setCharacterSize(200);
+    game_over.setStyle(sf::Text::Bold);
+    game_over.setString("GAME OVER");
+    game_over.setFillColor(sf::Color::White);
+
+    game_over.setPosition(100, 200);
+
+    sf::Text info;
+    info.setFont(Font_Manager::get_font("pixel.ttf"));
+    info.setCharacterSize(75);
+    info.setString("Press [Enter] to continue");
+    info.setFillColor(sf::Color::White);
+
+    info.setPosition(100, 450);
+
+    window.draw(game_over);
+    window.draw(info);
+}
+
