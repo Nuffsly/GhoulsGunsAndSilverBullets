@@ -6,6 +6,7 @@
 #define MAIN_CPP_GAME_STATE_H
 
 #include<SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <memory>
 #include <vector>
 #include <string>
@@ -43,6 +44,7 @@ private:
     float since_last_spawn;
     sf::Vector2f door_pos;
     std::vector<sf::Vector2f> upg_pillars_pos; //TODO: Fixa upgrades tillbaka i listan när de inte köps
+    sf::Music music;
 
     void load_level();
     void load_upgrades();
