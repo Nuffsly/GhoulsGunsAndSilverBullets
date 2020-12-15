@@ -55,6 +55,7 @@ private:
     bool inertia;
     bool moved_last_update;
     bool facing_right;
+    float invincible;
 
     bool jump_pressed;
     int jump_count;
