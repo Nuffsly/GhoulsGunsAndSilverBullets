@@ -2,7 +2,7 @@
 #include <SFML/Audio.hpp>
 
 #include "states/State.h"
-#include "states/Game_State.h"
+#include "states/Menu_State.h"
 
 int main()
 {
@@ -23,7 +23,7 @@ int main()
     music.setVolume(25);
     music.play();
 
-    State::run(window, std::make_shared<Game_State>(window));
+    State::run(window, std::make_shared<Menu_State>(window));
 
     return 0;
 }
