@@ -5,7 +5,10 @@
 //State
 //Exit_State
 
+#include <thread>
+
 #include "State.h"
+#include "../managers/Texture_Manager.h"
 
 void State::on_key_press(sf::Keyboard::Key key)
 {}
@@ -51,6 +54,7 @@ void State::run(sf::RenderWindow &window, std::shared_ptr<State> state)
         {
             if (std::dynamic_pointer_cast<Exit_State>(new_state))
             {
+                new_state->render(window);
                 return;
             }
             else
@@ -73,4 +77,17 @@ std::shared_ptr<State> Exit_State::tick(sf::Time)
 }
 
 void Exit_State::render(sf::RenderWindow &window)
-{}
+{
+    sf::Text game_over;
+    game_over.setFont(Font_Manager::get_font("pixel.ttf"));
+    game_over.setCharacterSize(200);
+    game_over.setStyle(sf::Text::Bold);
+    game_over.setString("GAME OVER");
+    game_over.setFillColor(sf::Color::White);
+
+    game_over.setPosition(100, 250);
+
+    window.draw(game_over);
+    window.display();
+    std::this_thread::sleep_for(std::chrono::seconds(4));
+}

@@ -60,6 +60,12 @@ std::shared_ptr<State> Game_State::tick(sf::Time delta)
         door_pos = {0, 0};
     }
 
+    // Player dies. Fix this plz :)
+    if (false)
+    {
+        return std::make_shared<Exit_State>();
+    }
+
     world.tick(delta);
     return nullptr;
 }
