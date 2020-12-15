@@ -2,7 +2,11 @@
 // Created by marku849 on 2020-12-14.
 //
 
+#include <random>
+
 #include "Money.h"
+#include "../managers/Sound_Manager.h"
+
 
 Money::Money(const sf::Vector2f &center, const std::string &texture_name)
         :Textured_Object(center, texture_name), timer{8.0}, falling{true}
@@ -45,7 +49,13 @@ bool Money::handle_collision(World &world)
     {
         if (dynamic_cast<Player *>(collision.get()))
         {
-            // TODO: Add to players money
+            std::random_device rd;
+            std::uniform_int_distribution<int> uniform(20,27);
+
+            dynamic_cast<Player *>(collision.get())->player_info.add_money(uniform(rd));
+
+            Sound_Manager::play_sound("soul_pickup.wav");
+
             return false;
         }
 

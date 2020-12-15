@@ -21,10 +21,10 @@ public:
 
     void render(sf::RenderWindow &window) override;
 
-    Upgrade get_upgrade() const;
-
 private:
     Upgrade upgrade;
+
+    void setup_description();
 
     bool show_description;
     bool bought;

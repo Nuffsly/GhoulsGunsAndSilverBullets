@@ -54,8 +54,6 @@ std::shared_ptr<State> Game_State::tick(sf::Time delta)
                     new Upgrade_Pillar( pillar_pos,
                                         "door.png",
                                         available_upgrades[i] ) ));
-
-            available_upgrades.erase(begin(available_upgrades) + i );
         }
 
         world.add_front(std::shared_ptr<Game_Object>(
@@ -154,13 +152,9 @@ void Game_State::load_upgrades()
             }
             f_stream >> var_name;
             f_stream >> value;
-            if (type_name == "int")
+            if (type_name == "int" || type_name == "float")
             {
-                available_upgrades.back().int_changes.insert({var_name, stoi(value)} );
-            }
-            if (type_name == "float")
-            {
-                available_upgrades.back().float_changes.insert({var_name, stof(value)} );
+                available_upgrades.back().number_changes.insert({var_name, stof(value)} );
             }
         }
     }

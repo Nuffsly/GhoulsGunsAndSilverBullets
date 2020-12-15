@@ -11,7 +11,9 @@ Upgrade_Pillar::Upgrade_Pillar(const sf::Vector2f &center,
                                Upgrade const& upgrade)
         :Textured_Object{center, texture_name}, upgrade{upgrade},
         show_description{false}, bought{false}
-{}
+{
+    setup_description();
+}
 
 bool Upgrade_Pillar::update(const sf::Time &delta, World &world)
 {
@@ -23,10 +25,16 @@ bool Upgrade_Pillar::update(const sf::Time &delta, World &world)
         {
             show_description = true;
 
-            if ( sf::Keyboard::isKeyPressed( sf::Keyboard::E ) && !bought)
+            Player* player{dynamic_cast<Player *>(collision.get())};
+
+            if ( sf::Keyboard::isKeyPressed( sf::Keyboard::E )
+                && !bought
+                && player->player_info.get_money() >= upgrade.price)
             {
-                // TODO: Stoppa in saker som ska hända när man köper
                 bought = true;
+                player->player_info.add_money( -upgrade.price );
+                player->player_info.add_upgrade(upgrade);
+                // TODO: Stoppa in saker som ska hända när man köper tex ljud
             }
         }
     }
@@ -36,7 +44,7 @@ bool Upgrade_Pillar::update(const sf::Time &delta, World &world)
 void Upgrade_Pillar::render(sf::RenderWindow &window)
 {
     Textured_Object::render(window);
-
+/*
     if (show_description && !bought)
     {
         window.draw(description);
@@ -45,10 +53,25 @@ void Upgrade_Pillar::render(sf::RenderWindow &window)
     if (bought)
     {
         //TODO: Stoppa in saker som ska rendereas alltid när uppgradering är köpt
-    }
+    }*/
 }
 
-Upgrade Upgrade_Pillar::get_upgrade() const
+void Upgrade_Pillar::setup_description()
 {
-    return upgrade;
+    const std::string FONT{"pixel.ttf"};
+    const int SIZE{25};
+    const sf::Color COLOR{sf::Color::White};
+    const float MARGIN{10};
+
+    description.setFont(Font_Manager::get_font(FONT));
+
+    description.setCharacterSize(SIZE);
+
+    description.setFillColor(COLOR);
+
+    description.setString(upgrade.name + '\n' + upgrade.description);
+
+    description.setPosition(center.x-description.getLocalBounds().width/2, get_top()+description.getLocalBounds().height+MARGIN);
+
+
 }
