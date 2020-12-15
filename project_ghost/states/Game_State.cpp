@@ -18,13 +18,14 @@ Game_State::Game_State(sf::RenderWindow &window)
       since_last_spawn{0}
 {
     load_upgrades();
-    load_level();
 
     // For testing upgrades
-    /*for (Upgrade &upg : available_upgrades)
+    for (Upgrade &upg : available_upgrades)
     {
         player_info.add_upgrade(upg);
-    }*/
+    }
+
+    load_level();
 }
 
 std::shared_ptr<State> Game_State::tick(sf::Time delta)

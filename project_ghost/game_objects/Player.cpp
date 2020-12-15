@@ -378,17 +378,17 @@ void Player::apply_upgrades()
             if (it2->first.back() == '+')
             {
                 player_stats_int[it2->first] += it2->second;
-                //player_stats_float[it2->first] += it2->second;
+                player_stats_float[it2->first] += it2->second;
             }
             if (it2->first.back() == '*')
             {
                 player_stats_int[it2->first] *= it2->second;
-                //player_stats_float[it2->first] *= it2->second;
+                player_stats_float[it2->first] *= it2->second;
             }
             if (it2->first.back() == '=')
             {
                 player_stats_int[it2->first] = it2->second;
-                //player_stats_float[it2->first] = it2->second;
+                player_stats_float[it2->first] = it2->second;
             }
         }
     }

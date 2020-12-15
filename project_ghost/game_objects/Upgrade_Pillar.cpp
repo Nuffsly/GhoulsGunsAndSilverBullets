@@ -44,12 +44,13 @@ bool Upgrade_Pillar::update(const sf::Time &delta, World &world)
 void Upgrade_Pillar::render(sf::RenderWindow &window)
 {
     Textured_Object::render(window);
-/*
+
     if (show_description && !bought)
     {
         window.draw(description);
     }
 
+    /*
     if (bought)
     {
         //TODO: Stoppa in saker som ska rendereas alltid när uppgradering är köpt
@@ -71,7 +72,7 @@ void Upgrade_Pillar::setup_description()
 
     description.setString(upgrade.name + '\n' + upgrade.description);
 
-    description.setPosition(center.x-description.getLocalBounds().width/2, get_top()+description.getLocalBounds().height+MARGIN);
+    description.setPosition(center.x-description.getLocalBounds().width/2, get_top()-description.getLocalBounds().height-MARGIN);
 
 
 }
