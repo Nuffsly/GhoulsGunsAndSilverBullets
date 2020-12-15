@@ -46,11 +46,6 @@ private:
     };
 
     Player_State player_state;
-    // Player states:
-    // 0: Standing
-    // 1: Jumping
-    // 2: Falling
-
     bool off_platform;
     float drop_margin;
     float vertical_duration;

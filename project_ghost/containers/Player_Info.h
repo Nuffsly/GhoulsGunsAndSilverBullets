@@ -16,6 +16,7 @@ public:
     Player_Info() = default;
 
     bool exited_level;
+    bool is_alive;
 
     int get_money() const;
     int get_score() const;

@@ -62,6 +62,8 @@ bool Player::update(const sf::Time &delta, World &world)
     handle_collision(world);
     handle_animation();
 
+    player_info.is_alive = still_alive();
+
     return still_alive();
 }
 
