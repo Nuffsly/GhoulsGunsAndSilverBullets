@@ -144,25 +144,18 @@ void Player::handle_collision(World &world)
             take_damage(dynamic_cast<Enemy *>(collision.get())->damage);
         }
 
-        if (dynamic_cast<Money *>(collision.get()))
+        /*if (dynamic_cast<Upgrade_Pillar *>(collision.get()) && sf::Keyboard::isKeyPressed(sf::Keyboard::E ))
         {
-            std::random_device rd;
-            std::uniform_int_distribution<int> uniform(20,27);
-            player_info.add_money(uniform(rd));
-            Sound_Manager::play_sound("soul_pickup.wav");
-        }
+            Upgrade upgrade{dynamic_cast<Upgrade_Pillar *>(collision.get())->get_upgrade()};
+            bool bought{dynamic_cast<Upgrade_Pillar *>(collision.get())->bought};
 
-        if (dynamic_cast<Upgrade_Pillar *>(collision.get()) && sf::Keyboard::isKeyPressed(sf::Keyboard::E ))
-        {
-            Upgrade upgrade = dynamic_cast<Upgrade_Pillar *>(collision.get())->get_upgrade();
-            if ( player_info.get_money() >= upgrade.price )
+            if ( !bought && player_info.get_money() >= upgrade.price )
             {
                 player_info.add_money( -upgrade.price );
                 player_info.add_upgrade(upgrade);
-                apply_upgrades();
             }
             // TODO: Spela ljud i en else när spelaren inte har råd
-        }
+        }*/
 
         if (dynamic_cast<Door *>(collision.get()) && sf::Keyboard::isKeyPressed(sf::Keyboard::E ))
         {
@@ -366,7 +359,7 @@ void Player::apply_upgrades()
     // Default Values
     std::map<std::string, int> player_stats_int{
             {"health*",    100},
-            {"damage*",    20},
+            {"damage*",    100},
             {"max_jumps+", 1}
     };
     std::map<std::string, float> player_stats_float{
@@ -374,40 +367,28 @@ void Player::apply_upgrades()
             {"fire_rate*", 0.8}
     };
 
+    std::vector<Upgrade> upgrades{player_info.get_upgrades()};
 
-    for (auto it{std::begin(player_info.get_upgrades())};
-         it != std::end(player_info.get_upgrades()); ++it)
+    for (auto it{std::begin(upgrades)};
+         it != std::end(upgrades); ++it)
     {
-        for (auto it2{std::begin(it->int_changes)};
-             it2 != std::end(it->int_changes); ++it2)
+        for (auto it2{std::begin(it->number_changes)};
+             it2 != std::end(it->number_changes); ++it2)
         {
             if (it2->first.back() == '+')
             {
                 player_stats_int[it2->first] += it2->second;
+                player_stats_float[it2->first] += it2->second;
             }
             if (it2->first.back() == '*')
             {
                 player_stats_int[it2->first] *= it2->second;
+                player_stats_float[it2->first] *= it2->second;
             }
             if (it2->first.back() == '=')
             {
                 player_stats_int[it2->first] = it2->second;
-            }
-        }
-        for (auto it3{std::begin(it->float_changes)};
-             it3 != std::end(it->float_changes); ++it3)
-        {
-            if (it3->first.back() == '+')
-            {
-                player_stats_float[it3->first] += it3->second;
-            }
-            if (it3->first.back() == '*')
-            {
-                player_stats_float[it3->first] *= it3->second;
-            }
-            if (it3->first.back() == '=')
-            {
-                player_stats_float[it3->first] = it3->second;
+                player_stats_float[it2->first] = it2->second;
             }
         }
     }

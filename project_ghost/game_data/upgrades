@@ -1,0 +1,25 @@
+Damage +500%
+Increases the damage of your weapon by 500%
+1000
+int damage* 5
+#
+Fire Rate +10%
+Makes you able to shoot 10% faster
+150
+float fire_rate* 0.9
+#
+Double Jump
+You can now jump twice!
+250
+int max_jumps+ 1
+#
+Run Speed +20%
+Fastest shoes ever seen
+200
+float run_speed* 1.2
+#
+Health +10%
+Ghosts don't bother him none
+150
+int health* 1.1
+#
