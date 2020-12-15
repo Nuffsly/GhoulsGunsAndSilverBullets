@@ -24,25 +24,34 @@ Hud::Hud()
     health_text.setFillColor(COLOR);
     score_text.setFillColor(COLOR);
 
-    money_text.setPosition(0, 35);
-    health_text.setPosition(32, 0);
-    score_text.setPosition(0, 70);
+    money_text.setPosition(48, 35);
+    health_text.setPosition(42, 0);
+    score_text.setPosition(1270, 0);
 
     money_text.setString("0");
     health_text.setString("0/0");
     score_text.setString("0");
 
     health_icon.setTexture(*Texture_Manager::get_texture("icon_health.png"));
-    health_icon.setPosition(0,0);
+    health_icon.setPosition(10,0);
+
+    money_icon.setTexture(*Texture_Manager::get_texture("money.png"));
+    money_icon.setScale(2.5,2.5);
+    money_icon.setPosition(10,35);
 }
 
 void Hud::draw_hud(sf::RenderWindow &window)
 {
+    sf::FloatRect score_bounds{score_text.getLocalBounds()};
+    score_text.setPosition(1270 - score_bounds.width,
+                           score_text.getPosition().y);
+
     window.draw(money_text);
     window.draw(health_text);
     window.draw(score_text);
 
     window.draw(health_icon);
+    window.draw(money_icon);
 }
 
 void Hud::set_money(int money)
@@ -57,5 +66,5 @@ void Hud::set_health(int health, int max_health)
 
 void Hud::set_score(int score)
 {
-    score_text.setString(std::to_string(score));
+    score_text.setString("Score: " + std::to_string(score));
 }
