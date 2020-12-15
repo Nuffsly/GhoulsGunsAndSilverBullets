@@ -27,3 +27,29 @@ sf::Texture* Texture_Manager::get_texture(const std::string &name)
 }
 
 Texture_Manager Texture_Manager::texture_storage;
+
+
+// Font_Manager
+sf::Font &Font_Manager::get_font(const std::string &name)
+{
+    std::string file_path{"../font_data/"};
+
+    // Check if the font is loaded and return if it is.
+    auto loaded = font_storage.fonts.find(name);
+    if(loaded != font_storage.fonts.end())
+    {
+        return *loaded->second.get();
+    }
+
+    // Try to load the font and add it to the font_storage
+    sf::Font* new_font{new sf::Font()};
+    if(!new_font->loadFromFile(file_path + name))
+    {
+        throw std::logic_error("Failed to load font: " + name);
+    }
+
+    font_storage.fonts.insert(std::make_pair(name, std::unique_ptr<sf::Font>(new_font)));
+    return *font_storage.fonts.find(name)->second.get();
+}
+
+Font_Manager Font_Manager::font_storage;
