@@ -12,7 +12,7 @@
 #include <SFML/Graphics.hpp>
 #include <memory>
 
-class State
+class State : public std::enable_shared_from_this<State>
 {
 public:
     virtual ~State() = default;

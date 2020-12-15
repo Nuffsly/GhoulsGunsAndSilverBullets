@@ -10,6 +10,7 @@
 #include "Game_State.h"
 #include "../game_objects/Upgrade_Pillar.h"
 #include "../game_objects/Door.h"
+#include "Menu_State.h"
 
 
 Game_State::Game_State(sf::RenderWindow &window)
@@ -30,6 +31,11 @@ Game_State::Game_State(sf::RenderWindow &window)
 
 std::shared_ptr<State> Game_State::tick(sf::Time delta)
 {
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+    {
+        return std::make_shared<Menu_State>(world.stored_window, shared_from_this());
+    }
+
     if (!finished_level)
     {
         since_last_spawn += delta.asSeconds();
