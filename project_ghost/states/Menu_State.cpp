@@ -7,7 +7,7 @@
 #include "../managers/Texture_Manager.h"
 
 Menu_State::Menu_State(sf::RenderWindow &window, std::shared_ptr<State> resume)
-:selected{0}, enter_pressed{false}, delay{sf::milliseconds(300)}
+:selected{0}, enter_pressed{false}
 {
     font = Font_Manager::get_font("pixel.ttf");
 
@@ -23,7 +23,7 @@ Menu_State::Menu_State(sf::RenderWindow &window, std::shared_ptr<State> resume)
 
 void Menu_State::add(const std::string &text, Menu_State::Action action)
 {
-    menu_items.push_back({ sf::Text{text, font, 60}, 0.0f, action});
+    menu_items.push_back({ sf::Text{text, font, 120}, false, action});
 }
 
 void Menu_State::on_key_press(sf::Keyboard::Key key)
@@ -48,29 +48,27 @@ void Menu_State::on_key_press(sf::Keyboard::Key key)
 
 std::shared_ptr<State> Menu_State::tick(sf::Time time)
 {
-    float diff = float(time.asMicroseconds()) / float(delay.asMicroseconds());
-
     for (size_t i = 0; i < menu_items.size(); i++)
     {
         Menu_Item &item = menu_items[i];
 
         if (i == selected)
         {
-            item.state += diff;
-            if (item.state > 1.0f)
-                item.state = 1.0f;
+            item.state = true;
         } else
         {
-            item.state -= diff;
-            if (item.state < 0.0f)
-                item.state = 0.0f;
+            item.state = false;
         }
     }
 
     if (enter_pressed)
+    {
         return menu_items[selected].action();
+    }
     else
+    {
         return nullptr;
+    }
 }
 
 void Menu_State::render(sf::RenderWindow &window)
@@ -89,8 +87,14 @@ void Menu_State::render(sf::RenderWindow &window)
         item.text.setPosition((windowSize.x - bounds.width) / 2, y);
         y += bounds.height * 2.0f;
 
-        int state = static_cast<int>(255 * item.state);
-        item.text.setFillColor(sf::Color(255, state, state));
+        if(item.state)
+        {
+            item.text.setOutlineColor(sf::Color::Red);
+            item.text.setOutlineThickness(5);
+        } else
+        {
+            item.text.setOutlineThickness(0);
+        }
         window.draw(item.text);
     }
 }
