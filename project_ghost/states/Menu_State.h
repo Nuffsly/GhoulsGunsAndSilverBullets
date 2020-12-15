@@ -28,7 +28,7 @@ private:
     {
         sf::Text text;
 
-        float state;
+        bool state;
 
         Action action;
     };
@@ -40,8 +40,6 @@ private:
     size_t selected;
 
     bool enter_pressed;
-
-    sf::Time delay;
 
     std::shared_ptr<State> background;
 
