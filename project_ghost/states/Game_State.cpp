@@ -13,11 +13,14 @@
 
 
 Game_State::Game_State(sf::RenderWindow &window)
-: player_info{}, world(window), available_upgrades{}, level{1}, finished_level{false}, enemies_spawned{0}, since_last_spawn{0}
+    : player_info{}, world(window), available_upgrades{}, level{1},
+      finished_level{false}, enemies_spawned{0}, total_enemies_spawned{0},
+      since_last_spawn{0}
 {
     load_upgrades();
     load_level();
 
+    // For testing upgrades
     /*for (Upgrade &upg : available_upgrades)
     {
         player_info.add_upgrade(upg);
@@ -62,14 +65,7 @@ std::shared_ptr<State> Game_State::tick(sf::Time delta)
 
     if (player_info.exited_level)
     {
-        player_info.exited_level = false;
-        finished_level = false;
-        enemies_spawned = 0;
-        since_last_spawn = 0;
-        upg_pillars_pos.clear();
-        upg_pillars_pos.shrink_to_fit();
-        world.clear_level();
-
+        reset_world();
         level += 1;
         load_level();
     }
@@ -168,6 +164,7 @@ void Game_State::load_upgrades()
 void Game_State::load_level()
 {
     const int NUMBER_OF_LEVELS{3};
+
     std::random_device rd;
     std::uniform_int_distribution<int> uniform(1,NUMBER_OF_LEVELS);
 
@@ -189,6 +186,7 @@ void Game_State::load_level()
         if (block == '_' || block == 'B')
         {
             const int HALF_WIDTH{64};
+
             world.add_front(std::shared_ptr<Game_Object>(
                     new Platform(
                             {static_cast<float>(( i % 10 * 128) + HALF_WIDTH ),
@@ -199,6 +197,7 @@ void Game_State::load_level()
         {
             const int HALF_WIDTH{36};
             const int HALF_HEIGHT{64};
+
             player_ptr = std::shared_ptr<Game_Object>(
                     new Player(
                              {static_cast<float>(( i % 10 * 128) + HALF_WIDTH ),
@@ -210,6 +209,7 @@ void Game_State::load_level()
         {
             const int HALF_WIDTH{36};
             const int HALF_HEIGHT{64};
+
             door_pos = {static_cast<float>(( i % 10 * 128) + HALF_WIDTH ),
                         static_cast<float>(( 1 + (i / 10)) * 180 - HALF_HEIGHT )};
         }
@@ -217,6 +217,7 @@ void Game_State::load_level()
         {
             const int HALF_WIDTH{36};
             const int HALF_HEIGHT{64};
+
             upg_pillars_pos.push_back({static_cast<float>(( i % 10 * 128) + HALF_WIDTH ),
                                           static_cast<float>(( 1 + (i / 10)) * 180 - HALF_HEIGHT )});
         }
@@ -227,4 +228,15 @@ void Game_State::load_level()
         }
     }
 
+}
+
+void Game_State::reset_world()
+{
+    player_info.exited_level = false;
+    finished_level = false;
+    enemies_spawned = 0;
+    since_last_spawn = 0;
+    upg_pillars_pos.clear();
+    upg_pillars_pos.shrink_to_fit();
+    world.clear_level();
 }

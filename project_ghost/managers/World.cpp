@@ -17,7 +17,7 @@ void World::tick(sf::Time delta)
 {
     for (size_t i = 0; i < game_objects.size(); i++)
     {
-        // update returns false if it wants to be deleted
+        // update returns false if object wants to be deleted
         if (!game_objects[i]->update(delta, *this))
         {
             game_objects.erase(game_objects.begin() + i);

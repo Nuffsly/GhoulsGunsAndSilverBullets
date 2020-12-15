@@ -29,6 +29,7 @@ public:
     void render(sf::RenderWindow &window) override;
 
     void spawn_enemy();
+    void reset_world();
 
 private:
     Player_Info player_info;
