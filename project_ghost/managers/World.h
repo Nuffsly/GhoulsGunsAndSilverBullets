@@ -23,6 +23,8 @@ public:
     void tick(sf::Time);
     void render(sf::RenderWindow &window);
 
+    void clear_level();
+
     void add_front(std::shared_ptr<Game_Object> const& game_object);
     void add_back(std::shared_ptr<Game_Object> const& game_object);
 

@@ -142,9 +142,9 @@ void Player::handle_collision(World &world)
             player_info.add_money(uniform(rd));
             Sound_Manager::play_sound("soul_pickup.wav");
         }
-        if (dynamic_cast<Door *>(collision.get()))
+        if (dynamic_cast<Door *>(collision.get()) && sf::Keyboard::isKeyPressed(sf::Keyboard::E ))
         {
-            take_damage(dynamic_cast<Enemy *>(collision.get())->damage);
+            player_info.exited_level = true;
         }
     }
     if ( player_state == 0 && off_platform ) // off_platform only sets falling state if all platforms agree

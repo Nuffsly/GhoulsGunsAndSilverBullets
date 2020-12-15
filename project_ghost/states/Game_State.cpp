@@ -33,7 +33,7 @@ std::shared_ptr<State> Game_State::tick(sf::Time delta)
     }
 
     if (since_last_spawn > 5.0
-    && enemies_spawned == player_info.get_enemies_killed() )
+    && total_enemies_spawned == player_info.get_enemies_killed() )
     {
         finished_level = true;
     }
@@ -58,6 +58,20 @@ std::shared_ptr<State> Game_State::tick(sf::Time delta)
         world.add_front(std::shared_ptr<Game_Object>(
                 new Door( door_pos, "door.png") ));
         door_pos = {0, 0};
+    }
+
+    if (player_info.exited_level)
+    {
+        player_info.exited_level = false;
+        finished_level = false;
+        enemies_spawned = 0;
+        since_last_spawn = 0;
+        upg_pillars_pos.clear();
+        upg_pillars_pos.shrink_to_fit();
+        world.clear_level();
+
+        level += 1;
+        load_level();
     }
 
     // Player dies. Fix this plz :)
@@ -107,6 +121,7 @@ void Game_State::spawn_enemy()
                           "enemy.png", 30*(1+level/10),
                           15*(1+level/10), player_ptr)));
         enemies_spawned += 1;
+        total_enemies_spawned += 1;
         since_last_spawn = 0;
     }
     else if (enemies_spawned > 9 + pow(level, 1.3))
