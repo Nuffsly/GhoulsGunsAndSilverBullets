@@ -25,12 +25,15 @@ Hud::Hud()
     score_text.setFillColor(COLOR);
 
     money_text.setPosition(0, 35);
-    health_text.setPosition(0, 0);
+    health_text.setPosition(32, 0);
     score_text.setPosition(0, 70);
 
     money_text.setString("0");
     health_text.setString("0/0");
     score_text.setString("0");
+
+    health_icon.setTexture(*Texture_Manager::get_texture("icon_health.png"));
+    health_icon.setPosition(0,0);
 }
 
 void Hud::draw_hud(sf::RenderWindow &window)
@@ -38,6 +41,8 @@ void Hud::draw_hud(sf::RenderWindow &window)
     window.draw(money_text);
     window.draw(health_text);
     window.draw(score_text);
+
+    window.draw(health_icon);
 }
 
 void Hud::set_money(int money)

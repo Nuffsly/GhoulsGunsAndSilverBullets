@@ -22,6 +22,8 @@ private:
     sf::Text money_text;
     sf::Text health_text;
     sf::Text score_text;
+
+    sf::Sprite health_icon;
 };
 
 
