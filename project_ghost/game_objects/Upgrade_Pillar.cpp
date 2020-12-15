@@ -70,7 +70,9 @@ void Upgrade_Pillar::setup_description()
 
     description.setFillColor(COLOR);
 
-    description.setString(upgrade.name + '\n' + upgrade.description);
+    description.setString(upgrade.name + '\n'
+                            + upgrade.description + '\n'
+                            + "Price: " + std::to_string(upgrade.price) );
 
     description.setPosition(center.x-description.getLocalBounds().width/2, get_top()-description.getLocalBounds().height-MARGIN);
 

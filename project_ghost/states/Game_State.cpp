@@ -51,9 +51,9 @@ std::shared_ptr<State> Game_State::tick(sf::Time delta)
             std::uniform_int_distribution<int> uniform(0,available_upgrades.size()-1);
             int i{uniform(rd)};
 
-            world.add_front(std::shared_ptr<Game_Object>(
+            world.add_before_back(std::shared_ptr<Game_Object>(
                     new Upgrade_Pillar( pillar_pos,
-                                        "door.png",
+                                        "upgrade.png",
                                         available_upgrades[i] ) ));
         }
 
