@@ -28,28 +28,21 @@ void Menu_State::add(const std::string &text, Menu_State::Action action)
 
 void Menu_State::on_key_press(sf::Keyboard::Key key)
 {
-    switch (key)
+    if (key == sf::Keyboard::Down || key == sf::Keyboard::S)
     {
-        case sf::Keyboard::Down:
-            if (selected + 1 < menu_items.size())
-            {
-                selected++;
-            }
-            break;
-
-        case sf::Keyboard::Up:
-            if (selected > 0)
-            {
-                selected--;
-            }
-            break;
-
-        case sf::Keyboard::Return:
-            enter_pressed = true;
-            break;
-
-        default:
-            break;
+        if (selected + 1 < menu_items.size())
+        {
+            selected++;
+        }
+    } else if (key == sf::Keyboard::Up || key == sf::Keyboard::W)
+    {
+        if (selected > 0)
+        {
+            selected--;
+        }
+    } else if (key == sf::Keyboard::Return)
+    {
+        enter_pressed = true;
     }
 }
 
@@ -97,7 +90,7 @@ void Menu_State::render(sf::RenderWindow &window)
         y += bounds.height * 2.0f;
 
         int state = static_cast<int>(255 * item.state);
-        item.text.setFillColor(sf::Color(state, 255, state));
+        item.text.setFillColor(sf::Color(255, state, state));
         window.draw(item.text);
     }
 }
