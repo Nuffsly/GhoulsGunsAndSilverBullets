@@ -41,6 +41,7 @@ public:
 
     int health;
     int damage;
+    int max_health;
 };
 
 // Platform Class

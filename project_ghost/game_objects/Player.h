@@ -10,6 +10,7 @@
 #include "../containers/Player_Info.h"
 #include "Textured_Object.h"
 #include "Weapon.h"
+#include "Hud.h"
 
 
 class World;
@@ -69,6 +70,7 @@ private:
     std::vector<int> frame_numbers;
 
     Weapon weapon;
+    Hud hud;
 };
 
 

@@ -35,6 +35,8 @@ Player::Player(sf::Vector2f center, Player_Info &player_info)
           run_speed{}, player_info{player_info},
           weapon{center, "weapon.png"}, x_at_last_frame(center.x)
 {
+
+    // Fix size of players hitbox. Can't use base because of animations.
     const float SCALE{4};
 
     sf::Vector2f size{shape.getTexture()->getSize()};
@@ -61,6 +63,10 @@ bool Player::update(const sf::Time &delta, World &world)
     handle_weapon(delta, world);
     handle_collision(world);
     handle_animation();
+
+    hud.set_health(health, max_health);
+    hud.set_money(player_info.get_money());
+    hud.set_score(player_info.get_score());
 
     return still_alive();
 }
@@ -336,6 +342,7 @@ void Player::render(sf::RenderWindow &window)
 {
     Textured_Object::render(window);
     weapon.render(window);
+    hud.draw_hud(window);
 }
 
 void Player::apply_upgrades()
@@ -388,7 +395,8 @@ void Player::apply_upgrades()
             }
         }
     }
-    Character::health = player_stats_int["health*"];
+    Character::max_health = player_stats_int["health*"];
+    Character::health = max_health;
     Character::damage = player_stats_int["damage*"];
     weapon.damage = player_stats_int["damage*"];
     max_jumps = player_stats_int["max_jumps+"];

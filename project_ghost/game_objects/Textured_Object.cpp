@@ -46,8 +46,10 @@ void Textured_Object::set_position(sf::Vector2f position)
 // Character
 
 Character::Character(const sf::Vector2f &center, std::string const& texture_name, int health, int damage)
-    :Textured_Object{center, texture_name}, health{health}, damage{damage}
-{}
+    :Textured_Object{center, texture_name}, max_health{health}, damage{damage}
+{
+    this->health = max_health;
+}
 
 void Character::take_damage(const int damage_taken)
 {
