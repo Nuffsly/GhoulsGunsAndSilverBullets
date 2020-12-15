@@ -65,6 +65,11 @@ bool Player::update(const sf::Time &delta, World &world)
     handle_collision(world);
     handle_animation();
 
+    if (invincible > 0)
+    {
+        invincible -= delta.asSeconds();
+    }
+
     hud.set_health(health, max_health);
     hud.set_money(player_info.get_money());
     hud.set_score(player_info.get_score());
@@ -141,21 +146,12 @@ void Player::handle_collision(World &world)
 
         if (dynamic_cast<Enemy *>(collision.get()))
         {
-            take_damage(dynamic_cast<Enemy *>(collision.get())->damage);
-        }
-
-        /*if (dynamic_cast<Upgrade_Pillar *>(collision.get()) && sf::Keyboard::isKeyPressed(sf::Keyboard::E ))
-        {
-            Upgrade upgrade{dynamic_cast<Upgrade_Pillar *>(collision.get())->get_upgrade()};
-            bool bought{dynamic_cast<Upgrade_Pillar *>(collision.get())->bought};
-
-            if ( !bought && player_info.get_money() >= upgrade.price )
+            if (invincible <= 0)
             {
-                player_info.add_money( -upgrade.price );
-                player_info.add_upgrade(upgrade);
+                take_damage(dynamic_cast<Enemy *>(collision.get())->damage);
+                invincible = 1.0;
             }
-            // TODO: Spela ljud i en else när spelaren inte har råd
-        }*/
+        }
 
         if (dynamic_cast<Door *>(collision.get()) && sf::Keyboard::isKeyPressed(sf::Keyboard::E ))
         {
@@ -349,6 +345,16 @@ bool Player::still_alive()
 
 void Player::render(sf::RenderWindow &window)
 {
+    if (invincible > 0 && (std::fmod(invincible, 0.20) < 0.10 )
+        && shape.getFillColor() == sf::Color::White)
+    {
+        shape.setFillColor(sf::Color(254, 254, 254, 0));
+    }
+    else if (shape.getFillColor() == sf::Color(254, 254, 254, 0))
+    {
+        shape.setFillColor(sf::Color::White);
+    }
+
     Textured_Object::render(window);
     weapon.render(window);
     hud.draw_hud(window);

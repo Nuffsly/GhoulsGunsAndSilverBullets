@@ -61,18 +61,24 @@ void Upgrade_Pillar::setup_description()
 {
     const std::string FONT{"pixel.ttf"};
     const int SIZE{25};
-    const sf::Color COLOR{sf::Color::White};
-    const float MARGIN{10};
+    const sf::Color FILL_COLOR{sf::Color::White};
+    const sf::Color OUTLINE_COLOR{sf::Color::Black};
+    const float MARGIN{40};
 
     description.setFont(Font_Manager::get_font(FONT));
-
     description.setCharacterSize(SIZE);
+    description.setFillColor(FILL_COLOR);
+    description.setOutlineColor(OUTLINE_COLOR);
+    description.setOutlineThickness(2);
 
-    description.setFillColor(COLOR);
+    description.setString(upgrade.name + '\n'
+                            + "Souls: " + std::to_string(upgrade.price) + '\n'
+                            + '\n'
+                            + upgrade.description );
 
-    description.setString(upgrade.name + '\n' + upgrade.description);
-
-    description.setPosition(center.x-description.getLocalBounds().width/2, get_top()-description.getLocalBounds().height-MARGIN);
+    description.setPosition(center.x - description.getLocalBounds().width/2,
+                            get_top() - description.getLocalBounds().height
+                            - MARGIN);
 
 
 }
