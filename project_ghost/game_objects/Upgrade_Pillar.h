@@ -16,10 +16,20 @@ public:
     Upgrade_Pillar(const sf::Vector2f &center,
                    std::string const& texture_name,
                    Upgrade const& upgrade);
+
     bool update(const sf::Time &delta, World &world) override;
+
+    void render(sf::RenderWindow &window) override;
+
+    Upgrade get_upgrade() const;
 
 private:
     Upgrade upgrade;
+
+    bool show_description;
+    bool bought;
+
+    sf::Text description;
 
 };
 

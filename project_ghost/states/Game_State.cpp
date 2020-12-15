@@ -70,8 +70,7 @@ std::shared_ptr<State> Game_State::tick(sf::Time delta)
         load_level();
     }
 
-    // Player dies. Fix this plz :)
-    if (false)
+    if ( !player_info.is_alive )
     {
         return std::make_shared<Exit_State>();
     }

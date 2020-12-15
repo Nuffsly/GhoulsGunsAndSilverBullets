@@ -4,6 +4,10 @@
 
 #include "Player_Info.h"
 
+Player_Info::Player_Info()
+    :exited_level{false}, is_alive{true}, money{0}, score{0}, enemies_killed{0}
+{}
+
 int Player_Info::get_money() const
 {
     return money;
@@ -43,5 +47,6 @@ void Player_Info::add_enemies_killed(int change)
 {
     enemies_killed += change;
 }
+
 
 

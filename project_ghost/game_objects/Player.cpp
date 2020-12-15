@@ -13,6 +13,7 @@
 #include "Enemy.h"
 #include "Money.h"
 #include "Door.h"
+#include "Upgrade_Pillar.h"
 #include "../managers/Sound_Manager.h"
 
 float lerp(float const a, float const b, float const t)
@@ -109,7 +110,7 @@ void Player::handle_collision(World &world)
             if ( player_state == 2 // falling
                 && drop_margin <= 0.0
                 && player_bottom_edge > platform_top_edge
-                &&  player_bottom_edge < platform_top_edge + MARGIN)
+                &&  player_bottom_edge < platform_top_edge + MARGIN )
             {
                 player_state = standing;
                 vertical_duration = 0;
@@ -140,10 +141,23 @@ void Player::handle_collision(World &world)
         if (dynamic_cast<Money *>(collision.get()))
         {
             std::random_device rd;
-            std::uniform_int_distribution<int> uniform(20,27);
+            std::uniform_int_distribution<int> uniform(10,17);
             player_info.add_money(uniform(rd));
             Sound_Manager::play_sound("soul_pickup.wav");
         }
+
+        if (dynamic_cast<Upgrade_Pillar *>(collision.get()) && sf::Keyboard::isKeyPressed(sf::Keyboard::E ))
+        {
+            Upgrade upgrade = dynamic_cast<Upgrade_Pillar *>(collision.get())->get_upgrade();
+            if ( player_info.get_money() >= upgrade.price )
+            {
+                player_info.add_money( -upgrade.price );
+                player_info.add_upgrade(upgrade);
+                apply_upgrades();
+            }
+            // TODO: Spela ljud i en else när spelaren inte har råd
+        }
+
         if (dynamic_cast<Door *>(collision.get()) && sf::Keyboard::isKeyPressed(sf::Keyboard::E ))
         {
             player_info.exited_level = true;

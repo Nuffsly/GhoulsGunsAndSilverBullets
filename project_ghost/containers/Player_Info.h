@@ -13,7 +13,7 @@
 class Player_Info
 {
 public:
-    Player_Info() = default;
+    Player_Info();
 
     bool exited_level;
     bool is_alive;
