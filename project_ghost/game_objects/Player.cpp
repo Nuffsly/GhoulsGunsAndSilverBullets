@@ -358,6 +358,7 @@ void Player::render(sf::RenderWindow &window)
 {
     Textured_Object::render(window);
     weapon.render(window);
+    hud.draw_hud(window);
 }
 
 void Player::apply_upgrades()
