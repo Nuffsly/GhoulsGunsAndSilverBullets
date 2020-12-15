@@ -36,6 +36,8 @@ Player::Player(sf::Vector2f center, Player_Info &player_info)
           run_speed{}, player_info{player_info},
           weapon{center, "weapon.png"}, x_at_last_frame(center.x)
 {
+
+    // Fix size of players hitbox. Can't use base because of animations.
     const float SCALE{4};
 
     sf::Vector2f size{shape.getTexture()->getSize()};
@@ -62,6 +64,10 @@ bool Player::update(const sf::Time &delta, World &world)
     handle_weapon(delta, world);
     handle_collision(world);
     handle_animation();
+
+    hud.set_health(health, max_health);
+    hud.set_money(player_info.get_money());
+    hud.set_score(player_info.get_score());
 
     player_info.is_alive = still_alive();
 
@@ -141,7 +147,7 @@ void Player::handle_collision(World &world)
         if (dynamic_cast<Money *>(collision.get()))
         {
             std::random_device rd;
-            std::uniform_int_distribution<int> uniform(10,17);
+            std::uniform_int_distribution<int> uniform(20,27);
             player_info.add_money(uniform(rd));
             Sound_Manager::play_sound("soul_pickup.wav");
         }
@@ -404,7 +410,8 @@ void Player::apply_upgrades()
             }
         }
     }
-    Character::health = player_stats_int["health*"];
+    Character::max_health = player_stats_int["health*"];
+    Character::health = max_health;
     Character::damage = player_stats_int["damage*"];
     weapon.damage = player_stats_int["damage*"];
     max_jumps = player_stats_int["max_jumps+"];

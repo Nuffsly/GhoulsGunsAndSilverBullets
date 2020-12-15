@@ -5,6 +5,7 @@
 // Enemy
 
 #include <iostream>
+#include <utility>
 
 #include "Enemy.h"
 #include "Money.h"
@@ -13,7 +14,7 @@
 Enemy::Enemy(const sf::Vector2f &center, const std::string &texture_name,
              int health, int damage, std::shared_ptr<Game_Object> player_ptr)
     :Character{center, texture_name, health, damage},
-    player_ptr{player_ptr}, max_health{health}
+    player_ptr{std::move(player_ptr)}
 {}
 
 bool Enemy::update(const sf::Time &delta, World &world)
