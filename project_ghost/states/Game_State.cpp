@@ -279,7 +279,7 @@ std::shared_ptr<State> Game_Over_State::tick(sf::Time time)
 {
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
     {
-        std::this_thread::sleep_for(std::chrono::milliseconds(300));
+        std::this_thread::sleep_for(std::chrono::milliseconds(200));
         return std::make_shared<Menu_State>(window);
     }
     return nullptr;
