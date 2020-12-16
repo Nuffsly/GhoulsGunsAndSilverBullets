@@ -30,6 +30,7 @@ std::vector<Upgrade> Player_Info::get_upgrades()
 
 void Player_Info::add_upgrade(const Upgrade &upgrade)
 {
+    bought_upgrades.push_back(upgrade.name);
     gained_upgrades.push_back(upgrade);
 }
 

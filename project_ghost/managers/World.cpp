@@ -50,9 +50,9 @@ void World::add_back(std::shared_ptr<Game_Object> const& game_object)
     game_objects.push_back(game_object);
 }
 
-void World::add_before_back(const std::shared_ptr<Game_Object> &game_object)
+void World::insert_at(std::shared_ptr<Game_Object> const &game_object, int const index)
 {
-    game_objects.insert(game_objects.end()-1, game_object);
+    game_objects.insert(game_objects.begin() + index, game_object);
 }
 
 bool World::collides(Game_Object const& a, Game_Object const& b) const
