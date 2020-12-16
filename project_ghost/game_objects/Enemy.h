@@ -26,8 +26,11 @@ private:
 
     void move_enemy(sf::Time const& delta);
     void drop_money(World &world);
+
     float animation_time;
     std::vector<int> frame_numbers;
+
+    float time_alive;
 };
 
 
