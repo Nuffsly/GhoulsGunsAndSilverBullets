@@ -19,7 +19,7 @@ Enemy::Enemy(const sf::Vector2f &center, const std::string &texture_name,
     frame_numbers{0, 24, 48, 72, 96, 120, 144, 168}, time_alive{0}
 {
     //Fix enemies hitbox. Can't use base because of animations
-    const float SCALE{4};
+    const float SCALE{3};
 
     sf::Vector2f size{shape.getTexture()->getSize()};
 
