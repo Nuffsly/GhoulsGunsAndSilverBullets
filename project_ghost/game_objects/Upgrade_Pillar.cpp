@@ -12,6 +12,20 @@ Upgrade_Pillar::Upgrade_Pillar(const sf::Vector2f &center,
         :Textured_Object{center, texture_name}, upgrade{upgrade},
         show_description{false}, bought{false}
 {
+    //Fix hitbox. Can't use base because of animations
+    const float SCALE{4};
+
+    sf::Vector2f size{shape.getTexture()->getSize()};
+
+    size = {size.x/2 * SCALE, size.y * SCALE};
+    sf::IntRect texture_rect{0, 0, 32, 32};
+
+    hitbox = size;
+    shape.setTextureRect(texture_rect);
+    shape.setSize(size);
+    shape.setOrigin(size.x/2, size.y/2);
+    shape.setPosition(center);
+
     setup_description();
 }
 
@@ -34,6 +48,10 @@ bool Upgrade_Pillar::update(const sf::Time &delta, World &world)
                 bought = true;
                 player->player_info.add_money( -upgrade.price );
                 player->player_info.add_upgrade(upgrade);
+
+                // Change texture
+                sf::IntRect texture_rect{32, 0, 32, 32};
+                shape.setTextureRect(texture_rect);
                 // TODO: Stoppa in saker som ska hända när man köper tex ljud
             }
         }
