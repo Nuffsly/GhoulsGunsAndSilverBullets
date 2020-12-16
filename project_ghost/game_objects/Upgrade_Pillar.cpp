@@ -82,3 +82,8 @@ void Upgrade_Pillar::setup_description()
 
 
 }
+
+bool Upgrade_Pillar::is_bought()
+{
+    return bought;
+}

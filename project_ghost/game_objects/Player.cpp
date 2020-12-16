@@ -55,6 +55,7 @@ Player::Player(sf::Vector2f center, Player_Info &player_info)
     hitbox = {(hitbox.x - HAT_MARGIN), hitbox.y};
 
     apply_upgrades();
+    setup_activate_popup();
 }
 
 bool Player::update(const sf::Time &delta, World &world)
@@ -110,6 +111,8 @@ void Player::move_player(sf::Time delta, World &world)
 
 void Player::handle_collision(World &world)
 {
+    show_activate_prompt = false;
+
     for (auto &collision : world.collides_with(*this))
     {
         if (dynamic_cast<Platform *>(collision.get()))
@@ -153,9 +156,28 @@ void Player::handle_collision(World &world)
             }
         }
 
-        if (dynamic_cast<Door *>(collision.get()) && sf::Keyboard::isKeyPressed(sf::Keyboard::E ))
+        if (dynamic_cast<Upgrade_Pillar *>(collision.get())
+            && ! dynamic_cast<Upgrade_Pillar *>(collision.get())->is_bought() )
         {
-            player_info.exited_level = true;
+            activate_popup.setPosition( collision->center.x
+                                    - activate_popup.getLocalBounds().width / 2,
+                                    collision->get_bottom()
+                                    - activate_popup.getLocalBounds().height * 2 );
+            show_activate_prompt = true;
+        }
+
+        if (dynamic_cast<Door *>(collision.get()))
+        {
+            activate_popup.setPosition( collision->center.x
+                                        - activate_popup.getLocalBounds().width / 2,
+                                        collision->get_bottom()
+                                        - activate_popup.getLocalBounds().height * 3 );
+            show_activate_prompt = true;
+
+            if( sf::Keyboard::isKeyPressed(sf::Keyboard::E ))
+            {
+                player_info.exited_level = true;
+            }
         }
     }
     if ( player_state == 0 && off_platform ) // off_platform only sets falling state if all platforms agree
@@ -345,19 +367,14 @@ bool Player::still_alive()
 
 void Player::render(sf::RenderWindow &window)
 {
-    if (invincible > 0 && (std::fmod(invincible, 0.20) < 0.10 )
-        && shape.getFillColor() == sf::Color::White)
-    {
-        shape.setFillColor(sf::Color(254, 254, 254, 0));
-    }
-    else if (shape.getFillColor() == sf::Color(254, 254, 254, 0))
-    {
-        shape.setFillColor(sf::Color::White);
-    }
-
     Textured_Object::render(window);
     weapon.render(window);
     hud.draw_hud(window);
+
+    if (show_activate_prompt)
+    {
+        window.draw(activate_popup);
+    }
 }
 
 void Player::apply_upgrades()
@@ -409,6 +426,8 @@ void Player::apply_upgrades()
 
 void Player::handle_animation()
 {
+    handle_invincible_animation();
+
     //If the player is standing still
     if(!moved_last_update)
     {
@@ -456,6 +475,32 @@ void Player::handle_animation()
             weapon.set_position({center.x - 15, center.y});
         }
     }
+}
 
+void Player::setup_activate_popup()
+{
+        const std::string FONT{"pixel.ttf"};
+        const int SIZE{20};
+        const sf::Color FILL_COLOR{sf::Color::White};
+        const sf::Color OUTLINE_COLOR{sf::Color::Black};
 
+        activate_popup.setFont(Font_Manager::get_font(FONT));
+        activate_popup.setCharacterSize(SIZE);
+        activate_popup.setFillColor(FILL_COLOR);
+        activate_popup.setOutlineColor(OUTLINE_COLOR);
+        activate_popup.setOutlineThickness(2);
+        activate_popup.setString("Press 'E'" );
+}
+
+void Player::handle_invincible_animation()
+{
+    if (invincible > 0 && (std::fmod(invincible, 0.20) < 0.10 )
+        && shape.getFillColor() == sf::Color::White)
+    {
+        shape.setFillColor(sf::Color(255, 255, 255, 0));
+    }
+    else if (shape.getFillColor() == sf::Color(255, 255, 255, 0))
+    {
+        shape.setFillColor(sf::Color::White);
+    }
 }
