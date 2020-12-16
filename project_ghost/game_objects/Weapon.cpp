@@ -26,7 +26,66 @@ bool Weapon::update(sf::Time const& delta, World &world)
     shape.setPosition(center);
     sf::Vector2f mouse_pos{sf::Mouse::getPosition(world.stored_window)};
 
-    direction = std::atan2(mouse_pos.y - weapon_pos.y, mouse_pos.x - weapon_pos.x) * 180 / PI;
+    if (mouse_pos != mouse_pos_last)
+    {
+        direction = std::atan2(mouse_pos.y - weapon_pos.y, mouse_pos.x - weapon_pos.x) * 180 / PI;
+        mouse_pos_last = mouse_pos;
+    }
+
+    // Aiming right
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::L)
+        && !sf::Keyboard::isKeyPressed(sf::Keyboard::K)
+        && !sf::Keyboard::isKeyPressed(sf::Keyboard::I))
+    {
+        direction = 0;
+    }
+    // Aiming left
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::J)
+        && !sf::Keyboard::isKeyPressed(sf::Keyboard::K)
+        && !sf::Keyboard::isKeyPressed(sf::Keyboard::I))
+    {
+        direction = -179;
+    }
+    // Aiming up
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::I)
+        && !sf::Keyboard::isKeyPressed(sf::Keyboard::L)
+        && !sf::Keyboard::isKeyPressed(sf::Keyboard::J))
+    {
+        direction = -90;
+    }
+    // Aiming down
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::K)
+        && !sf::Keyboard::isKeyPressed(sf::Keyboard::L)
+        && !sf::Keyboard::isKeyPressed(sf::Keyboard::J))
+    {
+        direction = 90;
+    }
+    // Aiming up+right
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::I)
+        && sf::Keyboard::isKeyPressed(sf::Keyboard::L))
+    {
+        direction = -45;
+    }
+    // Aiming up+left
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::I)
+        && sf::Keyboard::isKeyPressed(sf::Keyboard::J))
+    {
+        direction = -135;
+    }
+    // Aiming down+right
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::K)
+        && sf::Keyboard::isKeyPressed(sf::Keyboard::J))
+    {
+        direction = 135;
+    }
+    // Aiming down+left
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::K)
+        && sf::Keyboard::isKeyPressed(sf::Keyboard::L))
+    {
+        direction = 45;
+    }
+
+
     shape.setRotation(direction);
 
     calc_barrel_pos(direction);

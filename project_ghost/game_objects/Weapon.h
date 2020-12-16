@@ -31,6 +31,7 @@ private:
     float sec_since_fired;
     float direction;
     sf::Vector2f barrel_pos;
+    sf::Vector2f mouse_pos_last;
 };
 
 

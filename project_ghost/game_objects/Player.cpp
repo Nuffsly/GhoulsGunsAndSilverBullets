@@ -84,7 +84,8 @@ void Player::handle_weapon(const sf::Time &delta, World &world)
     weapon.set_position(center);
     weapon.update(delta, world);
 
-    if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+    if(sf::Mouse::isButtonPressed(sf::Mouse::Left)
+        || sf::Keyboard::isKeyPressed(sf::Keyboard::B))
     {
         weapon.shoot(delta, world);
     }
@@ -214,7 +215,7 @@ void Player::handle_drop()
         && (sf::Keyboard::isKeyPressed(sf::Keyboard::S)
         || sf::Keyboard::isKeyPressed(sf::Keyboard::Down)))
     {
-        drop_margin = get_bottom() + DROP_DISTANCE;
+        drop_margin = DROP_DISTANCE;
         player_state = falling;
     }
 }
