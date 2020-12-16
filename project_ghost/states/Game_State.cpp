@@ -5,6 +5,7 @@
 #include <cmath>
 #include <filesystem>
 #include <random>
+#include <thread>
 
 #include "Game_State.h"
 #include "../game_objects/Upgrade_Pillar.h"
@@ -87,7 +88,7 @@ std::shared_ptr<State> Game_State::tick(sf::Time delta)
 
     if ( !player_info.is_alive )
     {
-        return std::make_shared<Game_Over_State>(world.stored_window);
+        return std::make_shared<Game_Over_State>(world.stored_window, player_info.get_score(), level);
     }
 
     return nullptr;
@@ -270,14 +271,15 @@ void Game_State::reset_world()
 }
 
 // Game_Over_State
-Game_Over_State::Game_Over_State(sf::RenderWindow &window)
-:window{window}
+Game_Over_State::Game_Over_State(sf::RenderWindow &window, int score, int level)
+:window{window}, score{score}, level{level}
 {}
 
 std::shared_ptr<State> Game_Over_State::tick(sf::Time time)
 {
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
     {
+        std::this_thread::sleep_for(std::chrono::milliseconds(300));
         return std::make_shared<Menu_State>(window);
     }
     return nullptr;
@@ -292,7 +294,15 @@ void Game_Over_State::render(sf::RenderWindow &window)
     game_over.setString("GAME OVER");
     game_over.setFillColor(sf::Color::White);
 
-    game_over.setPosition(100, 200);
+    game_over.setPosition(100, 100);
+
+    sf::Text score_display;
+    score_display.setFont(Font_Manager::get_font("pixel.ttf"));
+    score_display.setCharacterSize(75);
+    score_display.setString("   Score: " + std::to_string(score) + "\nLevel reached: " + std::to_string(level));
+    score_display.setFillColor(sf::Color::White);
+
+    score_display.setPosition(300, game_over.getGlobalBounds().top + game_over.getGlobalBounds().height);
 
     sf::Text info;
     info.setFont(Font_Manager::get_font("pixel.ttf"));
@@ -300,9 +310,10 @@ void Game_Over_State::render(sf::RenderWindow &window)
     info.setString("Press [Enter] to continue");
     info.setFillColor(sf::Color::White);
 
-    info.setPosition(100, 450);
+    info.setPosition(100, 600);
 
     window.draw(game_over);
+    window.draw(score_display);
     window.draw(info);
 }
 

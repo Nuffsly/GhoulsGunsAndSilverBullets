@@ -55,12 +55,15 @@ private:
 class Game_Over_State : public State
 {
 public:
-    Game_Over_State(sf::RenderWindow &window);
+    Game_Over_State(sf::RenderWindow &window, int score, int level);
 private:
     std::shared_ptr<State> tick(sf::Time time) override;
     void render(sf::RenderWindow &window) override;
 
     sf::RenderWindow &window;
+
+    int score;
+    int level;
 };
 
 #endif //MAIN_CPP_GAME_STATE_H
