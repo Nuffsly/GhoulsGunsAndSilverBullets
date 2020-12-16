@@ -34,7 +34,14 @@ void Money::fall(const sf::Time &delta, World &world)
     {
         const float SPEED{300};
 
-        set_position({get_position().x, get_position().y + SPEED * delta.asSeconds()});
+        float clamped_position{get_position().x};
+
+        const float low_clamp_x{get_size().x / 2};
+        const float high_clamp_x{world.stored_window.getSize().x - (get_size().x / 2)};
+
+        clamped_position = std::clamp(clamped_position, low_clamp_x, high_clamp_x);
+
+        set_position({clamped_position, get_position().y + SPEED * delta.asSeconds()});
     }
     else
     {
