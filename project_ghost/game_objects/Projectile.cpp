@@ -21,7 +21,7 @@ bool Projectile::update(const sf::Time &delta, World &world)
     handle_movement(delta, world);
 
     if(center.x < 0 || center.x > world.stored_window.getSize().x
-    || center.y < 0 || center.y > world.stored_window.getSize().y)
+    || center.y < -400 || center.y > world.stored_window.getSize().y)
     {
         return false;
     }

@@ -177,6 +177,8 @@ void Player::handle_collision(World &world)
 
             if( sf::Keyboard::isKeyPressed(sf::Keyboard::E ))
             {
+                player_info.add_score(health);
+                player_info.add_score(player_info.get_money());
                 player_info.exited_level = true;
             }
         }

@@ -100,7 +100,7 @@ void Game_State::render(sf::RenderWindow &window)
 
 void Game_State::spawn_enemy()
 {
-    if (since_last_spawn > 2.0f / static_cast<float>(level) && enemies_spawned < 9 + pow(level, 1.3))
+    if (since_last_spawn > 2.0f * ( 1 - level * 0.10 ) && enemies_spawned < 9 + pow(level, 1.3) )
     {
         const unsigned int X_RES{world.stored_window.getSize().x};
         const unsigned int Y_RES{world.stored_window.getSize().y};
@@ -128,8 +128,8 @@ void Game_State::spawn_enemy()
         }
         world.add_back(std::shared_ptr<Game_Object>(
                 new Enemy({center},
-                          "enemy.png", 30*(1+level/10),
-                          15*(1+level/10), player_ptr)));
+                          "enemy.png", 19 * ( 1 + level * 0.06 ),
+                          15*(1 + level * 0.10 ), player_ptr)));
         enemies_spawned += 1;
         total_enemies_spawned += 1;
         since_last_spawn = 0;
@@ -307,7 +307,7 @@ void Game_Over_State::render(sf::RenderWindow &window)
     score_display.setString("   Score: " + std::to_string(score) + "\nLevel reached: " + std::to_string(level));
     score_display.setFillColor(sf::Color::White);
 
-    score_display.setPosition(300, game_over.getGlobalBounds().top + game_over.getGlobalBounds().height);
+    score_display.setPosition(300, game_over.getGlobalBounds().top + game_over.getGlobalBounds().height + 25);
 
     sf::Text info;
     info.setFont(Font_Manager::get_font("pixel.ttf"));
