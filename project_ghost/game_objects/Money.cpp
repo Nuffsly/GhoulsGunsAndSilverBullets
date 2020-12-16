@@ -20,6 +20,20 @@ bool Money::update(sf::Time const& delta, World &world)
     }
 
     timer -= delta.asSeconds();
+
+    // Make it blink before disappearing
+    if (timer < 3 && (std::fmod(timer, 0.40) < 0.20 )
+        && shape.getFillColor() == sf::Color::White)
+    {
+        shape.setFillColor(sf::Color(255, 255, 255, 0));
+    }
+    else if (shape.getFillColor() == sf::Color(255, 255, 255, 0)
+               && fmod(timer, 0.40) > 0.20)
+    {
+        shape.setFillColor(sf::Color::White);
+    }
+
+    // Remove money when the timer is out
     if ( timer <= 0 )
     {
         return false;
