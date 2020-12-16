@@ -11,7 +11,6 @@
 #include "Player.h"
 #include "../managers/World.h"
 #include "Enemy.h"
-#include "Money.h"
 #include "Door.h"
 #include "Upgrade_Pillar.h"
 #include "../managers/Sound_Manager.h"
