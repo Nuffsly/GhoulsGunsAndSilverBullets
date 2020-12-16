@@ -275,7 +275,7 @@ Game_Over_State::Game_Over_State(sf::RenderWindow &window, int score, int level)
 {
     if(!game_over_sound.openFromFile("../audio_data/game_over.wav"))
     {
-        throw std::logic_error("Failed to load background music.");
+        throw std::logic_error("Failed to load game_over music.");
     }
     game_over_sound.setLoop(true);
     game_over_sound.play();

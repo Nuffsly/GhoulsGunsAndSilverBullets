@@ -153,6 +153,7 @@ void Player::handle_collision(World &world)
             {
                 take_damage(dynamic_cast<Enemy *>(collision.get())->damage);
                 invincible = 1.0;
+                Sound_Manager::play_sound("player_damage.wav");
             }
         }
 
