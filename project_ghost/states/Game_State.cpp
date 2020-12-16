@@ -271,8 +271,15 @@ void Game_State::reset_world()
 
 // Game_Over_State
 Game_Over_State::Game_Over_State(sf::RenderWindow &window, int score, int level)
-:window{window}, score{score}, level{level}
-{}
+:window{window}, score{score}, level{level}, game_over_sound{}
+{
+    if(!game_over_sound.openFromFile("../audio_data/game_over.wav"))
+    {
+        throw std::logic_error("Failed to load background music.");
+    }
+    game_over_sound.setLoop(true);
+    game_over_sound.play();
+}
 
 std::shared_ptr<State> Game_Over_State::tick(sf::Time time)
 {

@@ -64,6 +64,8 @@ private:
 
     int score;
     int level;
+
+    sf::Music game_over_sound;
 };
 
 #endif //MAIN_CPP_GAME_STATE_H
