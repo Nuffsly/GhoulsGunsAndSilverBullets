@@ -18,6 +18,15 @@ Game_State::Game_State(sf::RenderWindow &window)
       finished_level{false}, enemies_spawned{0}, total_enemies_spawned{0},
       since_last_spawn{0}
 {
+    //Start playing BG music
+    if(!music.openFromFile("../audio_data/background_music.wav"))
+    {
+        throw std::logic_error("Failed to load background music.");
+    }
+    music.setLoop(true);
+    music.setVolume(25);
+    music.play();
+
     load_upgrades();
 
     // For testing upgrades

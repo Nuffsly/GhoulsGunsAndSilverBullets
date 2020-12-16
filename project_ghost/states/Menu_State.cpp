@@ -4,7 +4,7 @@
 
 #include "Menu_State.h"
 #include "Game_State.h"
-#include "../managers/Texture_Manager.h"
+#include "../managers/Sound_Manager.h"
 
 Menu_State::Menu_State(sf::RenderWindow &window, std::shared_ptr<State> resume)
 :selected{0}, enter_pressed{false}
@@ -33,12 +33,14 @@ void Menu_State::on_key_press(sf::Keyboard::Key key)
         if (selected + 1 < menu_items.size())
         {
             selected++;
+            Sound_Manager::play_sound("menu_choice.wav");
         }
     } else if (key == sf::Keyboard::Up || key == sf::Keyboard::W)
     {
         if (selected > 0)
         {
             selected--;
+            Sound_Manager::play_sound("menu_choice.wav");
         }
     } else if (key == sf::Keyboard::Return)
     {

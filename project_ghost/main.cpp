@@ -1,5 +1,4 @@
 #include<SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
 
 #include "states/State.h"
 #include "states/Menu_State.h"
@@ -12,16 +11,6 @@ int main()
     window.setKeyRepeatEnabled(false);
     //window.setMouseCursorGrabbed(true);
     //window.setMouseCursorVisible(false);
-
-    //Start playing BG music
-    sf::Music music{};
-    if(!music.openFromFile("../audio_data/background_music.wav"))
-    {
-        throw std::logic_error("Failed to load background music.");
-    }
-    music.setLoop(true);
-    music.setVolume(25);
-    music.play();
 
     State::run(window, std::make_shared<Menu_State>(window));
 
