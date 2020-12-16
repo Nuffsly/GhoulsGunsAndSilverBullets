@@ -1,25 +1,40 @@
-Damage +500%
-Increases the damage of your weapon by 500%
-1000
-int damage* 5
+Crucifix
+Health +10%
+150
+int health* 1.1
 #
-Fire Rate +10%
-Makes you able to shoot 10% faster
+Salt and Iron
+Health +20%
+250
+int health* 1.2
+#
+Silver Bullets
+Your weapon deals 10% more damage
+150
+int damage* 1.1
+#
+Blessed Bullets
+Your weapon deals 20% more damage
+250
+int damage* 1.2
+#
+Gun Grease
+Your weapon shoots 10% faster
 150
 float fire_rate* 0.9
 #
-Double Jump
-You can now jump twice!
+Spring Loaded Mechanism
+Your weapon shoots 20% faster
 250
-int max_jumps+ 1
+float fire_rate* 0.8
 #
-Run Speed +20%
-Fastest shoes ever seen
-200
+Very Fast Shoes
+Run +20% faster!
+275
 float run_speed* 1.2
 #
-Health +10%
-Ghosts don't bother him none
-150
-int health* 1.1
+Parachute Pants
+Jump one additional time!
+250
+int max_jumps+ 1
 #

@@ -39,6 +39,8 @@ private:
     void handle_weapon(const sf::Time &delta, World &world);
     bool still_alive();
     void handle_animation();
+    void handle_invincible_animation();
+    void setup_activate_popup();
 
     enum Player_State{
         standing,
@@ -57,6 +59,7 @@ private:
     bool facing_right;
     float invincible;
 
+    bool show_activate_prompt;
     bool jump_pressed;
     int jump_count;
     int max_jumps;
@@ -67,6 +70,7 @@ private:
 
     Weapon weapon;
     Hud hud;
+    sf::Text activate_popup;
 };
 
 

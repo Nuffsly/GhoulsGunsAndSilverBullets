@@ -21,6 +21,8 @@ public:
 
     void render(sf::RenderWindow &window) override;
 
+    bool is_bought();
+
 private:
     Upgrade upgrade;
 
