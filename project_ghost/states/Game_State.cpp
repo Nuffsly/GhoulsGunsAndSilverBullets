@@ -4,7 +4,6 @@
 
 #include <cmath>
 #include <filesystem>
-#include <iostream>
 #include <random>
 
 #include "Game_State.h"
@@ -16,7 +15,7 @@
 Game_State::Game_State(sf::RenderWindow &window)
     : player_info{}, world(window), available_upgrades{}, level{1},
       finished_level{false}, enemies_spawned{0}, total_enemies_spawned{0},
-      since_last_spawn{0}
+      since_last_spawn{0}, platforms_on_level{0}
 {
     //Start playing BG music
     if(!music.openFromFile("../audio_data/background_music.wav"))
@@ -40,6 +39,8 @@ Game_State::Game_State(sf::RenderWindow &window)
 
 std::shared_ptr<State> Game_State::tick(sf::Time delta)
 {
+    world.tick(delta);
+
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
     {
         return std::make_shared<Menu_State>(world.stored_window, shared_from_this());
@@ -51,10 +52,7 @@ std::shared_ptr<State> Game_State::tick(sf::Time delta)
         spawn_enemy();
     }
 
-    std::cout << "since_last_spawn: " << since_last_spawn << std::endl;
-    //std::cout << "total_enemies_spawned: " << total_enemies_spawned << std::endl;
-    //std::cout << "player_info.get_enemies_killed: " << player_info.get_enemies_killed() << std::endl;
-    if (since_last_spawn > 5.0
+        if (since_last_spawn > 5.0
     && total_enemies_spawned == player_info.get_enemies_killed() )
     {
         finished_level = true;
@@ -69,17 +67,17 @@ std::shared_ptr<State> Game_State::tick(sf::Time delta)
             std::uniform_int_distribution<int> uniform(0,available_upgrades.size()-1);
             int i{uniform(rd)};
 
-            world.add_before_back(std::shared_ptr<Game_Object>(
-                    new Upgrade_Pillar( pillar_pos,
-                                        "upgrade.png",
-                                        available_upgrades[i] ) ));
+            world.insert_at(std::shared_ptr<Game_Object>(
+                    new Upgrade_Pillar(pillar_pos,
+                                       "upgrade.png",
+                                       available_upgrades[i])), platforms_on_level);
         }
 
         world.add_front(std::shared_ptr<Game_Object>(
                 new Door( door_pos, "door.png") ));
         door_pos = {0, 0};
     }
-    std::cout << "finished: " << finished_level << std::endl;
+
     if (player_info.exited_level)
     {
         reset_world();
@@ -92,7 +90,6 @@ std::shared_ptr<State> Game_State::tick(sf::Time delta)
         return std::make_shared<Game_Over_State>(world.stored_window);
     }
 
-    world.tick(delta);
     return nullptr;
 }
 
@@ -207,6 +204,7 @@ void Game_State::load_level()
                             {static_cast<float>(( i % 10 * 128) + HALF_WIDTH ),
                              static_cast<float>(( 1 + (i / 10)) * 180 )},
                             "platform.png")));
+            platforms_on_level += 1;
         }
         if (block == 'P' || block == 'B')
         {
@@ -266,6 +264,7 @@ void Game_State::reset_world()
     }
     player_info.bought_upgrades.clear();
     player_info.bought_upgrades.shrink_to_fit();
+    platforms_on_level = 0;
 
     world.clear_level();
 }

@@ -38,6 +38,7 @@ private:
     std::vector<Upgrade> available_upgrades;
     std::shared_ptr<Game_Object> player_ptr;
     int level;
+    int platforms_on_level;
     bool finished_level;
     int enemies_spawned;
     int total_enemies_spawned;

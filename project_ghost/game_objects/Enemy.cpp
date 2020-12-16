@@ -66,6 +66,6 @@ void Enemy::move_enemy(const sf::Time &delta)
 
 void Enemy::drop_money(World &world)
 {
-    world.add_before_back(std::make_shared<Money>(Money{get_position(), "money.png"}));
+    world.add_back(std::make_shared<Money>(Money{get_position(), "money.png"}));
 }
 
