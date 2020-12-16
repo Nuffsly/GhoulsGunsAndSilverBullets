@@ -3,9 +3,9 @@
 //
 
 #include <cmath>
-#include <experimental/filesystem>
 #include <random>
 
+#include "filesystem"
 #include "Game_State.h"
 #include "../game_objects/Upgrade_Pillar.h"
 #include "../game_objects/Door.h"
@@ -138,7 +138,7 @@ void Game_State::spawn_enemy()
 
 void Game_State::load_upgrades()
 {
-    std::string file_path{std::experimental::filesystem::current_path().string() + "/../game_data/upgrades"};
+    std::string file_path{std::filesystem::current_path().string() + "/../game_data/upgrades"};
 
     std::ifstream f_stream{file_path, std::ios::in};
     if (!f_stream.is_open())
@@ -180,7 +180,7 @@ void Game_State::load_level()
     std::random_device rd;
     std::uniform_int_distribution<int> uniform(1,NUMBER_OF_LEVELS);
 
-    std::string file_path{std::experimental::filesystem::current_path().string()
+    std::string file_path{std::filesystem::current_path().string()
                                     + "/../game_data/levels/"
                                     + std::to_string(uniform(rd))};
 
