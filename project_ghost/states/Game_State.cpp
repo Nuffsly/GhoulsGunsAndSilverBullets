@@ -4,7 +4,6 @@
 
 #include <cmath>
 #include <random>
-#include <thread>
 
 #include "../filesystem.h"
 #include "Game_State.h"
@@ -277,9 +276,8 @@ Game_Over_State::Game_Over_State(sf::RenderWindow &window, int score, int level)
 
 std::shared_ptr<State> Game_Over_State::tick(sf::Time time)
 {
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::E))
     {
-        std::this_thread::sleep_for(std::chrono::milliseconds(200));
         return std::make_shared<Menu_State>(window);
     }
     return nullptr;
@@ -307,10 +305,10 @@ void Game_Over_State::render(sf::RenderWindow &window)
     sf::Text info;
     info.setFont(Font_Manager::get_font("pixel.ttf"));
     info.setCharacterSize(75);
-    info.setString("Press [Enter] to continue");
+    info.setString("Press [E] to continue");
     info.setFillColor(sf::Color::White);
 
-    info.setPosition(100, 600);
+    info.setPosition(175, 600);
 
     window.draw(game_over);
     window.draw(score_display);

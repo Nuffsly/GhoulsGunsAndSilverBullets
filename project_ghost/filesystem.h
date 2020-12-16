@@ -1,6 +1,7 @@
 //
 // Created by jimte on 2020-12-16.
-//
+// Graciously given to us and written by BrainStone
+// https://stackoverflow.com/users/1996022/brainstone
 
 // We haven't checked which filesystem to include yet
 #ifndef INCLUDE_STD_FILESYSTEM_EXPERIMENTAL
