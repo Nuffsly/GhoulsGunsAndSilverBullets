@@ -9,8 +9,7 @@ int main()
     sf::RenderWindow window{sf::VideoMode(1280,720), "PROJECT: [G H 0 5 T]", sf::Style::Titlebar | sf::Style::Close};
     window.setVerticalSyncEnabled(true);
     window.setKeyRepeatEnabled(false);
-    //window.setMouseCursorGrabbed(true);
-    //window.setMouseCursorVisible(false);
+    window.setMouseCursorGrabbed(true);
 
     State::run(window, std::make_shared<Menu_State>(window));
 
