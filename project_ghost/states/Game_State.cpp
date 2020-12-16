@@ -30,10 +30,10 @@ Game_State::Game_State(sf::RenderWindow &window)
     load_upgrades();
 
     // For testing upgrades
-    for (Upgrade &upg : available_upgrades)
-    {
-        player_info.add_upgrade(upg);
-    }
+//    /*for (Upgrade &upg : available_upgrades)
+//    {
+//        player_info.add_upgrade(upg);
+//    }*/
 
     load_level();
 }
@@ -51,6 +51,9 @@ std::shared_ptr<State> Game_State::tick(sf::Time delta)
         spawn_enemy();
     }
 
+    std::cout << "since_last_spawn: " << since_last_spawn << std::endl;
+    //std::cout << "total_enemies_spawned: " << total_enemies_spawned << std::endl;
+    //std::cout << "player_info.get_enemies_killed: " << player_info.get_enemies_killed() << std::endl;
     if (since_last_spawn > 5.0
     && total_enemies_spawned == player_info.get_enemies_killed() )
     {
@@ -76,7 +79,7 @@ std::shared_ptr<State> Game_State::tick(sf::Time delta)
                 new Door( door_pos, "door.png") ));
         door_pos = {0, 0};
     }
-
+    std::cout << "finished: " << finished_level << std::endl;
     if (player_info.exited_level)
     {
         reset_world();
@@ -110,6 +113,7 @@ void Game_State::spawn_enemy()
         int side{sides(rd)};
         sf::Vector2f center;
 
+
         if (side == 1)
         {
             std::uniform_int_distribution<int> x_axis(1,X_RES);
@@ -132,10 +136,6 @@ void Game_State::spawn_enemy()
         enemies_spawned += 1;
         total_enemies_spawned += 1;
         since_last_spawn = 0;
-    }
-    else if (enemies_spawned > 9 + pow(level, 1.3))
-    {
-        finished_level = true;
     }
 }
 
@@ -253,6 +253,20 @@ void Game_State::reset_world()
     since_last_spawn = 0;
     upg_pillars_pos.clear();
     upg_pillars_pos.shrink_to_fit();
+
+    for  ( std::string &bought_upgrade : player_info.bought_upgrades )
+    {
+        for ( Upgrade &upgrade : available_upgrades )
+        {
+            if ( bought_upgrade == upgrade.name )
+            {
+                upgrade.price *= 1.2;
+            }
+        }
+    }
+    player_info.bought_upgrades.clear();
+    player_info.bought_upgrades.shrink_to_fit();
+
     world.clear_level();
 }
 

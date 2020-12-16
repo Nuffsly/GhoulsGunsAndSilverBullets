@@ -31,7 +31,7 @@ Player::Player(sf::Vector2f center, Player_Info &player_info)
           player_state{Player_State::falling}, off_platform{false}, drop_margin{0.0},
           vertical_duration{0.0}, horizontal_duration{0.0}, jump_start{0.0},
           inertia{false}, moved_last_update{false}, facing_right{true},
-          jump_pressed{false}, jump_count{1}, max_jumps{},
+          invincible{0}, jump_pressed{false}, jump_count{1}, max_jumps{},
           run_speed{}, player_info{player_info},
           weapon{center, "weapon.png"}, x_at_last_frame(center.x)
 {
@@ -65,7 +65,7 @@ bool Player::update(const sf::Time &delta, World &world)
     handle_collision(world);
     handle_animation();
 
-    if (invincible > 0)
+    if (invincible >= 0)
     {
         invincible -= delta.asSeconds();
     }
@@ -381,11 +381,11 @@ void Player::apply_upgrades()
     // Default Values
     std::map<std::string, int> player_stats_int{
             {"health*",    100},
-            {"damage*",    100},
+            {"damage*",    20},
             {"max_jumps+", 1}
     };
     std::map<std::string, float> player_stats_float{
-            {"run_speed*", 500},
+            {"run_speed*", 400},
             {"fire_rate*", 0.8}
     };
 

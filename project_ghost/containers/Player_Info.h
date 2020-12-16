@@ -15,19 +15,19 @@ class Player_Info
 public:
     Player_Info();
 
-    bool exited_level;
-    bool is_alive;
-
     int get_money() const;
     int get_score() const;
     int get_enemies_killed() const;
-
     std::vector<Upgrade> get_upgrades();
 
     void add_upgrade(Upgrade const& upgrade);
     void add_money(int change);
     void add_score(int change);
     void add_enemies_killed(int change);
+
+    bool exited_level;
+    bool is_alive;
+    std::vector<std::string> bought_upgrades;
 
 private:
     int money;
