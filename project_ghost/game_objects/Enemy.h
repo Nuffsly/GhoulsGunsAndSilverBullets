@@ -7,6 +7,7 @@
 
 #include <memory>
 #include <SFML/Graphics.hpp>
+#include <vector>
 
 #include "Textured_Object.h"
 
@@ -25,6 +26,8 @@ private:
 
     void move_enemy(sf::Time const& delta);
     void drop_money(World &world);
+    float animation_time;
+    std::vector<int> frame_numbers;
 };
 
 
