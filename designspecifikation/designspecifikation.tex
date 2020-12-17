@@ -129,17 +129,20 @@ Vapnet har en datamedlem 'fire\_rate' som påverkar hur ofta det kan avfyras.
 Projektilen rör sig i riktningen av vapnets rotation och har en datamedlem 'damage' som sätts till Players 'damage'.
 
 \subsubsection{handle\_collision(World)}
-Player frågar World vilka objekt den kolliderar med. Kolliderar Player med ett Enemy-objekt kallas take\_damage().
+Player frågar World vilka objekt den kolliderar med. 
 
+Om den understa delen av Player-objektet kolliderar med den översta delen av en plattform och player\_state är 'falling' ändras player\_state till 'standing'.
 
-Om den understa delen av Player-objektet kolliderar med den översta delen av en plattform sätts 'falling' till 'standing'.
+Kolliderar Player med ett Enemy-objekt och 'invincible' är noll kallas take\_damage(). Spelaren får även audiovisuell respons på att den tagit skada och 'invincible' ökas med odödlighetsperioden.
 
+Kolliderar Player med ett Upgrade\_Pillar- eller  Door-objekt visas hjälptexten i 'activate\_popup'.
 
-\subsubsection{take\_damage(int)}
-Players 'health' subtraheras med skadan som skickas som parameter till funktionen. 
+Om 'Bekräfta val'-knappen är intryckt köper spelaren uppgraderingen på Upgrade\_Pillar om den har råd och uppgraderingen inte redan är köpt. 
 
-Datamedlemmen 'immune' sätts enligt hur länge Player ska vara odödlig efter att ha tagit skada.
+Om 'Bekräfta val'-knappen är intryckt vid kollision med 'Door'-objekt signalerar Player via Player\_Info till Game\_State att nästa nivå ska laddas in.
 
+\subsubsection{handle\_animation()}
+Spelarens textur uppdateras baserat på om spelaren aktivt rör sig i x-led eller inte, och vilken riktning den har. Vid rörelse spelas en animationsslinga upp baserat på nuvarande x-position.
 
 \subsection{Hud}
 HUD står för Heads-Up Display och har som syfte att visa relevant information för spelaren. 
@@ -159,7 +162,7 @@ Player-objektets hälsa hämtas och en grafik med den informationen ritas ut i k
 Mängden insamlade pengar hämtas från Game\_States datamedlem player\_info och renderar detta på liknande sätt. 
 
 
-\section{Designens för- och nack-delar}
+\section{Designens för- och nackdelar}
 Vi har försökt hålla designen så simpel som möjligt genom att designa klasser som ärver så mycket funktion som möjligt. I vissa fall kan detta spara oss mycket jobb då våra klasser inte kräver så lång kod. Nackdelen med detta är att vi har mycket beroende av föräldrar i alla våra klasser och får svårt att skapa mer nischat beteende. Vi har tänkt mycket på hur vi ska komma runt problem som vi skapat för oss själva igenom arvet och kommit fram till strukturen som vi har nu. Systemet med att olika states för att hantera vad spelet ska göra just nu verkar väldigt smidigt och gör det enkelt att hantera saker som menyer och att stänga av spelet. Det hade självklart varit enklare att skriva en spel-loop i huvudfunktionen men i slutändan kommer detta att spara oss mycket tid i form av mindre omstrukturering när vi vill lägga till en meny för exempelvis inställningar.
 
 Ett exempel på hur arvet i vår design kan bli problematiskt är när 'spawner' behöver en position och bör ägas av 'world'. Det passar väldigt bra att 'spawner' är ett 'Game\_Object men det leder till att vi inkluderar en onödig men ofarlig funktion i form av en 'hitbox'. En 'spawner' behöver ingen hitbox då den aldrig ska interagera med spelaren, fiender eller något annat på spelplanen, men samtidigt skadar det inte så det var värt det enligt oss att göra på det här sättet. Om vi inte är försikta eller förbereder oss på det så kan det dock lätt bli att vi implementerar beteende som ska påverka alla objekt med en 'hitbox' och inte tänker på att 'spawner' har en. Detta bör undersökas hur det går att skydda mot som, exempelvis genom att göra 'spawner's 'hitbox' oåtkomlig av andra funktioner.
