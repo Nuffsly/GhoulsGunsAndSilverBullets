@@ -13,6 +13,10 @@
 
 class Player;
 
+/**
+ * \brief This is the class that handles enemies in the game.
+ * It is a very interesting class so I write another line.
+ */
 class Enemy : public Character
 {
 public:
@@ -24,13 +28,13 @@ public:
 private:
     std::shared_ptr<Game_Object> player_ptr;
 
-    void move_enemy(sf::Time const& delta);
+    void move_enemy(sf::Time const& delta); /**< Handles all movement for the enemy */
     void drop_money(World &world);
 
     float animation_time;
     std::vector<int> frame_numbers;
 
-    float time_alive;
+    float time_alive; /**< Keeps track of how long the enemy has been alive to animate it. */
 };
 
 

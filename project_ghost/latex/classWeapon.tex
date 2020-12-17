@@ -1,0 +1,50 @@
+\hypertarget{classWeapon}{}\doxysection{Weapon Class Reference}
+\label{classWeapon}\index{Weapon@{Weapon}}
+Inheritance diagram for Weapon\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classWeapon}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classWeapon_a3fc337ac2d1684a2ef2ac86c2a7ad2fb}\label{classWeapon_a3fc337ac2d1684a2ef2ac86c2a7ad2fb}} 
+enum {\bfseries texture\+\_\+state} \{ {\bfseries right}
+, {\bfseries left}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classWeapon_ac80f4ae0c0359fb9bd63632834418f11}\label{classWeapon_ac80f4ae0c0359fb9bd63632834418f11}} 
+{\bfseries Weapon} (sf\+::\+Vector2f center, std\+::string const \&texture\+\_\+name)
+\item 
+\mbox{\Hypertarget{classWeapon_a126452be2f963b96ead25b7744290d7d}\label{classWeapon_a126452be2f963b96ead25b7744290d7d}} 
+void {\bfseries shoot} (const sf\+::\+Time \&delta, \mbox{\hyperlink{classWorld}{World}} \&world)
+\item 
+\mbox{\Hypertarget{classWeapon_a4507c884af756396a3384692bee29025}\label{classWeapon_a4507c884af756396a3384692bee29025}} 
+bool {\bfseries update} (sf\+::\+Time const \&delta, \mbox{\hyperlink{classWorld}{World}} \&world) override
+\item 
+\mbox{\Hypertarget{classWeapon_ace315b1d11cda483fae00c8aaf2defe6}\label{classWeapon_ace315b1d11cda483fae00c8aaf2defe6}} 
+void {\bfseries calc\+\_\+barrel\+\_\+pos} (float const direction)
+\item 
+\mbox{\Hypertarget{classWeapon_a8cd31eefaf3b2ecc86f46b7d7f4fd4c3}\label{classWeapon_a8cd31eefaf3b2ecc86f46b7d7f4fd4c3}} 
+void {\bfseries set\+\_\+texture\+\_\+state} (texture\+\_\+state state)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classWeapon_a4a760c1c0c2e8cc8ae3972cd7c3a2703}\label{classWeapon_a4a760c1c0c2e8cc8ae3972cd7c3a2703}} 
+float {\bfseries fire\+\_\+rate}
+\item 
+\mbox{\Hypertarget{classWeapon_abb463127151d807804c556ddbd767e18}\label{classWeapon_abb463127151d807804c556ddbd767e18}} 
+int {\bfseries damage}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+game\+\_\+objects/Weapon.\+h\item 
+game\+\_\+objects/Weapon.\+cpp\end{DoxyCompactItemize}

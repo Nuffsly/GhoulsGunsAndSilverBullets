@@ -1,0 +1,31 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Hierarchical Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Class Hierarchy}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Class Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Class List}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Class Documentation}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Character Class Reference}{5}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Door Class Reference}{6}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Enemy Class Reference}{6}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Detailed Description}{7}{subsection.3.3.1}%
+\contentsline {section}{\numberline {3.4}Exit\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State Class Reference}{7}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Font\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager Class Reference}{7}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Game\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Object Class Reference}{8}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Game\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Over\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State Class Reference}{8}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Game\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State Class Reference}{9}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Hud Class Reference}{9}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Menu\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State Class Reference}{10}{section.3.10}%
+\contentsline {section}{\numberline {3.11}Money Class Reference}{10}{section.3.11}%
+\contentsline {section}{\numberline {3.12}Platform Class Reference}{11}{section.3.12}%
+\contentsline {section}{\numberline {3.13}Player Class Reference}{11}{section.3.13}%
+\contentsline {section}{\numberline {3.14}Player\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info Class Reference}{12}{section.3.14}%
+\contentsline {section}{\numberline {3.15}Projectile Class Reference}{13}{section.3.15}%
+\contentsline {section}{\numberline {3.16}Sound\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager Class Reference}{13}{section.3.16}%
+\contentsline {section}{\numberline {3.17}State Class Reference}{13}{section.3.17}%
+\contentsline {section}{\numberline {3.18}Texture\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager Class Reference}{14}{section.3.18}%
+\contentsline {section}{\numberline {3.19}Textured\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Object Class Reference}{14}{section.3.19}%
+\contentsline {section}{\numberline {3.20}Upgrade Struct Reference}{15}{section.3.20}%
+\contentsline {section}{\numberline {3.21}Upgrade\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Pillar Class Reference}{15}{section.3.21}%
+\contentsline {section}{\numberline {3.22}Weapon Class Reference}{16}{section.3.22}%
+\contentsline {section}{\numberline {3.23}World Class Reference}{17}{section.3.23}%
+\contentsline {chapter}{Index}{19}{section*.64}%

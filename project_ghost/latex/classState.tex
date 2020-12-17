@@ -1,0 +1,35 @@
+\hypertarget{classState}{}\doxysection{State Class Reference}
+\label{classState}\index{State@{State}}
+Inheritance diagram for State\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.779661cm]{classState}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classState_aebbc7a571250e1e4aa6e90d098e01036}\label{classState_aebbc7a571250e1e4aa6e90d098e01036}} 
+virtual void {\bfseries on\+\_\+key\+\_\+press} (sf\+::\+Keyboard\+::\+Key key)
+\item 
+\mbox{\Hypertarget{classState_a3985d55d34c976af2ce39e441206d594}\label{classState_a3985d55d34c976af2ce39e441206d594}} 
+virtual void {\bfseries on\+\_\+key\+\_\+release} (sf\+::\+Keyboard\+::\+Key key)
+\item 
+\mbox{\Hypertarget{classState_afb34334c1a8b05a97d39fadd802974fd}\label{classState_afb34334c1a8b05a97d39fadd802974fd}} 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classState}{State}} $>$ {\bfseries tick} (sf\+::\+Time time)=0
+\item 
+\mbox{\Hypertarget{classState_a5e6bc0be5de2fc18dcee83f830f5737b}\label{classState_a5e6bc0be5de2fc18dcee83f830f5737b}} 
+virtual void {\bfseries render} (sf\+::\+Render\+Window \&window)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classState_a24c7fbaff0eaf5d3a374f2a8dea8277a}\label{classState_a24c7fbaff0eaf5d3a374f2a8dea8277a}} 
+static void {\bfseries run} (sf\+::\+Render\+Window \&window, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classState}{State}} $>$ state)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+states/State.\+h\item 
+states/State.\+cpp\end{DoxyCompactItemize}
