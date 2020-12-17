@@ -2,6 +2,7 @@
 // Created by marku849 on 2020-12-14.
 //
 
+
 #include "Upgrade_Pillar.h"
 #include "../managers/World.h"
 #include "Player.h"
@@ -67,12 +68,6 @@ void Upgrade_Pillar::render(sf::RenderWindow &window)
     {
         window.draw(description);
     }
-
-    /*
-    if (bought)
-    {
-        //TODO: Stoppa in saker som ska rendereas alltid när uppgradering är köpt
-    }*/
 }
 
 void Upgrade_Pillar::setup_description()
@@ -94,9 +89,16 @@ void Upgrade_Pillar::setup_description()
                             + '\n'
                             + upgrade.description );
 
-    description.setPosition(center.x - description.getLocalBounds().width/2,
-                            get_top() - description.getLocalBounds().height
-                            - MARGIN);
+    float clamped_x{std::clamp((center.x - description.getLocalBounds().width / 2),
+                               0.0f,
+                               (1280 - description.getLocalBounds().width))};
+
+    float clamped_y{std::clamp( (get_top() - description.getLocalBounds().height
+                               - MARGIN),
+                               0.0f,
+                               (1280 - description.getLocalBounds().height) ) };
+
+    description.setPosition( clamped_x, clamped_y );
 
 
 }
