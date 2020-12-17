@@ -1,0 +1,60 @@
+\begin{theindex}
+
+  \item {Character}, \hyperpage{5}
+
+  \indexspace
+
+  \item {Door}, \hyperpage{6}
+
+  \indexspace
+
+  \item {Enemy}, \hyperpage{6}
+  \item {Exit\_State}, \hyperpage{7}
+
+  \indexspace
+
+  \item {Font\_Manager}, \hyperpage{7}
+
+  \indexspace
+
+  \item {Game\_Object}, \hyperpage{8}
+  \item {Game\_Over\_State}, \hyperpage{8}
+  \item {Game\_State}, \hyperpage{9}
+
+  \indexspace
+
+  \item {Hud}, \hyperpage{9}
+
+  \indexspace
+
+  \item {Menu\_State}, \hyperpage{10}
+  \item {Money}, \hyperpage{10}
+
+  \indexspace
+
+  \item {Platform}, \hyperpage{11}
+  \item {Player}, \hyperpage{11}
+  \item {Player\_Info}, \hyperpage{12}
+  \item {Projectile}, \hyperpage{13}
+
+  \indexspace
+
+  \item {Sound\_Manager}, \hyperpage{13}
+  \item {State}, \hyperpage{13}
+
+  \indexspace
+
+  \item {Texture\_Manager}, \hyperpage{14}
+  \item {Textured\_Object}, \hyperpage{14}
+
+  \indexspace
+
+  \item {Upgrade}, \hyperpage{15}
+  \item {Upgrade\_Pillar}, \hyperpage{15}
+
+  \indexspace
+
+  \item {Weapon}, \hyperpage{16}
+  \item {World}, \hyperpage{17}
+
+\end{theindex}
