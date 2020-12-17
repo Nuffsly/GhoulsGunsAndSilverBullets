@@ -46,9 +46,13 @@ private:
     sf::Vector2f door_pos;
     std::vector<sf::Vector2f> upg_pillars_pos; //TODO: Fixa upgrades tillbaka i listan när de inte köps
     sf::Music music;
+    sf::Sprite background;
+    float sec_since_last_frame;
+    std::vector<int> frame_numbers;
 
     void load_level();
     void load_upgrades();
+    void draw_background(std::string filename);
 };
 
 

@@ -33,7 +33,8 @@ Player::Player(sf::Vector2f center, Player_Info &player_info)
           inertia{false}, moved_last_update{false}, facing_right{true},
           invincible{0}, jump_pressed{false}, jump_count{1}, max_jumps{},
           run_speed{}, player_info{player_info},
-          weapon{center, "weapon.png"}, x_at_last_frame(center.x)
+          weapon{center, "weapon.png"}, x_at_last_frame(center.x),
+          frame_numbers{28, 56, 84, 112, 140, 168, 196, 224, 252, 280, 308, 336}
 {
 
     // Fix size of players hitbox. Can't use base because of animations.

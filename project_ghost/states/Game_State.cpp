@@ -15,7 +15,9 @@
 Game_State::Game_State(sf::RenderWindow &window)
     : player_info{}, world(window), available_upgrades{}, level{1},
       finished_level{false}, enemies_spawned{0}, total_enemies_spawned{0},
-      since_last_spawn{0}, platforms_on_level{0}
+      since_last_spawn{0}, platforms_on_level{0},
+      sec_since_last_frame{0},
+      frame_numbers{0, 320, 640, 960, 1280, 1600, 1920, 2240}
 {
     //Start playing BG music
     if(!music.openFromFile("../audio_data/background_music.wav"))
@@ -28,18 +30,13 @@ Game_State::Game_State(sf::RenderWindow &window)
 
     load_upgrades();
 
-    // For testing upgrades
-//    /*for (Upgrade &upg : available_upgrades)
-//    {
-//        player_info.add_upgrade(upg);
-//    }*/
-
     load_level();
 }
 
 std::shared_ptr<State> Game_State::tick(sf::Time delta)
 {
     world.tick(delta);
+    sec_since_last_frame += delta.asSeconds();
 
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
     {
@@ -95,6 +92,7 @@ std::shared_ptr<State> Game_State::tick(sf::Time delta)
 
 void Game_State::render(sf::RenderWindow &window)
 {
+    draw_background("hallway.png");
     world.render(window);
 }
 
@@ -267,6 +265,23 @@ void Game_State::reset_world()
     platforms_on_level = 0;
 
     world.clear_level();
+}
+
+void Game_State::draw_background(std::string filename)
+{
+    if(sec_since_last_frame > 0.2)
+    {
+        std::rotate(frame_numbers.begin(), frame_numbers.begin()+1, frame_numbers.end());
+        sec_since_last_frame = 0;
+    }
+
+    background.setTexture(*Texture_Manager::get_texture(filename));
+    sf::IntRect frame{frame_numbers[0], 0, 320, 180};
+    background.setTextureRect(frame);
+
+    background.setScale(4,4);
+
+    world.stored_window.draw(background);
 }
 
 // Game_Over_State
