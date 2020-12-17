@@ -29,6 +29,7 @@ public:
     std::shared_ptr<State> tick(sf::Time delta) override;
     void render(sf::RenderWindow &window) override;
 
+    void spawn_lvl_end_stuff();
     void spawn_enemy();
     void reset_world();
 

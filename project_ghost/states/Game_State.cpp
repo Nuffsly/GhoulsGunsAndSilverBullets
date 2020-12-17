@@ -60,22 +60,7 @@ std::shared_ptr<State> Game_State::tick(sf::Time delta)
 
     if (finished_level && door_pos != sf::Vector2f{0, 0})
     {
-        std::random_device rd;
-
-        for (sf::Vector2f &pillar_pos : upg_pillars_pos)
-        {
-            std::uniform_int_distribution<int> uniform(0,available_upgrades.size()-1);
-            int i{uniform(rd)};
-
-            world.insert_at(std::shared_ptr<Game_Object>(
-                    new Upgrade_Pillar(pillar_pos,
-                                       "upgrade.png",
-                                       available_upgrades[i])), platforms_on_level);
-        }
-
-        world.add_front(std::shared_ptr<Game_Object>(
-                new Door( door_pos, "door.png") ));
-        door_pos = {0, 0};
+        spawn_lvl_end_stuff();
     }
 
     if (player_info.exited_level)
@@ -175,7 +160,7 @@ void Game_State::load_upgrades()
 
 void Game_State::load_level()
 {
-    const int NUMBER_OF_LEVELS{3};
+    const int NUMBER_OF_LEVELS{10};
 
     std::random_device rd;
     std::uniform_int_distribution<int> uniform(1,NUMBER_OF_LEVELS);
@@ -195,7 +180,7 @@ void Game_State::load_level()
     {
         block = f_stream.get();
 
-        if (block == '_' || block == 'B')
+        if (block == '_' || block == 'B' || block == 'E' || block == 'H')
         {
             const int HALF_WIDTH{64};
 
@@ -243,6 +228,26 @@ void Game_State::load_level()
 
 }
 
+void Game_State::spawn_lvl_end_stuff()
+{
+    std::random_device rd;
+
+    for (sf::Vector2f &pillar_pos : upg_pillars_pos)
+    {
+        std::uniform_int_distribution<int> uniform(0,available_upgrades.size()-1);
+        int i{uniform(rd)};
+
+        world.insert_at(std::shared_ptr<Game_Object>(
+                new Upgrade_Pillar(pillar_pos,
+                                   "upgrade.png",
+                                   available_upgrades[i])), platforms_on_level);
+    }
+
+    world.add_front(std::shared_ptr<Game_Object>(
+            new Door( door_pos, "door.png") ));
+    door_pos = {0, 0};
+}
+
 void Game_State::reset_world()
 {
     player_info.exited_level = false;
@@ -268,6 +273,7 @@ void Game_State::reset_world()
 
     world.clear_level();
 }
+
 
 // Game_Over_State
 Game_Over_State::Game_Over_State(sf::RenderWindow &window, int score, int level)
