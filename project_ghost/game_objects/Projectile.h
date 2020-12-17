@@ -20,11 +20,6 @@ public:
     bool handle_collision(World &world);
     void handle_movement(sf::Time const& delta, World &world);
 
-    int get_damage() const
-    {
-        return damage;
-    }
-
 private:
     int damage;
     float direction;

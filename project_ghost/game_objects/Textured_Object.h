@@ -51,9 +51,6 @@ public:
     Platform(const sf::Vector2f &center, std::string const &texture_name);
 
     bool update(const sf::Time &delta, World &world) override;
-
-
-private:
 };
 
 
