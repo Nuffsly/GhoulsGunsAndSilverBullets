@@ -5,13 +5,14 @@
 \BOOKMARK [2][-]{subsection.2.3}{Objekt med få funktioner}{section.2}% 5
 \BOOKMARK [1][-]{section.3}{Klassbeskrivningar}{}% 6
 \BOOKMARK [2][-]{subsection.3.1}{Player}{section.3}% 7
-\BOOKMARK [3][-]{subsubsection.3.1.1}{Datamedlemmar}{subsection.3.1}% 8
-\BOOKMARK [3][-]{subsubsection.3.1.2}{tick\(Time\)}{subsection.3.1}% 9
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Viktiga\040datamedlemmar}{subsection.3.1}% 8
+\BOOKMARK [3][-]{subsubsection.3.1.2}{update\(Time\)}{subsection.3.1}% 9
 \BOOKMARK [3][-]{subsubsection.3.1.3}{move_player\(\)}{subsection.3.1}% 10
-\BOOKMARK [3][-]{subsubsection.3.1.4}{move_weapon\(\)}{subsection.3.1}% 11
-\BOOKMARK [3][-]{subsubsection.3.1.5}{take_damage\(int\)}{subsection.3.1}% 12
-\BOOKMARK [2][-]{subsection.3.2}{Hud}{section.3}% 13
-\BOOKMARK [3][-]{subsubsection.3.2.1}{Datamedlemmar}{subsection.3.2}% 14
-\BOOKMARK [3][-]{subsubsection.3.2.2}{tick\(Time\)}{subsection.3.2}% 15
-\BOOKMARK [1][-]{section.4}{Designens för- och nack-delar}{}% 16
-\BOOKMARK [1][-]{section.5}{Externa\040filformat}{}% 17
+\BOOKMARK [3][-]{subsubsection.3.1.4}{handle_weapon\(\)}{subsection.3.1}% 11
+\BOOKMARK [3][-]{subsubsection.3.1.5}{handle_collision\(World\)}{subsection.3.1}% 12
+\BOOKMARK [3][-]{subsubsection.3.1.6}{take_damage\(int\)}{subsection.3.1}% 13
+\BOOKMARK [2][-]{subsection.3.2}{Hud}{section.3}% 14
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Datamedlemmar}{subsection.3.2}% 15
+\BOOKMARK [3][-]{subsubsection.3.2.2}{tick\(Time\)}{subsection.3.2}% 16
+\BOOKMARK [1][-]{section.4}{Designens för- och nack-delar}{}% 17
+\BOOKMARK [1][-]{section.5}{Externa\040filformat}{}% 18

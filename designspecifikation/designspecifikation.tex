@@ -41,16 +41,16 @@ Grunden för spelet ligger i att vi skapar olika stadier som sedan körs och han
 'Game\_State' kommer att existera under hela körtiden och håller därför koll på viss information som vi behöver behålla. Detta inkluderar saker som hur många spelplaner spelaren klarat (level) för att skala upp svårighetsgraden. Det håller även koll på viss information som behöver vara konstant när vi skapar om spelaren för varje spelplan som hur mycket pengar och vilka uppgraderingar spelaren har. Allting under 'Game\_State' kommer att försvinna och skapas igen på nya platser för varje spelplan vi laddar in.
 
 \subsection{Världen och objekt}
-I världen som skapas för varje nivå så finns det ett obestämt antal 'Game\_Object' som alla har en position och 'hitbox'. Dessa objekt bildar tillsammans det komplexa system som är spelet. Alla objekt förutom 'Spawner' har en textur och ärver därmed från klassen 'Textured\_Object' som kommer hjälpa till att hantera texturerna för objekten. 'Spawner' är inte synlig och behöver därmed ingen textur, denna tar istället hand om att skapa och hålla koll på finderna som ska dyka upp på spelplanen. Så länge som rätt mängd fiender för nuvarande 'level' inte skapats så kommer den fortsätta att skapa fiender med ett visst tidsintervall, detta också baserat på 'level'.
+Världen representeras av klassen 'World' och hanterar ett obestämt antal 'Game\_Object' som alla har en position och 'hitbox'. Dessa objekt bildar tillsammans det komplexa system som är spelet. Alla objekt har en textur och ärver därmed från klassen 'Textured\_Object' som kommer hjälpa till att hantera texturerna för objekten. Klassen Game\_State har hand om att skapa och hålla koll på finderna som ska dyka upp på spelplanen. Så länge som rätt mängd fiender för nuvarande 'level' inte skapats så kommer den fortsätta att skapa fiender med ett visst tidsintervall, detta också baserat på 'level'.
 
-Alla objekt som ska vara synliga ärver från 'Textured\_Objekt', däribland 'Character'. 'Character' innehåller allt som spelare och fiender har gemensamt som att de har hälsa och skada. Hälsa representerar hur mycket skada en karaktär kan ta innan den raderas från spelplanen eller i spelarens fall förlorar. Hälsa är individuellt och sparas i alla objekt för sig, det går ned när objektet tar skada. Skada representerar hur mycket hälsa spelaren eller en fiende förlorar när de blir nuddade av något som gör skada.
+Klassen 'Character' ärver från 'Textured\_Object' och innehåller allt som spelare och fiender har gemensamt, som att de har hälsa och skada. Hälsa representerar hur mycket skada en karaktär kan ta innan den raderas från spelplanen, och i spelarens fall förlorar. Hälsa är individuellt och sparas i alla objekt för sig, det går ned när objektet tar skada. Skada representerar hur mycket hälsa spelaren eller en fiende förlorar när de blir nuddade av något som gör skada.
 
-'Player' är spelarkaraktären och hanterar i huvudsak sin rörelse och sitt 'Weapon'. 'Player' kan tillkalla funktionen 'shoot()' i sitt weapon så att det avfyras en projektil i vapnets riktning. Denna projektil ärver sin skada från spelaren så att vi enkelt kan modifiera skadan en spelares projektil gör med uppgraderingar och liknande.
+'Player' representerar spelarkaraktären och hanterar sin rörelse, hur den reagerar på kollisioner, och sitt 'Weapon'. 'Player' kan tillkalla funktionen 'shoot()' i sitt weapon så att det avfyras en projektil i vapnets riktning. Denna projektil ärver sin skada från spelaren så att vi enkelt kan modifiera skadan en spelares projektil gör med uppgraderingar och liknande.
 
 'Enemy' hanterar sin egen rörelse och rör sig mot spelaren för att skada denna.
 
 \subsection{Objekt med få funktioner}
-'Money' har helt enkelt ett värde som läggs till på spelarens pengar när de kolliderar med dem. 
+'Money' har helt enkelt ett värde som läggs till på spelarens pengar när de kolliderar med dem. Vi valde av tematiska skäl att visa pengarna som Själar för spelaren men funktionen är oförändrad. 
 
 'Hud' ritar ut hur mycket hälsa och pengar spelaren har så att spelaren enkelt kan se om de är påväg att förlora eller har råd med en uppgradering. 
 
@@ -58,53 +58,82 @@ Alla objekt som ska vara synliga ärver från 'Textured\_Objekt', däribland 'Ch
 
 'Door' skapas på kordinater enligt 'load\_level()' när alla fiender besegrats. Genom att interagera med dörren laddas nästa spelplan in. 
 
-'Upgrade\_Station' skapas också enligt kordinater från 'load\_level()' när alla fiender besegrats och innehåller en slumpad uppgradering. Denna uppgradering kan läggas till i 'player\_info' om spelaren har nog med pengar för att köpa den och väljer att gör det.
+'Upgrade\_Pillar' skapas också enligt koordinater från 'load\_level()' när alla fiender besegrats och innehåller en slumpad uppgradering. Denna uppgradering kan läggas till i 'player\_info' om spelaren har nog med pengar (själar) för att köpa den och väljer att gör det.
 
 \section{Klassbeskrivningar}
 \subsection{Player}
 Player ska kunna uppdatera sin position beroende på vilka knappar som är intryckta samt vilket state Player har.
 Player har en överlagrad render()-funktion, då den behöver kunna uppdatera hur den renderas beroende på vad som händer Player-objektet.
-Funktionen tick() kallar alla funktioner som ska köra när spelet uppdateras. 
+Funktionen update() kallar alla funktioner som ska köra när spelet uppdateras. 
 
-\subsubsection{Datamedlemmar}
+\subsubsection{Viktiga datamedlemmar}
 \begin{itemize}
-\item state - påverkar hur objektet beter sig när tick() kallas.
+\item state - påverkar hur objektet beter sig när update() kallas.
 \item weapon - ett objekt av klassen Weapon ägs av Player.
-\item immune - hur länge Player ska vara osårbar.
+\item hud - ett objekt av klassen Hud ägs av Player.
+\item activate\_popup - ett textobjekt som visas när spelaren kan interagera med vissa andra objekt.
+\item player\_info - en referens till Player\_Info-objektet som håller reda på saker som spelarens insamlade score och pengar.
+\item invincible - hur länge Player ska vara osårbar.
+\item max\_jumps - hur många gånger Player kan hoppa utan att nudda marken.
 \item health - ärvd från Character, minskar när Player tar skada.
 \item damage - ärvd från Character, påverkar Players vapens skada.
 \item speed - ärvd från Character, påverkar hastigheten av objektets förflyttning.
-\item shape - ärvd från Textured Object, påverkar hur objektets textur ritas ut.
+\item shape - ärvd från Textured\_Object, påverkar hur objektets textur ritas ut.
 \item center - ärvd från Game\_Object, bestämmer objektets position på skärmen.
 \item hitbox - ärvd från Game\_Object, bestämmer storleken på objektets kollisionsområde.
 \end{itemize}
 
-\subsubsection{tick(Time)}
+\subsubsection{update(Time)}
+Vid varje uppdatering av spelet kallas Players update-funktion av det ägande World-objektet. Funktionen har i uppdrag att utföra följande:
+
 För att flytta Player kallas move\_player().
 
-För att flytta och skjuta vapnet kallas move\_weapon().
+För att flytta och skjuta vapnet kallas handle\_weapon().
 
-Player frågar World vilka objekt den kolliderar med. Kolliderar Player med ett Enemy-objekt kallas take\_damage().
+För att hantera Players kollisionsbeteende med andra objekt kallas handle\_collision().
 
-Datamedlemmen 'immune' minskas med Time om den inte är 0.
+För att hantera animationerna av Players textur kallas handle\_animation().
+
+Datamedlemmen 'invincible' minskas med tiden som passerat sen den senaste uppdateringen om den inte är 0.
+
+Det ägda Hud-objektets datamedlemmar uppdateras så att nuvarande hälsa, pengar och poäng visas på skärmen. 
+
+En datamedlem i Player\_Info uppdateras så att Game\_State vet om spelaren har dött eller inte.
+
+Slutligen returneras spelarens levandestatus till World så att den inte tas bort om den inte är död.
 
 \subsubsection{move\_player()}
-Om någon av tangenterna som ska flytta spelarkaraktären till höger eller vänster är intryckta ska Players position uppdateras i den riktningen, så länge Player inte befinner sig vid banans kant.
+För att hantera den horisontella rörelsen kallas funktionen handle\_horizontal\_move().
+Den flyttar karaktären beroende på vilka tangenter som är intryckta.
 
-Normalt har spelaren state 'standing'. 
-Har spelaren state 'falling' flyttas spelaren mot botten av skärmen. 
-Har spelaren state 'jumping' flyttas spelaren mot toppen av skärmen.
+För att hantera hopp-input kallas handle\_jump\_input().
+Den ser till att när spelaren trycker på hopp-knappen ändras state till 'jumping' om spelaren inte redan hoppat maximalt antal gånger utan att landa. 
 
-När spelaren trycker på hopp-knappen ändras state till 'jumping' om det inte redan är 'jumping' eller 'falling'.
-När spelaren har haft state 'jumping' en viss tid ändras state till 'falling'.
+För att kolla om spelaren ska börja falla från en platform kallas funktionen handle\_drop().
+
+Om player\_state är satt till 'jumping' kallas jump() för att hantera hopp-rörelsen.
+Efter en viss tid sätter jump() player\_state till 'falling'.
+
+Om player\_state är satt till 'falling' kallas fall() för att hantera fall-rörelsen.
+
+Normalt är player\_state satt till 'standing'. 
+
+
+\subsubsection{handle\_weapon()}
+Players position bestämmer Weapon-objektets position. 
+
+Input från tangentbord eller muspekare bestämmer vapnets rotation.
+Vapnet har en datamedlem 'fire\_rate' som påverkar hur ofta det kan avfyras. 
+
+Är 'Avfyra vapen'-knappen intryckt och vapnets 'fire\_rate' 0 skapas en projektil.
+Projektilen rör sig i riktningen av vapnets rotation och har en datamedlem 'damage' som sätts till Players 'damage'.
+
+\subsubsection{handle\_collision(World)}
+Player frågar World vilka objekt den kolliderar med. Kolliderar Player med ett Enemy-objekt kallas take\_damage().
+
+
 Om den understa delen av Player-objektet kolliderar med den översta delen av en plattform sätts 'falling' till 'standing'.
 
-\subsubsection{move\_weapon()}
-Players position bestämmer Weapon-objektets position. 
-Input från tangentbord eller muspekare bestämmer vapnets rotation.
-Vapnet har en datamedlem 'cooldown' som påverkar hur ofta det kan avfyras. 
-Är 'Avfyra vapen'-knappen intryckt och vapnets 'cooldown' 0 skapas en projektil.
-Projektilen rör sig i riktningen av vapnets rotation och har en datamedlem 'damage' som sätts till Players 'damage'.
 
 \subsubsection{take\_damage(int)}
 Players 'health' subtraheras med skadan som skickas som parameter till funktionen. 

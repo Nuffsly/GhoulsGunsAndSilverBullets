@@ -59,7 +59,9 @@ void Character::take_damage(const int damage_taken)
 //Platform
 
 bool Platform::update(const sf::Time &delta, World &world)
-{return true;}
+{
+    return true;
+}
 
 Platform::Platform(const sf::Vector2f &center, std::string const& texture_name)
     :Textured_Object{center, texture_name}
