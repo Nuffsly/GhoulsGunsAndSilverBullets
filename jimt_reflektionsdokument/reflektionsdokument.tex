@@ -1,0 +1,66 @@
+\documentclass{TDP005mall}
+
+
+
+\newcommand{\version}{Version 1.0}
+\author{Jim Teräväinen, \url{jimte145@student.liu.se}}
+\title{Reflektionsdokument}
+\date{2020-12-18}
+\rhead{Jim Teräväinen}
+
+
+
+\begin{document}
+\projectpage
+\section{Revisionshistorik}
+\begin{table}[!h]
+\begin{tabularx}{\linewidth}{|l|X|l|}
+\hline
+Ver. & Revisionsbeskrivning & Datum \\\hline
+1.0 & Första version av Reflektionsdokumentet i sin helhet & 2020-12-18 \\\hline
+\end{tabularx}
+\end{table}
+
+\section{Projektet}
+Under ca 3 veckor har jag och min labbpartner utvecklat ett spel. Förutom att det skulle vara ett spel så skulle vi använda objektorienterade programmeringsprinciper. I projektet så har vi gått igenom 3 perioder som jag tänker gå igenom en för en i detta dokument tillsammans med de lärdomar och observationer jag gjort under projektets gång.
+
+\section{Planering}
+Alla projekt kräver inte planering. Men det är allmän kunskap att planering hjälper projekt att gå smidigare, snabbare och att uppnå ett bättre resultat. Då jag och min labbpartner helst undviker problem så valde vi att göra en gedigen planering både för hur vi skulle arbeta tillsammans och vad vi skulle göra.
+
+\subsection{Gruppen}
+Första steget var att planera hur vi skulle arbeta tillsammans. Vi visste att vi var 2 individer med liknande målsättning och ambition som inte hade något emot att arbeta ett par extra timmar. Vi hade ett möte där vi skrev ett gruppkontrakt som tydligt förklarade hur gruppen skulle bete sig i olika situationer. Detta visade sig vara helt i onödan då vi inte enda gång under hela projektet behövde titta på gruppkontraktet. Vi hade helt enkelt så bra koll på oss själva och varandra att vi redan visste hur vi ville att saker skulle gå till.
+
+Trots att det inte användes skulle jag inte säga att det var i onödan, jag har ju trots allt alltid bälte i bilen även fast jag aldrig krockat. Gruppkontraktet var bra att skriva då det förtydligade förväntningarna vi hade på varandra och oss själva, och vi kunde därmed gå in i projektet med rätt inställning.
+
+\subsection{Projektet}
+Nästa steg var att planera det faktiska arbetet. Vi visste att projektet som skulle utföras var stort och att det är lätt att tappa bort sig utan en tydlig plan. Vi sattes oss därför och gjorde ett klassdiagram till vår bästa förmåga, trots att vi inte hade någon aning om hur koden egentligen skulle se ut i slutändan. För att göra klassdiagrammet så användbart och korrekt som möjligt så kollade vi på strukturen i exempelprojektet som vi blivit givna. Vi kopierade vissa delar av strukturen då vi själva inte hade någon aning om hur vi skulle bygga den men la ändå tid på att försöka förstå funktionen.
+
+Att ha klassdiagrammet underlättade produktionen då vi hade en tydlig plan att följa. Det var enkelt att se vad nästa del som behövde utvecklas var och hur allt hängde ihop. Dock så märkte vi snabbt att klassdiagrammet inte alltid gick att följa till punkt och pricka, vi hade ju trots allt gjort det i blindo. I vissa lägen var det tydligt att det var lättare att utveckla något på ett helt annat sätt än vad som stod i klassdiagrammet, och ibland omöjligt att göra exakt som klassdiagrammet. När vi ställdes inför de bekymmren var det viktigt att vi kunde släppa planen och istället göra det vi nu visste var bäst.
+
+\section{Utförandet}
+Efter att vi utvecklat en gedigen plan så var det dags att börja koda. Vår plan då vi visste att projektet var stort var att lungt och metodiskt sätta upp en bra bas att jobba i. Efter att vi strukturerat upp mappar, verktyg och git-repon så började vi tillsammans att skriva de mest centrala klasserna för spelet. Tillsammans så kunde vi lista ut hur vi skulle bygga grundstrukturen och jag lärde mig otroligt mycket om C++ och objektorienterad design. Att arbeta tillsammans i början var mycket givande då vi kunde hjälpas åt och båda fick en bra insikt i hur grunden av vårt system var uppbyggd.
+
+Efter att vi etablerat ett par grundläggande klasser och funktioner så kände vi att vi kommit till en naturlig punkt att applicera våra talanger på olika håll. Vi började jobba på olika klasser samtidigt och var noga med att inte trampa varandra på tårna. Inga klasser vi arbetade med samtidigt fick interagera med varandra förns de var testade själva först. Och att testa var en av våra stora styrkor då vi undvek många timmar av felsökande igenom att testa samtliga nya funktioner i sin helhet innan vi skickade dem till vår aktiva version.
+
+Vi arbetade många långa dagar och flera kvällar, även på helgen i vissa fall. Vi la ned minst 9 timmar varje dag och sedan ett par timmar extra under lördag och söndag. Det var intensivt och ofta utmattande men vi eldades på av den konstanta utvecklingen av vårt spel som tydligt gick att se. Det jag lärt mig här är hur jag helt plötsligt har mer energi för sådant som jag tycker är roligt, och hur att vi delade upp spelet i många små problem kunde få känslan av att vi konstant kryssade av punkter. Att kunna se sin framgång under projektets gång hjälpte med moralen och sporrade oss att arbeta hårt under hela projektet.
+
+
+\section{Dokumenten}
+Överlag så var projektet extremt roligt, lärorikt och lyckat, men alla historier har sin mörka sida. I det här fallet utspelar den sig i skrivande stund.
+
+Både jag och min labbpartner var så uppslukade av att utveckla vårt spel att vi nästan glömde varför vi gjorde det. Vi tänkte aldrig på att kolla på kurshemsidan och missade i början en deadline som vi inte ens visste att vi hade. Och nu i slutskedet så sitter jag här 29 minuter innan deadline och skriver mitt reflektionsdokument. Lärdomen jag vill ta med mig från perioden jag valt att kalla 'Dokumenten' är att jag måste komma ihåg att läsa kurshemsidan. Att planera veckan efter deadlines räckte inte i detta projekt då många stora deadlines låg precis i slutet. Och att en deadline ligger i slutet av kursen betyder inte att det är en liten del av kursen.
+
+Under de två sista dagarna av kursen har jag och min labbpartner febrilt skrivit dokument, ritat om diagram, brottats med 'doxygen' och knappt fått ihop en 'makefile' vilket är en del av kodinlämningen. Vi är välförkänt nöjda med hur vårt projekt blev, men det blev bra till kostnaden av att vi nästan helt ignorerat att läsa dokument och uppgiftsbeskrivningar på kurshemsidan. Jag är extremt missnöjd med hur vi hanterade denna sista del av kursen och ska tänka på att planera bättre och med mer framförhållning i framtiden.
+
+\section{Sammanfattning}
+Sammanfattningsvis så har jag under kursens gång blivit extremt mycket bättre på att förstå hur man kan använda objektorienterade system, vilka svagheter och styrkor som de har och hur värdefullt planering är för ett lyckat projekt. Jag har också fått uppleva den mest intensiva och givande perioden i mitt liv hittills då jag aldrig trodde att vi skulle kunna producera något så pass komplett på så kort tid.
+
+De stora lärdomarna jag tar med mig är:
+\begin{itemize}
+\item Att vara tydlig med min labbpartner om vilka förväntningar vi har.
+\item Att planera så gott det går trots avsaknad av tidigare erfarenheter.
+\item Att jag blir extremt slittålig när jag får jobba passionerat och med passionerade arbetskamrater.
+\item Att läsa hela kurshemsidan i god tid och planera för framtida moment redan innan de bör påbörjas.
+\end{itemize}
+
+\end{document}
