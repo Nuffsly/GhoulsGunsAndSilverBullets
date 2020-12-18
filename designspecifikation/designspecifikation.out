@@ -16,5 +16,11 @@
 \BOOKMARK [3][-]{subsubsection.3.2.1}{Datamedlemmar}{subsection.3.2}% 16
 \BOOKMARK [3][-]{subsubsection.3.2.2}{Konstruktor}{subsection.3.2}% 17
 \BOOKMARK [3][-]{subsubsection.3.2.3}{tick\(Time\)}{subsection.3.2}% 18
-\BOOKMARK [1][-]{section.4}{Designens för- och nackdelar}{}% 19
-\BOOKMARK [1][-]{section.5}{Externa\040filformat}{}% 20
+\BOOKMARK [3][-]{subsubsection.3.2.4}{render\(RenderWindow\)}{subsection.3.2}% 19
+\BOOKMARK [3][-]{subsubsection.3.2.5}{clear_level\(\)}{subsection.3.2}% 20
+\BOOKMARK [3][-]{subsubsection.3.2.6}{add_front\(\),\040add_back\(\)\040och\040insert_at\(\)}{subsection.3.2}% 21
+\BOOKMARK [3][-]{subsubsection.3.2.7}{collides\(\)\040och\040collides_with\(\)}{subsection.3.2}% 22
+\BOOKMARK [1][-]{section.4}{Designens för- och nackdelar}{}% 23
+\BOOKMARK [1][-]{section.5}{Externa\040filformat}{}% 24
+\BOOKMARK [2][-]{subsection.5.1}{Bandesign}{section.5}% 25
+\BOOKMARK [2][-]{subsection.5.2}{Uppgraderingar}{section.5}% 26

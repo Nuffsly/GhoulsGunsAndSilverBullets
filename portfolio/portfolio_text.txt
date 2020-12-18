@@ -1,0 +1,27 @@
+Titel: Ghouls, Guns & Silver Bullets
+Start Date:  2020-11-18
+Stop Date:  2020-12-18
+Course name: Projekt: Objektorienterat system
+Group size: 2
+Academic credit. 6hp
+techniques: C++, SFML, CMake, GCC
+course ID: TDP005 
+
+
+Kort text:
+Prisbelönt spöklikt spelprojekt skrivit i C++ med SFML. 
+
+Lång text:
+Ghouls, Guns & Silver Bullets är ett spel som gjordes inom ramarna för kursen "TDP005 Projekt: Objektorienterat system". 
+
+Spelet är en platforms-shooter i rogue-lite-stil med spökjägartema. Varje nivå kommer fler och fler onda fiender att besegra, blir du träffad för många gånger är allt över. Men till din hjälp att överleva har du många olika uppgraderingar du kan köpa mellan nivåerna som gör dig starkare, snabbare och farligare.
+
+Spelet är skrivet i C++ med hjälp av grafikbiblioteket SFML. Alla system för rörelse, kollisioner, datahantering och filinläsning är skrivna som en del av projektet. 
+
+Fokus låg på att skapa en bra klasstruktur enligt en god objektorienderad design. Viktigt var även att göra en korrekt simulering av spelvärlden med fasta tidssteg oberoende av processorhastighet. 
+
+Alla animationer av spelarkaraktär och fiender är skapade från grunden för projektet.
+
+Den absolut största delen av projektets arbete skedde under en treveckorsperiod.
+
+Spelet vann kursens interna omröstning om mest omtyckta spel, framröstat av kursens deltagare. 

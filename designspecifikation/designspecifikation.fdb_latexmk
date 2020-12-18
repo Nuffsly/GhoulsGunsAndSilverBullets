@@ -1,9 +1,9 @@
 # Fdb version 3
-["xdvipdfmx"] 1608227248 "designspecifikation.xdv" "designspecifikation.pdf" "designspecifikation" 1608227249
-  "designspecifikation.xdv" 1608227248 137424 6f69bcde46166202f801ffd3cc6185d0 "xelatex"
+["xdvipdfmx"] 1608318030 "designspecifikation.xdv" "designspecifikation.pdf" "designspecifikation" 1608318031
+  "designspecifikation.xdv" 1608318030 168976 01e22001463e291f94a5cb3df1e37c3a "xelatex"
   (generated)
   "designspecifikation.pdf"
-["xelatex"] 1608227247 "designspecifikation.tex" "designspecifikation.xdv" "designspecifikation" 1608227249
+["xelatex"] 1608318029 "designspecifikation.tex" "designspecifikation.xdv" "designspecifikation" 1608318031
   "/etc/texmf/web2c/texmf.cnf" 1600075758 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -145,13 +145,13 @@
   "Graphic/overview_part1.png" 1608222907 70533 814026f83a824734a8b708935eacbfb6 ""
   "Graphic/overview_part2.png" 1608222907 90086 575b1da43b068ff2c99c95fa2ba4f9a6 ""
   "TDP005mall.cls" 1606491581 1800 c554e9a1f74a965c694796e0ebe031eb ""
-  "designspecifikation.aux" 1608227248 4020 478af8f35211bb6f93c8e8dcf6ac54bd "xelatex"
-  "designspecifikation.out" 1608227248 1364 dbbced77c093034ce52df16ec485f44a "xelatex"
-  "designspecifikation.tex" 1608227246 13794 4ed7162780f0d5516d0c952ed6e52c7d ""
+  "designspecifikation.aux" 1608318030 4832 c05f988974798fa0cc13464e14cb10b9 "xelatex"
+  "designspecifikation.out" 1608318030 1858 7044dfcc0f7ee23739361cccd81c51d3 "xelatex"
+  "designspecifikation.tex" 1608318017 16820 123cc6b985912dfb96a25ec336cc81c6 ""
   "ida.png" 1606491581 7786 f8e6fdcd3fff5911dca9765ffa4de313 ""
   "lith.png" 1606491581 15882 4db45f42034d096c9aba5be88636d034 ""
   (generated)
-  "designspecifikation.log"
+  "designspecifikation.xdv"
   "designspecifikation.out"
   "designspecifikation.aux"
-  "designspecifikation.xdv"
+  "designspecifikation.log"
