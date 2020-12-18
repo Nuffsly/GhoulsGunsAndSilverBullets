@@ -11,6 +11,9 @@
 #include "Textured_Object.h"
 #include "../managers/World.h"
 
+/**
+ * \brief Moves in whatever direction it was spawned in until it reaches specific criteria.
+ */
 class Projectile : public Textured_Object
 {
 public:

@@ -10,6 +10,10 @@
 
 #include "Upgrade.h"
 
+/**
+ * \brief Support class that contains metadata about the player character.
+ * Contains all data necessary to construct a new player along with some data that should be consistent through all levels.
+ */
 class Player_Info
 {
 public:

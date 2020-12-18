@@ -8,6 +8,10 @@
 #include <SFML/Graphics.hpp>
 class World;
 
+/**
+ * \brief Abstract base for all objects with a hitbox and a position.
+ * Handles providing edge position of the hitbox.s
+ */
 class Game_Object
 {
 public:

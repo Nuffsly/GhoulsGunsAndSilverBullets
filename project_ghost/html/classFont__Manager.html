@@ -68,13 +68,47 @@ $(function() {
 <div class="title">Font_Manager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Loads and keeps track of fonts. To save computing power and avoid errors related to creating a lot of font objects this manager will load all requested fonts ONCE and then keep them in the memory.  
+ <a href="classFont__Manager.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Texture__Manager_8h_source.html">Texture_Manager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ae2b165099a24ce12a49b34478f9555f8"><td class="memItemLeft" align="right" valign="top"><a id="ae2b165099a24ce12a49b34478f9555f8"></a>
-static sf::Font &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_font</b> (std::string const &amp;name)</td></tr>
+<tr class="memitem:ae2b165099a24ce12a49b34478f9555f8"><td class="memItemLeft" align="right" valign="top">static sf::Font &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFont__Manager.html#ae2b165099a24ce12a49b34478f9555f8">get_font</a> (std::string const &amp;name)</td></tr>
 <tr class="separator:ae2b165099a24ce12a49b34478f9555f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Loads and keeps track of fonts. To save computing power and avoid errors related to creating a lot of font objects this manager will load all requested fonts ONCE and then keep them in the memory. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae2b165099a24ce12a49b34478f9555f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2b165099a24ce12a49b34478f9555f8">&#9670;&nbsp;</a></span>get_font()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Font &amp; Font_Manager::get_font </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Used to load fonts anywhere in the program </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>managers/<a class="el" href="Texture__Manager_8h_source.html">Texture_Manager.h</a></li>
 <li>managers/Texture_Manager.cpp</li>

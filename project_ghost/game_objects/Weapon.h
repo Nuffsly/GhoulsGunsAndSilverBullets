@@ -11,6 +11,10 @@
 
 class World;
 
+
+/**
+ * \brief Handles rotation of the arm and weapon as well as spawning projectiles.
+ */
 class Weapon : public Textured_Object
 {
 public:
@@ -18,7 +22,7 @@ public:
 
     void shoot(const sf::Time &delta, World &world);
     bool update(sf::Time const& delta, World &world) override;
-    void calc_barrel_pos(float const direction);
+    void calc_barrel_pos(float const direction); /**<Calculates where the barrel is to spawn the projectile accurately*/
 
     enum texture_state{right, left};
     void set_texture_state(texture_state state);

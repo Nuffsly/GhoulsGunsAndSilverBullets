@@ -12,6 +12,10 @@
 #include <SFML/Graphics.hpp>
 #include <memory>
 
+/**
+ * \brief Abstract class that lays groundwork for all other states.
+ * Also contains the main game loop.
+ */
 class State : public std::enable_shared_from_this<State>
 {
 public:
@@ -22,9 +26,14 @@ public:
 
     virtual std::shared_ptr<State> tick(sf::Time time) = 0;
     virtual void render(sf::RenderWindow &window) = 0;
-    static void run(sf::RenderWindow &window, std::shared_ptr<State> state);
+    static void run(sf::RenderWindow &window, std::shared_ptr<State> state); /**<The main game loop. Uses whatever state that is active
+ * and runs it.*/
 };
 
+
+/**
+ * \brief Special case state for when the program should end.
+ */
 class Exit_State : public State
 {
 public:

@@ -1,12 +1,32 @@
 \hypertarget{classFont__Manager}{}\doxysection{Font\+\_\+\+Manager Class Reference}
 \label{classFont__Manager}\index{Font\_Manager@{Font\_Manager}}
+
+
+Loads and keeps track of fonts. To save computing power and avoid errors related to creating a lot of font objects this manager will load all requested fonts ONCE and then keep them in the memory.  
+
+
+
+
+{\ttfamily \#include $<$Texture\+\_\+\+Manager.\+h$>$}
+
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classFont__Manager_ae2b165099a24ce12a49b34478f9555f8}\label{classFont__Manager_ae2b165099a24ce12a49b34478f9555f8}} 
-static sf\+::\+Font \& {\bfseries get\+\_\+font} (std\+::string const \&name)
+static sf\+::\+Font \& \mbox{\hyperlink{classFont__Manager_ae2b165099a24ce12a49b34478f9555f8}{get\+\_\+font}} (std\+::string const \&name)
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Loads and keeps track of fonts. To save computing power and avoid errors related to creating a lot of font objects this manager will load all requested fonts ONCE and then keep them in the memory. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFont__Manager_ae2b165099a24ce12a49b34478f9555f8}\label{classFont__Manager_ae2b165099a24ce12a49b34478f9555f8}} 
+\index{Font\_Manager@{Font\_Manager}!get\_font@{get\_font}}
+\index{get\_font@{get\_font}!Font\_Manager@{Font\_Manager}}
+\doxysubsubsection{\texorpdfstring{get\_font()}{get\_font()}}
+{\footnotesize\ttfamily sf\+::\+Font \& Font\+\_\+\+Manager\+::get\+\_\+font (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Used to load fonts anywhere in the program 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

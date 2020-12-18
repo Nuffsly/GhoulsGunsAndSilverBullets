@@ -1,5 +1,14 @@
 \hypertarget{classState}{}\doxysection{State Class Reference}
 \label{classState}\index{State@{State}}
+
+
+Abstract class that lays groundwork for all other states. Also contains the main game loop.  
+
+
+
+
+{\ttfamily \#include $<$State.\+h$>$}
+
 Inheritance diagram for State\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -24,10 +33,21 @@ virtual void {\bfseries render} (sf\+::\+Render\+Window \&window)=0
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classState_a24c7fbaff0eaf5d3a374f2a8dea8277a}\label{classState_a24c7fbaff0eaf5d3a374f2a8dea8277a}} 
-static void {\bfseries run} (sf\+::\+Render\+Window \&window, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classState}{State}} $>$ state)
+static void \mbox{\hyperlink{classState_a24c7fbaff0eaf5d3a374f2a8dea8277a}{run}} (sf\+::\+Render\+Window \&window, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classState}{State}} $>$ state)
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Abstract class that lays groundwork for all other states. Also contains the main game loop. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classState_a24c7fbaff0eaf5d3a374f2a8dea8277a}\label{classState_a24c7fbaff0eaf5d3a374f2a8dea8277a}} 
+\index{State@{State}!run@{run}}
+\index{run@{run}!State@{State}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void State\+::run (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classState}{State}} $>$}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+The main game loop. Uses whatever state that is active and runs it. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

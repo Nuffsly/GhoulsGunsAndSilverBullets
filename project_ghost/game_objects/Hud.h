@@ -7,6 +7,9 @@
 
 #include <SFML/Graphics.hpp>
 
+/**
+ * \brief Handles overlay displaying players current stats.
+ */
 class Hud
 {
 public:

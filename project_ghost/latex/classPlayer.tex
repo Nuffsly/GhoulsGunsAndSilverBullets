@@ -1,5 +1,14 @@
 \hypertarget{classPlayer}{}\doxysection{Player Class Reference}
 \label{classPlayer}\index{Player@{Player}}
+
+
+Handles all of the players movement and special abilities like recieveing upgrades.  
+
+
+
+
+{\ttfamily \#include $<$Player.\+h$>$}
+
 Inheritance diagram for Player\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,8 +21,7 @@ Inheritance diagram for Player\+:\begin{figure}[H]
 \mbox{\Hypertarget{classPlayer_a200390d4985fe45a10753bca5016c740}\label{classPlayer_a200390d4985fe45a10753bca5016c740}} 
 {\bfseries Player} (sf\+::\+Vector2f center, \mbox{\hyperlink{classPlayer__Info}{Player\+\_\+\+Info}} \&player\+\_\+info)
 \item 
-\mbox{\Hypertarget{classPlayer_a3dda454b1fcf1d39595f8573db881d23}\label{classPlayer_a3dda454b1fcf1d39595f8573db881d23}} 
-bool {\bfseries update} (const sf\+::\+Time \&delta, \mbox{\hyperlink{classWorld}{World}} \&world) override
+bool \mbox{\hyperlink{classPlayer_a3dda454b1fcf1d39595f8573db881d23}{update}} (const sf\+::\+Time \&delta, \mbox{\hyperlink{classWorld}{World}} \&world) override
 \item 
 \mbox{\Hypertarget{classPlayer_a3d0579c5ab91b9299b5aefa0092cafd7}\label{classPlayer_a3d0579c5ab91b9299b5aefa0092cafd7}} 
 void {\bfseries render} (sf\+::\+Render\+Window \&window) override
@@ -25,6 +33,22 @@ void {\bfseries render} (sf\+::\+Render\+Window \&window) override
 \mbox{\hyperlink{classPlayer__Info}{Player\+\_\+\+Info}} \& {\bfseries player\+\_\+info}
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Handles all of the players movement and special abilities like recieveing upgrades. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPlayer_a3dda454b1fcf1d39595f8573db881d23}\label{classPlayer_a3dda454b1fcf1d39595f8573db881d23}} 
+\index{Player@{Player}!update@{update}}
+\index{update@{update}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily bool Player\+::update (\begin{DoxyParamCaption}\item[{const sf\+::\+Time \&}]{delta,  }\item[{\mbox{\hyperlink{classWorld}{World}} \&}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Calls all subroutines needed to move and animate the player 
+
+Implements \mbox{\hyperlink{classGame__Object}{Game\+\_\+\+Object}}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

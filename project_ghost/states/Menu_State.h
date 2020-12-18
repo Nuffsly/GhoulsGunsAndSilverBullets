@@ -11,6 +11,9 @@
 
 #include "State.h"
 
+/**
+ * \brief Handles all menus along with making and enacting choices.
+ */
 class Menu_State : public State
 {
 public:

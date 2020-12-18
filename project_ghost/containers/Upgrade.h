@@ -7,7 +7,10 @@
 
 #include <map>
 
-
+/**
+ * \brief Contains data that can be applied to a player object.
+ * This will affect certain stats depending on the content.
+ */
 struct Upgrade
 {
     explicit Upgrade(std::string const& name);

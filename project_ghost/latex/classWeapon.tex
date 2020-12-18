@@ -1,5 +1,14 @@
 \hypertarget{classWeapon}{}\doxysection{Weapon Class Reference}
 \label{classWeapon}\index{Weapon@{Weapon}}
+
+
+Handles rotation of the arm and weapon as well as spawning projectiles.  
+
+
+
+
+{\ttfamily \#include $<$Weapon.\+h$>$}
+
 Inheritance diagram for Weapon\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -26,8 +35,7 @@ void {\bfseries shoot} (const sf\+::\+Time \&delta, \mbox{\hyperlink{classWorld}
 \mbox{\Hypertarget{classWeapon_a4507c884af756396a3384692bee29025}\label{classWeapon_a4507c884af756396a3384692bee29025}} 
 bool {\bfseries update} (sf\+::\+Time const \&delta, \mbox{\hyperlink{classWorld}{World}} \&world) override
 \item 
-\mbox{\Hypertarget{classWeapon_ace315b1d11cda483fae00c8aaf2defe6}\label{classWeapon_ace315b1d11cda483fae00c8aaf2defe6}} 
-void {\bfseries calc\+\_\+barrel\+\_\+pos} (float const direction)
+void \mbox{\hyperlink{classWeapon_ace315b1d11cda483fae00c8aaf2defe6}{calc\+\_\+barrel\+\_\+pos}} (float const direction)
 \item 
 \mbox{\Hypertarget{classWeapon_a8cd31eefaf3b2ecc86f46b7d7f4fd4c3}\label{classWeapon_a8cd31eefaf3b2ecc86f46b7d7f4fd4c3}} 
 void {\bfseries set\+\_\+texture\+\_\+state} (texture\+\_\+state state)
@@ -43,6 +51,18 @@ int {\bfseries damage}
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
+
+\doxysubsection{Detailed Description}
+Handles rotation of the arm and weapon as well as spawning projectiles. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classWeapon_ace315b1d11cda483fae00c8aaf2defe6}\label{classWeapon_ace315b1d11cda483fae00c8aaf2defe6}} 
+\index{Weapon@{Weapon}!calc\_barrel\_pos@{calc\_barrel\_pos}}
+\index{calc\_barrel\_pos@{calc\_barrel\_pos}!Weapon@{Weapon}}
+\doxysubsubsection{\texorpdfstring{calc\_barrel\_pos()}{calc\_barrel\_pos()}}
+{\footnotesize\ttfamily void Weapon\+::calc\+\_\+barrel\+\_\+pos (\begin{DoxyParamCaption}\item[{float const}]{direction }\end{DoxyParamCaption})}
+
+Calculates where the barrel is to spawn the projectile accurately 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

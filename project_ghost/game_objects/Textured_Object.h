@@ -15,6 +15,10 @@
 
 
 // Textured_Object Class
+/**
+ * \brief Abstract base for all visible objects. Handles setting the texture and a basic hitbox.
+ * Also handles movement of the texture and center.
+ */
 class Textured_Object : public Game_Object
 {
 public:
@@ -32,6 +36,9 @@ protected:
     sf::RectangleShape shape;
 };
 
+/**
+ * \brief Abstract base for all objects with health and damage.
+ */
 class Character : public Textured_Object
 {
 public:
@@ -45,6 +52,10 @@ public:
 };
 
 // Platform Class
+/**
+ * \brief Has no function except to be interacted with in special ways.
+ * All interaction is handled in the other object when colliding.
+ */
 class Platform : public Textured_Object
 {
 public:

@@ -1,18 +1,21 @@
 var indexSectionsWithContent =
 {
-  0: "cdefghmpstuw",
-  1: "cdefghmpstuw"
+  0: "cdefghmprstuw",
+  1: "cdefghmpstuw",
+  2: "cgprtu"
 };
 
 var indexSectionNames =
 {
   0: "all",
-  1: "classes"
+  1: "classes",
+  2: "functions"
 };
 
 var indexSectionLabels =
 {
   0: "All",
-  1: "Classes"
+  1: "Classes",
+  2: "Functions"
 };
 

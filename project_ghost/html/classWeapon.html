@@ -70,14 +70,19 @@ $(function() {
 <div class="title">Weapon Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Handles rotation of the arm and weapon as well as spawning projectiles.  
+ <a href="classWeapon.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Weapon_8h_source.html">Weapon.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Weapon:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classWeapon.png" usemap="#Weapon_map" alt=""/>
   <map id="Weapon_map" name="Weapon_map">
-<area href="classTextured__Object.html" alt="Textured_Object" shape="rect" coords="0,56,105,80"/>
-<area href="classGame__Object.html" alt="Game_Object" shape="rect" coords="0,0,105,24"/>
+<area href="classTextured__Object.html" title="Abstract base for all visible objects. Handles setting the texture and a basic hitbox...." alt="Textured_Object" shape="rect" coords="0,56,105,80"/>
+<area href="classGame__Object.html" title="Abstract base for all objects with a hitbox and a position. Handles providing edge position of the hi..." alt="Game_Object" shape="rect" coords="0,0,105,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -99,8 +104,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>shoot</b> (const sf::
 <tr class="memitem:a4507c884af756396a3384692bee29025"><td class="memItemLeft" align="right" valign="top"><a id="a4507c884af756396a3384692bee29025"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (sf::Time const &amp;delta, <a class="el" href="classWorld.html">World</a> &amp;world) override</td></tr>
 <tr class="separator:a4507c884af756396a3384692bee29025"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace315b1d11cda483fae00c8aaf2defe6"><td class="memItemLeft" align="right" valign="top"><a id="ace315b1d11cda483fae00c8aaf2defe6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>calc_barrel_pos</b> (float const direction)</td></tr>
+<tr class="memitem:ace315b1d11cda483fae00c8aaf2defe6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWeapon.html#ace315b1d11cda483fae00c8aaf2defe6">calc_barrel_pos</a> (float const direction)</td></tr>
 <tr class="separator:ace315b1d11cda483fae00c8aaf2defe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8cd31eefaf3b2ecc86f46b7d7f4fd4c3"><td class="memItemLeft" align="right" valign="top"><a id="a8cd31eefaf3b2ecc86f46b7d7f4fd4c3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>set_texture_state</b> (texture_state state)</td></tr>
@@ -161,6 +165,28 @@ Additional Inherited Members</h2></td></tr>
 sf::RectangleShape&#160;</td><td class="memItemRight" valign="bottom"><b>shape</b></td></tr>
 <tr class="separator:add1facba04fae62843ecbecb07e9872f inherit pro_attribs_classTextured__Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Handles rotation of the arm and weapon as well as spawning projectiles. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ace315b1d11cda483fae00c8aaf2defe6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace315b1d11cda483fae00c8aaf2defe6">&#9670;&nbsp;</a></span>calc_barrel_pos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Weapon::calc_barrel_pos </td>
+          <td>(</td>
+          <td class="paramtype">float const&#160;</td>
+          <td class="paramname"><em>direction</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Calculates where the barrel is to spawn the projectile accurately </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>game_objects/<a class="el" href="Weapon_8h_source.html">Weapon.h</a></li>
 <li>game_objects/Weapon.cpp</li>

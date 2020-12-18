@@ -7,10 +7,15 @@
 
 #include <SFML/Graphics.hpp>
 
+/**
+ * \brief Loads and keeps track of textures.
+ * To save computing power and avoid errors related to creating a lot of texture objects
+ * this manager will load all requested textures ONCE and then keep them in the memory.
+ */
 class Texture_Manager
 {
 public:
-    static sf::Texture *get_texture(std::string const &name);
+    static sf::Texture *get_texture(std::string const &name); /**<Used to load textures anywhere in the program*/
 
 private:
     Texture_Manager() = default;
@@ -21,10 +26,15 @@ private:
 
 };
 
+/**
+ * \brief Loads and keeps track of fonts.
+ * To save computing power and avoid errors related to creating a lot of font objects
+ * this manager will load all requested fonts ONCE and then keep them in the memory.
+ */
 class Font_Manager
 {
 public:
-    static sf::Font& get_font(std::string const& name);
+    static sf::Font& get_font(std::string const& name); /**<Used to load fonts anywhere in the program*/
 
 private:
     Font_Manager() = default;

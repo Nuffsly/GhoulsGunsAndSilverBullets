@@ -2,5 +2,5 @@
 *~
 .#*
 .idea/
-*/cmake-build-debug/
 *.log
+*cmake-build-debug/

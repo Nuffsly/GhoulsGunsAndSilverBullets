@@ -13,6 +13,9 @@
 #include "../managers/World.h"
 #include "Player.h"
 
+/**
+ * \brief Simulates gravity for self and handles interaction when colliding with other objects.
+ */
 class Money : public Textured_Object
 {
 public:

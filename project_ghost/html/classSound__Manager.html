@@ -68,16 +68,76 @@ $(function() {
 <div class="title">Sound_Manager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Loads sounds into soundbuffers and saves them to be played when needed. Also saves sound objects for each sound so that it is always played to the end and not cutoff.  
+ <a href="classSound__Manager.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Sound__Manager_8h_source.html">Sound_Manager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a3385946ceb5e2af2340597d0b7379ef1"><td class="memItemLeft" align="right" valign="top"><a id="a3385946ceb5e2af2340597d0b7379ef1"></a>
-static sf::SoundBuffer *&#160;</td><td class="memItemRight" valign="bottom"><b>get_sound</b> (std::string const &amp;name)</td></tr>
+<tr class="memitem:a3385946ceb5e2af2340597d0b7379ef1"><td class="memItemLeft" align="right" valign="top">static sf::SoundBuffer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSound__Manager.html#a3385946ceb5e2af2340597d0b7379ef1">get_sound</a> (std::string const &amp;name)</td></tr>
 <tr class="separator:a3385946ceb5e2af2340597d0b7379ef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a530064adf976b9044eee3f33d5ed58df"><td class="memItemLeft" align="right" valign="top"><a id="a530064adf976b9044eee3f33d5ed58df"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>play_sound</b> (std::string const &amp;name)</td></tr>
+<tr class="memitem:a530064adf976b9044eee3f33d5ed58df"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSound__Manager.html#a530064adf976b9044eee3f33d5ed58df">play_sound</a> (std::string const &amp;name)</td></tr>
 <tr class="separator:a530064adf976b9044eee3f33d5ed58df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Loads sounds into soundbuffers and saves them to be played when needed. Also saves sound objects for each sound so that it is always played to the end and not cutoff. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3385946ceb5e2af2340597d0b7379ef1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3385946ceb5e2af2340597d0b7379ef1">&#9670;&nbsp;</a></span>get_sound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::SoundBuffer * Sound_Manager::get_sound </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>If you wish to create your own sound object use this to load the sound-file into a buffer. </p>
+
+</div>
+</div>
+<a id="a530064adf976b9044eee3f33d5ed58df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a530064adf976b9044eee3f33d5ed58df">&#9670;&nbsp;</a></span>play_sound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Sound_Manager::play_sound </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>If you only want a sound-file to play to completion using default settings use this. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>managers/<a class="el" href="Sound__Manager_8h_source.html">Sound_Manager.h</a></li>
 <li>managers/Sound_Manager.cpp</li>

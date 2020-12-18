@@ -1,5 +1,14 @@
 \hypertarget{classGame__State}{}\doxysection{Game\+\_\+\+State Class Reference}
 \label{classGame__State}\index{Game\_State@{Game\_State}}
+
+
+Handles most overarching game functions like levels and score. Keeps track of all things that concern the level as a whole like where and when to spawn objects. Owns a world in which all the objects can interact and react to another.  
+
+
+
+
+{\ttfamily \#include $<$Game\+\_\+\+State.\+h$>$}
+
 Inheritance diagram for Game\+\_\+\+State\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,11 +21,9 @@ Inheritance diagram for Game\+\_\+\+State\+:\begin{figure}[H]
 \mbox{\Hypertarget{classGame__State_a4806d864a3efc88a16adf32850b2f905}\label{classGame__State_a4806d864a3efc88a16adf32850b2f905}} 
 {\bfseries Game\+\_\+\+State} (sf\+::\+Render\+Window \&window)
 \item 
-\mbox{\Hypertarget{classGame__State_a41bdc4275ac1ef193ef614f12e23e244}\label{classGame__State_a41bdc4275ac1ef193ef614f12e23e244}} 
-std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classState}{State}} $>$ {\bfseries tick} (sf\+::\+Time delta) override
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classState}{State}} $>$ \mbox{\hyperlink{classGame__State_a41bdc4275ac1ef193ef614f12e23e244}{tick}} (sf\+::\+Time delta) override
 \item 
-\mbox{\Hypertarget{classGame__State_a484db2866d92ec85632009c43ce65540}\label{classGame__State_a484db2866d92ec85632009c43ce65540}} 
-void {\bfseries render} (sf\+::\+Render\+Window \&window) override
+void \mbox{\hyperlink{classGame__State_a484db2866d92ec85632009c43ce65540}{render}} (sf\+::\+Render\+Window \&window) override
 \item 
 \mbox{\Hypertarget{classGame__State_ac8f6990e6218cdf1f197edaf634dd418}\label{classGame__State_ac8f6990e6218cdf1f197edaf634dd418}} 
 void {\bfseries spawn\+\_\+lvl\+\_\+end\+\_\+stuff} ()
@@ -28,6 +35,32 @@ void {\bfseries spawn\+\_\+enemy} ()
 void {\bfseries reset\+\_\+world} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Handles most overarching game functions like levels and score. Keeps track of all things that concern the level as a whole like where and when to spawn objects. Owns a world in which all the objects can interact and react to another. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGame__State_a484db2866d92ec85632009c43ce65540}\label{classGame__State_a484db2866d92ec85632009c43ce65540}} 
+\index{Game\_State@{Game\_State}!render@{render}}
+\index{render@{render}!Game\_State@{Game\_State}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Game\+\_\+\+State\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Draws all relevant shapes to the screen 
+
+Implements \mbox{\hyperlink{classState}{State}}.
+
+\mbox{\Hypertarget{classGame__State_a41bdc4275ac1ef193ef614f12e23e244}\label{classGame__State_a41bdc4275ac1ef193ef614f12e23e244}} 
+\index{Game\_State@{Game\_State}!tick@{tick}}
+\index{tick@{tick}!Game\_State@{Game\_State}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classState}{State}} $>$ Game\+\_\+\+State\+::tick (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Performs all the logical subroutines that are required for the game to function. 
+
+Implements \mbox{\hyperlink{classState}{State}}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

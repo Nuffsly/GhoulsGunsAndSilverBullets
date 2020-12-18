@@ -1,12 +1,32 @@
 \hypertarget{classTexture__Manager}{}\doxysection{Texture\+\_\+\+Manager Class Reference}
 \label{classTexture__Manager}\index{Texture\_Manager@{Texture\_Manager}}
+
+
+Loads and keeps track of textures. To save computing power and avoid errors related to creating a lot of texture objects this manager will load all requested textures ONCE and then keep them in the memory.  
+
+
+
+
+{\ttfamily \#include $<$Texture\+\_\+\+Manager.\+h$>$}
+
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classTexture__Manager_aeb6cfb194b01852402811b3b460261dc}\label{classTexture__Manager_aeb6cfb194b01852402811b3b460261dc}} 
-static sf\+::\+Texture $\ast$ {\bfseries get\+\_\+texture} (std\+::string const \&name)
+static sf\+::\+Texture $\ast$ \mbox{\hyperlink{classTexture__Manager_aeb6cfb194b01852402811b3b460261dc}{get\+\_\+texture}} (std\+::string const \&name)
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Loads and keeps track of textures. To save computing power and avoid errors related to creating a lot of texture objects this manager will load all requested textures ONCE and then keep them in the memory. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTexture__Manager_aeb6cfb194b01852402811b3b460261dc}\label{classTexture__Manager_aeb6cfb194b01852402811b3b460261dc}} 
+\index{Texture\_Manager@{Texture\_Manager}!get\_texture@{get\_texture}}
+\index{get\_texture@{get\_texture}!Texture\_Manager@{Texture\_Manager}}
+\doxysubsubsection{\texorpdfstring{get\_texture()}{get\_texture()}}
+{\footnotesize\ttfamily sf\+::\+Texture $\ast$ Texture\+\_\+\+Manager\+::get\+\_\+texture (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Used to load textures anywhere in the program 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
