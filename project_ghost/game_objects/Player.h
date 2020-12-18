@@ -15,12 +15,15 @@
 
 class World;
 
+/**
+ * \brief Handles all of the players movement and special abilities like recieveing upgrades.
+ */
 class Player : public Character
 {
 public:
     Player(sf::Vector2f center, Player_Info &player_info);
 
-    bool update(const sf::Time &delta, World &world) override;
+    bool update(const sf::Time &delta, World &world) override; /**< Calls all subroutines needed to move and animate the player*/
 
     void render(sf::RenderWindow &window) override;
 

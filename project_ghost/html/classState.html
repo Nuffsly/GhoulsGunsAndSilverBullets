@@ -69,16 +69,21 @@ $(function() {
 <div class="title">State Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Abstract class that lays groundwork for all other states. Also contains the main game loop.  
+ <a href="classState.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="State_8h_source.html">State.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for State:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classState.png" usemap="#State_map" alt=""/>
   <map id="State_map" name="State_map">
-<area href="classExit__State.html" alt="Exit_State" shape="rect" coords="0,112,228,136"/>
+<area href="classExit__State.html" title="Special case state for when the program should end." alt="Exit_State" shape="rect" coords="0,112,228,136"/>
 <area href="classGame__Over__State.html" alt="Game_Over_State" shape="rect" coords="238,112,466,136"/>
-<area href="classGame__State.html" alt="Game_State" shape="rect" coords="476,112,704,136"/>
-<area href="classMenu__State.html" alt="Menu_State" shape="rect" coords="714,112,942,136"/>
+<area href="classGame__State.html" title="Handles most overarching game functions like levels and score. Keeps track of all things that concern..." alt="Game_State" shape="rect" coords="476,112,704,136"/>
+<area href="classMenu__State.html" title="Handles all menus along with making and enacting choices." alt="Menu_State" shape="rect" coords="714,112,942,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -99,10 +104,49 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>render</b> (s
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a24c7fbaff0eaf5d3a374f2a8dea8277a"><td class="memItemLeft" align="right" valign="top"><a id="a24c7fbaff0eaf5d3a374f2a8dea8277a"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>run</b> (sf::RenderWindow &amp;window, std::shared_ptr&lt; <a class="el" href="classState.html">State</a> &gt; state)</td></tr>
+<tr class="memitem:a24c7fbaff0eaf5d3a374f2a8dea8277a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classState.html#a24c7fbaff0eaf5d3a374f2a8dea8277a">run</a> (sf::RenderWindow &amp;window, std::shared_ptr&lt; <a class="el" href="classState.html">State</a> &gt; state)</td></tr>
 <tr class="separator:a24c7fbaff0eaf5d3a374f2a8dea8277a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Abstract class that lays groundwork for all other states. Also contains the main game loop. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a24c7fbaff0eaf5d3a374f2a8dea8277a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24c7fbaff0eaf5d3a374f2a8dea8277a">&#9670;&nbsp;</a></span>run()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void State::run </td>
+          <td>(</td>
+          <td class="paramtype">sf::RenderWindow &amp;&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classState.html">State</a> &gt;&#160;</td>
+          <td class="paramname"><em>state</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The main game loop. Uses whatever state that is active and runs it. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>states/<a class="el" href="State_8h_source.html">State.h</a></li>
 <li>states/State.cpp</li>

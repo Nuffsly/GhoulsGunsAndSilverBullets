@@ -2,7 +2,7 @@
 \label{classEnemy}\index{Enemy@{Enemy}}
 
 
-This is the class that handles enemies in the game. It is a very interesting class so I write another line.  
+Handles enemy movement and collision with specific objects.  
 
 
 
@@ -21,14 +21,26 @@ Inheritance diagram for Enemy\+:\begin{figure}[H]
 \mbox{\Hypertarget{classEnemy_ab47a0990211255d92ce165a2961e8f22}\label{classEnemy_ab47a0990211255d92ce165a2961e8f22}} 
 {\bfseries Enemy} (const sf\+::\+Vector2f \&center, std\+::string const \&texture\+\_\+name, int health, int damage, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classGame__Object}{Game\+\_\+\+Object}} $>$ player\+\_\+ptr)
 \item 
-\mbox{\Hypertarget{classEnemy_aee970cbe8c66889866f42192d20c443f}\label{classEnemy_aee970cbe8c66889866f42192d20c443f}} 
-bool {\bfseries update} (const sf\+::\+Time \&delta, \mbox{\hyperlink{classWorld}{World}} \&world) override
+bool \mbox{\hyperlink{classEnemy_aee970cbe8c66889866f42192d20c443f}{update}} (const sf\+::\+Time \&delta, \mbox{\hyperlink{classWorld}{World}} \&world) override
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
-This is the class that handles enemies in the game. It is a very interesting class so I write another line. 
+Handles enemy movement and collision with specific objects. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEnemy_aee970cbe8c66889866f42192d20c443f}\label{classEnemy_aee970cbe8c66889866f42192d20c443f}} 
+\index{Enemy@{Enemy}!update@{update}}
+\index{update@{update}!Enemy@{Enemy}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily bool Enemy\+::update (\begin{DoxyParamCaption}\item[{const sf\+::\+Time \&}]{delta,  }\item[{\mbox{\hyperlink{classWorld}{World}} \&}]{world }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+runs necessary subroutines for enemy to function 
+
+Implements \mbox{\hyperlink{classGame__Object}{Game\+\_\+\+Object}}.
+
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

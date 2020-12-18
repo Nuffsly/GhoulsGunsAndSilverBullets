@@ -69,22 +69,27 @@ $(function() {
 <div class="title">Textured_Object Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Abstract base for all visible objects. Handles setting the texture and a basic hitbox. Also handles movement of the texture and center.  
+ <a href="classTextured__Object.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Textured__Object_8h_source.html">Textured_Object.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Textured_Object:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classTextured__Object.png" usemap="#Textured_5FObject_map" alt=""/>
   <map id="Textured_5FObject_map" name="Textured_5FObject_map">
-<area href="classGame__Object.html" alt="Game_Object" shape="rect" coords="402,0,507,24"/>
-<area href="classCharacter.html" alt="Character" shape="rect" coords="57,112,162,136"/>
-<area href="classDoor.html" alt="Door" shape="rect" coords="172,112,277,136"/>
-<area href="classMoney.html" alt="Money" shape="rect" coords="287,112,392,136"/>
-<area href="classPlatform.html" alt="Platform" shape="rect" coords="402,112,507,136"/>
-<area href="classProjectile.html" alt="Projectile" shape="rect" coords="517,112,622,136"/>
-<area href="classUpgrade__Pillar.html" alt="Upgrade_Pillar" shape="rect" coords="632,112,737,136"/>
-<area href="classWeapon.html" alt="Weapon" shape="rect" coords="747,112,852,136"/>
-<area href="classEnemy.html" title="This is the class that handles enemies in the game. It is a very interesting class so I write another..." alt="Enemy" shape="rect" coords="0,168,105,192"/>
-<area href="classPlayer.html" alt="Player" shape="rect" coords="115,168,220,192"/>
+<area href="classGame__Object.html" title="Abstract base for all objects with a hitbox and a position. Handles providing edge position of the hi..." alt="Game_Object" shape="rect" coords="402,0,507,24"/>
+<area href="classCharacter.html" title="Abstract base for all objects with health and damage." alt="Character" shape="rect" coords="57,112,162,136"/>
+<area href="classDoor.html" title="Exists to give player something to collide with as a criteria for specific actions." alt="Door" shape="rect" coords="172,112,277,136"/>
+<area href="classMoney.html" title="Simulates gravity for self and handles interaction when colliding with other objects." alt="Money" shape="rect" coords="287,112,392,136"/>
+<area href="classPlatform.html" title="Has no function except to be interacted with in special ways. All interaction is handled in the other..." alt="Platform" shape="rect" coords="402,112,507,136"/>
+<area href="classProjectile.html" title="Moves in whatever direction it was spawned in until it reaches specific criteria." alt="Projectile" shape="rect" coords="517,112,622,136"/>
+<area href="classUpgrade__Pillar.html" title="Object to contain Upgrade objects and assign them to the player if criteria is met." alt="Upgrade_Pillar" shape="rect" coords="632,112,737,136"/>
+<area href="classWeapon.html" title="Handles rotation of the arm and weapon as well as spawning projectiles." alt="Weapon" shape="rect" coords="747,112,852,136"/>
+<area href="classEnemy.html" title="Handles enemy movement and collision with specific objects." alt="Enemy" shape="rect" coords="0,168,105,192"/>
+<area href="classPlayer.html" title="Handles all of the players movement and special abilities like recieveing upgrades." alt="Player" shape="rect" coords="115,168,220,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -141,7 +146,9 @@ sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><b>center</b></t
 sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><b>hitbox</b></td></tr>
 <tr class="separator:a609f9b222a526d3f4cefbffdcda780cd inherit pub_attribs_classGame__Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Abstract base for all visible objects. Handles setting the texture and a basic hitbox. Also handles movement of the texture and center. </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>game_objects/<a class="el" href="Textured__Object_8h_source.html">Textured_Object.h</a></li>
 <li>game_objects/Textured_Object.cpp</li>
 </ul>

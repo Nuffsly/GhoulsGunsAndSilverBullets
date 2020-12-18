@@ -10,6 +10,9 @@
 #include "Textured_Object.h"
 #include "../containers/Upgrade.h"
 
+/**
+ * \brief Object to contain Upgrade objects and assign them to the player if criteria is met.
+ */
 class Upgrade_Pillar : public Textured_Object
 {
 public:

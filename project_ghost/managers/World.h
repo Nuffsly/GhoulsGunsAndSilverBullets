@@ -14,7 +14,9 @@
 
 #include "../game_objects/Game_Object.h"
 
-
+/**
+ * \brief Contains all objects and handles interaction between them.
+ */
 class World
 {
 public:

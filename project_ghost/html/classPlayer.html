@@ -69,15 +69,20 @@ $(function() {
 <div class="title">Player Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Handles all of the players movement and special abilities like recieveing upgrades.  
+ <a href="classPlayer.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Player_8h_source.html">Player.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Player:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classPlayer.png" usemap="#Player_map" alt=""/>
   <map id="Player_map" name="Player_map">
-<area href="classCharacter.html" alt="Character" shape="rect" coords="0,112,105,136"/>
-<area href="classTextured__Object.html" alt="Textured_Object" shape="rect" coords="0,56,105,80"/>
-<area href="classGame__Object.html" alt="Game_Object" shape="rect" coords="0,0,105,24"/>
+<area href="classCharacter.html" title="Abstract base for all objects with health and damage." alt="Character" shape="rect" coords="0,112,105,136"/>
+<area href="classTextured__Object.html" title="Abstract base for all visible objects. Handles setting the texture and a basic hitbox...." alt="Textured_Object" shape="rect" coords="0,56,105,80"/>
+<area href="classGame__Object.html" title="Abstract base for all objects with a hitbox and a position. Handles providing edge position of the hi..." alt="Game_Object" shape="rect" coords="0,0,105,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -86,8 +91,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a200390d4985fe45a10753bca5016c740"><td class="memItemLeft" align="right" valign="top"><a id="a200390d4985fe45a10753bca5016c740"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Player</b> (sf::Vector2f center, <a class="el" href="classPlayer__Info.html">Player_Info</a> &amp;player_info)</td></tr>
 <tr class="separator:a200390d4985fe45a10753bca5016c740"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3dda454b1fcf1d39595f8573db881d23"><td class="memItemLeft" align="right" valign="top"><a id="a3dda454b1fcf1d39595f8573db881d23"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (const sf::Time &amp;delta, <a class="el" href="classWorld.html">World</a> &amp;world) override</td></tr>
+<tr class="memitem:a3dda454b1fcf1d39595f8573db881d23"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPlayer.html#a3dda454b1fcf1d39595f8573db881d23">update</a> (const sf::Time &amp;delta, <a class="el" href="classWorld.html">World</a> &amp;world) override</td></tr>
 <tr class="separator:a3dda454b1fcf1d39595f8573db881d23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d0579c5ab91b9299b5aefa0092cafd7"><td class="memItemLeft" align="right" valign="top"><a id="a3d0579c5ab91b9299b5aefa0092cafd7"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>render</b> (sf::RenderWindow &amp;window) override</td></tr>
@@ -159,6 +163,48 @@ Additional Inherited Members</h2></td></tr>
 sf::RectangleShape&#160;</td><td class="memItemRight" valign="bottom"><b>shape</b></td></tr>
 <tr class="separator:add1facba04fae62843ecbecb07e9872f inherit pro_attribs_classTextured__Object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Handles all of the players movement and special abilities like recieveing upgrades. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3dda454b1fcf1d39595f8573db881d23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dda454b1fcf1d39595f8573db881d23">&#9670;&nbsp;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Player::update </td>
+          <td>(</td>
+          <td class="paramtype">const sf::Time &amp;&#160;</td>
+          <td class="paramname"><em>delta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classWorld.html">World</a> &amp;&#160;</td>
+          <td class="paramname"><em>world</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Calls all subroutines needed to move and animate the player </p>
+
+<p>Implements <a class="el" href="classGame__Object.html">Game_Object</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>game_objects/<a class="el" href="Player_8h_source.html">Player.h</a></li>
 <li>game_objects/Player.cpp</li>

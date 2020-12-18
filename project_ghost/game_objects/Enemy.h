@@ -14,8 +14,7 @@
 class Player;
 
 /**
- * \brief This is the class that handles enemies in the game.
- * It is a very interesting class so I write another line.
+ * \brief Handles enemy movement and collision with specific objects.
  */
 class Enemy : public Character
 {
@@ -23,18 +22,18 @@ public:
     Enemy(const sf::Vector2f &center, std::string const& texture_name,
           int health, int damage, std::shared_ptr<Game_Object> player_ptr);
 
-    bool update(const sf::Time &delta, World &world) override;
+    bool update(const sf::Time &delta, World &world) override; /**< runs necessary subroutines for enemy to function */
 
 private:
     std::shared_ptr<Game_Object> player_ptr;
 
-    void move_enemy(sf::Time const& delta); /**< Handles all movement for the enemy */
+    void move_enemy(sf::Time const& delta);
     void drop_money(World &world);
 
     float animation_time;
     std::vector<int> frame_numbers;
 
-    float time_alive; /**< Keeps track of how long the enemy has been alive to animate it. */
+    float time_alive;
 };
 
 

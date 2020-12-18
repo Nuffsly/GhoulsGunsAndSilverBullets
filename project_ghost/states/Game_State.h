@@ -20,14 +20,20 @@
 
 class Game_Object;
 
+/**
+ * \brief Handles most overarching game functions like levels and score.
+ * Keeps track of all things that concern the level as a whole like where and when to spawn objects.
+ * Owns a world in which all the objects can interact and react to another.
+ */
+
 class Game_State : public State
 {
 public:
     explicit Game_State(sf::RenderWindow &window);
     Game_State() = delete;
 
-    std::shared_ptr<State> tick(sf::Time delta) override;
-    void render(sf::RenderWindow &window) override;
+    std::shared_ptr<State> tick(sf::Time delta) override; /**<Performs all the logical subroutines that are required for the game to function.*/
+    void render(sf::RenderWindow &window) override; /**<Draws all relevant shapes to the screen */
 
     void spawn_lvl_end_stuff();
     void spawn_enemy();
@@ -45,7 +51,7 @@ private:
     int total_enemies_spawned;
     float since_last_spawn;
     sf::Vector2f door_pos;
-    std::vector<sf::Vector2f> upg_pillars_pos; //TODO: Fixa upgrades tillbaka i listan när de inte köps
+    std::vector<sf::Vector2f> upg_pillars_pos;
     sf::Music music;
     sf::Sprite background;
     float sec_since_last_frame;

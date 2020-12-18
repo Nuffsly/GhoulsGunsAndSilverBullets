@@ -1,26 +1,26 @@
 \doxysection{Class List}
 Here are the classes, structs, unions and interfaces with brief descriptions\+:\begin{DoxyCompactList}
-\item\contentsline{section}{\mbox{\hyperlink{classCharacter}{Character}} }{\pageref{classCharacter}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classDoor}{Door}} }{\pageref{classDoor}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classEnemy}{Enemy}} \\*This is the class that handles enemies in the game. It is a very interesting class so I write another line }{\pageref{classEnemy}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classExit__State}{Exit\+\_\+\+State}} }{\pageref{classExit__State}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classFont__Manager}{Font\+\_\+\+Manager}} }{\pageref{classFont__Manager}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classGame__Object}{Game\+\_\+\+Object}} }{\pageref{classGame__Object}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classCharacter}{Character}} \\*Abstract base for all objects with health and damage }{\pageref{classCharacter}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classDoor}{Door}} \\*Exists to give player something to collide with as a criteria for specific actions }{\pageref{classDoor}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classEnemy}{Enemy}} \\*Handles enemy movement and collision with specific objects }{\pageref{classEnemy}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classExit__State}{Exit\+\_\+\+State}} \\*Special case state for when the program should end }{\pageref{classExit__State}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classFont__Manager}{Font\+\_\+\+Manager}} \\*Loads and keeps track of fonts. To save computing power and avoid errors related to creating a lot of font objects this manager will load all requested fonts ONCE and then keep them in the memory }{\pageref{classFont__Manager}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classGame__Object}{Game\+\_\+\+Object}} \\*Abstract base for all objects with a hitbox and a position. Handles providing edge position of the hitbox.\+s }{\pageref{classGame__Object}}{}
 \item\contentsline{section}{\mbox{\hyperlink{classGame__Over__State}{Game\+\_\+\+Over\+\_\+\+State}} }{\pageref{classGame__Over__State}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classGame__State}{Game\+\_\+\+State}} }{\pageref{classGame__State}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classHud}{Hud}} }{\pageref{classHud}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classMenu__State}{Menu\+\_\+\+State}} }{\pageref{classMenu__State}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classMoney}{Money}} }{\pageref{classMoney}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classPlatform}{Platform}} }{\pageref{classPlatform}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classPlayer}{Player}} }{\pageref{classPlayer}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classPlayer__Info}{Player\+\_\+\+Info}} }{\pageref{classPlayer__Info}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classProjectile}{Projectile}} }{\pageref{classProjectile}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classSound__Manager}{Sound\+\_\+\+Manager}} }{\pageref{classSound__Manager}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classState}{State}} }{\pageref{classState}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classTexture__Manager}{Texture\+\_\+\+Manager}} }{\pageref{classTexture__Manager}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classTextured__Object}{Textured\+\_\+\+Object}} }{\pageref{classTextured__Object}}{}
-\item\contentsline{section}{\mbox{\hyperlink{structUpgrade}{Upgrade}} }{\pageref{structUpgrade}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classUpgrade__Pillar}{Upgrade\+\_\+\+Pillar}} }{\pageref{classUpgrade__Pillar}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classWeapon}{Weapon}} }{\pageref{classWeapon}}{}
-\item\contentsline{section}{\mbox{\hyperlink{classWorld}{World}} }{\pageref{classWorld}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classGame__State}{Game\+\_\+\+State}} \\*Handles most overarching game functions like levels and score. Keeps track of all things that concern the level as a whole like where and when to spawn objects. Owns a world in which all the objects can interact and react to another }{\pageref{classGame__State}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classHud}{Hud}} \\*Handles overlay displaying players current stats }{\pageref{classHud}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classMenu__State}{Menu\+\_\+\+State}} \\*Handles all menus along with making and enacting choices }{\pageref{classMenu__State}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classMoney}{Money}} \\*Simulates gravity for self and handles interaction when colliding with other objects }{\pageref{classMoney}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classPlatform}{Platform}} \\*Has no function except to be interacted with in special ways. All interaction is handled in the other object when colliding }{\pageref{classPlatform}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classPlayer}{Player}} \\*Handles all of the players movement and special abilities like recieveing upgrades }{\pageref{classPlayer}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classPlayer__Info}{Player\+\_\+\+Info}} \\*Support class that contains metadata about the player character. Contains all data necessary to construct a new player along with some data that should be consistent through all levels }{\pageref{classPlayer__Info}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classProjectile}{Projectile}} \\*Moves in whatever direction it was spawned in until it reaches specific criteria }{\pageref{classProjectile}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classSound__Manager}{Sound\+\_\+\+Manager}} \\*Loads sounds into soundbuffers and saves them to be played when needed. Also saves sound objects for each sound so that it is always played to the end and not cutoff }{\pageref{classSound__Manager}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classState}{State}} \\*Abstract class that lays groundwork for all other states. Also contains the main game loop }{\pageref{classState}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classTexture__Manager}{Texture\+\_\+\+Manager}} \\*Loads and keeps track of textures. To save computing power and avoid errors related to creating a lot of texture objects this manager will load all requested textures ONCE and then keep them in the memory }{\pageref{classTexture__Manager}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classTextured__Object}{Textured\+\_\+\+Object}} \\*Abstract base for all visible objects. Handles setting the texture and a basic hitbox. Also handles movement of the texture and center }{\pageref{classTextured__Object}}{}
+\item\contentsline{section}{\mbox{\hyperlink{structUpgrade}{Upgrade}} \\*Contains data that can be applied to a player object. This will affect certain stats depending on the content }{\pageref{structUpgrade}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classUpgrade__Pillar}{Upgrade\+\_\+\+Pillar}} \\*Object to contain \mbox{\hyperlink{structUpgrade}{Upgrade}} objects and assign them to the player if criteria is met }{\pageref{classUpgrade__Pillar}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classWeapon}{Weapon}} \\*Handles rotation of the arm and weapon as well as spawning projectiles }{\pageref{classWeapon}}{}
+\item\contentsline{section}{\mbox{\hyperlink{classWorld}{World}} \\*Contains all objects and handles interaction between them }{\pageref{classWorld}}{}
 \end{DoxyCompactList}

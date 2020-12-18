@@ -68,13 +68,18 @@ $(function() {
 <div class="title">Game_State Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Handles most overarching game functions like levels and score. Keeps track of all things that concern the level as a whole like where and when to spawn objects. Owns a world in which all the objects can interact and react to another.  
+ <a href="classGame__State.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Game__State_8h_source.html">Game_State.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Game_State:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classGame__State.png" usemap="#Game_5FState_map" alt=""/>
   <map id="Game_5FState_map" name="Game_5FState_map">
-<area href="classState.html" alt="State" shape="rect" coords="0,56,228,80"/>
+<area href="classState.html" title="Abstract class that lays groundwork for all other states. Also contains the main game loop." alt="State" shape="rect" coords="0,56,228,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -83,11 +88,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4806d864a3efc88a16adf32850b2f905"><td class="memItemLeft" align="right" valign="top"><a id="a4806d864a3efc88a16adf32850b2f905"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Game_State</b> (sf::RenderWindow &amp;window)</td></tr>
 <tr class="separator:a4806d864a3efc88a16adf32850b2f905"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41bdc4275ac1ef193ef614f12e23e244"><td class="memItemLeft" align="right" valign="top"><a id="a41bdc4275ac1ef193ef614f12e23e244"></a>
-std::shared_ptr&lt; <a class="el" href="classState.html">State</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>tick</b> (sf::Time delta) override</td></tr>
+<tr class="memitem:a41bdc4275ac1ef193ef614f12e23e244"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classState.html">State</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame__State.html#a41bdc4275ac1ef193ef614f12e23e244">tick</a> (sf::Time delta) override</td></tr>
 <tr class="separator:a41bdc4275ac1ef193ef614f12e23e244"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a484db2866d92ec85632009c43ce65540"><td class="memItemLeft" align="right" valign="top"><a id="a484db2866d92ec85632009c43ce65540"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>render</b> (sf::RenderWindow &amp;window) override</td></tr>
+<tr class="memitem:a484db2866d92ec85632009c43ce65540"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGame__State.html#a484db2866d92ec85632009c43ce65540">render</a> (sf::RenderWindow &amp;window) override</td></tr>
 <tr class="separator:a484db2866d92ec85632009c43ce65540"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8f6990e6218cdf1f197edaf634dd418"><td class="memItemLeft" align="right" valign="top"><a id="ac8f6990e6218cdf1f197edaf634dd418"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>spawn_lvl_end_stuff</b> ()</td></tr>
@@ -109,10 +112,70 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>on_key_releas
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_static_methods_classState"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classState')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="classState.html">State</a></td></tr>
-<tr class="memitem:a24c7fbaff0eaf5d3a374f2a8dea8277a inherit pub_static_methods_classState"><td class="memItemLeft" align="right" valign="top"><a id="a24c7fbaff0eaf5d3a374f2a8dea8277a"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>run</b> (sf::RenderWindow &amp;window, std::shared_ptr&lt; <a class="el" href="classState.html">State</a> &gt; state)</td></tr>
+<tr class="memitem:a24c7fbaff0eaf5d3a374f2a8dea8277a inherit pub_static_methods_classState"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classState.html#a24c7fbaff0eaf5d3a374f2a8dea8277a">run</a> (sf::RenderWindow &amp;window, std::shared_ptr&lt; <a class="el" href="classState.html">State</a> &gt; state)</td></tr>
 <tr class="separator:a24c7fbaff0eaf5d3a374f2a8dea8277a inherit pub_static_methods_classState"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Handles most overarching game functions like levels and score. Keeps track of all things that concern the level as a whole like where and when to spawn objects. Owns a world in which all the objects can interact and react to another. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a484db2866d92ec85632009c43ce65540"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a484db2866d92ec85632009c43ce65540">&#9670;&nbsp;</a></span>render()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Game_State::render </td>
+          <td>(</td>
+          <td class="paramtype">sf::RenderWindow &amp;&#160;</td>
+          <td class="paramname"><em>window</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Draws all relevant shapes to the screen </p>
+
+<p>Implements <a class="el" href="classState.html">State</a>.</p>
+
+</div>
+</div>
+<a id="a41bdc4275ac1ef193ef614f12e23e244"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41bdc4275ac1ef193ef614f12e23e244">&#9670;&nbsp;</a></span>tick()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classState.html">State</a> &gt; Game_State::tick </td>
+          <td>(</td>
+          <td class="paramtype">sf::Time&#160;</td>
+          <td class="paramname"><em>delta</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Performs all the logical subroutines that are required for the game to function. </p>
+
+<p>Implements <a class="el" href="classState.html">State</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>states/<a class="el" href="Game__State_8h_source.html">Game_State.h</a></li>
 <li>states/Game_State.cpp</li>

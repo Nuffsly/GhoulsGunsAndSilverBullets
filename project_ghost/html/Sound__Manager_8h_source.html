@@ -79,27 +79,27 @@ $(function() {
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;SFML/Audio.hpp&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classSound__Manager.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSound__Manager.html">Sound_Manager</a></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">static</span> sf::SoundBuffer* get_sound(std::string <span class="keyword">const</span>&amp; name);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> play_sound(std::string <span class="keyword">const</span>&amp; name);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="classSound__Manager.html">Sound_Manager</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">static</span> <a class="code" href="classSound__Manager.html">Sound_Manager</a> soundbuffer_storage;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">static</span> <a class="code" href="classSound__Manager.html">Sound_Manager</a> sound_storage;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    std::map&lt;std::string, std::unique_ptr&lt;sf::SoundBuffer&gt;&gt; sound_buffers;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    std::map&lt;std::string, std::unique_ptr&lt;sf::Sound&gt;&gt; sounds;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//MAIN_CPP_SOUND_MANAGER_H</span></div>
-<div class="ttc" id="aclassSound__Manager_html"><div class="ttname"><a href="classSound__Manager.html">Sound_Manager</a></div><div class="ttdef"><b>Definition:</b> Sound_Manager.h:12</div></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classSound__Manager.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSound__Manager.html">Sound_Manager</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">static</span> sf::SoundBuffer* <a class="code" href="classSound__Manager.html#a3385946ceb5e2af2340597d0b7379ef1">get_sound</a>(std::string <span class="keyword">const</span>&amp; name); </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSound__Manager.html#a530064adf976b9044eee3f33d5ed58df">play_sound</a>(std::string <span class="keyword">const</span>&amp; name); </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classSound__Manager.html">Sound_Manager</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">static</span> <a class="code" href="classSound__Manager.html">Sound_Manager</a> soundbuffer_storage;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">static</span> <a class="code" href="classSound__Manager.html">Sound_Manager</a> sound_storage;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    std::map&lt;std::string, std::unique_ptr&lt;sf::SoundBuffer&gt;&gt; sound_buffers;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    std::map&lt;std::string, std::unique_ptr&lt;sf::Sound&gt;&gt; sounds;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//MAIN_CPP_SOUND_MANAGER_H</span></div>
+<div class="ttc" id="aclassSound__Manager_html"><div class="ttname"><a href="classSound__Manager.html">Sound_Manager</a></div><div class="ttdoc">Loads sounds into soundbuffers and saves them to be played when needed. Also saves sound objects for ...</div><div class="ttdef"><b>Definition:</b> Sound_Manager.h:16</div></div>
+<div class="ttc" id="aclassSound__Manager_html_a3385946ceb5e2af2340597d0b7379ef1"><div class="ttname"><a href="classSound__Manager.html#a3385946ceb5e2af2340597d0b7379ef1">Sound_Manager::get_sound</a></div><div class="ttdeci">static sf::SoundBuffer * get_sound(std::string const &amp;name)</div><div class="ttdef"><b>Definition:</b> Sound_Manager.cpp:7</div></div>
+<div class="ttc" id="aclassSound__Manager_html_a530064adf976b9044eee3f33d5ed58df"><div class="ttname"><a href="classSound__Manager.html#a530064adf976b9044eee3f33d5ed58df">Sound_Manager::play_sound</a></div><div class="ttdeci">static void play_sound(std::string const &amp;name)</div><div class="ttdef"><b>Definition:</b> Sound_Manager.cpp:29</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

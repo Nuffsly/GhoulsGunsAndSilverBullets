@@ -9,6 +9,9 @@
 
 #include "Textured_Object.h"
 
+/**
+ * \brief Exists to give player something to collide with as a criteria for specific actions.
+ */
 class Door : public Textured_Object
 {
 public:
