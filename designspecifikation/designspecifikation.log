@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2020.9.2)  3 DEC 2020 17:26
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2020.9.14)  17 DEC 2020 18:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -608,7 +608,11 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks30
 \@floatcapt=\box61
 )
-(./designspecifikation.aux)
+(./designspecifikation.aux
+
+LaTeX Warning: Label `fig:1' multiply defined.
+
+)
 \openout1 = `designspecifikation.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
@@ -622,8 +626,7 @@ LaTeX Font Info:    ... okay on input line 16.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
 6.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 16.
@@ -748,22 +751,26 @@ File: se-ascii-print.def 2019/11/29 v1.12 stringenc: Printable ASCII characters
 [1
 
 ]
-File: Graphic/overview.png Graphic file (type bmp)
-<Graphic/overview.png>
- [1]
-Overfull \vbox (21.1455pt too high) has occurred while \output is active []
+File: Graphic/overview_part1.png Graphic file (type bmp)
+<Graphic/overview_part1.png>
+File: Graphic/overview_part2.png Graphic file (type bmp)
+<Graphic/overview_part2.png>
+ [1] [2] [3] [4] [5]
+Overfull \hbox (9.095pt too wide) in paragraph at lines 166--167
+\TU/lmr/m/n/10 Worlds konstruktor tar in en referens till programfönsterobjekte
+t av klass RenderWindow. Default-konstruktorn
+ []
 
 
-[2] [3] [4] [5] 
 AED: lastpage setting LastPage
 [6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 145.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 145.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 184.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 184.
  (./designspecifikation.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 145.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 145.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 184.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 184.
 Package rerunfilecheck Info: File `designspecifikation.out' has not changed.
-(rerunfilecheck)             Checksum: 948DE95A00F3D754AB364C89FCDFFE5C;1119.
+(rerunfilecheck)             Checksum: DBBCED77C093034CE52DF16EC485F44A;1364.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -772,15 +779,18 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 145.
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 184.
  ) 
 Here is how much of TeX's memory you used:
- 22967 strings out of 479819
- 459993 string characters out of 5895847
- 774302 words of memory out of 5000000
- 39706 multiletter control sequences out of 15000+600000
+ 22973 strings out of 479819
+ 460189 string characters out of 5895846
+ 773654 words of memory out of 5000000
+ 39711 multiletter control sequences out of 15000+600000
  534321 words of font info for 38 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  68i,12n,64p,975b,640s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on designspecifikation.xdv (7 pages, 117696 bytes).
+Output written on designspecifikation.xdv (7 pages, 137424 bytes).
