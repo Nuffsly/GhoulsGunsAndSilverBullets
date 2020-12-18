@@ -1,5 +1,7 @@
 \begin{theindex}
 
+  \item {calc\_barrel\_pos}
+    \subitem {Weapon}, \hyperpage{22}
   \item {Character}, \hyperpage{5}
 
   \indexspace
@@ -8,53 +10,83 @@
 
   \indexspace
 
-  \item {Enemy}, \hyperpage{6}
-  \item {Exit\_State}, \hyperpage{7}
+  \item {Enemy}, \hyperpage{7}
+    \subitem {update}, \hyperpage{7}
+  \item {Exit\_State}, \hyperpage{8}
 
   \indexspace
 
-  \item {Font\_Manager}, \hyperpage{7}
+  \item {Font\_Manager}, \hyperpage{8}
+    \subitem {get\_font}, \hyperpage{9}
 
   \indexspace
 
-  \item {Game\_Object}, \hyperpage{8}
-  \item {Game\_Over\_State}, \hyperpage{8}
-  \item {Game\_State}, \hyperpage{9}
+  \item {Game\_Object}, \hyperpage{9}
+  \item {Game\_Over\_State}, \hyperpage{10}
+  \item {Game\_State}, \hyperpage{10}
+    \subitem {render}, \hyperpage{11}
+    \subitem {tick}, \hyperpage{11}
+  \item {get\_font}
+    \subitem {Font\_Manager}, \hyperpage{9}
+  \item {get\_sound}
+    \subitem {Sound\_Manager}, \hyperpage{17}
+  \item {get\_texture}
+    \subitem {Texture\_Manager}, \hyperpage{19}
 
   \indexspace
 
-  \item {Hud}, \hyperpage{9}
+  \item {Hud}, \hyperpage{12}
 
   \indexspace
 
-  \item {Menu\_State}, \hyperpage{10}
-  \item {Money}, \hyperpage{10}
+  \item {Menu\_State}, \hyperpage{12}
+  \item {Money}, \hyperpage{13}
 
   \indexspace
 
-  \item {Platform}, \hyperpage{11}
-  \item {Player}, \hyperpage{11}
-  \item {Player\_Info}, \hyperpage{12}
-  \item {Projectile}, \hyperpage{13}
+  \item {Platform}, \hyperpage{14}
+  \item {play\_sound}
+    \subitem {Sound\_Manager}, \hyperpage{17}
+  \item {Player}, \hyperpage{14}
+    \subitem {update}, \hyperpage{15}
+  \item {Player\_Info}, \hyperpage{15}
+  \item {Projectile}, \hyperpage{16}
 
   \indexspace
 
-  \item {Sound\_Manager}, \hyperpage{13}
-  \item {State}, \hyperpage{13}
+  \item {render}
+    \subitem {Game\_State}, \hyperpage{11}
+  \item {run}
+    \subitem {State}, \hyperpage{18}
 
   \indexspace
 
-  \item {Texture\_Manager}, \hyperpage{14}
-  \item {Textured\_Object}, \hyperpage{14}
+  \item {Sound\_Manager}, \hyperpage{17}
+    \subitem {get\_sound}, \hyperpage{17}
+    \subitem {play\_sound}, \hyperpage{17}
+  \item {State}, \hyperpage{18}
+    \subitem {run}, \hyperpage{18}
 
   \indexspace
 
-  \item {Upgrade}, \hyperpage{15}
-  \item {Upgrade\_Pillar}, \hyperpage{15}
+  \item {Texture\_Manager}, \hyperpage{19}
+    \subitem {get\_texture}, \hyperpage{19}
+  \item {Textured\_Object}, \hyperpage{19}
+  \item {tick}
+    \subitem {Game\_State}, \hyperpage{11}
 
   \indexspace
 
-  \item {Weapon}, \hyperpage{16}
-  \item {World}, \hyperpage{17}
+  \item {update}
+    \subitem {Enemy}, \hyperpage{7}
+    \subitem {Player}, \hyperpage{15}
+  \item {Upgrade}, \hyperpage{20}
+  \item {Upgrade\_Pillar}, \hyperpage{21}
+
+  \indexspace
+
+  \item {Weapon}, \hyperpage{21}
+    \subitem {calc\_barrel\_pos}, \hyperpage{22}
+  \item {World}, \hyperpage{22}
 
 \end{theindex}
