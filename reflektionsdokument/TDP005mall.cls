@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{TDP003mall}[2016/06/03 TDP003 Project template]
+\ProvidesClass{TDP005mall}[2016/06/03 TDP005 Project template]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
@@ -20,9 +20,6 @@
 \setlength{\headsep}{20pt}
 \setlength{\headheight}{40pt}
 
-% Workaround for erroneous capitalization in the TOC.
-\addto\captionsswedish{\def\contentsname{Innehåll}}
-
 \pagestyle{fancy}
 \newlength{\borderwidth}
 \setlength{\borderwidth}{3cm}
@@ -34,7 +31,7 @@
     \node [anchor=south west] at (border.south west) {\includegraphics[width=\borderwidth]{ida}};
    \end{tikzpicture}
    }
-\pretitle{\begin{center}{\color{DarkBlue}\usefont{T1}{arial}{bx}{n}\fontsize{28pt}{1em}\selectfont TDP003 Projekt: Egna\\[.3em]datormiljön}\end{center}\vspace{100pt}\begin{center}\Huge\bfseries}
+\pretitle{\begin{center}{\color{DarkBlue}\usefont{T1}{arial}{bx}{n}\fontsize{28pt}{1em}\selectfont TDP005 Projekt: Objektorienterat \\[.3em]system}\end{center}\vspace{100pt}\begin{center}\Huge\bfseries}
 \posttitle{\end{center}}
 \preauthor{\begin{center}\large Författare\end{center}\begin{center}\normalsize}
 \postauthor{\end{center}\vfill}
