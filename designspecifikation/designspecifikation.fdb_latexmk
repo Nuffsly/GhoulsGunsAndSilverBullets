@@ -1,9 +1,9 @@
 # Fdb version 3
-["xdvipdfmx"] 1608222769 "designspecifikation.xdv" "designspecifikation.pdf" "designspecifikation" 1608222769
-  "designspecifikation.xdv" 1608222769 135900 dee0e47039354a2ab5a42f9de89b656d "xelatex"
+["xdvipdfmx"] 1608227248 "designspecifikation.xdv" "designspecifikation.pdf" "designspecifikation" 1608227249
+  "designspecifikation.xdv" 1608227248 137424 6f69bcde46166202f801ffd3cc6185d0 "xelatex"
   (generated)
   "designspecifikation.pdf"
-["xelatex"] 1608222767 "designspecifikation.tex" "designspecifikation.xdv" "designspecifikation" 1608222769
+["xelatex"] 1608227247 "designspecifikation.tex" "designspecifikation.xdv" "designspecifikation" 1608227249
   "/etc/texmf/web2c/texmf.cnf" 1600075758 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -142,15 +142,16 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1600075901 4645592 5b1c6efc063939b7ac1daf48bba2b67a ""
-  "Graphic/overview.png" 1608219393 150915 d7888434ccf17d53f7e1ec32797e9055 ""
+  "Graphic/overview_part1.png" 1608222907 70533 814026f83a824734a8b708935eacbfb6 ""
+  "Graphic/overview_part2.png" 1608222907 90086 575b1da43b068ff2c99c95fa2ba4f9a6 ""
   "TDP005mall.cls" 1606491581 1800 c554e9a1f74a965c694796e0ebe031eb ""
-  "designspecifikation.aux" 1608222769 3328 e7f83b5dc91f971e87b9341477ad3624 "xelatex"
-  "designspecifikation.out" 1608222769 1220 fcae38da527621676ed88980b2ad51fb "xelatex"
-  "designspecifikation.tex" 1608222765 13492 de01b692c1a370965bb82e4e500d3d40 ""
+  "designspecifikation.aux" 1608227248 4020 478af8f35211bb6f93c8e8dcf6ac54bd "xelatex"
+  "designspecifikation.out" 1608227248 1364 dbbced77c093034ce52df16ec485f44a "xelatex"
+  "designspecifikation.tex" 1608227246 13794 4ed7162780f0d5516d0c952ed6e52c7d ""
   "ida.png" 1606491581 7786 f8e6fdcd3fff5911dca9765ffa4de313 ""
   "lith.png" 1606491581 15882 4db45f42034d096c9aba5be88636d034 ""
   (generated)
-  "designspecifikation.out"
   "designspecifikation.log"
+  "designspecifikation.out"
   "designspecifikation.aux"
   "designspecifikation.xdv"

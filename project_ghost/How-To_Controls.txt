@@ -1,0 +1,7 @@
+Right - D
+Left  - A
+Drop  - S
+
+Aim  - Mouse
+
+Jump - Space

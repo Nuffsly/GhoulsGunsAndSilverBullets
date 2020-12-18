@@ -25,14 +25,20 @@ Ver. & Revisionsbeskrivning & Datum \\\hline
 \end{tabularx}
 \end{table}
 
-
 \begin{figure}[H]
          \begin{center}
-             \includegraphics[width=15cm]{Graphic/overview.png}
-             \caption{\label{fig:1} Övergripande UML diagram för strukturen i spelet.}
+             \includegraphics[width=15cm]{Graphic/overview_part1.png}
+             \caption{\label{fig:1} Övergripande UML diagram för strukturen i spelet fokuserat på State och dess underklasser.}
          \end{center}
 \end{figure}
 
+\begin{figure}[H]
+         \begin{center}
+             \includegraphics[width=15cm]{Graphic/overview_part2.png}
+             \caption{\label{fig:1} Övergripande UML diagram för strukturen i spelet fokuserat på Game\_Object och dess underklasser.}
+         \end{center}
+\end{figure}
+\pagebreak
 \section{Beskrivning av övergripande system}
 
 \subsection{Stadier}
@@ -82,6 +88,9 @@ Funktionen update() kallar alla funktioner som ska köra när spelet uppdateras.
 \item center - ärvd från Game\_Object, bestämmer objektets position på skärmen.
 \item hitbox - ärvd från Game\_Object, bestämmer storleken på objektets kollisionsområde.
 \end{itemize}
+
+\subsubsection{Konstruktor}
+
 
 \subsubsection{update(Time)}
 Vid varje uppdatering av spelet kallas Players update-funktion av det ägande World-objektet. Funktionen har i uppdrag att utföra följande:
@@ -144,22 +153,20 @@ Om 'Bekräfta val'-knappen är intryckt vid kollision med 'Door'-objekt signaler
 \subsubsection{handle\_animation()}
 Spelarens textur uppdateras baserat på om spelaren aktivt rör sig i x-led eller inte, och vilken riktning den har. Vid rörelse spelas en animationsslinga upp baserat på nuvarande x-position.
 
-\subsection{Hud}
-HUD står för Heads-Up Display och har som syfte att visa relevant information för spelaren. 
-Hud-klassen ska visa Player-objektets nuvarande hälsa (health) samt spelarens insamlade pengar.
+\subsection{World}
+World har i uppdrag att hantera alla spelets Game\_Object-objekt. World ägs av Game\_State, som även kallar vissa av Worlds publika funktioner varje gång spelet ska uppdateras och renderas.  
 
 \subsubsection{Datamedlemmar}
 \begin{itemize}
-\item player\_ptr - pekare till player för att kunna hämta dess hälsa.
-\item shape - ärvd från Textured Object, påverkar hur objektets textur ritas ut.
-\item center - ärvd från Game\_Object, bestämmer objektets position på skärmen.
-\item hitbox - ärvd från Game\_Object, bestämmer storleken på objektets kollisionsområde.
+\item game\_objects  - Vector som innehåller smartpekare till alla Game\_Object-objekt.
+\item stored\_window - Referens till objektet som hanterar spelfönstret (RenderWindow). Behövs för att hålla rätt på var muspekaren är relativt till fönstret.
 \end{itemize}
 
-\subsubsection{tick(Time)}
-Player-objektets hälsa hämtas och en grafik med den informationen ritas ut i kanten av skärmen ovanpå alla andra objekt.
+\subsubsection{Konstruktor}
+Worlds konstruktor tar in en referens till programfönsterobjektet av klass RenderWindow. Default-konstruktorn är avstängd då stored\_window alltid måste initialiseras till rätt värde för att spelet ska fungera. 
 
-Mängden insamlade pengar hämtas från Game\_States datamedlem player\_info och renderar detta på liknande sätt. 
+\subsubsection{tick(Time)}
+
 
 
 \section{Designens för- och nackdelar}
